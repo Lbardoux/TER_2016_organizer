@@ -21,8 +21,11 @@ PRINT () {
 
 PRINT "#!"
 PRINT "`which python`""\n"
-PRINT "# -*-coding:utf-8 -*\n\n"
-PRINT "import unittest\n\n"
+PRINT "# -*-coding:utf-8 -*\n"
+PRINT "import unittest\n"
+PRINT "import sys\n"
+PRINT "sys.path.insert(0, \"../src\")\n\n"
+PRINT "from src. import *\n\n"
 PRINT "class Test_${1}(unittest.TestCase):\n"
 PRINT "\tdef setUp(self):\n"
 PRINT "\t\t\n\n"
