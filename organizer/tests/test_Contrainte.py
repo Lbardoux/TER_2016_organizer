@@ -10,9 +10,7 @@ class Test_Contrainte(unittest.TestCase):
 	def test_nothing(self):
 		test = Contrainte()
 		#self.assertEqual(test.do_shit(), 8)
-		self.assertTrue(1 == 1)
 		
-		print(sys.path)
 
 
 if __name__ == "__main__":

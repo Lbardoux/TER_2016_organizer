@@ -22,7 +22,6 @@ class Contrainte:
 	
 	#fin __init__
 	
-	def do_shit(self):
-		return 8
+#fin Contrainte
 
 
