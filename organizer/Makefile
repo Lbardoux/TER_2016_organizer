@@ -7,7 +7,7 @@ all :
 
 
 exec :
-	$(PYTHON) $(MAIN_FILE)
+	$(PYTHON) $(SRC_DIR)$(MAIN_FILE)
 
 test :
 	$(PYTHON) -m unittest discover -s $(TEST_DIR)
