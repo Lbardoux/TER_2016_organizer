@@ -1,8 +1,13 @@
 TEST_DIR=tests/
 SRC_DIR=src/
+MAIN_FILE=main.py
 PYTHON=$(shell which python)
 
 all :
+
+
+exec :
+	$(PYTHON) $(MAIN_FILE)
 
 test :
 	$(PYTHON) -m unittest discover -s $(TEST_DIR)

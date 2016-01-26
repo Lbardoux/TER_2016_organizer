@@ -32,6 +32,12 @@ class Test_PyConstraint(unittest.TestCase):
 		Que se passe-t-il si les contraintes sont trop restrictives ?
 		"""
 		p = Problem()
+		p.add_variable("x", [0])
+		p.add_variable("y", [0])
+		p.add_constraint(lambda x, y : x != y, ["x", "y"])
+		with self.assertRaises(StopIteration):
+			p.iter_solutions().next()
+	#fin test_echec
 	
 #fin Test_PyConstraint
 
