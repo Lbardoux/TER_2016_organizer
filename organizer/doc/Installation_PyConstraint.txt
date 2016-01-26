@@ -1,0 +1,11 @@
+Pour installer PyConstraint sur votre machine :
+
+télécharger le tar.gz / zip sur :
+https://pypi.python.org/pypi/pyconstraints/1.0.1
+
+puis, décompresser dans votre répertoire source.
+Ensuite, créer le fichier __init__.py dans le répertoire pyconstraint-1.0.1
+Renommer ce Répertoire en pyconstraints_1_0_1
+Enfin, lancer la commande suivante :
+
+> sudo python setup.py install
