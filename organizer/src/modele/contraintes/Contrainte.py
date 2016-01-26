@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 
+
+
 class Contrainte:
 	"""
 	La classe abstraite qui va permettre le polymorphisme pour une
@@ -23,20 +25,18 @@ class Contrainte:
 	#fin __init__
 	
 	
-	def injection_contrainte(self):
+	def injectionContrainte(self):
 		"""
 		Cette fonction doit renvoyer une lambda expression pour appliquer
 		la contrainte qu'elle spécifie.
 		
+		Ici elle ne fera rien (fonction f:x -> x)
+		
 		@param self: L'argument implicite de la classe
 		
 		@return : une lambda expression
-		
 		"""
-		
-		
+		return lambda x:x
 	#fin injection_contrainte
 	
 #fin Contrainte
-
-
