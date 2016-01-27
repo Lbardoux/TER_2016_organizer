@@ -1,6 +1,11 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
+import sys
+from vue.mainwindow import *
+
 class CSP_organizer:
 	"""
 	La classe principale du programme
@@ -12,7 +17,6 @@ class CSP_organizer:
 		"""
 		Cette fonction prépare l'application
 		"""
-		
 	#fin __init__
 	
 	
@@ -28,6 +32,10 @@ class CSP_organizer:
 
 
 if __name__ == "__main__":
-	appli = CSP_organizer()
-	appli.start()
+	app = QApplication(sys.argv)
+	w = QMainWindow(None)
+	ui = Ui_MainWindow()
+	ui.setupUi(w)
+	w.show()
+	sys.exit(app.exec_())
 #fin if
