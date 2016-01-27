@@ -21,7 +21,6 @@ class Contrainte:
 		@precondition: M{self != None}
 		@postcondition: l'objet est initialisé et pret à l'emploi.
 		"""
-	
 	#fin __init__
 	
 	
@@ -34,7 +33,7 @@ class Contrainte:
 		
 		@param self: L'argument implicite de la classe
 		
-		@return : une lambda expression
+		@return : une lambda expression identité
 		"""
 		return lambda x:x
 	#fin injection_contrainte
