@@ -37,9 +37,35 @@ class Test_FabriqueContrainte(unittest.TestCase):
 		element = self.cible.fabrique(Contraintes.PRECEDENCE, 25, 488)
 		self.assertTrue(element is not None)
 		fonction = element.injectionContrainte()
-		#self.assertTrue(fonction())
-		#self.assertFalse(fonction())
+		self.assertTrue(fonction(5, 8))
+		self.assertFalse(fonction(8, 5))
 	#fin test_precedence
+	
+	
+	def test_dateLimite(self):
+		"""
+		Test l'instanciation d'une DateLimite
+		"""
+		element = self.cible.fabrique(Contraintes.DATE_LIMITE, 25)
+		self.assertTrue(element is not None)
+		fonction = element.injectionContrainte()
+		self.assertTrue(fonction(5))
+		self.assertFalse(fonction(25))
+		self.assertFalse(fonction(28))
+	#fin test_dateLimite
+	
+	
+	def test_obligation(self):
+		"""
+		Test l'instanciation d'une Obligation
+		"""
+		element = self.cible.fabrique(Contraintes.OBLIGATION, 25)
+		self.assertTrue(element is not None)
+		fonction = element.injectionContrainte()
+		self.assertTrue(fonction(25))
+		self.assertFalse(fonction(24))
+		self.assertFalse(fonction(28))
+	#fin test_obligation
 	
 
 #fin Test_FabriqueContrainte
