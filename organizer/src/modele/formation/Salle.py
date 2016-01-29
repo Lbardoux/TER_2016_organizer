@@ -57,7 +57,7 @@ class Salle:
 		return self._taille
 	#fin taille
 	
-	@idSalle.setter
+	@taille.setter
 	def taille(self, nouvelleTaille):
 		"""
 		Le mutateur pour la taille de la salle
@@ -79,7 +79,7 @@ class Salle:
 		return self._typeSalle
 	#fin typeSalle
 	
-	@idSalle.setter
+	@typeSalle.setter
 	def typeSalle(self, nouveauType):
 		"""
 		Le mutateur pour le type de la salle
