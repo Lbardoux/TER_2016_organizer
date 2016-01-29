@@ -17,7 +17,7 @@ class Salle:
 		@type id_salle : entier naturel non nul
 		@param taille : la taille que cette salle aura
 		@type taille : entier naturel non nul
-		@param typeSalle : le type de cette salle.
+		@param typeSalle : le type de cette salle.(falcultatif)
 		@type typeSalle : entier naturel
 		"""
 		self._taille = taille
