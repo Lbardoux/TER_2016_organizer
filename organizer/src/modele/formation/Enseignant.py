@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
-class Enseignant: 
+class Enseignant(object): 
 	"""
 	La classe qui représente une salle.
 	@ivar _idEnseignant : l'identifiant de l'enseignant
@@ -20,9 +20,22 @@ class Enseignant:
 		@param prenom : le prenom que cet enseignant aura
 		@type prenom : str
 		"""
-		self._idEnseignant = id_enseignant
-		self._nom = nom
-		self._prenom = prenom	
+		if id_enseignant > 0: 
+			self._idEnseignant = id_enseignant
+		else:
+			self._idEnseignant = 1
+		#fin if
+		if bool(nom.strip()):	
+			self._nom = nom
+		else:
+			self._nom = "DEFAUTE"
+		#fin if
+		if bool(prenom.strip()):	
+			self._prenom = prenom
+		else:
+			self._prenom = "DEFAUTE"
+		#fin if	
+		
 	#fin __init__
 	
 	@property
@@ -45,6 +58,7 @@ class Enseignant:
 		"""
 		if nouvelId > 0:
 			self._idEnseignant = nouvelId
+		#fin if
 	#fin idEnseignant
 	
 	@property
@@ -65,7 +79,7 @@ class Enseignant:
 		@param nouveauNom : le nouveau nom voulu
 		@type nouveauNom : str
 		"""
-		if nouveauNom > 0:
+		if nouveauNom.strip():
 			self._nom = nouveauNom
 	#fin nom
 	
@@ -87,7 +101,7 @@ class Enseignant:
 		@param nouveauPrenom : le nouveau prenom voulu
 		@type nouveauPrenom : str
 		"""
-		if nouveauPrenom > 0:
+		if nouveauPrenom.strip():
 			self._prenom = nouveauPrenom
 	#fin prenom
 	
