@@ -19,6 +19,8 @@ class Seance(object):
 		"""
 		Le constructeur de la classe "abstraite" Seance.
 		@param self : L'argument implicite
+		@param idSeance : l'identifiant de cette Seance
+		@type idSeance : entier naturel non nul
 		@param idGroupe : l'identifiant du groupe qui aura cette Seance
 		@type idGroupe : entier naturel non nul
 		@param description : Une courte description de la seance.
