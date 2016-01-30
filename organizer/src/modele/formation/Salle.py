@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
-class Salle:
+class Salle(object):
 	"""
 	La classe qui représente une salle.
 	@ivar _idSalle : l'identifiant de la salle
@@ -20,8 +20,16 @@ class Salle:
 		@param typeSalle : le type de cette salle.(falcultatif)
 		@type typeSalle : entier naturel
 		"""
-		self._taille = taille
-		self._idSalle = id_salle
+		if id_salle > 0:
+			self._idSalle = id_salle
+		else:
+			self.idSalle = 1
+		#fin if
+		if taille > 0:
+			self._taille = taille
+		else:
+			self._taille = 1
+		#fin if
 		self._typeSalle = typeSalle	
 	#fin __init__
 	
@@ -87,8 +95,7 @@ class Salle:
 		@param nouveauType : le nouveau type voulu
 		@type nouveauType : entier naturel
 		"""
-		if nouveauType > 0:
-			self._typeSalle = nouveauType
+		self._typeSalle = nouveauType
 	#fin typeSalle
 	
 #fin Salle

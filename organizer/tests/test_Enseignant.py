@@ -32,8 +32,8 @@ class Test_Enseignant(unittest.TestCase):
 		cible = Enseignant(5, "BLA", "lol")
 		cible.nom = " "
 		self.assertEqual(cible.nom, "BLA")
-		cible.nom = " "
-		self.assertEqual(cible.nom, "lol")
+		cible.nom = "  "
+		self.assertEqual(cible.prenom, "lol")
 		cible.prenom = "nada"
 		self.assertEqual(cible.prenom, "nada")
 		cible.nom = "naa"
