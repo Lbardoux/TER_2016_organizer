@@ -29,14 +29,24 @@ class Ue(object):
 		@param id_enseignant : le prenom que cet enseignant aura
 		@type id_enseignant : entier naturel non nul
 		"""
-		self._code = code
-		self._nom = nom
+		if bool(code.strip()):
+			self._code = code
+		else:
+			self._code = "Code Null"
+		#fin if
+		
+		if bool(nom.strip()):
+			self._nom = nom
+		else:
+			self._nom = "Nom Par Defaut"
+		#fin if
 		
 		if id_enseignant > 0:
 			self._idEnseignant = id_enseignant
 		else:
 			self._idEnseignant = 1
 		#fin if
+		
 		self._nombreInscrit = 1
 		self._nombreGroupe = 1
 		self._nombreCm = 0
@@ -47,49 +57,231 @@ class Ue(object):
 		self._listeSeance = []
 	#fin __init__
 	
-	"""
-	def setNombreCm(self, nombre):
+	@property
+	def code(self):
 		"""
+		L'accesseur pour le code de cette Ue
+		@param self : L'argument implicite
+		@return : le code
 		"""
-		self._nombreCm = nombre	
-	#fin setNombreCm
+		return self._code
+	#fin code
 	
+	@property
+	def nom(self):
+		"""
+		L'accesseur pour le nom de cette Ue
+		@param self : L'argument implicite
+		@return : son nom
+		"""
+		return self._nom
+	#fin nom
 	
-	def setNombreTd(self, nombre):
+	@property
+	def idEnseignant(self):
 		"""
+		L'accesseur pour l'identifiant de l'enseignant
+		@param self : L'argument implicite
+		@return : l'identifiant du groupe
 		"""
-		self._nombreTd = nombre	
-	#fin setNombreTd
+		return self._idEnseignant
+	#fin idGroupe
 	
+	@property
+	def nombreIscrit(self):
+		"""
+		L'accesseur pour le nombre d'inscrits de cette Ue
+		@param self : L'argument implicite
+		@return : le nombre d'inscrits
+		"""
+		return self._nombreInscrit
+	#fin nombreIscrit
 	
-	def setNombreTp(self, nombre):
+	@property
+	def nombreGroupe(self):
 		"""
+		L'accesseur pour le nombre de Groupes de cette Ue
+		@param self : L'argument implicite
+		@return : le nombre de Groupes
 		"""
-		self._nombreTp = nombre	
-	#fin setNombreTp
+		return self._nombreGroupe
+	#fin nombreGroupe
 	
+	@property
+	def nombreCm(self):
+		"""
+		L'accesseur pour le nombre de Cms de cette Ue
+		@param self : L'argument implicite
+		@return : le nombre de Cms
+		"""
+		return self._nombreCm
+	#fin nombreCm
 	
-	def setNombreExamen(self, nombre):
+	@property
+	def nombreTd(self):
 		"""
+		L'accesseur pour le nombre de Tds de cette Ue
+		@param self : L'argument implicite
+		@return : le nombre de Tds
 		"""
-		self._nombreExamen = nombre	
-	#fin setNombreExamen
+		return self._nombreTd
+	#fin nombreTd
 	
+	@property
+	def nombreTp(self):
+		"""
+		L'accesseur pour le nombre de Tps de cette Ue
+		@param self : L'argument implicite
+		@return : le nombre de Tps
+		"""
+		return self._nombreTp
+	#fin nombreTp
 	
-	def setNombreAutre(self, nombre):
+	@property
+	def nombreExamen(self):
 		"""
+		L'accesseur pour le nombre d'Examens de cette Ue
+		@param self : L'argument implicite
+		@return : le nombre d'Examens
 		"""
-		self._nombreAutre = nombre	
-	#fin setNombreAutre
+		return self._nombreExamen
+	#fin nombreExamen
 	
-	def ajouterSeance(self, Seance):
+	@property
+	def nombreAutre(self):
 		"""
+		L'accesseur pour le nombre d'Autres de cette Ue
+		@param self : L'argument implicite
+		@return : le nombre d'Autres
 		"""
-		#if type(element) is Element:
-		#	self._listeElement.insert(element)
+		return self._nombreAutre
+	#fin nombreAutre
+	
+	@property
+	def listeSeance(self):
+		"""
+		L'accesseur pour la liste de Seances de cette Ue
+		@param self : L'argument implicite
+		@return : la liste de Seances
+		"""
+		return self._listeSeance
+	#fin listeSeance
+	
+	@property
+	def listeCm(self):
+		"""
+		La fonction qui envoie que les Cms dans la liste de seances 
+		@param self : L'argument implicite
+		@return : une liste de Cms
+		"""
+		listeRetour = []
+		for seance in self._listeSeance:
+			
+			if type(seance) is Cm:
+				listeRetour.append(seance)
+			#fin if
+			
+		#fin for
+		return listeRetour
+	#fin listCm
+	
+	@property
+	def listeTd(self):
+		"""
+		La fonction qui envoie que les Tds dans la liste de seances 
+		@param self : L'argument implicite
+		@return : une liste de Tds
+		"""
+		listeRetour = []
+		for seance in self._listeSeance:
+			
+			if type(seance) is Td:
+				listeRetour.append(seance)
+			#fin if
+			
+		#fin for
+		return listeRetour
+	#fin listTd
+	
+	@property
+	def listeTp(self):
+		"""
+		La fonction qui envoie que les Tps dans la liste de seances 
+		@param self : L'argument implicite
+		@return : une liste de Tps
+		"""
+		listeRetour = []
+		for seance in self._listeSeance:
+			
+			if type(seance) is Tp:
+				listeRetour.append(seance)
+			#fin if
+			
+		#fin for
+		return listeRetour
+	#fin listTp
+	
+	@property
+	def listeExamen(self):
+		"""
+		La fonction qui envoie que les Examens dans la liste de seances 
+		@param self : L'argument implicite
+		@return : une liste de Examens
+		"""
+		listeRetour = []
+		for seance in self._listeSeance:
+			
+			if type(seance) is Examen:
+				listeRetour.append(seance)
+			#fin if
+			
+		#fin for
+		return listeRetour
+	#fin listExamen
+	
+	@property
+	def listeAutre(self):
+		"""
+		La fonction qui envoie que les Autres dans la liste de seances 
+		@param self : L'argument implicite
+		@return : une liste de Autres
+		"""
+		listeRetour = []
+		for seance in self._listeSeance:
+			
+			if type(seance) is Autre:
+				listeRetour.append(seance)
+			#fin if
+			
+		#fin for
+		return listeRetour
+	#fin listAutre
+	
+	def ajouterSeance(self, nouvelleSeance):
+		"""
+		La méthode qui ajoute une nouvelle seance en fonction de son type dans la liste 
+		@param self : L'argument implicite
+		@param nouvelleSeance : la nouvelle Seance à ajouter
+		@type idSeance : entier naturel non nul
+		"""
+		if isinstance(nouvelleSeance, Seance):
+			
+			self._listeSeance.insert(nouvelleSeance)
+			if type(nouvelleSeance) is Cm:
+				self._nombreCm += 1
+			elif type(nouvelleSeance) is Td:
+				self._nombreTd +=1
+			elif type(nouvelleSeance) is Tp:
+				self._nombreTp +=1
+			elif type(nouvelleSeance) is Examen:
+				self._nombreExamen +=1
+			elif type(nouvelleSeance) is Autre:
+				self._nombreAutre +=1
+			#fin if
+			    
 		#fin if
 		
 	#fin ajouterSeance
-	"""	
+
 #fin Ue
 	
