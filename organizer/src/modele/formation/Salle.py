@@ -25,11 +25,13 @@ class Salle(object):
 		else:
 			self.idSalle = 1
 		#fin if
+		
 		if taille > 0:
 			self._taille = taille
 		else:
 			self._taille = 1
 		#fin if
+		
 		self._typeSalle = typeSalle	
 	#fin __init__
 	

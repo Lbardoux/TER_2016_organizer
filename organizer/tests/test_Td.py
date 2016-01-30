@@ -15,23 +15,30 @@ class Test_Cm(unittest.TestCase):
 		"""
 		Test du constructeur.
 		"""
-		cible = Td(1, 25, "decrit toi")
+		cible = Td(1, 25, 13, "decrit toi")
 		self.assertEqual(cible.idSeance, 1)
 		self.assertEqual(cible.idGroupe, 25)
+		self.assertEqual(cible.idEnseignant, 13)
 		self.assertEqual(cible.description, "decrit toi")
 		cible = Td(-1, 0)
 		self.assertEqual(cible.idSeance, 1)
 		self.assertEqual(cible.idGroupe, 1)
+		self.assertEqual(cible.idEnseignant, 0)
 		self.assertEqual(cible.description, "")
 	#fin test_init_getters
+	
 	
 	def test_setters(self):
 		"""
 		Tests des accesseurs
 		"""
-		cible = Td(5, 5, "rien")
+		cible = Td(5, 5, 7,"rien")
 		cible.description = "nada"
 		self.assertEqual(cible.description, "nada")
+		cible.idEnseignant = -2
+		self.assertEqual(cible.idEnseignant, 7)
+		cible.idEnseignant = 14
+		self.assertEqual(cible.idEnseignant, 14)
 		cible.idGroupe = 0
 		self.assertEqual(cible.idGroupe, 5)
 		cible.idGroupe = 18

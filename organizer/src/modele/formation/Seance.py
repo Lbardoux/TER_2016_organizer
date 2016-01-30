@@ -10,12 +10,13 @@ class Seance(object):
 	composant d'une formation:
 	@ivar _idSeance : l'identifiant de la Seance
 	@ivar _idGroupe : l'identifiant du groupe lié a cette Seance
+	@ivar _idEnseignant : l'identifiant de l'ensignant qui se charge de cette seance (facultative)
 	@ivar _description : une courte chaine decrivant la seance (facultative)
 	@version : 1.0
 	@author : Liu Zhuying
 	"""
 	
-	def __init__(self, idSeance, idGroupe, description=""):
+	def __init__(self, idSeance, idGroupe, idEnseignant = 0, description = ""):
 		"""
 		Le constructeur de la classe "abstraite" Seance.
 		@param self : L'argument implicite
@@ -23,6 +24,8 @@ class Seance(object):
 		@type idSeance : entier naturel non nul
 		@param idGroupe : l'identifiant du groupe qui aura cette Seance
 		@type idGroupe : entier naturel non nul
+		@param idEnseignant : l'identifiant de l'ensignant de cette Seance
+		@type idEnseignant : entier naturel
 		@param description : Une courte description de la seance.
 		@type description : str
 		"""
@@ -30,10 +33,20 @@ class Seance(object):
 			self._idSeance = idSeance
 		else:
 			self._idSeance = 1
+		#fin if
+		
 		if idGroupe > 0:
 			self._idGroupe = idGroupe
 		else:
 			self._idGroupe = 1
+		#fin if
+		
+		if idEnseignant >= 0:
+			self._idEnseignant = idEnseignant
+		else:
+			self._idEnseignant = 0
+		#fin if
+		
 		self._description = description
 	#fin __init__
 	
@@ -85,6 +98,28 @@ class Seance(object):
 			self._idGroupe = nouvelId
 	#fin idGroupe
 	
+	@property
+	def idEnseignant(self):
+		"""
+		L'accesseur pour l'identifiant de l'enseignant
+		@param self : L'argument implicite
+		@return : l'identifiant du groupe
+		"""
+		return self._idEnseignant
+	#fin idGroupe
+	
+	
+	@idEnseignant.setter
+	def idEnseignant(self, nouvelId):
+		"""
+		Le mutateur pour l'identifiant de l'enseignant
+		@param self : L'argument implicite
+		@param nouvelId : le nouvel identifiant voulu
+		@type nouvelid : entier naturel non nul
+		"""
+		if nouvelId > 0:
+			self._idEnseignant = nouvelId
+	#fin idGroupe
 	
 	@property
 	def description(self):
