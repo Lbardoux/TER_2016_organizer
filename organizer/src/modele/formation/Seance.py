@@ -10,13 +10,14 @@ class Seance(object):
 	composant d'une formation:
 	@ivar _idSeance : l'identifiant de la Seance
 	@ivar _idGroupe : l'identifiant du groupe lié a cette Seance
+	@ivar _duree : la duree de la seance
 	@ivar _idEnseignant : l'identifiant de l'ensignant qui se charge de cette seance (facultative)
 	@ivar _description : une courte chaine decrivant la seance (facultative)
 	@version : 1.0
 	@author : Liu Zhuying
 	"""
 	
-	def __init__(self, idSeance, idGroupe, idEnseignant = 0, description = ""):
+	def __init__(self, idSeance, idGroupe, duree, idEnseignant = 0, description = ""):
 		"""
 		Le constructeur de la classe "abstraite" Seance.
 		@param self : L'argument implicite
@@ -24,6 +25,8 @@ class Seance(object):
 		@type idSeance : entier naturel non nul
 		@param idGroupe : l'identifiant du groupe qui aura cette Seance
 		@type idGroupe : entier naturel non nul
+		@param duree : la duree qui aura cette Seance
+		@type duree : entier naturel non nul
 		@param idEnseignant : l'identifiant de l'ensignant de cette Seance
 		@type idEnseignant : entier naturel
 		@param description : Une courte description de la seance.
@@ -39,6 +42,12 @@ class Seance(object):
 			self._idGroupe = idGroupe
 		else:
 			self._idGroupe = 1
+		#fin if
+		
+		if duree > 0:
+			self._duree = duree
+		else:
+			self._duree = 1
 		#fin if
 		
 		if idEnseignant >= 0:
@@ -99,6 +108,29 @@ class Seance(object):
 	#fin idGroupe
 	
 	@property
+	def duree(self):
+		"""
+		L'accesseur pour la duree de cette seance
+		@param self : L'argument implicite
+		@return : la duree
+		"""
+		return self._duree
+	#fin duree
+	
+	
+	@duree.setter
+	def duree(self, nouvelleDuree):
+		"""
+		Le mutateur pour la duree de cette seance
+		@param self : L'argument implicite
+		@param nouvelleDuree : la nouvelle duree voulue
+		@type nouvelleDuree : entier naturel non nul
+		"""
+		if nouvelleDuree > 0:
+			self._duree = nouvelleDuree
+	#fin duree
+	
+	@property
 	def idEnseignant(self):
 		"""
 		L'accesseur pour l'identifiant de l'enseignant
@@ -106,7 +138,7 @@ class Seance(object):
 		@return : l'identifiant du groupe
 		"""
 		return self._idEnseignant
-	#fin idGroupe
+	#fin idEnseignant
 	
 	
 	@idEnseignant.setter
@@ -119,7 +151,7 @@ class Seance(object):
 		"""
 		if nouvelId > 0:
 			self._idEnseignant = nouvelId
-	#fin idGroupe
+	#fin idEnseignant
 	
 	@property
 	def description(self):
@@ -143,4 +175,4 @@ class Seance(object):
 		self._description = nouvelleDescription
 	#fin description
 	
-#fin Element
+#fin Seance
