@@ -7,7 +7,7 @@ class Td(Seance.Seance):
 	@version : 1.0
 	@author : Liu Zhuying
 	"""
-	def __init__(self, idTd, idGroupe, idEnseignant = 0, description = ""):
+	def __init__(self, idTd, idGroupe, duree, idEnseignant = 0, description = ""):
 		"""
 		Le constructeur de la classe Td.
 		@param self : L'argument implicite
@@ -15,12 +15,14 @@ class Td(Seance.Seance):
 		@type idTd : entier naturel non nul
 		@param idGroupe : l'identifiant du groupe qui aura ce Td
 		@type idGroupe : entier naturel non nul
+		@param duree : la duree qui aura ce Td
+		@type duree : entier naturel non nul
 		@param idEnseignant : l'identifiant de l'ensignant de ce Td
 		@type idEnseignant : entier naturel
 		@param description : Une courte description du Td.
 		@type description : str
 		"""
-		super(Td, self).__init__(idTd, idGroupe, idEnseignant, description)
+		super(Td, self).__init__(idTd, idGroupe, duree, idEnseignant, description)
 	#fin __init__
 
 #fin Td
