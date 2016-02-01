@@ -43,7 +43,7 @@ class DateLimite(Contrainte.Contrainte):
 		"""
 		Un accesseur pour la limite de cette contrainte.
 		@param self: l'argument implicite
-		@return la valeur entière représentant cette L{deadline}
+		@return la valeur entière représentant cette deadline
 		"""
 		return self._limite
 	#fin limite

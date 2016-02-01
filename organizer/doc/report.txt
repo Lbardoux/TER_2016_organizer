@@ -1,0 +1,455 @@
+  [..
++---------------------------------------------------------------------
+| In /home/bardoux/Desktop/TER_2016_organizer/organizer/src/
+| pyconstraints_1_0_1/setup.py:
+| Import failed (but source code parsing was successful).
+|     Error: IOError: [Errno 2] No such file or directory: 'README.md'
+|            (line 4)
+|   
+  [........
++---------------------------------------------------------------------
+| In /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Agenda.py:
+| Import failed (but source code parsing was successful).
+|     Error: ImportError: No module named outils.VerifierContenuListe 
+|            (line 6)
+|   
+  [....................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Creneau.py, line 69, in ??.horaire-1
+|   Warning: Line 73: Bad link target.
+|   
+|            ...lHoraire) is Horaire}
+|                                   ^
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Seance.py, line 145, in ??.idEnseignant-1
+|   Warning: @type for unknown parameter "nouvelid"
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Formation.py, line 89, in ??.idEnseignant-5
+|   Warning: @type for unknown parameter "nouvelid"
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Enseignant.py, line 52, in ??.idEnseignant-7
+|   Warning: @type for unknown parameter "nouvelid"
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Formation.py, line 67, in ??.idFormation-1
+|   Warning: @type for unknown parameter "nouvelid"
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Seance.py, line 99, in ??.idGroupe-1
+|   Warning: @type for unknown parameter "nouvelid"
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Salle.py, line 49, in ??.idSalle-1
+|   Warning: @type for unknown parameter "nouvelid"
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Seance.py, line 75, in ??.idSeance-1
+|   Warning: @type for unknown parameter "nouvelid"
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Groupe.py, line 48, in ??.nbPersonne-1
+|   Warning: Line 56: Improper paragraph indentation.
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Groupe.py, line 76, in ??.numero-1
+|   Warning: Line 84: Improper paragraph indentation.
+|   
+  [.......................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/main.py,
+| line 10, in src.main.CSP_organizer
+|   Warning: Lines 12, 13: Possible mal-formatted field item.
+|   
+  [.......................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Agenda.py, line 11, in src.modele.agenda.Agenda.Agenda
+|   Warning: Line 21: Improper paragraph indentation.
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Agenda.py, line 180, in 
+| src.modele.agenda.Agenda.Agenda.insererCreneaux
+|   Warning: @param for unknown parameter "*creneaux"
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Agenda.py, line 159, in 
+| src.modele.agenda.Agenda.Agenda.insererFils
+|   Warning: @param for unknown parameter "*fils"
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Agenda.py, line 63, in src.modele.agenda.Agenda.Agenda.pere
+|   Warning: Lines 66, 67: Possible mal-formatted field item.
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Agenda.py, line 220, in 
+| src.modele.agenda.Agenda.Agenda.retirerCreneaux
+|   Warning: Line 229: Improper paragraph indentation.
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Agenda.py, line 201, in 
+| src.modele.agenda.Agenda.Agenda.retirerFils
+|   Warning: Line 209: Improper paragraph indentation.
+|   
+  [.......................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Creneau.py, line 19, in 
+| src.modele.agenda.Creneau.Creneau.__init__
+|   Warning: Lines 21, 22: Possible mal-formatted field item.
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Creneau.py, line 123, in 
+| src.modele.agenda.Creneau.Creneau.ajouterInformation
+|   Warning: Line 132: Bad link target.
+|   
+|            ... L{type(clef) is str}
+|                                   ^
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Creneau.py, in src.modele.agenda.Creneau.Creneau.horaire
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Creneau.py, in src.modele.agenda.Creneau.Creneau.identifiant
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Creneau.py, in src.modele.agenda.Creneau.Creneau.informations
+|   Warning: Invalid context for u'param'
+|   
+  [........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Horaire.py, in src.modele.agenda.Horaire.Horaire.debut
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Horaire.py, in src.modele.agenda.Horaire.Horaire.fin
+|   Warning: Invalid context for u'param'
+|   
+  [........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| contraintes/Blocage.py, line 18, in 
+| src.modele.contraintes.Blocage.Blocage.__init__
+|   Warning: Lines 20, 21: Possible mal-formatted field item.
+|   Warning: @param for unknown parameter "*valeurs"
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| contraintes/Blocage.py, line 7, in 
+| src.modele.contraintes.Blocage.Blocage
+|   Warning: Lines 13, 14: Possible mal-formatted field item.
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| contraintes/Blocage.py, line 44, in 
+| src.modele.contraintes.Blocage.Blocage.estPasDansListe
+|   Warning: Lines 47, 48: Possible mal-formatted field item.
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| contraintes/Blocage.py, line 32, in 
+| src.modele.contraintes.Blocage.Blocage.injectionContrainte
+|   Warning: Line 35: Possible mal-formatted field item.
+|   
+  [........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| contraintes/Contrainte.py, line 28, in 
+| src.modele.contraintes.Contrainte.Contrainte.injectionContrainte
+|   Warning: Line 36: Possible mal-formatted field item.
+|   
+  [........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| contraintes/DateLimite.py, line 7, in 
+| src.modele.contraintes.DateLimite.DateLimite
+|   Warning: Lines 14, 15: Possible mal-formatted field item.
+|   
+  [........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| contraintes/FabriqueContrainte.py, line 15, in 
+| src.modele.contraintes.FabriqueContrainte.FabriqueContrainte
+|   Warning: Line 24: Improper paragraph indentation.
+|   Warning: Lines 29, 30: Possible mal-formatted field item.
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| contraintes/FabriqueContrainte.py, line 34, in 
+| src.modele.contraintes.FabriqueContrainte.FabriqueContrainte.fabrique
+|   Warning: @param for unknown parameter "*arguments"
+|   
+  [........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| contraintes/Obligation.py, line 7, in 
+| src.modele.contraintes.Obligation.Obligation
+|   Warning: Lines 13, 14: Possible mal-formatted field item.
+|   
+  [.........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Autre.py, line 5, in src.modele.formation.Autre.Autre
+|   Warning: Lines 8, 9: Possible mal-formatted field item.
+|   
+  [.........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Cm.py, line 5, in src.modele.formation.Cm.Cm
+|   Warning: Lines 7, 8: Possible mal-formatted field item.
+|   
+  [.........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Enseignant.py, in 
+| src.modele.formation.Enseignant.Enseignant.idEnseignant
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Enseignant.py, in 
+| src.modele.formation.Enseignant.Enseignant.nom
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Enseignant.py, in 
+| src.modele.formation.Enseignant.Enseignant.prenom
+|   Warning: Invalid context for u'param'
+|   
+  [.........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Examen.py, line 5, in src.modele.formation.Examen.Examen
+|   Warning: Lines 7, 8: Possible mal-formatted field item.
+|   
+  [.........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Formation.py, in 
+| src.modele.formation.Formation.Formation.Chaine
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Formation.py, in 
+| src.modele.formation.Formation.Formation.idEnseignant
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Formation.py, in 
+| src.modele.formation.Formation.Formation.idFormation
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Formation.py, in 
+| src.modele.formation.Formation.Formation.listeUe
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Formation.py, in 
+| src.modele.formation.Formation.Formation.niveau
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Formation.py, in 
+| src.modele.formation.Formation.Formation.nom
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Formation.py, in 
+| src.modele.formation.Formation.Formation.nombreUe
+|   Warning: Invalid context for u'param'
+|   
+  [..........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Groupe.py, line 15, in 
+| src.modele.formation.Groupe.Groupe.__init__
+|   Warning: Lines 17, 18: Possible mal-formatted field item.
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Groupe.py, in 
+| src.modele.formation.Groupe.Groupe.nbPersonne
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Groupe.py, in src.modele.formation.Groupe.Groupe.numero
+|   Warning: Invalid context for u'param'
+|   
+  [..........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Salle.py, in src.modele.formation.Salle.Salle.idSalle
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Salle.py, in src.modele.formation.Salle.Salle.taille
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Salle.py, in src.modele.formation.Salle.Salle.typeSalle
+|   Warning: Invalid context for u'param'
+|   
+  [..........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Seance.py, in 
+| src.modele.formation.Seance.Seance.description
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Seance.py, in src.modele.formation.Seance.Seance.duree
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Seance.py, in 
+| src.modele.formation.Seance.Seance.idEnseignant
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Seance.py, in src.modele.formation.Seance.Seance.idGroupe
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Seance.py, in src.modele.formation.Seance.Seance.idSeance
+|   Warning: Invalid context for u'param'
+|   
+  [..........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Td.py, line 5, in src.modele.formation.Td.Td
+|   Warning: Lines 7, 8: Possible mal-formatted field item.
+|   
+  [..........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Tp.py, line 5, in src.modele.formation.Tp.Tp
+|   Warning: Lines 7, 8: Possible mal-formatted field item.
+|   
+  [..........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.code
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.idEnseignant
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.listeAutre
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.listeCm
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.listeExamen
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.listeSeance
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.listeTd
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.listeTp
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.nom
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.nombreAutre
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.nombreCm
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.nombreExamen
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.nombreGroupe
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.nombreInscrit
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.nombreSeance
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.nombreTd
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| formation/Ue.py, in src.modele.formation.Ue.Ue.nombreTp
+|   Warning: Invalid context for u'param'
+|   
+  [.........................................................................]

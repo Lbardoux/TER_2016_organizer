@@ -63,7 +63,7 @@ class Agenda(object):
 		"""
 		Une fonction pour ajouter un père à cet agenda.
 		/!\ ATTENTION /!\
-		Une fois un père ajouté, la valeur associé à self._pere devient L{immuable}.
+		Une fois un père ajouté, la valeur associé à self._pere devient immuable.
 		@precondition : agendaPere is not None
 		@postcondition : si self._pere était à None, agendaPere devient le père de cet agenda.
 		@param self : le paramètre implicite
@@ -189,6 +189,7 @@ class Agenda(object):
 		"""
 		for creneau in creneaux:
 			if type(creneau) is Creneau:
+				#tri par insertion
 				self._listeCreneaux.append(creneau)
 			#if
 		#for
@@ -229,8 +230,7 @@ class Agenda(object):
 		"""
 		for ident in idCreneaux:
 			if type(ident) is int:
-				print("TODO :)")
-				#self._listeCreneaux = [creneau for creneau in self._listeCreneaux if creneau.id != ident]
+				self._listeCreneaux = [creneau for creneau in self._listeCreneaux if creneau.identifiant != ident]
 			#if
 		#for
 	#fin retirerCreneaux

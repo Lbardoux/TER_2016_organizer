@@ -15,13 +15,20 @@ PYTHON=$(shell which python)
 all :
 	
 
-# Pour executer notre application
+doc : mrproper
+	@cd doc
+	@mkdir -p html
+	@cd ..
+	@epydoc --html -o doc/html/ -v src/ >doc/report.txt
+	@echo "Fin de la génération de la doc dans doc/html"
+	@echo "Pour un compte-rendu, voir doc/report.txt"
+
 exec :
 	$(PYTHON) $(SRC_DIR)$(MAIN_FILE)
 
-package : clean
+package : doc
 	@echo "Mis en paquetage du projet :"
-	@tar cvf $(NAME).tar.gz src/
+	@tar cvf $(NAME).tar.gz src/ doc/html/
 	@echo $(NAME)".tar.gz créé"
 
 # Pour lancer les tests unitaires
@@ -38,4 +45,4 @@ clean :
 
 # Appel à ce monsieur musculeux et chauve
 mrproper : clean
-	
+	rm -Rf doc/html/*
