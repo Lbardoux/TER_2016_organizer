@@ -137,7 +137,7 @@ class Formation(object):
 		@param nouveauNom : le nouveau nom voulu
 		@type nouveauNom : str
 		"""
-		if nouveauNom > 0:
+		if bool(nouveauNom .strip()):
 			self._nom = nouveauNom
 	#fin nom
 	
@@ -184,7 +184,7 @@ class Formation(object):
 	#supprimerUe
 	
 	@property
-	def Chaine(self):
+	def chaine(self):
 		"""
 		La fonction qui convertit une formation en une chaine de caractère(comme master 1 informatique)
 		@param self : L'argument implicite
@@ -205,8 +205,8 @@ class Formation(object):
 			annee = ""
 		#fin if
 		 
-		return diplome + " " + annee + " " + self._nom
-	#fin Chaine
+		return diplome + " " + str(annee) + " " + self._nom
+	#fin chaine
 		
 #fin Formation
 
