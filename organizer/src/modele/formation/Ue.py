@@ -262,7 +262,7 @@ class Ue(object):
 		La méthode qui ajoute une nouvelle seance en fonction de son type dans la liste 
 		@param self : L'argument implicite
 		@param nouvelleSeance : la nouvelle Seance à ajouter
-		@type idSeance : entier naturel non nul
+		@type nouvelleSeance : une seance
 		"""
 		if isinstance(nouvelleSeance, Seance):
 			
@@ -277,6 +277,32 @@ class Ue(object):
 				self._nombreExamen +=1
 			elif type(nouvelleSeance) is Autre:
 				self._nombreAutre +=1
+			#fin if
+			    
+		#fin if
+		
+	#fin ajouterSeance
+	
+	def supprimerSeance(self, uneSeance):
+		"""
+		La méthode qui supprime une seance en fonction de son type dans la liste 
+		@param self : L'argument implicite
+		@param uneSeance : la  Seance à supprimer
+		@type uneSeance  : une seance
+		"""
+		if uneSeance in self._listeSeance
+			
+			self._listeSeance.remove(uneSeance)
+			if type(uneSeance) is Cm:
+				self._nombreCm -= 1
+			elif type(uneSeance) is Td:
+				self._nombreTd -=1
+			elif type(uneSeance) is Tp:
+				self._nombreTp -=1
+			elif type(uneSeance) is Examen:
+				self._nombreExamen -=1
+			elif type(uneSeance) is Autre:
+				self._nombreAutre -=1
 			#fin if
 			    
 		#fin if
