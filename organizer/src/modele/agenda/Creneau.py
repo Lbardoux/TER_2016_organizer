@@ -1,7 +1,7 @@
 ﻿#!/usr/bin/python
 # -*-coding:utf-8 -*
 
-
+import Horaire
 
 class Creneau(object):
 	"""
@@ -71,7 +71,7 @@ class Creneau(object):
 		@type nouvelHoraire : Horaire
 		@precondition : L{type(nouvelHoraire) is Horaire}
 		"""
-		if type(nouvelHoraire) is not None:#Horaire:
+		if type(nouvelHoraire) is Horaire:
 			self._horaire = nouvelHoraire
 		#if
 	#fin horaire
