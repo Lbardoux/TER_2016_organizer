@@ -82,10 +82,10 @@ class Ue(object):
 		"""
 		L'accesseur pour l'identifiant de l'enseignant
 		@param self : L'argument implicite
-		@return : l'identifiant du groupe
+		@return : l'identifiant de l'enseignant
 		"""
 		return self._idEnseignant
-	#fin idGroupe
+	#fin idEnseignant
 	
 	@property
 	def nombreIscrit(self):
@@ -284,4 +284,3 @@ class Ue(object):
 	#fin ajouterSeance
 
 #fin Ue
-	
