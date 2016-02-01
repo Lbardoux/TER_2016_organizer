@@ -15,14 +15,16 @@ class Test_Tp(unittest.TestCase):
 		"""
 		Test du constructeur.
 		"""
-		cible = Tp(1, 25, 13, "decrit toi")
+		cible = Tp(1, 25, 8, 13, "decrit toi")
 		self.assertEqual(cible.idSeance, 1)
 		self.assertEqual(cible.idGroupe, 25)
+		self.assertEqual(cible.duree, 8)
 		self.assertEqual(cible.idEnseignant, 13)
 		self.assertEqual(cible.description, "decrit toi")
-		cible = Tp(-1, 0)
+		cible = Tp(-1, 0, 6)
 		self.assertEqual(cible.idSeance, 1)
 		self.assertEqual(cible.idGroupe, 1)
+		self.assertEqual(cible.duree, 6)
 		self.assertEqual(cible.idEnseignant, 0)
 		self.assertEqual(cible.description, "")
 	#fin test_init_getters
@@ -32,9 +34,13 @@ class Test_Tp(unittest.TestCase):
 		"""
 		Tests des accesseurs
 		"""
-		cible = Tp(5, 5, 7,"rien")
+		cible = Tp(5, 5, 6, 7,"rien")
 		cible.description = "nada"
 		self.assertEqual(cible.description, "nada")
+		cible.duree = -4
+		self.assertEqual(cible.duree, 6)
+		cible.duree = 8
+		self.assertEqual(cible.duree, 8)
 		cible.idEnseignant = -2
 		self.assertEqual(cible.idEnseignant, 7)
 		cible.idEnseignant = 14
@@ -48,6 +54,7 @@ class Test_Tp(unittest.TestCase):
 		cible.idSeance = 18
 		self.assertEqual(cible.idSeance, 18)
 	#fin test_setters
+
 	
 
 #fin Test_Tp
@@ -55,3 +62,4 @@ class Test_Tp(unittest.TestCase):
 if __name__ == "__main__":
 	unittest.main()
 #fin if
+
