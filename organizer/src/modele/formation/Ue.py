@@ -1,6 +1,14 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 
+from Seance import Seance
+from Cm import Cm
+from Td import Td
+from Tp import Tp
+from Examen import Examen
+from Autre import Autre
+
+
 class Ue(object):
 	"""
 	La classe qui représente une unité d'enseignement.
@@ -67,6 +75,19 @@ class Ue(object):
 		return self._code
 	#fin code
 	
+	
+	@code.setter
+	def code(self, nouveauCode):
+		"""
+		Le mutateur pour le code de cette Ue
+		@param self : L'argument implicite
+		@param nouveauCode : le nouveau Code voulu 
+		@type nouveauCode : str
+		"""
+		if bool(nouveauCode.strip()):
+			self._code = nouveauCode
+	#fin code
+	
 	@property
 	def nom(self):
 		"""
@@ -75,6 +96,18 @@ class Ue(object):
 		@return : son nom
 		"""
 		return self._nom
+	#fin nom
+	
+	@nom.setter
+	def nom(self, nouveauNom):
+		"""
+		Le mutateur pour le nom de cette Ue
+		@param self : L'argument implicite
+		@param nouveauNom : le nouveau nom voulu 
+		@type nouveauNom : str
+		"""
+		if bool(nouveauNom.strip()):
+			self._nom = nouveauNom
 	#fin nom
 	
 	@property
@@ -87,15 +120,39 @@ class Ue(object):
 		return self._idEnseignant
 	#fin idEnseignant
 	
+	@idEnseignant.setter
+	def idEnseignant(self, nouvelId):
+		"""
+		Le mutateur pour l'identifiant de l'enseignant
+		@param self : L'argument implicite
+		@param nouvelId : le nouvel identifiant voulu
+		@type nouvelId : entier naturel non nul
+		"""
+		if nouvelId > 0:
+			self._idEnseignant = nouvelId
+	#fin idEnseignant
+	
 	@property
-	def nombreIscrit(self):
+	def nombreInscrit(self):
 		"""
 		L'accesseur pour le nombre d'inscrits de cette Ue
 		@param self : L'argument implicite
 		@return : le nombre d'inscrits
 		"""
 		return self._nombreInscrit
-	#fin nombreIscrit
+	#fin nombreInscrit
+	
+	@nombreInscrit.setter
+	def nombreInscrit(self, nouveauNombre):
+		"""
+		Le mutateur pour le nombre d'inscrits de cette Ue
+		@param self : L'argument implicite
+		@param nouveauNombre : le nouveau nombre voulu
+		@type nouveauNombre : entier naturel non nul
+		"""
+		if nouveauNombre > 0:
+			self._nombreInscrit = nouveauNombre
+	#fin nombreInscrit
 	
 	@property
 	def nombreGroupe(self):
@@ -106,6 +163,28 @@ class Ue(object):
 		"""
 		return self._nombreGroupe
 	#fin nombreGroupe
+	
+	@nombreGroupe.setter
+	def nombreGroupe(self, nouveauNombre):
+		"""
+		Le mutateur pour le nombre de groupes de cette Ue
+		@param self : L'argument implicite
+		@param nouveauNombre : le nouveau nombre voulu
+		@type nouveauNombre : entier naturel non nul
+		"""
+		if nouveauNombre > 0 and nouveauNombre <= self._nombreInscrit:
+			self._nombreGroupe = nouveauNombre
+	#fin nombreGroupe
+	
+	@property
+	def nombreSeance(self):
+		"""
+		L'accesseur pour le nombre de Cms de cette Ue
+		@param self : L'argument implicite
+		@return : le nombre de Cms
+		"""
+		return len(self._listeSeance)
+	#fin nombreCm
 	
 	@property
 	def nombreCm(self):
@@ -266,7 +345,7 @@ class Ue(object):
 		"""
 		if isinstance(nouvelleSeance, Seance):
 			
-			self._listeSeance.insert(nouvelleSeance)
+			self._listeSeance.append(nouvelleSeance)
 			if type(nouvelleSeance) is Cm:
 				self._nombreCm += 1
 			elif type(nouvelleSeance) is Td:
@@ -290,7 +369,7 @@ class Ue(object):
 		@param uneSeance : la  Seance à supprimer
 		@type uneSeance  : une seance
 		"""
-		if uneSeance in self._listeSeance
+		if uneSeance in self._listeSeance:
 			
 			self._listeSeance.remove(uneSeance)
 			if type(uneSeance) is Cm:
@@ -307,6 +386,6 @@ class Ue(object):
 			    
 		#fin if
 		
-	#fin ajouterSeance
+	#fin supprimerSeance
 
 #fin Ue
