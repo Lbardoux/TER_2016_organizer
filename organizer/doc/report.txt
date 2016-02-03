@@ -60,12 +60,18 @@
 |   
 +---------------------------------------------------------------------
 | File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Semaine.py, line 123, in ??.jours
+|   Warning: Line 128: Improper paragraph indentation.
+|   Warning: Line 129: Possible mal-formatted field item.
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
 | formation/Groupe.py, line 48, in ??.nbPersonne-1
 |   Warning: Line 56: Improper paragraph indentation.
 |   
 +---------------------------------------------------------------------
 | File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
-| formation/Groupe.py, line 76, in ??.numero-1
+| formation/Groupe.py, line 76, in ??.numero-5
 |   Warning: Line 84: Improper paragraph indentation.
 |   
   [.......................
@@ -154,6 +160,46 @@
   [........................
 +---------------------------------------------------------------------
 | File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Jour.py, in src.modele.agenda.Jour.Jour.creneaux
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Jour.py, in src.modele.agenda.Jour.Jour.nom
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Jour.py, in src.modele.agenda.Jour.Jour.numero
+|   Warning: Invalid context for u'param'
+|   
+  [........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Semaine.py, in src.modele.agenda.Semaine.Semaine.jours
+|   Warning: Possible mal-formatted field item.
+|   Warning: Improper paragraph indentation.
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Semaine.py, in 
+| src.modele.agenda.Semaine.Semaine.listeNomJours
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Semaine.py, in src.modele.agenda.Semaine.Semaine.numero
+|   Warning: Invalid context for u'param'
+|   
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
+| agenda/Semaine.py, line 17, in 
+| src.modele.agenda.Semaine.construireArgument
+|   Warning: Lines 24, 25: Possible mal-formatted field item.
+|   
+  [........................
++---------------------------------------------------------------------
+| File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
 | contraintes/Blocage.py, line 18, in 
 | src.modele.contraintes.Blocage.Blocage.__init__
 |   Warning: Lines 20, 21: Possible mal-formatted field item.
@@ -184,14 +230,14 @@
 | src.modele.contraintes.Contrainte.Contrainte.injectionContrainte
 |   Warning: Line 36: Possible mal-formatted field item.
 |   
-  [........................
+  [.........................
 +---------------------------------------------------------------------
 | File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
 | contraintes/DateLimite.py, line 7, in 
 | src.modele.contraintes.DateLimite.DateLimite
 |   Warning: Lines 14, 15: Possible mal-formatted field item.
 |   
-  [........................
+  [.........................
 +---------------------------------------------------------------------
 | File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
 | contraintes/FabriqueContrainte.py, line 15, in 
@@ -205,7 +251,7 @@
 | src.modele.contraintes.FabriqueContrainte.FabriqueContrainte.fabrique
 |   Warning: @param for unknown parameter "*arguments"
 |   
-  [........................
+  [.........................
 +---------------------------------------------------------------------
 | File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
 | contraintes/Obligation.py, line 7, in 
@@ -253,7 +299,7 @@
 +---------------------------------------------------------------------
 | File /home/bardoux/Desktop/TER_2016_organizer/organizer/src/modele/
 | formation/Formation.py, in 
-| src.modele.formation.Formation.Formation.Chaine
+| src.modele.formation.Formation.Formation.chaine
 |   Warning: Invalid context for u'param'
 |   
 +---------------------------------------------------------------------

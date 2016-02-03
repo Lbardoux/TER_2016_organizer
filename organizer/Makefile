@@ -16,9 +16,6 @@ all :
 	
 
 doc : mrproper
-	@cd doc
-	@mkdir -p html
-	@cd ..
 	@epydoc --html -o doc/html/ -v src/ >doc/report.txt
 	@echo "Fin de la génération de la doc dans doc/html"
 	@echo "Pour un compte-rendu, voir doc/report.txt"
