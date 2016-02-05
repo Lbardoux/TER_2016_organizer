@@ -1,8 +1,11 @@
 ﻿#!/usr/bin/python
 # -*-coding:utf-8 -*
 
-import Modifier
-import Creneau
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils")
+import Modifier, Creneau, Horaire
+import FabriqueCreneau
+from FabriqueCreneau import CreneauxPossible as CP
 
 ###############################################################################
 # Liste des valeurs légales pour un nom de jour.
@@ -144,15 +147,15 @@ class Jour(Modifier.Modifier):
 	#ajouterCreneau
 	
 	
-	def ajouterCreneau(self, debut, fin, typeCreneau="standard"):
+	def ajouterCreneau(self, debut, fin, typeCreneau=CP.CRENEAU):
 		"""
 		Etape finale de la descente dans l'architecture.
 		Ceci va "ajouter" un L{Creneau} entre
 		M{debut} et M{fin}.
 		@param self : L'argument implicite
-		@type debut : int [0, 48]
+		@type debut : int [1, 48]
 		@param debut : l'heure de début du créneau
-		@type fin : int [0, 48]
+		@type fin : int [1, 48]
 		@param fin : l'heure de fin du créneau
 		@type typeCreneau : enum
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
@@ -161,9 +164,13 @@ class Jour(Modifier.Modifier):
 		@rtype : tuple (Creneau, str)
 		@return : None si un problème à lieu + chaine explicative, un Creneau sinon
 		"""
-		# check des contraintes si il y en a via le creneau, etc
-		# si tout va bien, création du creneau en fonction enum + factory
-		#sinon crier
+		#fichier contenant les messages d'erreurs
+		horaire = None
+		try:
+			horaire = Horaire(debut, fin)
+		except AssertionError:
+			return (None, "")
+		#except
 		
 	#ajouterCreneau
 	

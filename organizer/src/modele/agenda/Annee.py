@@ -4,6 +4,7 @@
 import calendar
 from datetime import datetime
 from Jour import JOURS_LEGAUX
+from FabriqueCreneau import CreneauxPossible as CP
 import Mois
 import Modifier
 
@@ -109,7 +110,7 @@ class Annee(Modifier.Modifier):
 	#recupererSemaineParNumJour
 	
 	
-	def ajouterCreneau(self, mois, jour, debut, fin, typeCreneau="standard"):
+	def ajouterCreneau(self, mois, jour, debut, fin, typeCreneau=CP.CRENEAU):
 		"""
 		Etape 2 de la descente dans l'architecture.
 		Ceci va "ajouter" un L{Creneau} dans le M{mois}}, M{jour}, entre
@@ -119,9 +120,9 @@ class Annee(Modifier.Modifier):
 		@param mois : le numéro du mois dans lequel insérer ce créneau.
 		@type jour : int
 		@param jour : le numéro du jour dans lequel insérer ce créneau.
-		@type debut : int [0, 48]
+		@type debut : int [1, 48]
 		@param debut : l'heure de début du créneau
-		@type fin : int [0, 48]
+		@type fin : int [1, 48]
 		@param fin : l'heure de fin du créneau
 		@type typeCreneau : enum
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau

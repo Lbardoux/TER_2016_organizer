@@ -1,9 +1,10 @@
 ﻿#!/usr/bin/python
 # -*-coding:utf-8 -*
 
-import sys
-sys.path.insert(0, "../../")
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils")
 from outils.VerifierContenuListe import verifier
+from FabriqueCreneau import CreneauxPossible as CP
 import Annee
 
 class Agenda(object):
@@ -174,7 +175,7 @@ class Agenda(object):
 	#fin retirerFils
 	
 	
-	def ajouterCreneau(self, annee, mois, jour, debut, fin, typeCreneau="standard"):
+	def ajouterCreneau(self, annee, mois, jour, debut, fin, typeCreneau=CP.CRENEAU):
 		"""
 		Etape 1 de la descente dans l'architecture.
 		Ceci va "ajouter" un L{Creneau} dans le M{mois} de l'annee M{annee},
@@ -187,9 +188,9 @@ class Agenda(object):
 		@param mois : le numéro du mois dans lequel insérer ce créneau.
 		@type jour : int
 		@param jour : le numéro du jour dans lequel insérer ce créneau.
-		@type debut : int [0, 48]
+		@type debut : int [1, 48]
 		@param debut : l'heure de début du créneau
-		@type fin : int [0, 48]
+		@type fin : int [1, 48]
 		@param fin : l'heure de fin du créneau
 		@type typeCreneau : enum
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau

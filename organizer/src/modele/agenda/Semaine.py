@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/python
 # -*-coding:utf-8 -*
 
-import Jour
-import Modifier
+import Jour, Modifier
+from FabriqueCreneau import CreneauxPossible as CP
 
 ###############################################################################
 # Le nom des champs de l'argument de construction :
@@ -165,7 +165,7 @@ class Semaine(Modifier.Modifier):
 	#recupererJour
 	
 	
-	def ajouterCreneau(self, jour, debut, fin, typeCreneau="standard"):
+	def ajouterCreneau(self, jour, debut, fin, typeCreneau=CP.CRENEAU):
 		"""
 		Etape 4 de la descente dans l'architecture.
 		Ceci va "ajouter" un L{Creneau} dans le M{jour}, entre
@@ -173,9 +173,9 @@ class Semaine(Modifier.Modifier):
 		@param self : L'argument implicite
 		@type jour : int
 		@param jour : le numéro du jour dans lequel insérer ce créneau.
-		@type debut : int [0, 48]
+		@type debut : int [1, 48]
 		@param debut : l'heure de début du créneau
-		@type fin : int [0, 48]
+		@type fin : int [1, 48]
 		@param fin : l'heure de fin du créneau
 		@type typeCreneau : enum
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau

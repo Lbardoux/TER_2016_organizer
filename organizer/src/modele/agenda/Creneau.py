@@ -27,7 +27,6 @@ class Creneau(object):
 		@type horaire : Horaire
 		@raise AssertionError : Si les arguments ne correspondent pas
 		"""
-		assert type(horaire) is Horaire, "On ne peut ranger qu'un Horaire ici"
 		assert type(identifiant) is int and identifiant > 0, "Il faut un entier > 0 comme id"
 		self._identifiant = identifiant
 		self._horaire = horaire

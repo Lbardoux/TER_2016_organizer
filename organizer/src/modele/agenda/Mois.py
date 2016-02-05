@@ -4,6 +4,7 @@
 import Jour
 import Semaine
 from Semaine import Semaine, construireArgument
+from FabriqueCreneau import CreneauxPossible as CP
 import Modifier
 
 ###############################################################################
@@ -173,7 +174,7 @@ class Mois(Modifier.Modifier):
 	#recupererSemaineParNumJour
 	
 	
-	def ajouterCreneau(self, jour, debut, fin, typeCreneau="standard"):
+	def ajouterCreneau(self, jour, debut, fin, typeCreneau=CP.CRENEAU):
 		"""
 		Etape 3 de la descente dans l'architecture.
 		Ceci va "ajouter" un L{Creneau} dans le M{jour}, entre
@@ -181,9 +182,9 @@ class Mois(Modifier.Modifier):
 		@param self : L'argument implicite
 		@type jour : int
 		@param jour : le numéro du jour dans lequel insérer ce créneau.
-		@type debut : int [0, 48]
+		@type debut : int [1, 48]
 		@param debut : l'heure de début du créneau
-		@type fin : int [0, 48]
+		@type fin : int [1, 48]
 		@param fin : l'heure de fin du créneau
 		@type typeCreneau : enum
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau

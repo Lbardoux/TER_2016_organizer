@@ -8,12 +8,10 @@ class Horaire(object):
 	"""
 	La classe qui définit un horaire pour un Créneau.
 	Notre calendrier est découpé en semaine (allant de Lundi à Vendredi).
-	Ces semaines sont découpées en quart d'heures de 8h du matin à 20h.
+	Ces jours sont découpées en quart d'heures de 8h du matin à 20h.
 	Donc, pour modéliser une semaine, nous nous basons sur le nombre de
 	quart d'heures disponibles, soit :
-	M{5_jours * 12_heures * 4 = 240 quart d'heures}
-	De ce fait, la semaine 1 est numérotée de 1 à 240, la semaine 2
-	de 241 à 480, etc.
+	M{12_heures * 4 = 240 quart d'heures}
 	Il ne nous reste qu'a faire la division euclidienne du numéro par 240
 	pour connaitre la semaine associée.
 
