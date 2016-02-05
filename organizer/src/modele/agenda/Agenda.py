@@ -4,8 +4,7 @@
 import sys
 sys.path.insert(0, "../../")
 from outils.VerifierContenuListe import verifier
-
-import Creneau
+import Annee
 
 class Agenda(object):
 	"""
@@ -22,16 +21,23 @@ class Agenda(object):
 	   |------ AgendaEnseignant1
 	   |              `-------------etc
 	   `------ AgendaRecherche
+	Ainsi, toutes Modifications dans les fils doit impliquer des vérifications dans le
+	père.
 	
 	@ivar _nom : le nom de l'agenda courant
 	@ivar _pere : l'agenda pere, L{None} équivaut à la racine.
 	@ivar _listeFils : Le niveau inférieur de l'arborescence
-	@ivar _listeCreneaux : La liste des créneaux qui compose cet agenda.
+	@ivar _listeAnnees : la liste des L{Annee} disponible pour cet agenda.
+	
+	A note que la liste des L{Annee} sera régis par un mécanisme d'autovivification.
+	ie, que la demande d'une année qui n'existe pas dans la liste entrainera sa création,
+	meme si celle ci reste vide au final.
+	
 	@author : Laurent Bardoux p1108365
 	@version : 1.0
 	"""
 	
-	def __init__(self, nom):
+	def __init__(self, nom, annee):
 		"""
 		Le constructeur de la classe, qui prend simplement le nom de l'agenda en
 		paramètre.
@@ -43,7 +49,8 @@ class Agenda(object):
 		self._nom = nom
 		self._pere = None
 		self._listeFils = list()
-		self._listeCreneaux = list()
+		self._ListeAnnees = list()
+		self._listeAnnees.insert(Annee.Annee(annee))
 	#fin __init__
 	
 	
@@ -127,34 +134,6 @@ class Agenda(object):
 	#fin listeFils
 	
 	
-	@property
-	def listeCreneaux(self):
-		"""
-		L'accesseur pour récupérer la liste des créneaux d'un agenda.
-		@param self : l'argument implicite.
-		@return : une référence sur la liste des créneaux.
-		"""
-		return self._listeCreneaux
-	#fin listeCreneaux
-	
-	
-	@listeCreneaux.setter
-	def listeCreneaux(self, autre):
-		"""
-		Le mutateur pour affecter une liste à la liste des Creneaux
-		Attention, la précédente liste est alors perdue !
-		@param self : l'argument implicite
-		@param autre : la nouvelle liste, vide ou contenant des Creneaux
-		@type autre : une liste vide ou de Creneaux
-		"""
-		if type(autre) is list:
-			if verifier(autre, lambda x : x is not None):
-				self._listeCreneaux = autre
-			#if
-		#if
-	#fin listeCreneaux
-	
-	
 	def insererFils(self, *fils):
 		"""
 		Cette fonction permet d'insérer des fils à cet agenda.
@@ -176,27 +155,6 @@ class Agenda(object):
 	#fin insererFils
 	
 	
-	def insererCreneaux(self, *creneaux):
-		"""
-		Cette fonction permet d'insérer des crénaux à cet agenda.
-		Les ajouts se feront à la fin de la liste.
-		@param self : l'argument implicite
-		@param *creneaux : un nombre variable d'arguments, de préférence des Creneaux
-		@type *creneaux : Creneau (liste)
-		@precondition : *creneaux doit être constitué de Creneau
-		@postcondition : seul les Creneaux sont insérés dans la liste
-		@return : le nombre d'élément dans la liste des Creneaux.
-		"""
-		for creneau in creneaux:
-			if type(creneau) is Creneau:
-				#tri par insertion
-				self._listeCreneaux.append(creneau)
-			#if
-		#for
-		return len(self._listeCreneaux)
-	#fin insererCreneaux
-	
-	
 	def retirerFils(self, *nomFils):
 		"""
 		La fonction qui permet de retirer des agendas fils.
@@ -216,24 +174,48 @@ class Agenda(object):
 	#fin retirerFils
 	
 	
-	def retirerCreneaux(self, *idCreneaux):
+	def ajouterCreneau(self, annee, mois, jour, debut, fin, typeCreneau="standard"):
 		"""
-		Va permettre de retirer des Creneau de la liste.
-		On se basera sur les identifiants des Creneaux.
-		Elle devra surement être mis à jour pour éviter les références circulaires
-		ou propager les destructions.
-		@param self : l'argument implicite.
-		@param *idCreneaux : Les identifiant directs des Creneaux.
-		@type *idCreneaux : list(int)
-		@postcondition : les crénaux ayant ces identifiants apparaissant dans la liste sont 
-			retirés
+		Etape 1 de la descente dans l'architecture.
+		Ceci va "ajouter" un L{Creneau} dans le M{mois} de l'annee M{annee},
+		M{jour}, entre M{debut} et M{fin}.
+		Noter que si annee n'existe pas, elle sera automatiquement créée.
+		@param self : L'argument implicite
+		@type annee : int
+		@param annee : l'annee dans laquelle insérer ce créneau.
+		@type mois : int
+		@param mois : le numéro du mois dans lequel insérer ce créneau.
+		@type jour : int
+		@param jour : le numéro du jour dans lequel insérer ce créneau.
+		@type debut : int [0, 48]
+		@param debut : l'heure de début du créneau
+		@type fin : int [0, 48]
+		@param fin : l'heure de fin du créneau
+		@type typeCreneau : enum
+		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
+		@precondition : debut < fin, mois/jour/debut/fin doivent etre
+			compris dans leurs intervalles respectifs
+		@rtype : tuple (Creneau, str)
+		@return : None si un problème à lieu + chaine explicative, un Crenau sinon
 		"""
-		for ident in idCreneaux:
-			if type(ident) is int:
-				self._listeCreneaux = [creneau for creneau in self._listeCreneaux if creneau.identifiant != ident]
+		cible = None
+		
+		# Si l'annee existe déjà, on la trouve
+		for anneeConnue in self._listeAnnees:
+			if anneeConnue.an == annee:
+				cible = anneeConnue
+				break
 			#if
 		#for
-	#fin retirerCreneaux
+		
+		# cas ou on ne l'a pas trouvé --> auto-vivification
+		if cible is None:
+			cible = Annee.Annee(annee)
+			self._listeAnnees.append(cible)
+		#if
+		
+		return cible.ajouterCreneau(mois, jour, debut, fin, typeCreneau)
+	#ajouterCreneau
 	
 #fin Agenda
 

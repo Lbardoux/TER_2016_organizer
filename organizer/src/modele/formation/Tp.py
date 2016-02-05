@@ -7,22 +7,16 @@ class Tp(Seance.Seance):
 	@version : 1.0
 	@author : Liu Zhuying
 	"""
-	def __init__(self, idTp, idGroupe, duree, idEnseignant = 0, description = ""):
+	def __init__(self, idTp, horaire):
 		"""
 		Le constructeur de la classe tp.
 		@param self : L'argument implicite
 		@param idTp : l'identifiant du groupe qui aura ce tp
 		@type idTp : entier naturel non nul
-		@param idGroupe : l'identifiant du groupe qui aura ce tp
-		@type idGroupe : entier naturel non nul
-		@param duree : la duree qui aura ce Tp
-		@type duree : entier naturel non nul
-		@param idEnseignant : l'identifiant de l'ensignant de ce Tp
-		@type idEnseignant : entier naturel
-		@param description : Une courte description du tp.
-		@type description : str
+		@type horaire : Horaire.
+		@param horaire : L'horaire voulu
 		"""
-		super(Tp, self).__init__(idTp, idGroupe, duree, idEnseignant, description)
+		super(Tp, self).__init__(idTp, horaire)
 	#fin __init__
 	
 #fin Tp

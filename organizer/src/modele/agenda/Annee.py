@@ -5,8 +5,9 @@ import calendar
 from datetime import datetime
 from Jour import JOURS_LEGAUX
 import Mois
+import Modifier
 
-class Annee(object):
+class Annee(Modifier.Modifier):
 	"""
 	La classe la plus haute dans la hiérarchie de stockage d'un agenda.
 	Elle représente une année, du 1er janvier au 31 decembre.
@@ -15,8 +16,6 @@ class Annee(object):
 	C'est également le point d'entrée de la structure de stockage.
 	@ivar _mois : un dictionnaire des L{Mois} disponibles.
 	@ivar _an : l'année courante (2006 par exemple).
-	@ivar _nbCreneaux : Un indicateur pour savoir si des créneaux existent
-		dans cette année.
 	@author : Laurent Bardoux p1108365
 	@version : 1.0
 	"""
@@ -30,9 +29,9 @@ class Annee(object):
 		@type an : int
 		@param an : Le numéro de l'année voulue.
 		"""
+		super(Annee, self).__init__()
 		self._mois = dict()
 		self._an = an
-		self._nbCreneaux = 0
 		
 		# nombre de jours pour chaque mois :
 		nbMaxJour = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -86,10 +85,60 @@ class Annee(object):
 		@return : le nombre de creneaux disponible dans cette annee.
 		"""
 		return self._nbCreneaux
-	#an
+	#nbCreneaux
 	
 	
+	def recupererSemaineParNumJour(self, mois, jour):
+		"""
+		Cette méthode est la suite de la chaine de récupération d'une semaine.
+		Elle s'inscrit dans la successions d'appels pour récupérer une semaine, en
+		descendant dans l'arborescence au fur et à mesure.
+		@param self : L'argument implicite.
+		@type mois : int [1,12]
+		@param mois : le numéro du mois souhaité.
+		@type jour : int
+		@param jour : le numéro  du jour voulu.
+		@rtype : L{Semaine}.
+		@return : la semaine demandé si elle existe, None sinon.
+		"""
+		if mois < 1 or mois > 12:
+			return None
+		#if
+		nomMois = MOIS_LEGAUX[mois-1]
+		return self._mois[nomMois].recupererSemaineParNumJour(jour)
+	#recupererSemaineParNumJour
 	
-
-
+	
+	def ajouterCreneau(self, mois, jour, debut, fin, typeCreneau="standard"):
+		"""
+		Etape 2 de la descente dans l'architecture.
+		Ceci va "ajouter" un L{Creneau} dans le M{mois}}, M{jour}, entre
+		M{debut} et M{fin}.
+		@param self : L'argument implicite
+		@type mois : int
+		@param mois : le numéro du mois dans lequel insérer ce créneau.
+		@type jour : int
+		@param jour : le numéro du jour dans lequel insérer ce créneau.
+		@type debut : int [0, 48]
+		@param debut : l'heure de début du créneau
+		@type fin : int [0, 48]
+		@param fin : l'heure de fin du créneau
+		@type typeCreneau : enum
+		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
+		@precondition : debut < fin, mois/jour/debut/fin doivent etre
+			compris dans leurs intervalles respectifs
+		@rtype : tuple (Creneau, str)
+		@return : None si un problème à lieu + chaine explicative, un Creenau sinon
+		"""
+		if mois < 1 or mois > 12:
+			return (None, "Le mois " + str(mois) + " n'existe pas !")
+		#if
+		nomMois = MOIS_LEGAUX[mois-1]
+		resultat = self._mois[nomMois].ajouterCreneau(jour, debut, fin, typeCreneau)
+		if resultat[0] is not None:
+			self.ajoutDeCreneau()
+		#if
+		return resultat
+	#ajouterCreneau
+	
 #Annee

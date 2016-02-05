@@ -1,7 +1,8 @@
 ﻿#!/usr/bin/python
 # -*-coding:utf-8 -*
 
-
+import Modifier
+import Creneau
 
 ###############################################################################
 # Liste des valeurs légales pour un nom de jour.
@@ -18,7 +19,7 @@ JOURS_LEGAUX = [LUNDI, MARDI, MERCREDI, JEUDI, VENDREDI, SAMEDI, DIMANCHE]
 ###############################################################################
 
 
-class Jour(object):
+class Jour(Modifier.Modifier):
 	"""
 	La classe qui représente un jour dans un agenda.
 	Cette classe va donc contenir des L{Creneau}, afin que l'on puisse trouver
@@ -41,6 +42,7 @@ class Jour(object):
 		@type nom : str.
 		@param nom : le nom du jour (de Lundi à Dimanche), optionnel (lundi par défaut).
 		"""
+		super(Jour, self).__init__()
 		self._numero = numero
 		self._creneaux = list()
 		
@@ -116,11 +118,13 @@ class Jour(object):
 	#creneaux
 	
 	
-	def ajouterCreneau(self, creneau):
+	def insererCreneau(self, creneau):
 		"""
 		Cette fonction permet d'ajouter proprement un L{Creneau} dans la liste.
 		Les insertions se font à l'aide tu tri par insertion afin que l'on puisse lire séquentiellement
 		les L{Creneau} dans le but d'une conversion au format texte par exemple.
+		Attention !
+		Les créneaux doivent supporter l'opération < (def __lt__(self, autre))
 		@param self : L'argument implicite.
 		@type creneau : L{Creneau}.
 		@param creneau : le créneau que l'on souhaite ajouter.
@@ -140,12 +144,28 @@ class Jour(object):
 	#ajouterCreneau
 	
 	
-	def retirerCreneaux(self, *arguments):
+	def ajouterCreneau(self, debut, fin, typeCreneau="standard"):
 		"""
-		TODO
+		Etape finale de la descente dans l'architecture.
+		Ceci va "ajouter" un L{Creneau} entre
+		M{debut} et M{fin}.
+		@param self : L'argument implicite
+		@type debut : int [0, 48]
+		@param debut : l'heure de début du créneau
+		@type fin : int [0, 48]
+		@param fin : l'heure de fin du créneau
+		@type typeCreneau : enum
+		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
+		@precondition : debut < fin, debut/fin doivent etre
+			compris dans leurs intervalles respectifs
+		@rtype : tuple (Creneau, str)
+		@return : None si un problème à lieu + chaine explicative, un Creneau sinon
 		"""
-	#retirerCreneaux
-	
+		# check des contraintes si il y en a via le creneau, etc
+		# si tout va bien, création du creneau en fonction enum + factory
+		#sinon crier
+		
+	#ajouterCreneau
 	
 	
 #Jour

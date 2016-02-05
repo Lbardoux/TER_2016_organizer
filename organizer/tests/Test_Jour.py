@@ -102,7 +102,7 @@ class Test_Jour(unittest.TestCase):
 		self.assertTrue(type(cible.creneaux) is list)
 	#test_creneaux_get
 	
-	
+	@unittest.skip("plus à jour")
 	def test_ajouterCreneau(self):
 		"""Teste si l'ajout insère correctement les éléments."""
 		oracle = [15, 41, 41, 52, 332]

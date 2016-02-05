@@ -7,22 +7,17 @@ class Cm(Seance.Seance):
 	@version : 1.0
 	@author : Liu Zhuying
 	"""
-	def __init__(self, idCm, idGroupe, duree, idEnseignant = 0, description = ""):
+	
+	def __init__(self, idCm, horaire):
 		"""
 		Le constructeur de la classe cm.
 		@param self : L'argument implicite
 		@param idCm : l'identifiant du groupe qui aura ce cm
 		@type idCm : entier naturel non nul
-		@param idGroupe : l'identifiant du groupe qui aura ce cm
-		@type idGroupe : entier naturel non nul
-		@param duree : la duree qui aura ce Cm
-		@type duree : entier naturel non nul
-		@param idEnseignant : l'identifiant de l'ensignant de ce CM
-		@type idEnseignant : entier naturel
-		@param description : Une courte description du cm.
-		@type description : str
+		@type horaire : Horaire.
+		@param horaire : L'horaire voulu
 		"""
-		super(Cm, self).__init__(idCm, idGroupe, duree, idEnseignant, description)
+		super(Cm, self).__init__(idCm, horaire)
 	#fin __init__
 
 #fin Cm

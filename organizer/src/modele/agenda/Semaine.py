@@ -2,6 +2,7 @@
 # -*-coding:utf-8 -*
 
 import Jour
+import Modifier
 
 ###############################################################################
 # Le nom des champs de l'argument de construction :
@@ -44,7 +45,7 @@ def construireArgument(nomPremierJour, numeroPremierJour, nomDernierJour, numero
 #construireArgument
 
 
-class Semaine(object):
+class Semaine(Modifier.Modifier):
 	"""
 	La classe qui va définir une Semaine.
 	Il faut savoir qu'une semaine d'un mois peut très bien contenir moins de 7 jours.
@@ -70,6 +71,7 @@ class Semaine(object):
 		@param intervalle : Un dictionnaire contenant tout ce qu'il faut pour
 			assembler correctement une Semaine.
 		"""
+		super(Semaine, self).__init__()
 		self._numero = numero
 		self._jours = dict()
 		self._listeNomJours = list()
@@ -161,5 +163,39 @@ class Semaine(object):
 		#if
 		return None
 	#recupererJour
+	
+	
+	def ajouterCreneau(self, jour, debut, fin, typeCreneau="standard"):
+		"""
+		Etape 4 de la descente dans l'architecture.
+		Ceci va "ajouter" un L{Creneau} dans le M{jour}, entre
+		M{debut} et M{fin}.
+		@param self : L'argument implicite
+		@type jour : int
+		@param jour : le numéro du jour dans lequel insérer ce créneau.
+		@type debut : int [0, 48]
+		@param debut : l'heure de début du créneau
+		@type fin : int [0, 48]
+		@param fin : l'heure de fin du créneau
+		@type typeCreneau : enum
+		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
+		@precondition : debut < fin, debut/fin doivent etre
+			compris dans leurs intervalles respectifs
+		@rtype : tuple (Creneau, str)
+		@return : None si un problème à lieu + chaine explicative, un Creenau sinon
+		"""
+		jourConcerne = None
+		for j in self._jours:
+			if j.numero == jour:
+				jourConcerne = j
+				break
+			#if
+		#for
+		resultat = jourConcerne.ajouterCreneau(debut, fin, typeCreneau)
+		if resultat[0] is not None:
+			self.ajoutDeCreneau()
+		#if
+		return resultat
+	#ajouterCreneau
 	
 #Semaine

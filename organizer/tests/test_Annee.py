@@ -40,13 +40,6 @@ class Test_Annee(unittest.TestCase):
 	#test_get_an
 	
 	
-	def test_get_nbCreneaux(self):
-		"""Teste de la propriété get de _nbCreneaux"""
-		cible = Annee(2002)
-		self.assertEqual(cible.nbCreneaux, 0)
-	#test_get_an
-	
-	
 	@unittest.skip("inutile désormais, ici à titre de document")
 	def test_isleap(self):
 		"""Test de calendar.isleap()."""

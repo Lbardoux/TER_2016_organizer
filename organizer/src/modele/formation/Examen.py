@@ -7,22 +7,16 @@ class Examen(Seance.Seance):
 	@version : 1.0
 	@author : Liu Zhuying
 	"""
-	def __init__(self, idExamen, idGroupe, duree, idEnseignant = 0, description = ""):
+	def __init__(self, idExamen, horaire):
 		"""
 		Le constructeur de la classe Examen.
 		@param self : L'argument implicite
 		@param idExamen : l'identifiant du groupe qui aura cet Examen
 		@type idExamen : entier naturel non nul
-		@param idGroupe : l'identifiant du groupe qui aura cet Examen
-		@type idGroupe : entier naturel non nul
-		@param duree : la duree qui aura cet examen
-		@type duree : entier naturel non nul
-		@param idEnseignant : l'identifiant de l'ensignant de cet Examen
-		@type idEnseignant : entier naturel
-		@param description : Une courte description de l'Examen.
-		@type description : str
+		@type horaire : Horaire.
+		@param horaire : L'horaire voulu
 		"""
-		super(Examen, self).__init__(idExamen, idGroupe, duree, idEnseignant, description)
+		super(Examen, self).__init__(idExamen, horaire)
 	#fin __init__
 	
 #fin Examen

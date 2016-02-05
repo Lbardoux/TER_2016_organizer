@@ -7,22 +7,16 @@ class Td(Seance.Seance):
 	@version : 1.0
 	@author : Liu Zhuying
 	"""
-	def __init__(self, idTd, idGroupe, duree, idEnseignant = 0, description = ""):
+	def __init__(self, idTd, horaire):
 		"""
 		Le constructeur de la classe Td.
 		@param self : L'argument implicite
 		@param idTd : l'identifiant du groupe qui aura ce Td
 		@type idTd : entier naturel non nul
-		@param idGroupe : l'identifiant du groupe qui aura ce Td
-		@type idGroupe : entier naturel non nul
-		@param duree : la duree qui aura ce Td
-		@type duree : entier naturel non nul
-		@param idEnseignant : l'identifiant de l'ensignant de ce Td
-		@type idEnseignant : entier naturel
-		@param description : Une courte description du Td.
-		@type description : str
+		@type horaire : Horaire.
+		@param horaire : L'horaire voulu
 		"""
-		super(Td, self).__init__(idTd, idGroupe, duree, idEnseignant, description)
+		super(Td, self).__init__(idTd, horaire)
 	#fin __init__
 
 #fin Td

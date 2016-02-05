@@ -16,7 +16,7 @@ class Test_Agenda(unittest.TestCase):
 		"""
 		A faire avant chaque test
 		"""
-		self.cible = Agenda("testons")
+		self.cible = Agenda("testons", 2016)
 	#fin setUp
 	
 	
@@ -28,6 +28,7 @@ class Test_Agenda(unittest.TestCase):
 		self.assertTrue(self.cible._pere is None)
 		self.assertEqual(len(self.cible._listeFils), 0)
 		self.assertEqual(len(self.cible._listeCreneaux), 0)
+		self.assertEqual(len(self.cible._listeAnnees), 1)
 	#fin test_init
 	
 	
@@ -38,7 +39,7 @@ class Test_Agenda(unittest.TestCase):
 		self.assertTrue(self.cible.pere is None)
 		self.cible.pere = 25
 		self.assertTrue(self.cible.pere is None)
-		self.cible.pere = Agenda("Padre !")
+		self.cible.pere = Agenda("Padre !", 2015)
 		self.assertFalse(self.cible.pere is None)
 	#fin test_pere
 	
@@ -79,8 +80,8 @@ class Test_Agenda(unittest.TestCase):
 		"""
 		Test des insertions d'agendas
 		"""
-		fils1 = Agenda("fiston1")
-		fils2 = Agenda("fiston2")
+		fils1 = Agenda("fiston1", 2010)
+		fils2 = Agenda("fiston2", 1850)
 		self.cible.insererFils(fils1, 18, fils2, "lol")
 		self.assertEqual(len(self.cible.listeFils), 2)
 		self.assertFalse(fils1.pere is None)
@@ -88,35 +89,18 @@ class Test_Agenda(unittest.TestCase):
 	#fin test_insertionFils
 	
 	
-	def test_insertionCreneaux(self):
-		"""
-		TODO
-		"""
-		self.assertEqual(1, 1)
-	
-	#fin test_insertionCreneaux
-	
-	
 	def test_retirerFils(self):
 		"""
 		Test du retrait des fils dans la listeCreneaux
 		"""
-		fils1 = Agenda("fiston1")
-		fils2 = Agenda("fiston2")
-		fils3 = Agenda("fiston1")
+		fils1 = Agenda("fiston1", 2015)
+		fils2 = Agenda("fiston2", 2015)
+		fils3 = Agenda("fiston1", 2015)
 		self.cible.insererFils(fils1, fils2, fils3)
 		self.cible.retirerFils("fiston1")
 		self.assertEqual(len(self.cible.listeFils), 1)
 	#fin test_retirerFils
 	
-	
-	def test_retirerCreneaux(self):
-		"""
-		TODO
-		"""
-		self.assertEqual(1, 1)
-	
-	#fin test_retirerCreneauxCreneaux
 	
 #fin Test_Agenda
 

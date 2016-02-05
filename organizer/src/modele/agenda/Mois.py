@@ -4,6 +4,7 @@
 import Jour
 import Semaine
 from Semaine import Semaine, construireArgument
+import Modifier
 
 ###############################################################################
 # Liste des valeurs légales pour un nom de mois.
@@ -24,8 +25,13 @@ DECEMBRE = "decembre"
 MOIS_LEGAUX = [JANVIER, FEVRIER, MARS, AVRIL, MAI, JUIN, JUILLET, AOUT, SEPTEMBRE, OCTOBRE, NOVEMBRE, DECEMBRE]
 ###############################################################################
 
+###############################################################################
+# Messages d'erreurs pour cette partie :
+ERREUR_SEMAINE_INTROUVABLE = ""
+###############################################################################
 
-class Mois(object):
+
+class Mois(Modifier.Modifier):
 	"""
 	La classe qui représente un mois dans une année.
 	Cela va servir à stocker les L{Semaine}, dans l'ordre d'arrivée.
@@ -49,6 +55,7 @@ class Mois(object):
 		@type nbJours : int.
 		@param nbJours : le nombre de jours que contient ce mois :(30, 31, 28, 29).
 		"""
+		super(Mois, self).__init__()
 		self._nom = nom
 		self._nbJours = nbJours
 		self._semaines = list()
@@ -164,5 +171,37 @@ class Mois(object):
 		#for
 		return None
 	#recupererSemaineParNumJour
+	
+	
+	def ajouterCreneau(self, jour, debut, fin, typeCreneau="standard"):
+		"""
+		Etape 3 de la descente dans l'architecture.
+		Ceci va "ajouter" un L{Creneau} dans le M{jour}, entre
+		M{debut} et M{fin}.
+		@param self : L'argument implicite
+		@type jour : int
+		@param jour : le numéro du jour dans lequel insérer ce créneau.
+		@type debut : int [0, 48]
+		@param debut : l'heure de début du créneau
+		@type fin : int [0, 48]
+		@param fin : l'heure de fin du créneau
+		@type typeCreneau : enum
+		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
+		@precondition : debut < fin, jour/debut/fin doivent etre
+			compris dans leurs intervalles respectifs
+		@rtype : tuple (Creneau, str)
+		@return : None si un problème à lieu + chaine explicative, un Creneau sinon
+		"""
+		semaine = self.recupererSemaineParNumJour(jour)
+		if semaine is not None:
+			resultat = semaine.ajouterCreneau(jour, debut, fin, typeCreneau)
+			if resultat[0] is not None:
+				self.ajoutDeCreneau()
+			#if
+			return resultat
+		else:
+			return (None, ERREUR_SEMAINE_INTROUVABLE)
+		#if
+	#ajouterCreneau
 	
 #Mois

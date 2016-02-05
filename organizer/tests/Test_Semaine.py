@@ -49,6 +49,7 @@ class Test_Semaine(unittest.TestCase):
 		"""Teste si l'initialisation se passe bien."""
 		oracle = [Jour.MERCREDI, Jour.JEUDI, Jour.VENDREDI, Jour.SAMEDI]
 		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
+		self.assertEqual(0, cible.nbCreneaux)
 		
 		self.assertEqual(cible._numero, 2)
 		for i in oracle:

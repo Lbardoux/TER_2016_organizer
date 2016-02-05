@@ -38,6 +38,7 @@ test :
 clean :
 	@echo "Nettoyage des fichiers *.pyc de l'architecture"
 	find . -name "*.pyc" -type f -delete
+	@rm doc/report.txt
 	@echo "Nettoyage terminé !"
 
 # Appel à ce monsieur musculeux et chauve
