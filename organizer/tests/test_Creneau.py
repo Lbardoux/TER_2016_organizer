@@ -72,6 +72,15 @@ class Test_Agenda(unittest.TestCase):
 	#test_set_horaire
 	
 	
+	def test_set_identifiant(self):
+		"""Teste si la propriété set de _identifiant marche."""
+		h =  Horaire(15, 18)
+		c1 = Creneau(45, Horaire(18, 25))
+		c1.identifiant = 64
+		self.assertEqual(64, c1.identifiant)
+	#test_set_horaire
+	
+	
 	def test_get_informations(self):
 		"""Teste si la propriété get de _informations marche"""
 		c1 = Creneau(45, Horaire(18, 25))

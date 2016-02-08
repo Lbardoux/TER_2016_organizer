@@ -5,78 +5,122 @@ import sys
 sys.path.insert(0, "../src")
 
 from src.modele.agenda.Mois import *
-import src.modele.agenda.Jour
+from src.modele.agenda.Jour import *
 
 class Test_Mois(unittest.TestCase):
 	"""
-	La classe qui teste la classe Mois.
+	Teste la classe Mois.
 	@author : Laurent Bardoux p1108365
+	@version : 2.0
 	"""
 	
-	def test_initialisation(self):
-		"""Teste l'initialisation"""
-		cible = Mois(FEVRIER, Jour.LUNDI, 25)
-		self.assertEqual(cible._nom, FEVRIER)
-		self.assertEqual(cible._nbJours, 25)
-		self.assertEqual(cible._jourApres, Jour.VENDREDI)
-	#test_initialisation
+	def setUp(self):
+		"""A faire avant chaque test."""
+		self.cible = Mois(JANVIER, LUNDI, 31)
+	#setUp
 	
 	
-	def test_get_nbjours(self):
-		"""Teste de la propriété get de _nbJours."""
-		cible = Mois(FEVRIER, Jour.LUNDI, 25)
-		self.assertEqual(25, cible.nbJours)
-	#test_get_nbjours
+	def test_init(self):
+		"""Teste si la construction se passe bien"""
+		self.assertEqual(self.cible.nbCreneaux, 0)
+		self.assertEqual(self.cible._nom, JANVIER)
+		self.assertEqual(self.cible._nbJours, 31)
+		self.assertTrue(self.cible._semaines)
+	#test_init
 	
 	
 	def test_get_nom(self):
-		"""Teste de la propriété get de _nom."""
-		cible = Mois(FEVRIER, Jour.LUNDI, 25)
-		self.assertEqual(FEVRIER, cible.nom)
-	#test_get_nbjours
-
-
-	def test_get_jourApres(self):
-		"""Teste de la propriété get de _jourApres."""
-		cible = Mois(FEVRIER, Jour.LUNDI, 25)
-		self.assertEqual(cible._jourApres, Jour.VENDREDI)
-	#test_get_nbjours
+		"""Teste la propriété get du _nom"""
+		self.assertEqual(JANVIER, self.cible.nom)
+	#test_get_nom
 	
 	
 	def test_get_semaines(self):
-		"""Teste de la propriété get de _semaines."""
-		cible = Mois(FEVRIER, Jour.LUNDI, 25)
-		self.assertTrue(type(cible.semaines) is list)
-		self.assertEqual(len(cible.semaines), 4)
-	#test_get_nbjours
+		"""Teste la propriété get du _semaines"""
+		self.assertTrue(type(self.cible.semaines) is list)
+	#test_get_semaines
 	
 	
-	def test_recupererSemaine_ok(self):
-		"""Teste d'une récupération de semaine qui marche."""
-		cible = Mois(FEVRIER, Jour.MERCREDI, 29)
-		self.assertTrue(cible.recupererSemaineParNumJour(23) is not None)
-	#test_recupererSemaine_ok
+	def test_get_jourApres(self):
+		"""Teste la propriété get du _jourApres"""
+		self.assertIsNotNone(self.cible.jourApres)
+	#test_get_jourApres
 	
 	
-	def test_recupererSemaine_echec(self):
-		"""Teste d'une récupération de semaine qui échoue."""
-		cible = Mois(FEVRIER, Jour.MERCREDI, 29)
-		self.assertTrue(cible.recupererSemaineParNumJour(-1) is None)
-		self.assertTrue(cible.recupererSemaineParNumJour(38) is None)
-		self.assertTrue(cible.recupererSemaineParNumJour(31) is None)
-	#test_recupererSemaine_echec
+	def test_get_nbJours(self):
+		"""Teste la propriété get du _nbJours"""
+		self.assertEqual(self.cible.nbJours, 31)
+	#test_get_nbJours
 	
 	
-	def test_recupererSemaine_echec2(self):
-		"""Teste d'une récupération de semaine qui échoue (encore)."""
-		cible = Mois(FEVRIER, Jour.DIMANCHE, 23)
-		self.assertTrue(cible.recupererSemaineParNumJour(-1) is None)
-		self.assertTrue(cible.recupererSemaineParNumJour(38) is None)
-		self.assertTrue(cible.recupererSemaineParNumJour(31) is None)
-		self.assertTrue(cible.recupererSemaineParNumJour(24) is None)
-	#test_recupererSemaine_echec2
+	def test_recupererSemaineParNumJour_ok(self):
+		"""Teste cette méthode de récupération en succes"""
+		for i in [elt+1 for elt in range(31)]:
+			self.assertIsNotNone(self.cible.recupererSemaineParNumJour(i))
+		#for
+	#test_recupererSemaineParNumJour_ok
+	
+	
+	def test_recupererSemaineParNumJour_echec(self):
+		"""Teste cette méthode de récupération en echec"""
+		self.assertIsNone(self.cible.recupererSemaineParNumJour(32))
+		self.assertIsNone(self.cible.recupererSemaineParNumJour(-1))
+	#test_recupererSemaineParNumJour_echec
+	
+	
+	def test_ajouterCreneau_ok(self):
+		"""Teste de l'ajout d'un creneau en succès"""
+		self.assertIsNotNone(self.cible.ajouterCreneau(8, 2, 14))
+		self.assertEqual(self.cible.nbCreneaux, 1)
+	#test_ajouterCreneau_ok
+	
+	
+	def test_ajouterCreneau_echec_numjour(self):
+		"""Teste de l'ajout d'un creneau en echec à cause d'un numéro de jour"""
+		with self.assertRaises(Exception):
+			self.cible.ajouterCreneau(8, 0, 14)
+		#with
+	#test_ajouterCreneau_echec_numjour
+	
+	
+	def test_ajouterCreneau_echec_interne(self):
+		"""Teste de l'ajout d'un creneau à cause d'une erreur interne"""
+		with self.assertRaises(Exception):
+			self.cible.ajouterCreneau(32, 2, 14)
+		#with
+	#test_ajouterCreneau_echec_interne
+	
+	
+	def test_supprimerCreneau_ok(self):
+		"""Teste de la suppression si tout va bien"""
+		self.cible.ajouterCreneau(8, 12, 14)
+		self.cible.ajouterCreneau(7, 12, 14)
+		self.cible.supprimerCreneau(7, 1)
+		self.assertFalse(self.cible.semaines[0].jours[DIMANCHE].creneaux)
+	#test_supprimerCreneau_ok
+	
+	
+	def test_supprimerCreneau_echec_interne(self):
+		"""Teste de la suppression en cas de mauvais arguments"""
+		self.cible.ajouterCreneau(8, 12, 14)
+		self.cible.ajouterCreneau(7, 12, 14)
+		with self.assertRaises(Exception):
+			self.cible.supprimerCreneau(7, 0)
+		#with
+	#test_supprimerCreneau_echec_interne
+	
+	
+	def test_supprimerCreneau_echec_numjour(self):
+		"""Teste de la suppression en cas de mauvais numéro de jour"""
+		self.cible.ajouterCreneau(8, 12, 14)
+		self.cible.ajouterCreneau(7, 12, 14)
+		with self.assertRaises(Exception):
+			self.cible.supprimerCreneau(-1, 1)
+		#with
+	#test_supprimerCreneau_echec_numjour
 	
 #Test_Mois
 
 if __name__ == "__main__":
 	unittest.main()
+#if

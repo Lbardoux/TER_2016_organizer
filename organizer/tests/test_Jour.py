@@ -1,123 +1,183 @@
-﻿#!/usr/bin/python
+#!/usr/bin/python
 # -*-coding:utf-8 -*
 import unittest
 import sys
 sys.path.insert(0, "../src")
 
 from src.modele.agenda.Jour import *
+from src.outils.erreurs.erreurs import *
+
+class SimiliCreneau:
+	def __init__(self, chiffre):
+		self._chiffre = chiffre
+		self.identifiant = chiffre
+
+	def __le__(self, autre):
+		return self._chiffre <= autre._chiffre
+#SimiliCreneau
+
 
 class Test_Jour(unittest.TestCase):
 	"""
-	La classe qui va tester les fonctionnalités de la classe Jour
+	Teste la classe Jour.
+	A ce stade, ils doivent tous passer !
 	@author : Laurent Bardoux p1108365
+	@version : 2.0
 	"""
 	
-	def test_instanciation_defaut(self):
-		"""Teste la méthode __init__ avec un argument par défaut."""
-		numJour = 25
-		cible = Jour(numJour)
-		
-		self.assertEqual(cible._numero, numJour)
-		self.assertEqual(cible._nom, "lundi")
-		self.assertEqual(len(cible._creneaux), 0)
-		self.assertTrue(cible._usine is not None)
-	#test_instanciation
-	
-	
-	def test_instanciation_nom(self):
-		"""Teste la fonction __init__ en fournissant tous les arguments."""
-		numJour = 25
-		nomJour = MARDI
-		cible = Jour(numJour, nomJour)
-		
-		self.assertEqual(cible._numero, numJour)
-		self.assertEqual(cible._nom, nomJour)
-		self.assertEqual(len(cible._creneaux), 0)
-	#test_instanciation_nom
-	
-	
-	def test_instanciation_erreur_nom(self):
-		"""Teste la fonction __init__ en se plantant dans le nom."""
-		cible = Jour(24, "Mardis")
+	def test_init_1_argument(self):
+		"""Teste le constructeur en utilisant la valeur par défaut."""
+		cible = Jour(25)
+		self.assertEqual(cible._numero, 25)
+		self.assertTrue(not cible._creneaux)
 		self.assertEqual(cible._nom, LUNDI)
-	#test_instanciation_erreur_nom
+		self.assertIsNotNone(cible._usine)
+	#test_
 	
 	
-	def test_numero_get(self):
-		"""Teste la propriété get de _numero."""
-		numJour = 25
-		cible = Jour(numJour)
-		
-		self.assertEqual(cible.numero, numJour)
-	#test_numero_get
+	def test_init_2_arguments_ok(self):
+		"""Teste le constructeur en précisant le second argument correctement."""
+		for jour in JOURS_LEGAUX:
+			cible = Jour(25, jour)
+			self.assertEqual(cible._nom, jour)
+		#for
+	#test_
 	
 	
-	def test_numero_set_correct(self):
-		"""Teste la propriété set du _numero."""
-		numJour = 25
-		cible = Jour(numJour)
-		
-		cible.numero = 18
-		self.assertEqual(cible.numero, 18)
-	#test_numero_set_correct
+	def test_init_2_arguments_echec(self):
+		"""Teste le constructeur en fournissant un second argument invalide."""
+		cible = Jour(21, "invalide")
+		self.assertEqual(cible._nom, LUNDI)
+	#test_
 	
 	
-	def test_numero_set_incorrect(self):
-		"""Teste la propriété set du _numero."""
-		numJour = 25
-		cible = Jour(numJour)
-		listeChoix = [0, -1, 32, 45, -5]
-		
-		for i in listeChoix:
+	def test_get_numero(self):
+		"""Teste la propriété get du _numero."""
+		for i in [12, 15, 48, 689]:
+			cible = Jour(i, LUNDI)
+			self.assertEqual(i, cible.numero)
+		#for
+	#test_get_numero
+	
+	
+	def test_set_numero_ok(self):
+		"""Teste la propriété set du _numero avec de bons arguments."""
+		cible = Jour(15, MARDI)
+		for i in [elt+1 for elt in range(31)]:
 			cible.numero = i
-			self.assertEqual(cible.numero, numJour)
+			self.assertEqual(cible.numero, i)
 		#for
-	#test_numero_set_incorrect
+	#test_set_numero_ok
 	
 	
-	def test_nom_get(self):
+	def test_set_numero_echec(self):
+		"""Teste la propriété set du _numero avec de mauvais arguments."""
+		cible = Jour(15, MARDI)
+		for i in [0, -1, -5, 32, 33, 589]:
+			cible.numero = i
+			self.assertEqual(cible.numero, 15)
+		#for
+	#test_set_numero_echec
+	
+	
+	def test_get_nom(self):
 		"""Teste la propriété get du _nom."""
-		cible = Jour(1)
-		self.assertEqual(cible.nom, "lundi")
-	#test_nom_get
+		for jour in JOURS_LEGAUX:
+			cible = Jour(25, jour)
+			self.assertEqual(cible.nom, jour)
+		#for
+	#test_get_nom
 	
 	
-	def test_nom_set(self):
-		"""Teste la propriété get du _nom."""
-		cible = Jour(1)
-		self.assertEqual(cible.nom, "lundi")
-	#test_nom_get
-	
-	
-	def test_nom_set(self):
-		"""Teste la propriété set du _nom."""
-		cible = Jour(1)
-		cible.nom = "jeudi"
-		self.assertEqual(cible.nom, "jeudi")
-	#test_nom_set
-	
-	
-	def test_creneaux_get(self):
+	def test_get_creneaux(self):
 		"""Teste la propriété get du _creneaux."""
-		cible = Jour(28)
+		cible = Jour(31, LUNDI)
 		self.assertTrue(type(cible.creneaux) is list)
-	#test_creneaux_get
+	#test_get_creneaux
 	
-	@unittest.skip("plus à jour")
-	def test_ajouterCreneau(self):
-		"""Teste si l'ajout insère correctement les éléments."""
-		oracle = [15, 41, 41, 52, 332]
-		cible = Jour(14)
-		cible.ajouterCreneau(52)
-		cible.ajouterCreneau(15)
-		cible.ajouterCreneau(41)
-		cible.ajouterCreneau(332)
-		cible.ajouterCreneau(41)
+	
+	def test_inserer_1_element(self):
+		"""Teste l'insertion d'un seul "creneau"."""
+		cible = Jour(18)
+		valeur = 1254
+		oracle = [valeur]
+		cible.insererCreneau(valeur)
 		
-		for i, element in enumerate(oracle):
-			self.assertEqual(element, cible.creneaux[i])
+		self.assertFalse(not cible.creneaux)
+		self.assertEqual(cible.creneaux, oracle)
+	#test_inserer_1_element
+	
+	
+	def test_inserer_plusieurs_element(self):
+		"""Teste l'insertion de plusieurs "creneaux" afin d'en teter l'ordonnancement."""
+		cible = Jour(18)
+		oracle = [-254, 18, 56, 56, 256, 7852]
+		for i in [18, 256, 56, 7852, -254, 56]:
+			cible.insererCreneau(i)
 		#for
-	#test_ajouterCreneau
+		self.assertEqual(cible.creneaux, oracle)
+	#test_inserer_1_element
+	
+	
+	def test_ajouterCreneau_mauvais_horaire(self):
+		"""Teste si un mauvais horaire renvoi bien une exception."""
+		d = ["pas int", 14, 0, -5, 18]
+		f = [25, "pas int", 14, 14, 17]
+		i = 0
+		cible = Jour(15, LUNDI)
+		while i < len(f):
+			with self.assertRaises(Exception):
+				cible.ajouterCreneau(d[i], f[i])
+			#with
+			i += 1
+		#while
+	#test_ajouterCreneau_mauvais_horaire
+	
+	
+	def test_ajouterCreneau_mauvais_creneau(self):
+		"""Teste si un enum erroné renvoi bien une exception."""
+		cible = Jour(15, LUNDI)
+		with self.assertRaises(Exception):
+			cible.ajouterCreneau(15, 18, "rate")
+		#with
+	#test_ajouterCreneau_mauvais_horaire
+	
+	
+	def test_ajouterCreneau_ok(self):
+		"""Teste un ajout qui se passe bien"""
+		cible = Jour(15, LUNDI)
+		self.assertIsNotNone(cible.ajouterCreneau(1, 13))
+		self.assertTrue(cible.creneaux)
+	#test_ajouterCreneau_mauvais_horaire
+	
+	
+	def test_supprimerCreneau_ok(self):
+		"""Teste une suppression qui se passe bien."""
+		cible = Jour(15)
+		oracle = [1, 18]
+		for i in [1, 15, 18]:
+			simili = SimiliCreneau(i)
+			cible.creneaux.append(simili)
+		#for
+		cible.supprimerCreneau(15)
+		self.assertEqual(len(cible.creneaux), 2)
+		for i, elt in enumerate(cible.creneaux):
+			self.assertEqual(oracle[i], elt.identifiant)
+		#for
+	#test_supprimerCreneau_ok
+	
+	
+	def test_supprimerCreneau_echec(self):
+		"""Teste une suppression qui echoue."""
+		cible = Jour(15)
+		for i in [1, 15, 18]:
+			simili = SimiliCreneau(i)
+			cible.creneaux.append(simili)
+		#for
+		with self.assertRaises(Exception):
+			cible.supprimerCreneau(25)
+		#with
+	#test_supprimerCreneau_echec
 	
 #Test_Jour
 

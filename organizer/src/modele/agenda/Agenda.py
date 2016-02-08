@@ -1,11 +1,12 @@
 ﻿#!/usr/bin/python
 # -*-coding:utf-8 -*
 
+import Annee
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils")
-from VerifierContenuListe import verifier
+#from VerifierContenuListe import verifier
 from FabriqueCreneau import CreneauxPossible as CP
-import Annee
+from erreurs.erreurs import *
 
 class Agenda(object):
 	"""
@@ -26,13 +27,13 @@ class Agenda(object):
 	père.
 	
 	@ivar _nom : le nom de l'agenda courant
-	@ivar _pere : l'agenda pere, L{None} équivaut à la racine.
+	@ivar _pere : l'agenda pere, None équivaut à la racine.
 	@ivar _listeFils : Le niveau inférieur de l'arborescence
 	@ivar _listeAnnees : la liste des L{Annee} disponible pour cet agenda.
 	
-	A note que la liste des L{Annee} sera régis par un mécanisme d'autovivification.
+	A note que la liste des L{Annee} sera régit par un mécanisme d'autovivification.
 	ie, que la demande d'une année qui n'existe pas dans la liste entrainera sa création,
-	meme si celle ci reste vide au final.
+	meme si celle-ci reste vide au final.
 	
 	@author : Laurent Bardoux p1108365
 	@version : 1.0
@@ -50,9 +51,8 @@ class Agenda(object):
 		self._nom = nom
 		self._pere = None
 		self._listeFils = list()
-		self._listeAnnees = list()
-		self._listeAnnees.append(Annee.Annee(annee))
-	#fin __init__
+		self._listeAnnees = [Annee.Annee(annee)]
+	#__init__
 	
 	
 	@property
@@ -60,27 +60,25 @@ class Agenda(object):
 		"""
 		Un accesseur pour le père de cet agenda.
 		@param self : l'argument implicite
-		@return une référene sur l'Agenda père, ou None si il n'y en a pas.
+		@rtype : L{Agenda}
+		@return une référence sur l'Agenda père, ou None si il n'y en a pas.
 		"""
 		return self._pere
-	#fin pere
+	#pere
 	
 	
 	@pere.setter
 	def pere(self, agendaPere):
 		"""
 		Une fonction pour ajouter un père à cet agenda.
-		/!\ ATTENTION /!\
-		Une fois un père ajouté, la valeur associé à self._pere devient immuable.
 		@precondition : agendaPere is not None
 		@postcondition : si self._pere était à None, agendaPere devient le père de cet agenda.
 		@param self : le paramètre implicite
 		@param agendaPere : le futur papa de l'agenda courant
 		@type agendaPere : Agenda, ou un type dérivé
 		"""
-		if self._pere is None and agendaPere is not None and type(agendaPere) is Agenda:
-			self._pere = agendaPere
-	#fin pere
+		self._pere = agendaPere
+	#pere
 	
 	
 	@property
@@ -88,10 +86,11 @@ class Agenda(object):
 		"""
 		Un accesseur pour le nom de l'agenda courant.
 		@param self : L'argument implicite.
-		@return une str contenant le nom de l'agenda courant.
+		@rtype : str
+		@return : le nom de l'agenda courant.
 		"""
 		return self._nom
-	#fin nom
+	#nom
 	
 	
 	@nom.setter
@@ -104,7 +103,8 @@ class Agenda(object):
 		"""
 		if type(autreNom) is str:
 			self._nom = autreNom
-	#fin nom
+		#if
+	#nom
 	
 	
 	@property
@@ -112,6 +112,7 @@ class Agenda(object):
 		"""
 		L'accesseur pour récupérer la liste des fils d'un agenda.
 		@param self : l'argument implicite.
+		@rtype : list
 		@return : une référence sur la liste des fils
 		"""
 		return self._listeFils
@@ -125,14 +126,13 @@ class Agenda(object):
 		Attention, la précédente liste est alors perdue !
 		@param self : l'argument implicite
 		@param autre : la nouvelle liste, vide ou contenant des Fils
-		@type autre : une liste vide ou de Fils
+		@type autre : une liste vide ou de Fils.
+		@precondition : autre doit etre une liste d'Agenda !
 		"""
 		if type(autre) is list:
-			if verifier(autre, lambda x : type(x) is Agenda):
-				self._listeFils = autre
-			#if
+			self._listeFils = autre
 		#if
-	#fin listeFils
+	#listeFils
 	
 	
 	def insererFils(self, *fils):
@@ -144,6 +144,7 @@ class Agenda(object):
 		@type *fils : des Agendas
 		@precondition : *fils doit être constitué d'Agendas
 		@postcondition : seul les agendas sont insérés dans la liste
+		@rtype : int
 		@return : le nombre d'élément dans la liste des fils.
 		"""
 		for fiston in fils:
@@ -153,7 +154,7 @@ class Agenda(object):
 			#if
 		#for
 		return len(self._listeFils)
-	#fin insererFils
+	#insererFils
 	
 	
 	def retirerFils(self, *nomFils):
@@ -164,15 +165,32 @@ class Agenda(object):
 		@param self : l'argument implicite.
 		@param *nomFils : Les noms des agendas directs de l'agenda courant.
 		@type *nomFils : list(str)
-		@postcondition : les agendas ayant les noms apparaissant dans la liste sont 
-			retirés
+		@postcondition : les agendas ayant les noms apparaissant dans la liste sont retirés
 		"""
 		for nom in nomFils:
 			if type(nom) is str:
 				self._listeFils = [fils for fils in self._listeFils if fils.nom != nom]
 			#if
 		#for
-	#fin retirerFils
+	#retirerFils
+	
+	
+	def _trouveAnnee(self, annee):
+		"""
+		Trouve et renvoi l'L{Annee} qui a M{annee} comme attribut an.
+		@param self : L'argument implicite.
+		@type annee : int
+		@param annee : Le numéro de l'année voulue (2005 par exemple)
+		@rtype : L{Annee}
+		@return : None si pas trouvée, une référence sur L{Annee} sinon.
+		"""
+		for anneeConnue in self._listeAnnees:
+			if anneeConnue.an == annee:
+				return anneeConnue
+			#if
+		#for
+		return None
+	#_trouveAnnee
 	
 	
 	def ajouterCreneau(self, annee, mois, jour, debut, fin, typeCreneau=CP.CRENEAU):
@@ -196,27 +214,63 @@ class Agenda(object):
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
 		@precondition : debut < fin, mois/jour/debut/fin doivent etre
 			compris dans leurs intervalles respectifs
-		@rtype : tuple (Creneau, str)
-		@return : None si un problème à lieu + chaine explicative, un Crenau sinon
+		@raise ArgumentInvalide : si les arguments sont erronés.
+		@rtype : L{Creneau}
+		@return : Un créneau nouvellement créé.
 		"""
-		cible = None
+		cible = self._trouveAnnee(annee)
 		
-		# Si l'annee existe déjà, on la trouve
-		for anneeConnue in self._listeAnnees:
-			if anneeConnue.an == annee:
-				cible = anneeConnue
-				break
-			#if
-		#for
-		
-		# cas ou on ne l'a pas trouvé --> auto-vivification
-		if cible is None:
+		if cible is None: # cas ou on ne l'a pas trouvé --> auto-vivification
 			cible = Annee.Annee(annee)
 			self._listeAnnees.append(cible)
 		#if
-		
+
+		#Cette ligne peut balancer l'exception !
 		return cible.ajouterCreneau(mois, jour, debut, fin, typeCreneau)
 	#ajouterCreneau
+	
+	
+	def supprimerCreneau(self, annee, mois, jour, idCreneau):
+		"""
+		Lance la suppression d'un L{Creneau} si il existe.
+		@param self : L'argument implicite
+		@type annee : int
+		@param annee : l'année dont on veut supprimer un creneau.
+		@type mois : int
+		@param mois : le mois dont on veut supprimer le créneau.
+		@type jour : int
+		@param jour : le numéro du jour où le créneau se situe.
+		@type idCreneau : ...
+		@param idCreneau : l'identifiant unique du créneau que l'on veut supprimer.
+		@raise CreneauInexistant : En cas d'erreur sur les arguments.
+		"""
+		anneeCible = self._trouveAnnee(annee)
+		if anneeCible is None:
+			raise CreneauInexistant("L'année " + str(annee) + " n'existe pas !")
+		#if
+		
+		# Cette ligne peut balancer une exception.
+		anneeCible.supprimerCreneau(mois, jour, idCreneau)
+	#supprimerCreneau
+	
+	
+	def recupererSemaine(self, annee, mois, jour):
+		"""
+		Permet de récupérer une Semaine sous la forme d'un
+		dictionnaire de jour (mapping : "lundi" -> list(Jour)).
+		@param self : L'argument implicite.
+		@type annee : int
+		@param annee : l'Année dont on veut récupérer les données.
+		@type mois : int
+		@param mois : Le mois maintenant, de l'annee en question.
+		@type jour : int
+		@param jour : un des numéros de jours de ce mois
+		@rtype : dict
+		@return : le dictionnaire de la L{Semaine} dont le jour jour/mois/annee fait parti.
+		"""
+		#rustine
+		return self._listeAnnees[0]._mois["janvier"]._semaines[1]._jours
+	#recupererSemaine
 	
 #fin Agenda
 

@@ -40,7 +40,6 @@ class Fabrique(object):
 		# ici, None représente ce qu'il faut renvoyer si clef n'existe pas.
 		resultat = self._choix.get(clef, None)
 		if resultat is not None:
-			# appel de la fonction/lambda obtenu dans la fabrique.
 			return resultat(*arguments)
 		#fin if
 		return None

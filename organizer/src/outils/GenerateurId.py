@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 
-# a tester !
+
 
 class GenerateurId(object):
 	"""

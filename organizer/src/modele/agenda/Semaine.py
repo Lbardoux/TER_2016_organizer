@@ -3,6 +3,9 @@
 
 import Jour, Modifier
 from FabriqueCreneau import CreneauxPossible as CP
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils/erreurs")
+from erreurs import *
 
 ###############################################################################
 # Le nom des champs de l'argument de construction :
@@ -165,6 +168,25 @@ class Semaine(Modifier.Modifier):
 	#recupererJour
 	
 	
+	def _trouveJour(self, jour):
+		"""
+		Permet de trouver le L{Jour} dont le numéro est M{jour}.
+		Si rien n'est trouvé, None est renvoyé.
+		@param self : L'argument implicite.
+		@type jour : int
+		@param jour : le jour que l'on souhaite chercher.
+		@rtype : L{Jour}
+		@return : Le L{Jour} de la semaine demandé.
+		"""
+		for j in self._jours.values():
+			if j.numero == jour:
+				return j
+			#if
+		#for
+		return None
+	#_trouveJour
+	
+	
 	def ajouterCreneau(self, jour, debut, fin, typeCreneau=CP.CRENEAU):
 		"""
 		Etape 4 de la descente dans l'architecture.
@@ -181,21 +203,44 @@ class Semaine(Modifier.Modifier):
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
 		@precondition : debut < fin, debut/fin doivent etre
 			compris dans leurs intervalles respectifs
-		@rtype : tuple (Creneau, str)
-		@return : None si un problème à lieu + chaine explicative, un Creenau sinon
+		@raise ArgumentInvalide : Si un des arguments est erroné.
+		@rtype : Creneau
+		@return : un Creneau valable.
 		"""
-		jourConcerne = None
-		for j in self._jours:
-			if j.numero == jour:
-				jourConcerne = j
-				break
-			#if
-		#for
-		resultat = jourConcerne.ajouterCreneau(debut, fin, typeCreneau)
-		if resultat[0] is not None:
+		# On nous certifie au dessus que cela ne renverra pas None
+		jourConcerne = self._trouveJour(jour)
+		
+		try:
+			resultat = jourConcerne.ajouterCreneau(debut, fin, typeCreneau)
+		except ArgumentInvalide:
+			raise
+		else:
 			self.ajoutDeCreneau()
-		#if
-		return resultat
+			return resultat
+		#try
 	#ajouterCreneau
+	
+	
+	def supprimerCreneau(self, jour, idCreneau):
+		"""
+		Lance la suppression d'un L{Creneau} si il existe.
+		@param self : L'argument implicite
+		@type jour : int
+		@param jour : le numéro du jour où le créneau se situe.
+		@type idCreneau : ...
+		@param idCreneau : l'identifiant unique du créneau que l'on veut supprimer.
+		@raise CreneauInexistant : En cas d'erreur sur les arguments.
+		"""
+		# Certification au dessus que None ne sera pas trouvé.
+		jourCible = self._trouveJour(jour)
+		
+		try:
+			jourCible.supprimerCreneau(idCreneau)
+		except CreneauInexistant:
+			raise
+		else:
+			self.retraitDeCreneau()
+		#try
+	#supprimerCreneau
 	
 #Semaine

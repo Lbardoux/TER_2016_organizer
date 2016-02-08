@@ -4,6 +4,7 @@
 ####################################################################
 # Variables du makefile
 TEST_DIR=tests/
+INTEGRATION_DIR=integration/
 SRC_DIR=src/
 MAIN_FILE=main.py
 NAME=CSP_Organizer
@@ -33,6 +34,8 @@ test :
 	@clear
 	@echo "Lancement des tests unitaires situés dans " $(TEST_DIR)
 	$(PYTHON) -m unittest discover -s $(TEST_DIR)
+	@echo "\nTests d'integrations :"
+	$(PYTHON) $(TEST_DIR)$(INTEGRATION_DIR)integration_*.py
 
 # Nettoyage des binaires
 clean :

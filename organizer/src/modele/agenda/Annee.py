@@ -1,14 +1,14 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 
-
 import sys, os
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils/erreurs")
-import calendar
-from datetime import datetime
+import calendar, datetime
+import Mois, Modifier, GenerateurId
 from Jour import JOURS_LEGAUX
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils/")
 from FabriqueCreneau import CreneauxPossible as CP
-import Mois, Modifier, erreurs
+from erreurs.erreurs import *
+
 
 class Annee(Modifier.Modifier):
 	"""
@@ -19,6 +19,7 @@ class Annee(Modifier.Modifier):
 	C'est également le point d'entrée de la structure de stockage.
 	@ivar _mois : un dictionnaire des L{Mois} disponibles.
 	@ivar _an : l'année courante (2006 par exemple).
+	@ivar _generateur : le générateur des identifiants spécifiques à cette année.
 	@author : Laurent Bardoux p1108365
 	@version : 1.0
 	"""
@@ -35,6 +36,7 @@ class Annee(Modifier.Modifier):
 		super(Annee, self).__init__()
 		self._mois = dict()
 		self._an = an
+		self._generateur = GenerateurId.GenerateurId(1, lambda x : x+1)
 		
 		# nombre de jours pour chaque mois :
 		nbMaxJour = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -61,7 +63,7 @@ class Annee(Modifier.Modifier):
 		@rtype : str
 		@return : le nom du premier jour
 		"""
-		return JOURS_LEGAUX[datetime(an, 1, 1).weekday()]
+		return JOURS_LEGAUX[datetime.datetime(an, 1, 1).weekday()]
 	#_premierJourAnnee
 	
 	
@@ -77,20 +79,6 @@ class Annee(Modifier.Modifier):
 	#an
 	
 	
-	@property
-	def nbCreneaux(self):
-		"""
-		L'accesseur pour le nombre de creneaux présents
-		Si il n'y en a pas, pas la peine de dumper cette année dans un
-		fichier.
-		@param self : L'argument implicite.
-		@rtype : int
-		@return : le nombre de creneaux disponible dans cette annee.
-		"""
-		return self._nbCreneaux
-	#nbCreneaux
-	
-	
 	def recupererSemaineParNumJour(self, mois, jour):
 		"""
 		Cette méthode est la suite de la chaine de récupération d'une semaine.
@@ -101,13 +89,14 @@ class Annee(Modifier.Modifier):
 		@param mois : le numéro du mois souhaité.
 		@type jour : int
 		@param jour : le numéro  du jour voulu.
+		@raise ArgumentInvalide : si le numéro de mois est incorrect.
 		@rtype : L{Semaine}.
-		@return : la semaine demandé si elle existe, None sinon.
+		@return : la semaine demandé si elle existe.
 		"""
 		if mois < 1 or mois > 12:
-			return None
+			raise ArgumentInvalide("Ce numéro " + str(mois) + " est invalide !")
 		#if
-		nomMois = MOIS_LEGAUX[mois-1]
+		nomMois = Mois.MOIS_LEGAUX[mois-1]
 		return self._mois[nomMois].recupererSemaineParNumJour(jour)
 	#recupererSemaineParNumJour
 	
@@ -130,18 +119,51 @@ class Annee(Modifier.Modifier):
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
 		@precondition : debut < fin, mois/jour/debut/fin doivent etre
 			compris dans leurs intervalles respectifs
-		@rtype : tuple (Creneau, str)
-		@return : None si un problème à lieu + chaine explicative, un Creenau sinon
+		@raise ArgumentInvalide : Si un problème avec les arguments a eu lieu.
+		@rtype : Creneau
+		@return : un Creneau manipulable.
 		"""
 		if mois < 1 or mois > 12:
-			return (None, erreurs.ERREUR_MOIS_INEXISTANT)
+			raise ArgumentInvalide("Ce numéro " + str(mois) + " est invalide !")
 		#if
-		nomMois = MOIS_LEGAUX[mois-1]
-		resultat = self._mois[nomMois].ajouterCreneau(jour, debut, fin, typeCreneau)
-		if resultat[0] is not None:
+		nomMois = Mois.MOIS_LEGAUX[mois-1]
+		resultat = None
+		try:
+			resultat = self._mois[nomMois].ajouterCreneau(jour, debut, fin, typeCreneau)
+		except ArgumentInvalide:
+			raise
+		else:
 			self.ajoutDeCreneau()
-		#if
+			resultat.identifiant = self._generateur.suivant()
+		#try
 		return resultat
 	#ajouterCreneau
+	
+	
+	def supprimerCreneau(self, mois, jour, idCreneau):
+		"""
+		Lance la suppression d'un L{Creneau} si il existe.
+		@param self : L'argument implicite
+		@type mois : int
+		@param mois : le mois dont on veut supprimer le créneau.
+		@type jour : int
+		@param jour : le numéro du jour où le créneau se situe.
+		@type idCreneau : ...
+		@param idCreneau : l'identifiant unique du créneau que l'on veut supprimer.
+		@raise CreneauInexistant : En cas d'erreur sur les arguments.
+		"""
+		if mois < 1 or mois > 12:
+			raise CreneauInexistant("Le numéro de mois " + mois + " est invalide !")
+		#if
+		nomMois = Mois.MOIS_LEGAUX[mois-1]
+		moisCible = self._mois[nomMois]
+		try:
+			moisCible.supprimerCreneau(jour, idCreneau)
+		except CreneauInexistant:
+			raise
+		else:
+			self.retraitDeCreneau()
+		#try
+	#supprimerCreneau
 	
 #Annee

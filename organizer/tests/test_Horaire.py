@@ -13,9 +13,7 @@ class Test_Horaire(unittest.TestCase):
 	"""
 	
 	def test_init(self):
-		"""
-		Test de l'initialisation
-		"""
+		"""Test de l'initialisation"""
 		cible = Horaire(18, 22)
 		self.assertEqual(cible._debut , 18)
 		self.assertEqual(cible._fin , 22)
@@ -26,28 +24,21 @@ class Test_Horaire(unittest.TestCase):
 	
 	
 	def test_debut(self):
-		"""
-		Tests sur debut avec les propriétés
-		"""
-		cible = Horaire(55, 58)
-		self.assertEqual(55, cible.debut)
+		"""Tests sur debut avec les propriétés"""
+		cible = Horaire(25, 48)
+		self.assertEqual(25, cible.debut)
 		cible.debut = -1
-		self.assertEqual(55, cible.debut)
-		cible.debut = 56
-		self.assertEqual(56, cible.debut)
+		self.assertEqual(25, cible.debut)
+		cible.debut = 26
+		self.assertEqual(26, cible.debut)
 		with self.assertRaises(AssertionError):
 			cible.debut = 59
-		#with
-		with self.assertRaises(AssertionError):
-			cible.debut = 45
 		#with
 	#fin test_debut
 	
 	
 	def test_fin(self):
-		"""
-		Tests sur fin avec les propriétés
-		"""
+		"""Tests sur fin avec les propriétés"""
 		cible = Horaire(15, 18)
 		self.assertEqual(18, cible.fin)
 		cible.fin = -8
@@ -64,27 +55,23 @@ class Test_Horaire(unittest.TestCase):
 	
 	
 	def test_changeHoraire(self):
-		"""
-		Tests de changeHoraire
-		"""
+		"""Tests de changeHoraire"""
 		cible = Horaire(40, 48) # de 19 à 20h, pas cool ;(
 		with self.assertRaises(AssertionError):
-			cible.changeHoraire(34, 49)
+			cible.changeHoraire(34, 50)
 		#with
 		with self.assertRaises(AssertionError):
 			cible.changeHoraire(222, 241)
 		#with
-		cible.changeHoraire(222, 240)
 		with self.assertRaises(AssertionError):
 			cible.changeHoraire(240, 222)
 		#with
 	#fin test_changeHoraire
 	
 	
+	@unittest.skip("Plus du tout d'actualité")
 	def test_getJourDe(self):
-		"""
-		Tests de getJourDe
-		"""
+		"""Tests de getJourDe"""
 		cible = Horaire(1, 2)
 		self.assertEqual(cible.getJourDe(1), cible.getJourDe(45))
 		self.assertNotEqual(cible.getJourDe(84), cible.getJourDe(42))
@@ -93,10 +80,9 @@ class Test_Horaire(unittest.TestCase):
 	#fin test_getJourDe
 	
 	
+	@unittest.skip("Plus du tout d'actualité")
 	def test_getSemaineDe(self):
-		"""
-		Tests de getJourDe
-		"""
+		"""Tests de getJourDe"""
 		cible = Horaire(1, 2)
 		self.assertEqual(cible.getSemaineDe(1), cible.getSemaineDe(240))
 		self.assertNotEqual(cible.getSemaineDe(84), cible.getSemaineDe(241))

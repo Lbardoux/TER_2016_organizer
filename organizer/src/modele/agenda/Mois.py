@@ -4,9 +4,10 @@
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils/erreurs")
 import Jour, Semaine, Modifier
-from Semaine import Semaine, construireArgument
+#from Semaine import Semaine, construireArgument
+from Semaine import *
 from FabriqueCreneau import CreneauxPossible as CP
-import erreurs
+from erreurs.erreurs import *
 
 
 ###############################################################################
@@ -187,19 +188,49 @@ class Mois(Modifier.Modifier):
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
 		@precondition : debut < fin, jour/debut/fin doivent etre
 			compris dans leurs intervalles respectifs
-		@rtype : tuple (Creneau, str)
-		@return : None si un problème à lieu + chaine explicative, un Creneau sinon
+		@raise ArgumentInvalide : SI jamais un des arguments ne permet pas la création
+			d'un Creneau.
+		@rtype : Creneau
+		@return : un Creneau 
 		"""
 		semaine = self.recupererSemaineParNumJour(jour)
 		if semaine is not None:
-			resultat = semaine.ajouterCreneau(jour, debut, fin, typeCreneau)
-			if resultat[0] is not None:
+			resultat = None
+			try:
+				resultat = semaine.ajouterCreneau(jour, debut, fin, typeCreneau)
+			except ArgumentInvalide:
+				raise
+			else:
 				self.ajoutDeCreneau()
-			#if
-			return resultat
+				return resultat
+			#try
 		else:
-			return (None, erreurs.ERREUR_SEMAINE_INTROUVABLE)
+			raise ArgumentInvalide("Ce jour " + str(jour) + " n'existe pas dans ce mois !")
 		#if
 	#ajouterCreneau
+	
+	
+	def supprimerCreneau(self, jour, idCreneau):
+		"""
+		Lance la suppression d'un L{Creneau} si il existe.
+		@param self : L'argument implicite
+		@type jour : int
+		@param jour : le numéro du jour où le créneau se situe.
+		@type idCreneau : ...
+		@param idCreneau : l'identifiant unique du créneau que l'on veut supprimer.
+		@raise CreneauInexistant : En cas d'erreur sur les arguments.
+		"""
+		semaineCible = self.recupererSemaineParNumJour(jour)
+		if semaineCible is None:
+			raise CreneauInexistant("Le jour numéro " + jour + " n'est pas dans ce mois !")
+		#if
+		try:
+			semaineCible.supprimerCreneau(jour, idCreneau)
+		except CreneauInexistant:
+			raise
+		else:
+			self.retraitDeCreneau()
+		#try
+	#supprimerCreneau
 	
 #Mois

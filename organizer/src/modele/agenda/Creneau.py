@@ -45,6 +45,19 @@ class Creneau(object):
 	#fin identifiant
 	
 	
+	@identifiant.setter
+	def identifiant(self, valeur):
+		"""
+		Un mutateur pour l'identifiant unique.
+		@param self : L'argument implicite.
+		@type valeur : ce qu'on veut
+		@param valeur : le nouvel identifiant.
+		@return : la valeur entière de l'identifiant
+		"""
+		self._identifiant = valeur
+	#fin identifiant
+	
+	
 	@property
 	def horaire(self):
 		"""

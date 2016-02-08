@@ -109,10 +109,9 @@ class Horaire(object):
 		"""
 		assert type(debut) is int, "debut doit etre un entier"
 		assert type(fin) is int, "fin doit etre un entier"
-		assert debut >= 1, "debut doit etre supérieur à 1"
-		assert fin > debut,"fin doit etre supérieur a debut"
-		assert self.getSemaineDe(debut) == self.getSemaineDe(fin), "2 moments dans 2 semaines différentes"
-		assert self.getJourDe(debut) == self.getJourDe(fin), "2 moments dans 2 jours différents"
+		assert debut >= 1 and debut <= 49, "debut doit etre supérieur à 1"
+		assert fin > debut, "fin doit etre supérieur a debut"
+		assert fin <= 49, "fin doit etre inférieur ou égal à 48"
 	#fin _assertArguments
 	
 	

@@ -3,10 +3,9 @@
 
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils")
-import Horaire
-import FabriqueCreneau
+import Horaire, FabriqueCreneau
 from FabriqueCreneau import CreneauxPossible as CP
-import erreurs
+from erreurs.erreurs import *
 
 ###############################################################################
 # Liste des valeurs légales pour un nom de jour.
@@ -99,18 +98,6 @@ class Jour(object):
 	#nom
 	
 	
-	@nom.setter
-	def nom(self, nouveauNom):
-		"""
-		Le mutateur pour changer le nom de ce jour.
-		@param self : L'argument implicite.
-		@type nouveauNom : str.
-		@param nouveauNom : le nom souhaité pour ce jour.
-		"""
-		self._nom = nouveauNom
-	#nom
-	
-	
 	@property
 	def creneaux(self):
 		"""
@@ -163,26 +150,47 @@ class Jour(object):
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
 		@precondition : debut < fin, debut/fin doivent etre
 			compris dans leurs intervalles respectifs
-		@rtype : tuple (Creneau, str)
-		@return : None si un problème à lieu + chaine explicative, un Creneau sinon
+		@raise ArgumentInvalide : Si un des arguments est mauvais.
+		@rtype : Creneau
+		@return : un Creneau.
 		"""
-		#fichier contenant les messages d'erreurs
 		horaire = None
 		try:
-			horaire = Horaire(debut, fin)
+			horaire = Horaire.Horaire(debut, fin)
 		except AssertionError:
-			return (None, erreurs.ERREUR_HORAIRE)
-		#except
-		#generer un ID !
-		nouvelId = 5
-		
-		nouveauCreneau = self._usine.fabrique(typeCreneau, nouvelId, horaire)
+			raise ArgumentInvalide("les horaires du creneaux sont invalides !")
+		#try
+
+		# L'identifiant sera attribué par les autorités habilités (Annee)
+		nouveauCreneau = self._usine.fabrique(typeCreneau, 1, horaire)
 		if nouveauCreneau is None:
-			return (None, erreurs.ERREUR_CREATION_CRENEAU)
+			raise ArgumentInvalide("Le créneau demandé " + str(typeCreneau) + " n'existe pas !")
 		#if
 		self.insererCreneau(nouveauCreneau)
-		return (nouveauCreneau, "")
+		return nouveauCreneau
 	#ajouterCreneau
 	
+	
+	def supprimerCreneau(self, idCreneau):
+		"""
+		Lance la suppression d'un L{Creneau} si il existe.
+		@param self : L'argument implicite
+		@type idCreneau : ...
+		@param idCreneau : l'identifiant unique du créneau que l'on veut supprimer.
+		@raise CreneauInexistant : En cas d'erreur sur les arguments.
+		"""
+		#stocker ailleurs ce creneau ? (ctrl-z, ctr-y)
+		cible = None
+		for creneau in self._creneaux:
+			if creneau.identifiant == idCreneau:
+				cible = creneau
+				break
+			#if
+		#for
+		if cible is None:
+			raise CreneauInexistant(" Pas de créneau portant cet identifiant " + str(idCreneau))
+		#if
+		self._creneaux.remove(cible)
+	#supprimerCreneau
 	
 #Jour

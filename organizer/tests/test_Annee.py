@@ -40,13 +40,83 @@ class Test_Annee(unittest.TestCase):
 	#test_get_an
 	
 	
-	@unittest.skip("inutile désormais, ici à titre de document")
-	def test_isleap(self):
-		"""Test de calendar.isleap()."""
-		print(calendar.isleap(2016))
-		print(calendar.isleap(2015))
-		print(calendar.isleap(1900))
-	#test_isleap
+	def test_recupererSemaineParNumJour(self):
+		"""Teste la récupération d'une semaine"""
+		cible = Annee(2002)
+		self.assertTrue(cible.recupererSemaineParNumJour(1, 15) is not None)
+	#test_recupererSemaineParNumJour_echec
+	
+	
+	def test_recupererSemaineParNumJour_echec(self):
+		"""Teste la récupération d'une semaine en cas de mauvais argument."""
+		cible = Annee(2002)
+		with self.assertRaises(Exception):
+			cible.recupererSemaineParNumJour(0, 15)
+		#with
+		with self.assertRaises(Exception):
+			cible.recupererSemaineParNumJour(13, 15)
+		#with
+	#test_recupererSemaineParNumJour_echec
+	
+	
+	def test_ajouterCreneau_ok(self):
+		"""Teste l'ajout en cas de succès"""
+		cible = Annee(2002)
+		self.assertIsNotNone(cible.ajouterCreneau(2, 15, 2, 8))
+		self.assertEqual(cible.nbCreneaux, 1)
+	#test_ajouterCreneau_ok
+	
+	
+	def test_ajouterCreneau_echec_interne(self):
+		"""Teste l'ajout en cas d'echec plus bas dans l'arborescence"""
+		cible = Annee(2002)
+		with self.assertRaises(Exception):
+			cible.ajouterCreneau(8, 33, 2, 5)
+		#with
+	#test_ajouterCreneau_echec_interne
+	
+	
+	def test_ajouterCreneau_echec_local(self):
+		"""Teste l'ajout en cas d'echec localement"""
+		cible = Annee(2002)
+		with self.assertRaises(Exception):
+			cible.ajouterCreneau(24, 33, 2, 5)
+		#with
+		with self.assertRaises(Exception):
+			cible.ajouterCreneau("15", 33, 2, 5)
+		#with
+	#test_ajouterCreneau_echec_local
+	
+	
+	def test_supprimerCreneau_ok(self):
+		"""Teste la suppression d'un creneau qui fonctionne"""
+		cible = Annee(2002)
+		cible.ajouterCreneau(2, 15, 2, 8)
+		cible.ajouterCreneau(2, 15, 2, 8)
+		cible.supprimerCreneau(2, 15, 1)
+		self.assertEqual(cible.nbCreneaux, 1)
+	#test_supprimerCreneau_ok
+	
+	
+	def test_supprimerCreneau_echec_interne(self):
+		"""
+		Teste la suppression d'un creneau avec de mauvais arguments
+		pour l'arborescence
+		"""
+		cible = Annee(2002)
+		with self.assertRaises(Exception):
+			cible.supprimerCreneau(1, 33, 158)
+		#with
+	#test_supprimerCreneau_echec_interne
+	
+	
+	def test_supprimerCreneau_echec_local(self):
+		"""Teste la suppression d'un creneau avec un mauvais numéro de mois"""
+		cible = Annee(2002)
+		with self.assertRaises(Exception):
+			cible.supprimerCreneau(15, 25, 158)
+		#with
+	#test_supprimerCreneau_echec_local
 	
 #Test_Annee
 

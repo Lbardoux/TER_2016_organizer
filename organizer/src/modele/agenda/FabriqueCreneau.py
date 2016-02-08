@@ -33,7 +33,7 @@ class FabriqueCreneau(Fabrique.Fabrique):
 		@param self : L'argument implicite.
 		"""
 		# ilfaudra tenir ce dictionnaire à jour si on veut créer d'autre choses.
-		# mais également l'enul situé plus haut
+		# mais également l'enum situé plus haut
 		monDico = {
 			CreneauxPossible.CRENEAU : lambda ident, horaire : Creneau.Creneau(ident, horaire),
 			CreneauxPossible.SEANCE : lambda ident, horaire : Seance.Seance(ident, horaire),

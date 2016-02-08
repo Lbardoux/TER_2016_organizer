@@ -97,8 +97,6 @@ class Test_Semaine(unittest.TestCase):
 		"""Teste d'une récupération qui fonctionne."""
 		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
 		self.assertTrue(cible.recupererJour(Jour.VENDREDI) is not None)
-		#Ce test ne passe pas, i lfaudra chercher pourquoi
-		#self.assertTrue(type(cible.recupererJour(Jour.VENDREDI)) is Jour)
 	#test_recupererJour_ok
 	
 	
@@ -107,6 +105,62 @@ class Test_Semaine(unittest.TestCase):
 		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
 		self.assertTrue(cible.recupererJour(Jour.DIMANCHE) is None)
 	#test_recupererJour_echec
+	
+	
+	def test_trouveJour_ok(self):
+		"""Teste si on trouve un jour qui existe !"""
+		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
+		self.assertEqual(cible._trouveJour(2), cible._jours[Jour.MERCREDI])
+		self.assertEqual(cible._trouveJour(5), cible._jours[Jour.SAMEDI])
+	#test_trouveJour_ok
+	
+	
+	def test_trouveJour_echec(self):
+		"""Teste si on ne trouve pas un jour inexistant !"""
+		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
+		self.assertIsNone(cible._trouveJour(1))
+		self.assertIsNone(cible._trouveJour(6))
+	#test_trouveJour_echec
+	
+	
+	def test_ajouteCreneau_ok(self):
+		"""Teste si l'ajout se passe bien quand tout est ok"""
+		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
+		self.assertIsNotNone(cible.ajouterCreneau(4, 5, 8))
+		self.assertEqual(cible.nbCreneaux, 1)
+	#test_ajouteCreneau_ok
+	
+	
+	def test_ajouteCreneau_echec(self):
+		"""Teste si l'ajout échoue bien quand un argument foire"""
+		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
+		with self.assertRaises(Exception):
+			cible.ajouterCreneau(2, -1, -1)
+		#with
+	#test_ajouteCreneau_echec
+	
+	
+	def test_supprimerCreneau_ok(self):
+		"""Teste si la suppression marche quand tout va bien"""
+		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
+		cible.ajouterCreneau(4, 2, 8)
+		cible.ajouterCreneau(4, 2, 12)
+		cible.ajouterCreneau(4, 24, 30)
+		cible.supprimerCreneau(4, 1)
+		self.assertEqual(len(cible._jours[Jour.VENDREDI]._creneaux), 2)
+	#test_supprimerCreneau_ok
+	
+	
+	def test_supprimerCreneau_echec(self):
+		"""Teste si la suppression echoue quand rien ne va"""
+		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
+		cible.ajouterCreneau(4, 2, 8)
+		cible.ajouterCreneau(4, 2, 12)
+		cible.ajouterCreneau(4, 24, 30)
+		with self.assertRaises(Exception):
+			cible.supprimerCreneau(4, 42)
+		#with
+	#test_supprimerCreneau_echec
 	
 #Test_Semaine
 
