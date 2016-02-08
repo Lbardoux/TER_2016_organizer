@@ -45,14 +45,6 @@ class Creneau(object):
 	#fin identifiant
 	
 	
-	@identifiant.setter
-	def identifiant(self, autre):
-		"""
-		Ne fais rien, on ne doit pas modifier l'identifiant
-		"""
-	#fin identifiant
-	
-	
 	@property
 	def horaire(self):
 		"""
@@ -73,9 +65,7 @@ class Creneau(object):
 		@type nouvelHoraire : Horaire
 		@precondition : L{type(nouvelHoraire) is Horaire}
 		"""
-		if type(nouvelHoraire) is Horaire:
-			self._horaire = nouvelHoraire
-		#if
+		self._horaire = nouvelHoraire
 	#fin horaire
 	
 	
@@ -87,20 +77,6 @@ class Creneau(object):
 		@return : une référence sur le dictionnaire qui contient ces informations.
 		"""
 		return self._informations
-	#fin informations
-	
-	
-	@identifiant.setter
-	def informations(self, autre):
-		"""
-		Un mutateur pour pouvoir initialiser à la volée les informations.
-		@param self : l'argument implicite.
-		@param autre : Le dictionnaire que l'on veut mettre à la place.
-		@type autre : dict
-		"""
-		if type(autre) is dict:
-			self._informations = autre
-		#if
 	#fin informations
 	
 	
@@ -135,5 +111,31 @@ class Creneau(object):
 			self._informations[clef] = info
 		#if
 	#fin ajouterInformation
+	
+	
+	def enleverInformation(self, clef):
+		"""Permet de supprimer, si elle existe, l'information associée à
+		M{clef}.
+		@param self : L'argument implicite.
+		@type clef : str
+		@param clef : la clef dont on veut supprimer l'information.
+		"""
+		if self.existe(clef):
+			del self._informations[clef]
+		#if
+	#enleverInformation
+	
+	
+	def __le__(self, autre):
+		"""
+		Permet de comparer des Creneaux via <=.
+		@param self : l'argument implicite.
+		@type autre : Creneau
+		@param autre : le second Creneau avec lequel comparer.
+		@rtype : bool
+		@return : True si self <= autre, False sinon.
+		"""
+		return self.horaire.debut <= autre.horaire.debut
+	#__le__
 	
 #fin Creneau

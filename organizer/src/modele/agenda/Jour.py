@@ -3,9 +3,10 @@
 
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils")
-import Modifier, Creneau, Horaire
+import Horaire
 import FabriqueCreneau
 from FabriqueCreneau import CreneauxPossible as CP
+import erreurs
 
 ###############################################################################
 # Liste des valeurs légales pour un nom de jour.
@@ -22,7 +23,7 @@ JOURS_LEGAUX = [LUNDI, MARDI, MERCREDI, JEUDI, VENDREDI, SAMEDI, DIMANCHE]
 ###############################################################################
 
 
-class Jour(Modifier.Modifier):
+class Jour(object):
 	"""
 	La classe qui représente un jour dans un agenda.
 	Cette classe va donc contenir des L{Creneau}, afin que l'on puisse trouver
@@ -35,6 +36,8 @@ class Jour(Modifier.Modifier):
 	@author : Laurent Bardoux p1108365
 	@version : 1.0
 	"""
+
+	_usine = FabriqueCreneau.FabriqueCreneau() #! La fabrique communes aux Jour
 	
 	def __init__(self, numero, nom=LUNDI):
 		"""
@@ -45,7 +48,6 @@ class Jour(Modifier.Modifier):
 		@type nom : str.
 		@param nom : le nom du jour (de Lundi à Dimanche), optionnel (lundi par défaut).
 		"""
-		super(Jour, self).__init__()
 		self._numero = numero
 		self._creneaux = list()
 		
@@ -169,9 +171,17 @@ class Jour(Modifier.Modifier):
 		try:
 			horaire = Horaire(debut, fin)
 		except AssertionError:
-			return (None, "")
+			return (None, erreurs.ERREUR_HORAIRE)
 		#except
+		#generer un ID !
+		nouvelId = 5
 		
+		nouveauCreneau = self._usine.fabrique(typeCreneau, nouvelId, horaire)
+		if nouveauCreneau is None:
+			return (None, erreurs.ERREUR_CREATION_CRENEAU)
+		#if
+		self.insererCreneau(nouveauCreneau)
+		return (nouveauCreneau, "")
 	#ajouterCreneau
 	
 	

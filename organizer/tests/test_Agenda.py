@@ -13,29 +13,22 @@ class Test_Agenda(unittest.TestCase):
 	"""
 	
 	def setUp(self):
-		"""
-		A faire avant chaque test
-		"""
+		"""A faire avant chaque test"""
 		self.cible = Agenda("testons", 2016)
 	#fin setUp
 	
 	
 	def test_init(self):
-		"""
-		Teste le constructeur
-		"""
+		"""Teste le constructeur"""
 		self.assertEqual(self.cible._nom, "testons")
 		self.assertTrue(self.cible._pere is None)
 		self.assertEqual(len(self.cible._listeFils), 0)
-		self.assertEqual(len(self.cible._listeCreneaux), 0)
 		self.assertEqual(len(self.cible._listeAnnees), 1)
 	#fin test_init
 	
 	
 	def test_pere(self):
-		"""
-		Testes les propriétés liés à self._pere
-		"""
+		"""Testes les propriétés liés à self._pere"""
 		self.assertTrue(self.cible.pere is None)
 		self.cible.pere = 25
 		self.assertTrue(self.cible.pere is None)
@@ -45,9 +38,7 @@ class Test_Agenda(unittest.TestCase):
 	
 	
 	def test_nom(self):
-		"""
-		Tests sur nom via les propriétés
-		"""
+		"""Tests sur nom via les propriétés"""
 		self.assertEqual(self.cible.nom, "testons")
 		self.cible.nom = 25
 		self.assertEqual(self.cible.nom, "testons")
@@ -57,23 +48,11 @@ class Test_Agenda(unittest.TestCase):
 	
 	
 	def test_listeFils(self):
-		"""
-		Tests sur listeFils via les propriétés
-		"""
+		"""Tests sur listeFils via les propriétés"""
 		self.assertTrue(type(self.cible.listeFils) is list)
 		self.cible.listeFils = 18
 		self.assertTrue(type(self.cible.listeFils) is list)
 	#fin test_listeFils
-	
-	
-	def test_listeFils(self):
-		"""
-		Tests sur listeCreneaux via les propriétés
-		"""
-		self.assertTrue(type(self.cible.listeCreneaux) is list)
-		self.cible.listeCreneaux = 18
-		self.assertTrue(type(self.cible.listeCreneaux) is list)
-	#fin test_listeCreneaux
 	
 	
 	def test_insertionFils(self):
@@ -100,7 +79,6 @@ class Test_Agenda(unittest.TestCase):
 		self.cible.retirerFils("fiston1")
 		self.assertEqual(len(self.cible.listeFils), 1)
 	#fin test_retirerFils
-	
 	
 #fin Test_Agenda
 

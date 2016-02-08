@@ -1,11 +1,13 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 
-import Jour
-import Semaine
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils/erreurs")
+import Jour, Semaine, Modifier
 from Semaine import Semaine, construireArgument
 from FabriqueCreneau import CreneauxPossible as CP
-import Modifier
+import erreurs
+
 
 ###############################################################################
 # Liste des valeurs légales pour un nom de mois.
@@ -24,11 +26,6 @@ NOVEMBRE = "novembre"
 DECEMBRE = "decembre"
 
 MOIS_LEGAUX = [JANVIER, FEVRIER, MARS, AVRIL, MAI, JUIN, JUILLET, AOUT, SEPTEMBRE, OCTOBRE, NOVEMBRE, DECEMBRE]
-###############################################################################
-
-###############################################################################
-# Messages d'erreurs pour cette partie :
-ERREUR_SEMAINE_INTROUVABLE = ""
 ###############################################################################
 
 
@@ -201,7 +198,7 @@ class Mois(Modifier.Modifier):
 			#if
 			return resultat
 		else:
-			return (None, ERREUR_SEMAINE_INTROUVABLE)
+			return (None, erreurs.ERREUR_SEMAINE_INTROUVABLE)
 		#if
 	#ajouterCreneau
 	

@@ -3,7 +3,7 @@
 
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils")
-from outils.VerifierContenuListe import verifier
+from VerifierContenuListe import verifier
 from FabriqueCreneau import CreneauxPossible as CP
 import Annee
 
@@ -50,8 +50,8 @@ class Agenda(object):
 		self._nom = nom
 		self._pere = None
 		self._listeFils = list()
-		self._ListeAnnees = list()
-		self._listeAnnees.insert(Annee.Annee(annee))
+		self._listeAnnees = list()
+		self._listeAnnees.append(Annee.Annee(annee))
 	#fin __init__
 	
 	

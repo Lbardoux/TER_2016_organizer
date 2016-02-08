@@ -20,6 +20,7 @@ class Test_Jour(unittest.TestCase):
 		self.assertEqual(cible._numero, numJour)
 		self.assertEqual(cible._nom, "lundi")
 		self.assertEqual(len(cible._creneaux), 0)
+		self.assertTrue(cible._usine is not None)
 	#test_instanciation
 	
 	

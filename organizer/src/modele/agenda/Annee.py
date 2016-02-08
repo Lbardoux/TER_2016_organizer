@@ -1,12 +1,14 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 
+
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils/erreurs")
 import calendar
 from datetime import datetime
 from Jour import JOURS_LEGAUX
 from FabriqueCreneau import CreneauxPossible as CP
-import Mois
-import Modifier
+import Mois, Modifier, erreurs
 
 class Annee(Modifier.Modifier):
 	"""
@@ -132,7 +134,7 @@ class Annee(Modifier.Modifier):
 		@return : None si un problème à lieu + chaine explicative, un Creenau sinon
 		"""
 		if mois < 1 or mois > 12:
-			return (None, "Le mois " + str(mois) + " n'existe pas !")
+			return (None, erreurs.ERREUR_MOIS_INEXISTANT)
 		#if
 		nomMois = MOIS_LEGAUX[mois-1]
 		resultat = self._mois[nomMois].ajouterCreneau(jour, debut, fin, typeCreneau)
