@@ -130,6 +130,11 @@ class Test_Agenda(unittest.TestCase):
 		#with
 	#test_supprimerCreneau_echec_interne
 	
+	
+	def test_recupererSemaineParNumJour(self):
+		"""
+		"""
+	
 #fin Test_Agenda
 
 if __name__ == "__main__":

@@ -30,12 +30,11 @@ class IntegrationAgenda:
 	
 	def choperDonnees(self):
 		"""Renvoi le dictionnaire de jour pour tester"""
-		return self.resultat.recupererSemaine(2016, 1, 5)
+		return self.resultat.recupererSemaineParNumJour(2016, 1, 5)
 	#choperDonnees
 	
 #IntegrationAgenda
 
 if __name__ == "__main__":
 	test = IntegrationAgenda()
-	print(test.choperDonnees())
 #if

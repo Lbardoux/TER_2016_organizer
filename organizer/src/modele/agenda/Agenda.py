@@ -193,6 +193,28 @@ class Agenda(object):
 	#_trouveAnnee
 	
 	
+	def _autoVivification(self, cible, annee):
+		"""
+		Gère l'autovivification  de ce dictionnaire si cible est None.
+		Ie crée une nouvelle L{Annee} avec M{annee} comme numéro.
+		Ne fait rien si cible n'est pas None.
+		@param self : L'argument implicite.
+		@type cible : L{Annee}
+		@param cible : None (résultat de la recherche de _trouveAnnee) ou une Annee
+		@type annee : int
+		@param annee : l'annee que l'on veut potentiellement vivifier.
+		@rtype : Annee
+		@return : une Annee, quoiqu'il arrive.
+		"""
+		if cible is None:
+			temp = Annee.Annee(annee)
+			self._listeAnnees.append(temp)
+			return temp
+		#if
+		return cible
+	#_autoVivification
+	
+	
 	def ajouterCreneau(self, annee, mois, jour, debut, fin, typeCreneau=CP.CRENEAU):
 		"""
 		Etape 1 de la descente dans l'architecture.
@@ -218,14 +240,7 @@ class Agenda(object):
 		@rtype : L{Creneau}
 		@return : Un créneau nouvellement créé.
 		"""
-		cible = self._trouveAnnee(annee)
-		
-		if cible is None: # cas ou on ne l'a pas trouvé --> auto-vivification
-			cible = Annee.Annee(annee)
-			self._listeAnnees.append(cible)
-		#if
-
-		#Cette ligne peut balancer l'exception !
+		cible = self._autoVivification(self._trouveAnnee(annee), annee)
 		return cible.ajouterCreneau(mois, jour, debut, fin, typeCreneau)
 	#ajouterCreneau
 	
@@ -254,7 +269,7 @@ class Agenda(object):
 	#supprimerCreneau
 	
 	
-	def recupererSemaine(self, annee, mois, jour):
+	def recupererSemaineParNumJour(self, annee, mois, jour):
 		"""
 		Permet de récupérer une Semaine sous la forme d'un
 		dictionnaire de jour (mapping : "lundi" -> list(Jour)).
@@ -268,9 +283,13 @@ class Agenda(object):
 		@rtype : dict
 		@return : le dictionnaire de la L{Semaine} dont le jour jour/mois/annee fait parti.
 		"""
-		#rustine
-		return self._listeAnnees[0]._mois["janvier"]._semaines[1]._jours
-	#recupererSemaine
+		cible = self._autoVivification(self._trouveAnnee(annee), annee)
+		semaine = cible.recupererSemaineParNumJour(mois, jour)
+		if semaine is None:
+			raise SemaineIntrouvable("La semaine demandée est introuvable !")
+		#if
+		return semaine
+	#recupererSemaineParNumJour
 	
 #fin Agenda
 

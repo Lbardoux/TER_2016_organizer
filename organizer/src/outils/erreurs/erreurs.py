@@ -37,7 +37,6 @@ class CreneauInexistant(NosExceptions):
 	trouvé lors d'une recherche.
 	@author : Laurent Bardoux p1108365
 	"""
-	
 #CreneauInexistant
 
 
@@ -46,5 +45,12 @@ class ArgumentInvalide(NosExceptions):
 	Décrit une exception qui doit survenir en cas d'erreur sur les arguments.
 	@author : Laurent Bardoux p1108365
 	"""
-	
 #ArgumentInvalide
+
+
+class SemaineIntrouvable(NosExceptions):
+	"""
+	Décrit une exception qui doit survenir si un get d'une Semaine échoue/
+	@author : Laurent Bardoux p1108365
+	"""
+#SemaineIntrouvable 
