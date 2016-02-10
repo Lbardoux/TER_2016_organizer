@@ -17,7 +17,7 @@ all :
 	
 
 doc : mrproper
-	@epydoc --html -o doc/html/ -v src/ >doc/report.txt
+	@epydoc --debug --html -o doc/html/ -v src/ >doc/report.txt
 	@echo "Fin de la génération de la doc dans doc/html"
 	@echo "Pour un compte-rendu, voir doc/report.txt"
 
@@ -47,3 +47,13 @@ clean :
 # Appel à ce monsieur musculeux et chauve
 mrproper : clean
 	rm -Rf doc/html/*
+
+install:
+	# on fera un Readme exigeant d'avoir setuptools, etc
+	#installation de icalendar
+	$(PYTHON) $(SRC_DIR)icalendar-3.9.2/setup.py install
+	#installation de pyconstraint
+	$(PYTHON) $(SRC_DIR)pyconstraints-1.0.1/setup.py install
+	#installation de pytz	
+	$(PYTHON) $(SRC_DIR)pytz-2015.7/setup.py install
+

@@ -69,7 +69,7 @@ class Formation(object):
 		Le mutateur pour l'identifiant de cette Formation
 		@param self : L'argument implicite
 		@param nouvelId : le nouvel identifiant voulu
-		@type nouvelid : entier naturel non nul
+		@type nouvelId : entier naturel non nul
 		"""
 		if nouvelId > 0:
 			self._idFormation = nouvelId
@@ -91,7 +91,7 @@ class Formation(object):
 		Le mutateur pour l'identifiant de l'enseignant
 		@param self : L'argument implicite
 		@param nouvelId : le nouvel identifiant voulu
-		@type nouvelid : entier naturel non nul
+		@type nouvelId : entier naturel non nul
 		"""
 		if nouvelId > 0:
 			self._idEnseignant = nouvelId

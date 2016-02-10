@@ -18,16 +18,15 @@ class Creneau(object):
 	def __init__(self, identifiant, horaire):
 		"""
 		Le constructeur de cette classe.
-		@precondition : identifiant doit etre unique dans toute l'application !
-		@precondition : M{horaire is not None}
-		@param self : l'argument implicite
-		@param identifiant : l'id unique associé à ce créneau.
-		@type identifiant : entier naturel non nul.
+		@precondition: identifiant doit etre unique dans une annee , M{horaire is not None}.
+		@param self: l'argument implicite
+		@param identifiant: l'id unique associé à ce créneau.
+		@type identifiant: entier naturel non nul.
 		@param horaire : une instance de Horaire, qui définira le placement sur l'agenda
 		@type horaire : Horaire
-		@raise AssertionError : Si les arguments ne correspondent pas
+		Globalement, on peut mettre ce que l'on veut comme identifiant, comme un
+		UID, ou un simple entier.
 		"""
-		assert type(identifiant) is int and identifiant > 0, "Il faut un entier > 0 comme id"
 		self._identifiant = identifiant
 		self._horaire = horaire
 		self._informations = dict()
@@ -61,9 +60,7 @@ class Creneau(object):
 	@property
 	def horaire(self):
 		"""
-		Un accesseur pour l'Horaire contenu dans le Creneau.
-		@param self : L'argument implicite
-		@return : la référence sur l'Horaire
+		Un accesseur pour l'L{Horaire} contenu dans le Creneau.
 		"""
 		return self._horaire
 	#fin horaire
@@ -73,10 +70,7 @@ class Creneau(object):
 	def horaire(self, nouvelHoraire):
 		"""
 		Un setter pour l'Horaire.
-		@param self : L'argument implicite
-		@param nouvelHoraire : Le nouvel ... Horaire !
-		@type nouvelHoraire : Horaire
-		@precondition : L{type(nouvelHoraire) is Horaire}
+		@precondition: type(nouvelHoraire) is Horaire
 		"""
 		self._horaire = nouvelHoraire
 	#fin horaire
@@ -118,7 +112,7 @@ class Creneau(object):
 		@type clef : str, qui doit etre unique dans le dictionnaire.
 		@param info : Ce que l'on veut stocker dans le dictionnaire.
 		@type info : Ce que l'on veut
-		@precondition : L{type(clef) is str}
+		@precondition : type(clef) is str
 		"""
 		if not self.existe(clef):
 			self._informations[clef] = info
@@ -142,11 +136,11 @@ class Creneau(object):
 	def __le__(self, autre):
 		"""
 		Permet de comparer des Creneaux via <=.
-		@param self : l'argument implicite.
-		@type autre : Creneau
-		@param autre : le second Creneau avec lequel comparer.
-		@rtype : bool
-		@return : True si self <= autre, False sinon.
+		@param self: l'argument implicite.
+		@type autre: Creneau
+		@param autre: le second Creneau avec lequel comparer.
+		@rtype: bool
+		@return: True si self <= autre, False sinon.
 		"""
 		return self.horaire.debut <= autre.horaire.debut
 	#__le__

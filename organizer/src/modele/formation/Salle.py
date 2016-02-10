@@ -51,7 +51,7 @@ class Salle(object):
 		Le mutateur pour l'identifiant de la salle
 		@param self : L'argument implicite
 		@param nouvelId : le nouvel identifiant voulu
-		@type nouvelid : entier naturel non nul
+		@type nouvelId : entier naturel non nul
 		"""
 		if nouvelId > 0:
 			self._idSalle = nouvelId

@@ -110,16 +110,16 @@ class Test_Semaine(unittest.TestCase):
 	def test_trouveJour_ok(self):
 		"""Teste si on trouve un jour qui existe !"""
 		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
-		self.assertEqual(cible._trouveJour(2), cible._jours[Jour.MERCREDI])
-		self.assertEqual(cible._trouveJour(5), cible._jours[Jour.SAMEDI])
+		self.assertEqual(cible.trouveJour(2), cible._jours[Jour.MERCREDI])
+		self.assertEqual(cible.trouveJour(5), cible._jours[Jour.SAMEDI])
 	#test_trouveJour_ok
 	
 	
 	def test_trouveJour_echec(self):
 		"""Teste si on ne trouve pas un jour inexistant !"""
 		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
-		self.assertIsNone(cible._trouveJour(1))
-		self.assertIsNone(cible._trouveJour(6))
+		self.assertIsNone(cible.trouveJour(1))
+		self.assertIsNone(cible.trouveJour(6))
 	#test_trouveJour_echec
 	
 	

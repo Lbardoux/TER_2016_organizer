@@ -53,8 +53,7 @@ class Groupe(object):
 		@param nouveauNombre : le nouveau numero voulu
 		@type nouveauNombre : entier naturel non nul
 		@precondition : M{nouveauNumero > 0}
-		@postcondition : si nouveauNumero est correct, alors le numero
-			du groupe change.
+		@postcondition : si nouveauNumero est correct, alors le numero du groupe change.
 		"""
 		if nouveauNombre > 0:
 			self._nbPersonne = nouveauNombre
@@ -81,8 +80,7 @@ class Groupe(object):
 		@param nouveauNumero : le nouveau numero voulu
 		@type nouveauNumero : entier naturel non nul
 		@precondition : M{nouveauNumero > 0}
-		@postcondition : si nouveauNumero est correct, alors le numero
-			du groupe change.
+		@postcondition : si nouveauNumero est correct, alors le numero du groupe change.
 		"""
 		if nouveauNumero > 0:
 			self._numero = nouveauNumero

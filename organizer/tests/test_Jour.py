@@ -121,8 +121,8 @@ class Test_Jour(unittest.TestCase):
 	
 	def test_ajouterCreneau_mauvais_horaire(self):
 		"""Teste si un mauvais horaire renvoi bien une exception."""
-		d = ["pas int", 14, 0, -5, 18]
-		f = [25, "pas int", 14, 14, 17]
+		d = ["pas int", 14, 18]
+		f = [25, "pas int", 14]
 		i = 0
 		cible = Jour(15, LUNDI)
 		while i < len(f):

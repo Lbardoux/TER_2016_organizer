@@ -22,20 +22,6 @@ class Test_Agenda(unittest.TestCase):
 	#test_init_ok
 	
 	
-	def test_init_echec(self):
-		"""Teste si l'initialisation ne marche pas si on ne fait une erreur"""
-		with self.assertRaises(AssertionError):
-			cible = Creneau(0, Horaire(1, 8))
-		#with
-		with self.assertRaises(AssertionError):
-			cible = Creneau(-5, Horaire(1, 8))
-		#with
-		with self.assertRaises(AssertionError):
-			cible = Creneau("lol", Horaire(1, 8))
-		#with
-	#test_init_echec
-	
-	
 	def test_inferieur_ou_egal(self):
 		"""Test si <= fonctionne bien entre Creneau"""
 		c1 = Creneau(45, Horaire(15, 18))

@@ -2,11 +2,8 @@
 # -*-coding:utf-8 -*
 
 import Annee
-import sys, os
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils")
-#from VerifierContenuListe import verifier
 from FabriqueCreneau import CreneauxPossible as CP
-from erreurs.erreurs import *
+from importations import AgendaDepuisIcs
 
 class Agenda(object):
 	"""
@@ -17,26 +14,25 @@ class Agenda(object):
 	principale.
 	Les "fils" sont des dépendances (ou des contraintes) qu'il va falloir respecter.
 	
-	L{EXEMPLE} :
+	EXEMPLE :
 	AgendaCours
-	   |------ AgendaVacance
-	   |------ AgendaEnseignant1
-	   |              `-------------etc
-	   `------ AgendaRecherche
+	|------ AgendaVacance
+	|------ AgendaEnseignant1
+	|              `-------------etc
+	`------ AgendaRecherche
 	Ainsi, toutes Modifications dans les fils doit impliquer des vérifications dans le
 	père.
-	
-	@ivar _nom : le nom de l'agenda courant
-	@ivar _pere : l'agenda pere, None équivaut à la racine.
-	@ivar _listeFils : Le niveau inférieur de l'arborescence
-	@ivar _listeAnnees : la liste des L{Annee} disponible pour cet agenda.
-	
 	A note que la liste des L{Annee} sera régit par un mécanisme d'autovivification.
 	ie, que la demande d'une année qui n'existe pas dans la liste entrainera sa création,
 	meme si celle-ci reste vide au final.
 	
-	@author : Laurent Bardoux p1108365
-	@version : 1.0
+	@author: Laurent Bardoux p1108365
+	@version: 1.0
+	
+	@ivar _nom: le nom de l'agenda courant
+	@ivar _pere: l'agenda pere, None équivaut à la racine.
+	@ivar _listeFils: Le niveau inférieur de l'arborescence
+	@ivar _listeAnnees: la liste des L{Annee} disponible pour cet agenda.
 	"""
 	
 	def __init__(self, nom, annee):
@@ -59,9 +55,9 @@ class Agenda(object):
 	def pere(self):
 		"""
 		Un accesseur pour le père de cet agenda.
-		@param self : l'argument implicite
-		@rtype : L{Agenda}
-		@return une référence sur l'Agenda père, ou None si il n'y en a pas.
+		@param self: l'argument implicite
+		@rtype: L{Agenda}
+		@return: une référence sur l'Agenda père, ou None si il n'y en a pas.
 		"""
 		return self._pere
 	#pere
@@ -71,11 +67,11 @@ class Agenda(object):
 	def pere(self, agendaPere):
 		"""
 		Une fonction pour ajouter un père à cet agenda.
-		@precondition : agendaPere is not None
-		@postcondition : si self._pere était à None, agendaPere devient le père de cet agenda.
-		@param self : le paramètre implicite
-		@param agendaPere : le futur papa de l'agenda courant
-		@type agendaPere : Agenda, ou un type dérivé
+		@precondition: agendaPere is not None.
+		@postcondition: si self._pere était à None, agendaPere devient le père de cet agenda.
+		@param self: le paramètre implicite
+		@param agendaPere: le futur papa de l'agenda courant
+		@type agendaPere: Agenda, ou un type dérivé
 		"""
 		self._pere = agendaPere
 	#pere
@@ -95,16 +91,18 @@ class Agenda(object):
 	
 	@nom.setter
 	def nom(self, autreNom):
-		"""
-		Le mutateur associé au nom.
-		@param self : l'argument implicite.
-		@param autreNom : le nom que l'on souhaite mettre.
-		@type autreNom : str
-		"""
+		"""Le mutateur associé au nom."""
 		if type(autreNom) is str:
 			self._nom = autreNom
 		#if
 	#nom
+	
+	
+	@property
+	def listeAnnees(self):
+		"""Un accesseur pour la liste des années"""
+		return self._listeAnnees
+	#listeAnnees
 	
 	
 	@property
@@ -140,8 +138,8 @@ class Agenda(object):
 		Cette fonction permet d'insérer des fils à cet agenda.
 		Les ajouts se feront à la fin de la liste.
 		@param self : l'argument implicite
-		@param *fils : un nombre variable d'arguments, de préférence des agendas
-		@type *fils : des Agendas
+		@param fils : un nombre variable d'arguments, de préférence des agendas
+		@type fils : des Agendas
 		@precondition : *fils doit être constitué d'Agendas
 		@postcondition : seul les agendas sont insérés dans la liste
 		@rtype : int
@@ -163,8 +161,8 @@ class Agenda(object):
 		Elle devra surement être mis à jour pour éviter les références circulaires
 		ou propager les destructions.
 		@param self : l'argument implicite.
-		@param *nomFils : Les noms des agendas directs de l'agenda courant.
-		@type *nomFils : list(str)
+		@param nomFils : Les noms des agendas directs de l'agenda courant.
+		@type nomFils : list(str)
 		@postcondition : les agendas ayant les noms apparaissant dans la liste sont retirés
 		"""
 		for nom in nomFils:
@@ -234,8 +232,7 @@ class Agenda(object):
 		@param fin : l'heure de fin du créneau
 		@type typeCreneau : enum
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
-		@precondition : debut < fin, mois/jour/debut/fin doivent etre
-			compris dans leurs intervalles respectifs
+		@precondition : debut < fin, mois/jour/debut/fin doivent etre compris dans leurs intervalles respectifs
 		@raise ArgumentInvalide : si les arguments sont erronés.
 		@rtype : L{Creneau}
 		@return : Un créneau nouvellement créé.
@@ -261,7 +258,7 @@ class Agenda(object):
 		"""
 		anneeCible = self._trouveAnnee(annee)
 		if anneeCible is None:
-			raise CreneauInexistant("L'année " + str(annee) + " n'existe pas !")
+			raise ValueError("L'année " + str(annee) + " n'existe pas !")
 		#if
 		
 		# Cette ligne peut balancer une exception.
@@ -280,18 +277,50 @@ class Agenda(object):
 		@param mois : Le mois maintenant, de l'annee en question.
 		@type jour : int
 		@param jour : un des numéros de jours de ce mois
-		@rtype : dict
-		@return : le dictionnaire de la L{Semaine} dont le jour jour/mois/annee fait parti.
+		@raise ValueError : si un des arguments ne matche pas 
+		@rtype : L{Semaine}
+		@return : La semaine désirée
 		"""
 		cible = self._autoVivification(self._trouveAnnee(annee), annee)
 		semaine = cible.recupererSemaineParNumJour(mois, jour)
-		if semaine is None:
-			raise SemaineIntrouvable("La semaine demandée est introuvable !")
-		#if
 		return semaine
 	#recupererSemaineParNumJour
 	
+	
+	def recupererJour(self, annee, mois, jour):
+		"""
+		Permet de récupérer un jour spécifique selon le format suivant :
+		jour_voulu = M{jour/mois/annee}
+		L'autovivification est également assurée, permettant de toujours
+		récupérer une liste si les arguments sont cohérents.
+		@param self : L'argument implicite.
+		@type annee : int
+		@param annee : l'Année dont on veut récupérer les données.
+		@type mois : int
+		@param mois : Le mois maintenant, de l'annee en question.
+		@type jour : int
+		@param jour : un des numéros de jours de ce mois
+		@rtype : list
+		@return : la liste des L{Creneau} de ce jour là, toujours, meme si elle est vide.
+		@raise ValueError : si un des arguments est mauvais.
+		"""
+		semaine = self.recupererSemaineParNumJour(annee, mois, jour)
+		resultat = semaine.trouveJour(jour)
+		return resultat.creneaux
+	#recupererJour
+	
+	
+	def importeDepuisIcs(self, nomFichier):
+		"""
+		Permet d'importer depuis un fichier Ics (qui sera le seul format
+		d'importation, vu son coté standard).
+		@param self : L'argument implicite.
+		@type nomFichier : str
+		@param nomFichier : le nom du fichier qui doit etre importer.
+		@precondition : le fichier doit avoir .ics comme extension.
+		@raise ValueError : si le parsing marche mal (erreur de syntaxe en général), ou extension de fichier mauvaise.
+		@raise IOError : si le fichier est introuvable
+		"""
+		importeur = AgendaDepuisIcs.importer(self, nomFichier)
+	#importeDepuisIcs
 #fin Agenda
-
-
-

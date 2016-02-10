@@ -33,8 +33,8 @@ class Fabrique(object):
 		@param self : L'argument implicite
 		@type clef : ce que vous voulez.
 		@param clef : Ce qui va permettre de choisir ce que l'on veut fabriquer.
-		@type *arguments : un nombre variable d'arguments.
-		@param *arguments : les arguments potentiels pour la fabrication.
+		@type arguments : un nombre variable d'arguments.
+		@param arguments : les arguments potentiels pour la fabrication.
 		@precondition : clef doit exister dans la fabrique !
 		"""
 		# ici, None représente ce qu'il faut renvoyer si clef n'existe pas.

@@ -47,6 +47,12 @@ class Test_Agenda(unittest.TestCase):
 	#fin test_nom
 	
 	
+	def test_listeAnnees(self):
+		"""Teste la propriété get de _listeAnnees"""
+		self.assertTrue(type(self.cible.listeAnnees) is list)
+	#test_listeAnnees
+	
+	
 	def test_listeFils(self):
 		"""Tests sur listeFils via les propriétés"""
 		self.assertTrue(type(self.cible.listeFils) is list)
@@ -122,7 +128,7 @@ class Test_Agenda(unittest.TestCase):
 	
 	
 	def test_supprimerCreneau_echec_interne(self):
-		"""Teste la suppression qu iéchoue plus bas à cause des arguments"""
+		"""Teste la suppression qui échoue plus bas à cause des arguments"""
 		self.assertIsNotNone(self.cible.ajouterCreneau(2015, 5, 24, 12, 18))
 		self.assertIsNotNone(self.cible.ajouterCreneau(2015, 5, 24, 18, 24))
 		with self.assertRaises(Exception):
@@ -131,9 +137,60 @@ class Test_Agenda(unittest.TestCase):
 	#test_supprimerCreneau_echec_interne
 	
 	
-	def test_recupererSemaineParNumJour(self):
-		"""
-		"""
+	def test_recupererSemaineParNumJour_ok(self):
+		"""Teste la récupération en succes"""
+		test = self.cible.recupererSemaineParNumJour(2016, 5, 5)
+		self.assertIsNotNone(test)
+	#test_recupererSemaineParNumJour_ok
+	
+	
+	def test_recupererSemaineParNumJour_echec(self):
+		"""Teste la récupération en echec"""
+		with self.assertRaises(Exception):
+			self.cible.recupererSemaineParNumJour(2016, 35, 5)
+		#with
+	#test_recupererSemaineParNumJour_echec
+	
+	
+	def test_importeDepuisIcs_erreur_extension(self):
+		"""Teste si une erreur d'extension génère bien une exception"""
+		with self.assertRaises(ValueError):
+			self.cible.importeDepuisIcs("oups.icssss")
+		#with
+	#test_importeDepuisIcs_erreur_extension
+	
+	
+	def test_importeDepuisIcs_sans_erreur(self):
+		"""Teste si une bonne extension ne génère pas d'exception"""
+		self.cible.importeDepuisIcs("tests/ADECal.ics")
+	#test_importeDepuisIcs_sans_erreur
+	
+	
+	def test_recupererJour_ok(self):
+		"""Teste la recuperation d'un jour avec de bons arguments"""
+		#cela renverra forcément quelque chose
+		listeMois = [i+1 for i in range(12)]
+		listeJourCommuns = [i+1 for i in range(27)]
+		anneecibles = [2005, 2016, 2012]
+		
+		for i in anneecibles:
+			for j in listeMois:
+				for k in listeJourCommuns:
+					self.assertTrue(type(self.cible.recupererJour(i, j, k))is list)
+				#for
+			#for
+		#for
+	#test_recupererJour_ok
+	
+	
+	def test_recupererJour_echec(self):
+		"""Teste la recuperation d'un jour en echec si les arguments sont mauvais"""
+		for i in [-1, 0, 13]:
+			with self.assertRaises(ValueError):
+				self.cible.recupererJour(2015, i, 15)
+			#with
+		#for
+	#test_recupererJour_ok
 	
 #fin Test_Agenda
 

@@ -9,8 +9,8 @@ from vue.mainwindow import *
 class CSP_organizer:
 	"""
 	La classe principale du programme
-	@author : Laurent Bardoux p1108365
-	@author : Zhuying Liu     p1306849
+	@author: Laurent Bardoux p1108365
+	@author: Zhuying Liu     p1306849
 	"""
 	
 	def __init__(self):

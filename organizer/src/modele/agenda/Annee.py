@@ -7,7 +7,6 @@ import Mois, Modifier, GenerateurId
 from Jour import JOURS_LEGAUX
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils/")
 from FabriqueCreneau import CreneauxPossible as CP
-from erreurs.erreurs import *
 
 
 class Annee(Modifier.Modifier):
@@ -15,7 +14,7 @@ class Annee(Modifier.Modifier):
 	La classe la plus haute dans la hiérarchie de stockage d'un agenda.
 	Elle représente une année, du 1er janvier au 31 decembre.
 	De ce fait, elle gère les années spécifiques, et l'arborescence
-	des L{Mois}, L{Semaines} et L{Jour}.
+	des L{Mois}, L{Semaine} et L{Jour}.
 	C'est également le point d'entrée de la structure de stockage.
 	@ivar _mois : un dictionnaire des L{Mois} disponibles.
 	@ivar _an : l'année courante (2006 par exemple).
@@ -69,15 +68,16 @@ class Annee(Modifier.Modifier):
 	
 	@property
 	def an(self):
-		"""
-		L'accesseur pour l'année de cette...Année !
-		@param self : L'argument implicite.
-		@rtype : int
-		@return : l'année en cours au format numérique.
-		"""
+		"""L'accesseur pour l'année de cette...Année !"""
 		return self._an
 	#an
 	
+	
+	@property
+	def mois(self):
+		"""Un accesseur pour les mois (dict)"""
+		return self._mois
+	#mois
 	
 	def recupererSemaineParNumJour(self, mois, jour):
 		"""
@@ -94,7 +94,7 @@ class Annee(Modifier.Modifier):
 		@return : la semaine demandé si elle existe.
 		"""
 		if mois < 1 or mois > 12:
-			raise ArgumentInvalide("Ce numéro " + str(mois) + " est invalide !")
+			raise ValueError("Ce numéro " + str(mois) + " est invalide !")
 		#if
 		nomMois = Mois.MOIS_LEGAUX[mois-1]
 		return self._mois[nomMois].recupererSemaineParNumJour(jour)
@@ -104,7 +104,7 @@ class Annee(Modifier.Modifier):
 	def ajouterCreneau(self, mois, jour, debut, fin, typeCreneau=CP.CRENEAU):
 		"""
 		Etape 2 de la descente dans l'architecture.
-		Ceci va "ajouter" un L{Creneau} dans le M{mois}}, M{jour}, entre
+		Ceci va "ajouter" un L{Creneau} dans le M{mois}, M{jour}, entre
 		M{debut} et M{fin}.
 		@param self : L'argument implicite
 		@type mois : int
@@ -117,20 +117,19 @@ class Annee(Modifier.Modifier):
 		@param fin : l'heure de fin du créneau
 		@type typeCreneau : enum
 		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
-		@precondition : debut < fin, mois/jour/debut/fin doivent etre
-			compris dans leurs intervalles respectifs
+		@precondition : debut < fin, mois/jour/debut/fin doivent etre compris dans leurs intervalles respectifs
 		@raise ArgumentInvalide : Si un problème avec les arguments a eu lieu.
 		@rtype : Creneau
 		@return : un Creneau manipulable.
 		"""
 		if mois < 1 or mois > 12:
-			raise ArgumentInvalide("Ce numéro " + str(mois) + " est invalide !")
+			raise ValueError("Ce numéro " + str(mois) + " est invalide !")
 		#if
 		nomMois = Mois.MOIS_LEGAUX[mois-1]
 		resultat = None
 		try:
 			resultat = self._mois[nomMois].ajouterCreneau(jour, debut, fin, typeCreneau)
-		except ArgumentInvalide:
+		except ValueError:
 			raise
 		else:
 			self.ajoutDeCreneau()
@@ -153,13 +152,13 @@ class Annee(Modifier.Modifier):
 		@raise CreneauInexistant : En cas d'erreur sur les arguments.
 		"""
 		if mois < 1 or mois > 12:
-			raise CreneauInexistant("Le numéro de mois " + mois + " est invalide !")
+			raise ValueError("Le numéro de mois " + mois + " est invalide !")
 		#if
 		nomMois = Mois.MOIS_LEGAUX[mois-1]
 		moisCible = self._mois[nomMois]
 		try:
 			moisCible.supprimerCreneau(jour, idCreneau)
-		except CreneauInexistant:
+		except ValueError:
 			raise
 		else:
 			self.retraitDeCreneau()

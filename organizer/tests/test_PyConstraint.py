@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 import unittest
-import sys
-sys.path.insert(0, "../src")
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../src/pyconstraints-1.0.1/pyconstraints/")
 
-from src.pyconstraints_1_0_1.pyconstraints.problem import Problem
+from problem import Problem
 
 class Test_PyConstraint(unittest.TestCase):
 	"""

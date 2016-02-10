@@ -1,17 +1,13 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 
-import sys, os
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils/erreurs")
 import Jour, Semaine, Modifier
-#from Semaine import Semaine, construireArgument
 from Semaine import *
 from FabriqueCreneau import CreneauxPossible as CP
-from erreurs.erreurs import *
 
 
 ###############################################################################
-# Liste des valeurs légales pour un nom de mois.
+# Liste des valeurs lÃ©gales pour un nom de mois.
 # On peut les utiliser dans nos code pour simplifier les traitements
 JANVIER = "janvier"
 FEVRIER = "fevrier"
@@ -32,9 +28,9 @@ MOIS_LEGAUX = [JANVIER, FEVRIER, MARS, AVRIL, MAI, JUIN, JUILLET, AOUT, SEPTEMBR
 
 class Mois(Modifier.Modifier):
 	"""
-	La classe qui représente un mois dans une année.
-	Cela va servir à stocker les L{Semaine}, dans l'ordre d'arrivée.
-	@ivar _nom : Le nom du mois parmi ceux présents plus hauts.
+	La classe qui reprÃ©sente un mois dans une annÃ©e.
+	Cela va servir Ã  stocker les L{Semaine}, dans l'ordre d'arrivÃ©e.
+	@ivar _nom : Le nom du mois parmi ceux prÃ©sents plus hauts.
 	@ivar _semaines : la liste des semaines de ce mois.
 	@ivar _nbJours : le nombre de jours dans ce mois.
 	@ivar _jourApres : Le 1er jour du mois suivant.
@@ -45,7 +41,7 @@ class Mois(Modifier.Modifier):
 	def __init__(self, nom, jourDebut, nbJours):
 		"""
 		Le constructeur de cette classe.
-		Il permet de générer les semaines en se basant sur jourDebut et nbJours.
+		Il permet de gÃ©nÃ©rer les semaines en se basant sur jourDebut et nbJours.
 		@param self : L'argument implicite.
 		@type nom : str.
 		@param nom : le nom de ce mois, parmi ceux se trouvant en haut.
@@ -64,7 +60,7 @@ class Mois(Modifier.Modifier):
 	
 	def _genererSemaines(self, jourDebut):
 		"""
-		Permet de générer les semaines de ce mois en se basant sur jourDebut.
+		Permet de gÃ©nÃ©rer les semaines de ce mois en se basant sur jourDebut.
 		@param self : L'argument implicite.
 		@type jourDebut : str.
 		@param jourDebut : le nom du jour par lequel commence la premiere semaine de ce mois.
@@ -117,12 +113,7 @@ class Mois(Modifier.Modifier):
 	
 	@property
 	def semaines(self):
-		"""
-		L'accesseur pour les semaines que contient ce mois
-		@param self : l'argument implicite.
-		@rtype : list.
-		@return : la liste des semaiens de ce mois.
-		"""
+		"""L'accesseur pour les semaines que contient ce mois"""
 		return self._semaines
 	#semaines
 	
@@ -142,7 +133,7 @@ class Mois(Modifier.Modifier):
 	@property
 	def jourApres(self):
 		"""
-		L'accesseur pour le jour après la fin du mois.
+		L'accesseur pour le jour aprÃ¨s la fin du mois.
 		@param self : l'argument implicite.
 		@rtype : str.
 		@return : le nom du jour suivant la fin du mois.
@@ -151,15 +142,27 @@ class Mois(Modifier.Modifier):
 	#nom
 	
 	
+	@property
+	def numero(self):
+		"""Renvoie le numÃ©ro du mois"""
+		for i,elt in enumerate(MOIS_LEGAUX):
+			if elt == self._nom:
+				return i+1
+			#if
+		#for
+		return 0
+	#numero
+	
+	
 	def recupererSemaineParNumJour(self, numJour):
 		"""
-		Permet la récupération d'une semaine complète par un numéro de jour.
+		Permet la rÃ©cupÃ©ration d'une semaine complÃ¨te par un numÃ©ro de jour.
 		Ainsi, demander le 25 renverra la L{Semaine} contenant le 25.
 		@param self : l'argument implicite
 		@type numJour : int
-		@param numJour : le numéro du jour dont on cherche la semaine.
+		@param numJour : le numÃ©ro du jour dont on cherche la semaine.
 		@rtype : L{Semaine}
-		@return : la Semaine concernée ou None si elle n'existe pas.
+		@return : la Semaine concernÃ©e ou None si elle n'existe pas.
 		"""
 		for sem in self._semaines:
 			for jour in sem.jours.values():
@@ -179,17 +182,15 @@ class Mois(Modifier.Modifier):
 		M{debut} et M{fin}.
 		@param self : L'argument implicite
 		@type jour : int
-		@param jour : le numéro du jour dans lequel insérer ce créneau.
+		@param jour : le numÃ©ro du jour dans lequel insÃ©rer ce crÃ©neau.
 		@type debut : int [1, 48]
-		@param debut : l'heure de début du créneau
+		@param debut : l'heure de dÃ©but du crÃ©neau
 		@type fin : int [1, 48]
-		@param fin : l'heure de fin du créneau
+		@param fin : l'heure de fin du crÃ©neau
 		@type typeCreneau : enum
-		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
-		@precondition : debut < fin, jour/debut/fin doivent etre
-			compris dans leurs intervalles respectifs
-		@raise ArgumentInvalide : SI jamais un des arguments ne permet pas la création
-			d'un Creneau.
+		@param typeCreneau : une valeur enumÃ©rÃ©e pour la fabrique de creneau
+		@precondition : debut < fin, jour/debut/fin doivent etre compris dans leurs intervalles respectifs
+		@raise ArgumentInvalide : SI jamais un des arguments ne permet pas la crÃ©ation d'un Creneau.
 		@rtype : Creneau
 		@return : un Creneau 
 		"""
@@ -198,14 +199,14 @@ class Mois(Modifier.Modifier):
 			resultat = None
 			try:
 				resultat = semaine.ajouterCreneau(jour, debut, fin, typeCreneau)
-			except ArgumentInvalide:
+			except ValueError:
 				raise
 			else:
 				self.ajoutDeCreneau()
 				return resultat
 			#try
 		else:
-			raise ArgumentInvalide("Ce jour " + str(jour) + " n'existe pas dans ce mois !")
+			raise ValueError("Ce jour " + str(jour) + " n'existe pas dans ce mois !")
 		#if
 	#ajouterCreneau
 	
@@ -215,18 +216,18 @@ class Mois(Modifier.Modifier):
 		Lance la suppression d'un L{Creneau} si il existe.
 		@param self : L'argument implicite
 		@type jour : int
-		@param jour : le numéro du jour où le créneau se situe.
+		@param jour : le numÃ©ro du jour oÃ¹ le crÃ©neau se situe.
 		@type idCreneau : ...
-		@param idCreneau : l'identifiant unique du créneau que l'on veut supprimer.
+		@param idCreneau : l'identifiant unique du crÃ©neau que l'on veut supprimer.
 		@raise CreneauInexistant : En cas d'erreur sur les arguments.
 		"""
 		semaineCible = self.recupererSemaineParNumJour(jour)
 		if semaineCible is None:
-			raise CreneauInexistant("Le jour numéro " + jour + " n'est pas dans ce mois !")
+			raise ValueError("Le jour numÃ©ro " + jour + " n'est pas dans ce mois !")
 		#if
 		try:
 			semaineCible.supprimerCreneau(jour, idCreneau)
-		except CreneauInexistant:
+		except ValueError:
 			raise
 		else:
 			self.retraitDeCreneau()

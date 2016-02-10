@@ -77,8 +77,8 @@ class Test_Mois(unittest.TestCase):
 	
 	def test_ajouterCreneau_echec_numjour(self):
 		"""Teste de l'ajout d'un creneau en echec à cause d'un numéro de jour"""
-		with self.assertRaises(Exception):
-			self.cible.ajouterCreneau(8, 0, 14)
+		with self.assertRaises(ValueError):
+			self.cible.ajouterCreneau(-5, 0, 14)
 		#with
 	#test_ajouterCreneau_echec_numjour
 	
