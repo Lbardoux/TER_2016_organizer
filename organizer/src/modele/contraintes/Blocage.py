@@ -1,17 +1,17 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/")
 import Contrainte
 
 class Blocage(Contrainte.Contrainte):
 	"""
 	La classe qui définit une contrainte de verrouillage d'un horaire
 	Par exemple, il ne peux y avoir aucun cours entre 13h et 14h.
-	
-	@ivar _valeurs : la liste des valeurs interdites.
-	
-	@author : Laurent Bardoux p1108365
-	@version : 1.0
+	@ivar _valeurs: la liste des valeurs interdites.
+	@author: Laurent Bardoux p1108365
+	@version: 1.0
 	"""
 	
 	def __init__(self, *valeurs):

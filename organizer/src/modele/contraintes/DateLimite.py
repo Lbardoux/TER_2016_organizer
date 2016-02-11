@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/")
 import Contrainte
 
 class DateLimite(Contrainte.Contrainte):
@@ -8,11 +10,9 @@ class DateLimite(Contrainte.Contrainte):
 	La classe qui définit une deadline dans l'ordonnancement
 	Par exemple, Tel cours doit se finir avant 18h, ou telle UE avant
 	telle date.
-	
-	@ivar _limite : la limite numérique a ne pas atteindre/dépasser
-	
-	@author : Laurent Bardoux p1108365
-	@version : 1.0
+	@ivar _limite: la limite numérique a ne pas atteindre/dépasser
+	@author: Laurent Bardoux p1108365
+	@version: 1.0
 	"""
 	
 	def __init__(self, limite):

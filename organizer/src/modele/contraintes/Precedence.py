@@ -1,6 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/")
 import Contrainte
 
 class Precedence(Contrainte.Contrainte):
@@ -8,10 +10,8 @@ class Precedence(Contrainte.Contrainte):
 	La classe qui définit une contrainte de précédence (ie un element
 	du cursus doit avoir lieu avant un autre, par exemple un CM doit
 	avoir lieu avant le TP associé.
-	
 	@ivar _idAvant: l'identifiant de l'element qui passe en premier
 	@ivar _idEnsuite: l'identifiant de l'element qui passe en premier
-	
 	@author: Laurent Bardoux p1108365
 	@version: 1.0
 	"""
@@ -20,10 +20,8 @@ class Precedence(Contrainte.Contrainte):
 		"""
 		Le constructeur de cette contrainte
 		@param self: L'argument implicite
-		@param idAvant: l'identifiant de l'élément qui doit avoir lieu
-			en premier
-		@param idEnsuite: l'identifiant de l'élément qui doit avoir 
-			lieu après le 1er.
+		@param idAvant: l'identifiant de l'élément qui doit avoir lieu en premier
+		@param idEnsuite: l'identifiant de l'élément qui doit avoir lieu après le 1er.
 		"""
 		# ici il faut que la classe de base herite de (object)
 		#super(Precedence, self).__init__(self)

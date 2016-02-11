@@ -10,7 +10,7 @@ MAIN_FILE=main.py
 NAME=CSP_Organizer
 
 # Recuperation du python local pour l'execution
-PYTHON=$(shell which python)
+PYTHON=$(shell which python3)
 
 
 all :

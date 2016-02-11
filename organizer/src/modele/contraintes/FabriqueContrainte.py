@@ -1,8 +1,9 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/")
 import Contrainte, Blocage, Ressource, Precedence, Obligation, DateLimite
-import sys, os
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils")
 import enum, Fabrique
 
@@ -17,15 +18,13 @@ class FabriqueContrainte(Fabrique.Fabrique):
 	Via un "enum", il suffira de demander ce que l'on veut
 	Et la fabrique nous le fournira directement, si tant est qu'on lui
 	fourni les bons matériaux.
-	
 	USAGE :
-		--> créer une Obligation : il faut un nombre en argument
-		--> créer une Blocage : il faut un ou plusieurs nombre(s)  en argument
-		--> créer une DateLimite : il faut un nombre en argument
-		--> créer une Precedence : il faut 2 arguments
-	
-	@author : Laurent Bardoux p1108365
-	@version : 2.0
+	--> créer une Obligation : il faut un nombre en argument
+	--> créer une Blocage : il faut un ou plusieurs nombre(s)  en argument
+	--> créer une DateLimite : il faut un nombre en argument
+	--> créer une Precedence : il faut 2 arguments
+	@author: Laurent Bardoux p1108365
+	@version: 2.0
 	"""
 	
 	def __init__(self):
@@ -33,8 +32,7 @@ class FabriqueContrainte(Fabrique.Fabrique):
 		Construit une fabrique de contrainte simple
 		Ceci va initialiser le dictionnaire des valeurs possible
 		dans le but de réaliser un "switch"
-		@param self : L'argument implicite
-
+		@param self: L'argument implicite
 		Pour ajouter des choix, il suffit alors de rajouter des lignes
 		dans _choix avec une lambda ou une fonction qui doit agir le
 		cas echeant
@@ -48,5 +46,5 @@ class FabriqueContrainte(Fabrique.Fabrique):
 		}
 		super(FabriqueContrainte, self).__init__(dico)
 	#fin __init__
-
+	
 #fin FabriqueContrainte

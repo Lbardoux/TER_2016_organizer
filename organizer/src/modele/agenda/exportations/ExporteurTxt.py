@@ -50,7 +50,6 @@ class ExporteurTxt(Exporteur.Exporteur):
 		@param fichier: Le fichier dans lequel écrire l'entete.
 		@raise IOError: Si les droits d'écriture ne sont pas autorisés.
 		"""
-		fichier.write()
 	#_ecrireEntete
 	
 	
@@ -62,7 +61,6 @@ class ExporteurTxt(Exporteur.Exporteur):
 		@param fichier: Le fichier dans lequel écrire l'entete.
 		@raise IOError: Si les droits d'écriture ne sont pas autorisés.
 		"""
-		fichier.write()
 	#_ecrirePied
 	
 #ExporteurTxt

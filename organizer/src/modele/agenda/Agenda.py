@@ -3,7 +3,6 @@
 
 import Annee
 from FabriqueCreneau import CreneauxPossible as CP
-from importations import AgendaDepuisIcs
 
 class Agenda(object):
 	"""
@@ -309,18 +308,4 @@ class Agenda(object):
 		return resultat.creneaux
 	#recupererJour
 	
-	
-	def importeDepuisIcs(self, nomFichier):
-		"""
-		Permet d'importer depuis un fichier Ics (qui sera le seul format
-		d'importation, vu son coté standard).
-		@param self : L'argument implicite.
-		@type nomFichier : str
-		@param nomFichier : le nom du fichier qui doit etre importer.
-		@precondition : le fichier doit avoir .ics comme extension.
-		@raise ValueError : si le parsing marche mal (erreur de syntaxe en général), ou extension de fichier mauvaise.
-		@raise IOError : si le fichier est introuvable
-		"""
-		importeur = AgendaDepuisIcs.importer(self, nomFichier)
-	#importeDepuisIcs
 #fin Agenda

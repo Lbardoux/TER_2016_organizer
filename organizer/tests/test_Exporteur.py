@@ -5,6 +5,7 @@ import sys
 sys.path.insert(0, "../src")
 
 from src.modele.agenda.exportations.Exporteur import *
+from src.modele.agenda.Agenda import *
 
 class Test_Exporteur(unittest.TestCase):
 	"""
@@ -23,7 +24,7 @@ class Test_Exporteur(unittest.TestCase):
 	def test_exporter(self):
 		"""Teste la fonction d'export"""
 		obj = Exporteur("rien")
-		#obj.exporter("agenda")
+		obj.exporter(Agenda("olol", 2005))
 	#test_exporter
 	
 #Test_Exporteur
