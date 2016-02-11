@@ -29,6 +29,60 @@ class Seance(Creneau):
 		@param horaire : L'horaire voulu
 		"""
 		super(Seance, self).__init__(idSeance, horaire)
+		self._nom = ""
+		self._enseignant = ""
+		self._salle = ""
 	#fin __init__
+	
+	@property
+	def nom(self):
+		"""
+		Récuperation du nom de cette séance
+		"""
+		return self._nom
+	#fin nom
+	
+	@property
+	def enseignant(self):
+		"""
+		Récuperation de l'enseignant de cette séance
+		"""
+		return self._enseignant
+	#fin enseignant
+	
+	@property
+	def salle(self):
+		"""
+		Récuperation de la salle de cette séance
+		"""
+		return self._salle
+	#fin salle
+	
+	@nom.setter
+	def nom(self, nouveauNom):
+		"""
+		Le mutateur pour le nom
+		@precondition: type(nouveauNom) est une chaine de caractères
+		"""
+		self._nom = nouveauNom
+	#fin nom
+	
+	@enseignant.setter
+	def enseignant(self, nouvelEnseignant):
+		"""
+		Le mutateur pour l'enseignant
+		@precondition: type(nouvelEnseignant) est une chaine de caractères
+		"""
+		self._enseignant = nouvelEnseignant
+	#fin enseignant
+	
+	@salle.setter
+	def salle(self, nouvelleSalle):
+		"""
+		Le mutateur pour la salle
+		@precondition: type(nouvelleSalle) est une chaine de caractères
+		"""
+		self._salle = nouvelleSalle
+	#fin salle
 	
 #fin Seance
