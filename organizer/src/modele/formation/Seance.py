@@ -13,10 +13,11 @@ class Seance(Creneau):
 	composant d'une formation.
 	Elle fait également le lien avec la modélisation d'un agenda, et
 	définit en conséquence les éléments utilisables.
-	@version : 1.0
-	@author : Liu Zhuying
-	@version : 2.0
-	@author : Laurent Bardoux p1108365
+	@ivar _nom: Le nom de cette séance
+	@ivar _enseignant: Le nom de l'enseignant de cette séance
+	@ivar _salle: Le nom de la salle de cette séance
+	@version: 3.0
+	@author: Liu Zhuying
 	"""
 	
 	def __init__(self, idSeance, horaire):
