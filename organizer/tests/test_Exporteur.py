@@ -23,7 +23,7 @@ class Test_Exporteur(unittest.TestCase):
 	def test_exporter(self):
 		"""Teste la fonction d'export"""
 		obj = Exporteur("rien")
-		obj.exporter("agenda")
+		#obj.exporter("agenda")
 	#test_exporter
 	
 #Test_Exporteur

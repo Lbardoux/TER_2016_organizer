@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
 
-import Agenda
 
 class Exporteur(object):
 	"""
@@ -24,6 +23,25 @@ class Exporteur(object):
 	#__init__
 	
 	
+	def _transformeHoraire(self, horaire):
+		"""
+		Opère la conversion d'un entier représentant un horaire
+		vers des unités plus ... human friendly.
+		conversion d'un entier entre 1 et 49 vers des heures
+		allant de 7h00 à 19h00 de 15 minutes à chaque fois
+		@param self: L'argument implicite
+		@type horaire: int
+		@param horaire: l'entier que l'on veut convertir.
+		@rtype: tuple
+		@return: un tuple contenant (heures, minutes)
+		"""
+		temp = (horaire-1)*15
+		heure = 7 + (temp//60)
+		minute = (temp)%60
+		return (heure, minute)
+	#_transformeHoraire
+	
+	
 	def exporter(self, agenda):
 		"""
 		Lance l'exportation de agenda dans le fichier précisé lors de la construction.
@@ -34,7 +52,121 @@ class Exporteur(object):
 		@precondition: self._nomFichier doit etre un fichier valide.
 		@raise IOError: si le nom de fichier pose problème (droits, existence, etc)
 		"""
-		pass
+		with open(self._nomFichier, 'w') as fichier:
+			self._ecrireEntete(fichier)
+			for annee in agenda.listeAnnees:
+				if annee.nbCreneaux > 0:
+					self._faireAnnee(annee, fichier)
+				#if
+			#for
+			self._ecrirePied(fichier)
+		#with
 	#exporter
+	
+	
+	def _faireAnnee(self, annee, fichier):
+		"""
+		Lis dans une L{Annee} et ecrit seulement les L{Annee}s qui contiennent
+		des L{Creneau}x.
+		@param self: L'argument implicite.
+		@type annee: L{Annee}
+		@param annee: L'L{Annee} que l'on veut traiter.
+		@type fichier: file
+		@param fichier: le fichier dans lequel écrire.
+		@raise IOError: En cas de problème d'écriture.
+		"""
+		for mois in annee.mois.keys():
+			if annee.mois[mois].nbCreneaux > 0:
+				self._faireMois(annee, annee.mois[mois], fichier)
+			#if
+		#for
+	#_faireAnnee
+	
+	
+	def _faireMois(self, annee, mois, fichier):
+		"""
+		Lis dans un L{Mois} et ecrit seulement les L{Mois} qui contiennent
+		des L{Creneau}x.
+		@param self: L'argument implicite.
+		@type annee: L{Annee}
+		@param annee: L'L{Annee} que l'on veut traiter.
+		@type mois: L{Mois}
+		@param mois: le mois à traiter
+		@type fichier: file
+		@param fichier: le fichier dans lequel écrire.
+		@raise IOError: En cas de problème d'écriture.
+		"""
+		for semaine in mois.semaines:
+			if semaine.nbCreneaux > 0:
+				self._faireSemaine(annee, mois, semaine, fichier)
+			#if
+		#for
+	#_faireMois
+	
+	
+	def _faireSemaine(self, annee, mois, semaine, fichier):
+		"""
+		Lis dans une L{Semaine} et ecrit seulement les L{Semaine}s qui contiennent
+		des L{Creneau}x.
+		@param self: L'argument implicite.
+		@type annee: L{Annee}
+		@param annee: L'L{Annee} que l'on veut traiter.
+		@type mois: L{Mois}
+		@param mois: le mois à traiter
+		@type semaine: L{Semaine}
+		@param semaine: La L{Semaine} que l'on veut traiter.
+		@type fichier: file
+		@param fichier: le fichier dans lequel écrire.
+		@raise IOError: En cas de problème d'écriture.
+		"""
+		for jour in semaine.jours.values():
+			if len(jour.creneaux) > 0:
+				self._faireJour(annee, mois, jour, fichier)
+			#if
+		#for
+	#_faireSemaine
+	
+	
+	def _faireJour(self, annee, mois, jour, fichier):
+		"""
+		La fonction à surcharger pour traiter une journée !
+		elle doit traiter la liste des creneaux de M{jour}.
+		@param self: L'argument implicite.
+		@type annee: L{Annee}
+		@param annee: L'L{Annee} que l'on veut traiter.
+		@type mois: L{Mois}
+		@param mois: le mois à traiter
+		@type jour: L{Jour}
+		@param jour: Le L{Jour} que l'on veut traiter.
+		@type fichier: file
+		@param fichier: le fichier dans lequel écrire.
+		@raise IOError: En cas de problème d'écriture.
+		"""
+		pass
+	#_faireJour
+	
+	
+	def _ecrireEntete(self, fichier):
+		"""
+		Va écrire l'entete dans le fichier.
+		@param self: L'argument implicite.
+		@type fichier: file
+		@param fichier: Le fichier dans lequel écrire l'entete.
+		@raise IOError: Si les droits d'écriture ne sont pas autorisés.
+		"""
+		pass
+	#_ecrireEntete
+	
+	
+	def _ecrirePied(self, fichier):
+		"""
+		Va écrire le pied dans le fichier.
+		@param self: L'argument implicite.
+		@type fichier: file
+		@param fichier: Le fichier dans lequel écrire l'entete.
+		@raise IOError: Si les droits d'écriture ne sont pas autorisés.
+		"""
+		pass
+	#_ecrirePied
 	
 #Exporteur

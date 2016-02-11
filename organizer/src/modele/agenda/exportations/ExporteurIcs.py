@@ -25,28 +25,6 @@ class ExporteurIcs(Exporteur.Exporteur):
 	#__init__
 	
 	
-	def exporter(self, agenda):
-		"""
-		Lance l'exportation de agenda dans le fichier précisé lors de la construction.
-		Cette version générique ne fait rien.
-		@param self: L'argument implicite.
-		@type agenda: L{Agenda}
-		@param agenda: L' L{Agenda} à exporter.
-		@precondition: self._nomFichier doit etre un fichier valide.
-		@raise IOError: si le nom de fichier pose problème (droits, existence, etc)
-		"""
-		with open(self._nomFichier, 'w') as fichier:
-			self._ecrireEntete(fichier)
-			for annee in agenda.listeAnnees:
-				if annee.nbCreneaux > 0:
-					self._faireAnnee(annee, fichier)
-				#if
-			#for
-			fichier.write("END:VCALENDAR\n")
-		#with
-	#exporter
-	
-	
 	def _traiteChiffre(self, chiffre):
 		"""
 		Transforme un entier en chaine, et si celui-ci n'a que des unités,
@@ -84,9 +62,10 @@ class ExporteurIcs(Exporteur.Exporteur):
 		chaine += self._traiteChiffre(mois)
 		chaine += self._traiteChiffre(jour)
 		chaine += "T"
-		temp = (heure-1)*15
-		heureDebut = 7 + (temp//60)
-		minuteDebut = (temp)%60
+		#temp = (heure-1)*15
+		heureDebut, minuteDebut = self._transformeHoraire(heure)
+		#heureDebut = 7 + (temp//60)
+		#minuteDebut = (temp)%60
 		chaine += self._traiteChiffre(heureDebut)
 		chaine += self._traiteChiffre(minuteDebut)
 		chaine += "00Z"
@@ -94,74 +73,32 @@ class ExporteurIcs(Exporteur.Exporteur):
 	#_assembleDate
 	
 	
-	def _faireAnnee(self, annee, fichier):
+	def _faireJour(self, annee, mois, jour, fichier):
 		"""
-		Lis dans une L{Annee} et ecrit seulement les L{Annee}s qui contiennent
-		des L{Creneau}x.
-		@param self: L'argument implicite.
-		@type annee: L{Annee}
-		@param annee: L'L{Annee} que l'on veut traiter.
-		@type fichier: file
-		@param fichier: le fichier dans lequel écrire.
-		@raise IOError: En cas d eproblème d'écriture.
-		"""
-		for mois in annee.mois.keys():
-			if annee.mois[mois].nbCreneaux > 0:
-				self._faireMois(annee, annee.mois[mois], fichier)
-			#if
-		#for
-	#_faireAnnee
-	
-	
-	def _faireMois(self, annee, mois, fichier):
-		"""
-		Lis dans un L{Mois} et ecrit seulement les L{Mois} qui contiennent
-		des L{Creneau}x.
+		La fonction à surcharger pour traiter une journée !
+		elle doit traiter la liste des creneaux de M{jour}.
 		@param self: L'argument implicite.
 		@type annee: L{Annee}
 		@param annee: L'L{Annee} que l'on veut traiter.
 		@type mois: L{Mois}
 		@param mois: le mois à traiter
-		@type fichier: file
-		@param fichier: le fichier dans lequel écrire.
-		@raise IOError: En cas d eproblème d'écriture.
-		"""
-		for semaine in mois.semaines:
-			if semaine.nbCreneaux > 0:
-				self._faireSemaine(annee, mois, semaine, fichier)
-			#if
-		#for
-	#_faireMois
-	
-	
-	def _faireSemaine(self, annee, mois, semaine, fichier):
-		"""
-		Lis dans une L{Semaine} et ecrit seulement les L{Semaine}s qui contiennent
-		des L{Creneau}x.
-		@param self: L'argument implicite.
-		@type annee: L{Annee}
-		@param annee: L'L{Annee} que l'on veut traiter.
-		@type mois: L{Mois}
-		@param mois: le mois à traiter
-		@type semaine: L{Semaine}
-		@param semaine: La L{Semaine} que l'on veut traiter.
+		@type jour: L{Jour}
+		@param jour: Le L{Jour} que l'on veut traiter.
 		@type fichier: file
 		@param fichier: le fichier dans lequel écrire.
 		@raise IOError: En cas de problème d'écriture.
 		"""
-		for jour in semaine.jours.values():
-			for creneau in jour.creneaux:
-				debut = self._assembleDate(annee.an, mois.numero, jour.numero, creneau.horaire.debut)
-				fin = self._assembleDate(annee.an, mois.numero, jour.numero, creneau.horaire.fin)
-				fichier.write("BEGIN:VEVENT\n")
-				fichier.write("DTSTART:" + debut + "\n")
-				fichier.write("DTEND:" + fin + "\n")
-				fichier.write("UID:" + str(creneau.identifiant) + "\n")
-				for info in creneau.informations.keys():
-					fichier.write(str(info) + ":" + str(creneau.informations[info]) + "\n")
-				#for
-				fichier.write("END:VEVENT\n")
+		for creneau in jour.creneaux:
+			debut = self._assembleDate(annee.an, mois.numero, jour.numero, creneau.horaire.debut)
+			fin = self._assembleDate(annee.an, mois.numero, jour.numero, creneau.horaire.fin)
+			fichier.write("BEGIN:VEVENT\n")
+			fichier.write("DTSTART:" + debut + "\n")
+			fichier.write("DTEND:" + fin + "\n")
+			fichier.write("UID:" + str(creneau.identifiant) + "\n")
+			for info in creneau.informations.keys():
+				fichier.write(str(info) + ":" + str(creneau.informations[info]) + "\n")
 			#for
+			fichier.write("END:VEVENT\n")
 		#for
 	#_faireSemaine
 	
@@ -185,5 +122,17 @@ class ExporteurIcs(Exporteur.Exporteur):
 			fichier.write(l + "\n")
 		#for
 	#_ecrireEntete
+	
+	
+	def _ecrirePied(self, fichier):
+		"""
+		Va écrire le pied dans le fichier.
+		@param self: L'argument implicite.
+		@type fichier: file
+		@param fichier: Le fichier dans lequel écrire l'entete.
+		@raise IOError: Si les droits d'écriture ne sont pas autorisés.
+		"""
+		fichier.write("END:VCALENDAR\n")
+	#_ecrirePied
 	
 #ExporteurIcs
