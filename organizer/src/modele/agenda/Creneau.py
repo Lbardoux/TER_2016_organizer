@@ -12,6 +12,7 @@ class Creneau(object):
 	@ivar _identifiant: l'identifiant unique d'un créneau, sous la forme d'un entier naturel non nul.
 	@ivar _horaire: Une référence sur un Horaire.
 	@ivar _informations: un dictionnaire contenant des informations additionnelles sous la forme str -> valeur
+	@ivar _typeCreneau: Le type de créneau
 	@author: Laurent Bardoux p1108365
 	@version: 1.0
 	"""
@@ -31,6 +32,7 @@ class Creneau(object):
 		self._identifiant = identifiant
 		self._horaire = horaire
 		self._informations = dict()
+		self._typeCreneau = 0
 	#fin __init__
 	
 	
@@ -53,6 +55,20 @@ class Creneau(object):
 		"""Un accesseur pour l'L{Horaire} contenu dans le Creneau."""
 		return self._horaire
 	#fin horaire
+	
+	
+	@property
+	def typeCreneau(self):
+		"""Un accesseur pour _typeCreneau"""
+		return self._typeCreneau
+	#typeCreneau
+	
+	
+	@typeCreneau.setter
+	def typeCreneau(self, valeur):
+		"""Un mutateur pour le type de Creneau"""
+		self._typeCreneau = valeur
+	#typeCreneau
 	
 	
 	@horaire.setter
@@ -152,8 +168,7 @@ class Creneau(object):
 		@rtype: bool
 		@return: True si ils sont identiques, False sinon
 		"""
-		#solution temporaire, il n'y a aucun moyen de faire ça à ce niveau
-		return True
+		return self._typeCreneau == autre._typeCreneau
 	#__eq__
 	
 #fin Creneau

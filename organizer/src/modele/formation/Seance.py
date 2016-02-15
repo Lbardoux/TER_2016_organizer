@@ -23,11 +23,11 @@ class Seance(Creneau):
 	def __init__(self, idSeance, horaire):
 		"""
 		Le constructeur de la classe "abstraite" Seance.
-		@param self : L'argument implicite
-		@param idSeance : l'identifiant de cette Seance
-		@type idSeance : entier naturel non nul
-		@type horaire : Horaire.
-		@param horaire : L'horaire voulu
+		@param self: L'argument implicite
+		@param idSeance: l'identifiant de cette Seance
+		@type idSeance: entier naturel non nul
+		@type horaire: Horaire.
+		@param horaire: L'horaire voulu
 		"""
 		super(Seance, self).__init__(idSeance, horaire)
 		self._nom = ""
@@ -35,29 +35,27 @@ class Seance(Creneau):
 		self._salle = ""
 	#fin __init__
 	
+	
 	@property
 	def nom(self):
-		"""
-		Récuperation du nom de cette séance
-		"""
+		"""Récuperation du nom de cette séance"""
 		return self._nom
 	#fin nom
 	
+	
 	@property
 	def enseignant(self):
-		"""
-		Récuperation de l'enseignant de cette séance
-		"""
+		"""Récuperation de l'enseignant de cette séance"""
 		return self._enseignant
 	#fin enseignant
 	
+	
 	@property
 	def salle(self):
-		"""
-		Récuperation de la salle de cette séance
-		"""
+		"""Récuperation de la salle de cette séance"""
 		return self._salle
 	#fin salle
+	
 	
 	@nom.setter
 	def nom(self, nouveauNom):
@@ -68,6 +66,7 @@ class Seance(Creneau):
 		self._nom = nouveauNom
 	#fin nom
 	
+	
 	@enseignant.setter
 	def enseignant(self, nouvelEnseignant):
 		"""
@@ -77,6 +76,7 @@ class Seance(Creneau):
 		self._enseignant = nouvelEnseignant
 	#fin enseignant
 	
+	
 	@salle.setter
 	def salle(self, nouvelleSalle):
 		"""
@@ -85,5 +85,21 @@ class Seance(Creneau):
 		"""
 		self._salle = nouvelleSalle
 	#fin salle
+	
+	
+	def __eq__(self, autre):
+		"""
+		Compare 2 L{Seance}s
+		@param self: L'argument implicite.
+		@type autre: Creneau
+		@param autre: Le second Creneau avec lequel comparer
+		@rtype: bool
+		@return: True si ils sont identiques, False sinon
+		"""
+		cond = self._salle == autre._salle
+		cond = cond and self._enseignant == autre._enseignant
+		cond = cond and self._salle == autre._salle
+		return cond and self._nom == autre._nom
+	#__eq__
 	
 #fin Seance

@@ -111,14 +111,13 @@ class Diff(object):
 		while compteur < len(liste1):
 			# Les différents cas doivent gérer l'incrément
 			if liste1[compteur] is None and liste2[compteur] is None:
-				# rien dans les 2, on  ne fait rien
 				compteur += 1
 			elif liste1[compteur] is not None and liste2[compteur] is None:
-				print("y'a un truc chez liste 1, mais pas chez liste 2")
+				compteur = self._faireCasComplexe(clef, compteur, liste1, liste2)
 			elif liste1[compteur] is None and liste2[compteur] is not None:
-				print("y'a un truc chez liste 2, mais pas chez liste 1")
+				compteur = self._faireCasComplexe(clef, compteur, liste1, liste2)
 			else:
-				compteur = self._faireCasDebutIdentique(compteur, liste1, liste2)
+				compteur = self._faireCasDebutIdentique(clef, compteur, liste1, liste2)
 			#if
 		#while
 	#_compareCreneaux
@@ -133,41 +132,37 @@ class Diff(object):
 		@type liste1: list
 		@param liste1: la liste des L{Creneau}x 1, potentiellement vide
 		@type liste2: list
-		@param liste1: la liste des L{Creneau}x 2, potentiellement vide
+		@param liste2: la liste des L{Creneau}x 2, potentiellement vide
 		@type clef: str
-		@param clef: la clef permettant de relver la différence.
+		@param clef: la clef permettant de relever la différence.
 		"""
 		self._moments.append(clef)
 		texte = "-----------------------------\n"
 		if len(liste1) == 0:
-			texte = str(self.agenda1.nom) + " ne contient rien !\n"
+			texte += str(self.agenda1.nom) + " ne contient rien !\n"
 		else:
-			texte = str(self.agenda1.nom) + "contient :\n" + decrireContenu(liste1)
+			texte += str(self.agenda1.nom) + " contient :\n" + decrireContenu(liste1)
 		#if
 		texte += "Alors que\n"
 		if len(liste2) == 0:
-			texte = str(self.agenda2.nom) + " ne contient rien !\n"
+			texte += str(self.agenda2.nom) + " ne contient rien !\n"
 		else:
-			texte = str(self.agenda2.nom) + "contient :\n" + decrireContenu(liste2)
+			texte += str(self.agenda2.nom) + " contient :\n" + decrireContenu(liste2)
 		#if
 		texte += "-----------------------------\n"
 		self._differences[clef] = [texte]
 	#_faireCasSimple
 	
 	
-	def _faireCasDebutIdentique(self, compteur, liste1, liste2):
+	def _faireCasDebutIdentique(self, clef, compteur, liste1, liste2):
 		"""
 		Traite le cas où il y a 2 créneaux qui commence au meme moment.
 		Elle dumpera les erreurs dans les attributs de cette classe
 		@precondition: on doit pouvoir comparer les L{Creneau}x (__eq__) sans toucher aux horaires
-		Il faut donc gérer différent cas.
-		> les deux sont identiques avec les meme horaires (simple)
-		> les deux ont les memes caractéristique, avec des durée différentes
-		Il faut alors comparer les temps + les suppléments
-		> ce ne sont pas du tout les memes aec durée identique (simple aussi)
-		> ce ne sont pas du tout les memes, avec durée différentes,
-		Il faut encore comparer les suppléments ensuite
+		@todo: Gérer les cas où il y a plusieurs créneaux simultanement.
 		@param self: L'argument implicite
+		@type clef: str
+		@param clef: la clef permettant de relever la différence.
 		@type compteur: int
 		@param compteur: là ou l'analyse en est
 		@type liste1: list
@@ -177,25 +172,95 @@ class Diff(object):
 		@rtype: int
 		@return: la valeur ou il faut continuer avec le compteur
 		"""
+		texte = None
+		resultat = compteur
 		if liste1[compteur][0].horaire == liste2[compteur][0].horaire:
 			if not liste1[compteur][0] == liste2[compteur][0]:
-				if clef not in self._moments:
-					self._moments.append(clef)
-					self._differences[clef] = list()
-				#if
-				texte = "-----------------------------\n"
-				texte += str(self.agenda1.nom) + "prévoit de " + str(liste1[compteur][0].versChaine())
-				texte += "\nalors que \n"
-				texte += str(self.agenda2.nom) + "prévoit de " + str(liste2[compteur][0].versChaine())
-				texte = "\n-----------------------------\n"
-				self._differences[clef].append(texte)
+				texte = ""
 			#if
-			return liste1[compteur][0].horaire.fin
+			resultat = liste1[compteur][0].horaire.fin + 1
 		else:
-			print("Pas meme fin, shit")
+			fin1 = liste1[compteur][0].horaire.fin
+			fin2 = liste2[compteur][0].horaire.fin
+			texte = ""
+			resultat = fin1 if fin1 < fin2 else fin2
 		#if
-		return compteur
+		if texte is not None:
+			if clef not in self._moments:
+				self._moments.append(clef)
+				self._differences[clef] = list()
+			#if
+			texte = "-----------------------------\n"
+			texte += str(self.agenda1.nom) + "prévoit de : " + str(liste1[compteur][0].versChaine())
+			texte += "\nalors que \n"
+			texte += str(self.agenda2.nom) + "prévoit de : " + str(liste2[compteur][0].versChaine())
+			texte += "\n-----------------------------\n"
+			self._differences[clef].append(texte)
+		#if
+		return resultat
 	#_faireCasDebutIdentique
+	
+	
+	def _faireCasComplexe(self, clef, compteur, liste1, liste2):
+		"""
+		Traite le cas où il y a 2 créneaux qui commence au meme moment.
+		Elle dumpera les erreurs dans les attributs de cette classe
+		@precondition: on doit pouvoir comparer les L{Creneau}x (__eq__) sans toucher aux horaires
+		@todo: Gérer les cas où il y a plusieurs créneaux simultanement.
+		@param self: L'argument implicite
+		@type clef: str
+		@param clef: la clef permettant de relever la différence.
+		@type compteur: int
+		@param compteur: là ou l'analyse en est
+		@type liste1: list
+		@param liste1: une liste issue de la fonction convertitListe !
+		@type liste2: list
+		@param liste2: une liste issue de la fonction convertitListe !
+		@rtype: int
+		@return: la valeur ou il faut continuer avec le compteur
+		"""
+		resultat = compteur
+		texte = ""
+		if liste1[compteur] is not None:
+			resultat = liste1[compteur][0].horaire.fin
+			texte = "-----------------------------\n"
+			texte += str(self.agenda1.nom) + "prévoit de : " + str(liste1[compteur][0].versChaine())
+			texte += "\nalors que \n"
+			ite = compteur
+			texte += str(self.agenda2.nom) + "prévoit de :\n"
+			while ite < liste1[compteur][0].horaire.fin:
+				if liste2[ite] is not None:
+					texte += "\t" + liste2[ite][0].versChaine() + "\n"
+					ite = liste2[ite][0].horaire.fin
+				else:
+					ite += 1
+				#if
+			#while
+			texte += "-----------------------------\n"
+		else:
+			resultat = liste2[compteur][0].horaire.fin
+			texte = "-----------------------------\n"
+			texte += str(self.agenda1.nom) + "prévoit de :\n"
+			ite = compteur
+			while ite < liste2[compteur][0].horaire.fin:
+				if liste1[ite] is not None:
+					texte += "\t" + liste1[ite][0].versChaine() + "\n"
+					ite = liste1[ite][0].horaire.fin
+				else:
+					ite += 1
+				#if
+			#while
+			texte += "\nalors que \n"
+			texte += str(self.agenda2.nom) + "prévoit de : " + str(liste2[compteur][0].versChaine())
+			texte += "\n-----------------------------\n"
+		#if
+		if clef not in self._moments and texte is not None:
+			self._moments.append(clef)
+			self._differences[clef] = list()
+		#if
+		self._differences[clef].append(texte)
+		return resultat
+	#_faireCasComplexe
 	
 	
 	def _assembleListesAComparer(self):

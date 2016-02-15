@@ -6,6 +6,7 @@ sys.path.insert(0, "../src")
 
 from src.modele.agenda.diff.Diff import *
 from src.modele.agenda.Agenda import *
+from src.modele.agenda.FabriqueCreneau import CreneauxPossible as CP
 
 class Test_DIff(unittest.TestCase):
 	"""
@@ -73,26 +74,39 @@ class Test_DIff(unittest.TestCase):
 	#test_get_differences
 	
 	
-	def test_comparaison_rien_a_voir(self):
-		"""Teste si la comparaison de 2 Agenda complètement différent renvoie bien une liste vide"""
-		a1 = Agenda("rien", 2015)
-		a2 = Agenda("rien", 2016)
-		test = Diff(a1, a2)
-		oracle = list()
-		#test.comparer()
-		#self.assertEqual(test._moments, oracle)
-	#test_comparaison_rien_a_voir
+	def test_compare_meme_agendas(self):
+		"""Teste la comparaison entre 2 agendas identiques"""
+		a1 = Agenda("lol", 2015)
+		a1.ajouterCreneau(2015, 11, 11, 8, 24, CP.CM)
+		a1.ajouterCreneau(2015, 11, 11, 26, 32, CP.TP)
+		a1.ajouterCreneau(2015, 12, 10, 26, 32, CP.TD)
+		d = Diff(a1, a1)
+		d.comparer()
+		self.assertEqual(d.moments, [])
+	#test_compare_meme_agendas
 	
 	
-	def test_petite_comparaison(self):
-		"""Teste une comparaison minimale"""
-		a1 = Agenda("rien", 2016)
-		a2 = Agenda("rien", 2016)
-		a1.ajouterCreneau(2015, 12, 1, 24, 28)
-		a2.ajouterCreneau(2015, 12, 1, 24, 28)
-		test = Diff(a1, a2)
-		#test.comparer()
-	#test_petite_comparaison
+	def test_compare_2_agendas_differents(self):
+		"""Teste la comparaison entre 2 agendas identiques"""
+		a1 = Agenda("agenda 1", 2015)
+		a1.ajouterCreneau(2015, 11, 11, 8, 24, CP.CM)
+		a1.ajouterCreneau(2015, 11, 11, 26, 32, CP.TP)
+		a1.ajouterCreneau(2015, 12, 10, 26, 32, CP.TD)
+		
+		a2 = Agenda("agenda 2", 2015)
+		a2.ajouterCreneau(2015, 11, 11, 8, 24, CP.CM)
+		a2.ajouterCreneau(2015, 11, 11, 26, 32, CP.TP)
+		a2.ajouterCreneau(2015, 8, 10, 26, 32, CP.TD)
+		
+		d = Diff(a1, a2)
+		d.comparer()
+		for clef in d.moments:
+			print(clef)
+			for i in d.differences[clef]:
+				print(i)
+			#if
+		#if
+	#test_compare_2_agendas_differents
 	
 #Test_Diff
 

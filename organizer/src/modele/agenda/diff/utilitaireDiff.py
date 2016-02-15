@@ -75,7 +75,7 @@ def decrireContenu(liste, borneSup=255):
 	@rtype: str
 	@return: la description de la liste
 	"""
-	resultat = "Il y a :\n"
+	resultat = ""
 	for elt in liste:
 		if elt.horaire.fin < borneSup:
 			resultat += "\t" + elt.versChaine() + "\n"
