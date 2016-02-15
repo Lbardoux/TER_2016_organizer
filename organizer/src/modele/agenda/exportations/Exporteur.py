@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
 
@@ -21,25 +21,6 @@ class Exporteur(object):
 		"""
 		self._nomFichier = nom
 	#__init__
-	
-	
-	def _transformeHoraire(self, horaire):
-		"""
-		Opère la conversion d'un entier représentant un horaire
-		vers des unités plus ... human friendly.
-		conversion d'un entier entre 1 et 49 vers des heures
-		allant de 7h00 à 19h00 de 15 minutes à chaque fois
-		@param self: L'argument implicite
-		@type horaire: int
-		@param horaire: l'entier que l'on veut convertir.
-		@rtype: tuple
-		@return: un tuple contenant (heures, minutes)
-		"""
-		temp = (horaire-1)*15
-		heure = 7 + (temp//60)
-		minute = (temp)%60
-		return (heure, minute)
-	#_transformeHoraire
 	
 	
 	def exporter(self, agenda):

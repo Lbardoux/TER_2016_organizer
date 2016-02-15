@@ -1,7 +1,41 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
 import sys, ConstantesQuarts
+
+def transformeHoraire(horaire):
+	"""
+	Opère la conversion d'un entier représentant un horaire
+	vers des unités plus ... human friendly.
+	conversion d'un entier entre 1 et 49 vers des heures
+	allant de 7h00 à 19h00 de 15 minutes à chaque fois
+	@type horaire: int
+	@param horaire: l'entier que l'on veut convertir.
+	@rtype: tuple
+	@return: un tuple contenant (heures, minutes)
+	"""
+	temp = (horaire-1)*15
+	heure = 7 + (temp//60)
+	minute = (temp)%60
+	return (heure, minute)
+#transformeHoraire
+
+
+def traiteChiffre(chiffre):
+	"""
+	Transforme un entier en chaine, et si celui-ci n'a que des unités,
+	ajoute un 0 supplémentaire devant.
+	@type chiffre: int
+	@param chiffre: l'entier à retravailler.
+	@rtype: str
+	@return: une chaine formatée pour ce chiffre.
+	"""
+	if chiffre < 10:
+		return "0" + str(chiffre)
+	#if
+	return str(chiffre)
+#traiteChiffre
+
 
 class Horaire(object):
 	"""
@@ -64,10 +98,24 @@ class Horaire(object):
 	
 	
 	@property
+	def debutstr(self):
+		"""Renvoie l'heure de debut au format chaine"""
+		h, m = transformeHoraire(self._debut)
+		return traiteChiffre(h) + "h" + traiteChiffre(m)
+	#debutstr
+	
+	
+	@property
+	def finstr(self):
+		"""Renvoie l'heure de fin au format chaine"""
+		h, m = transformeHoraire(self._fin)
+		return traiteChiffre(h) + "h" + traiteChiffre(m)
+	#finstr
+	
+	
+	@property
 	def fin(self):
-		"""
-		L'accesseur pour avoir le quart d'heure de fin
-		"""
+		"""L'accesseur pour avoir le quart d'heure de fin"""
 		return self._fin
 	#fin fin
 	
@@ -96,9 +144,7 @@ class Horaire(object):
 		"""
 		assert type(debut) is int, "debut doit etre un entier"
 		assert type(fin) is int, "fin doit etre un entier"
-		#assert debut >= 1 and debut <= 49, "debut doit etre supérieur à 1"
 		assert fin > debut, "fin doit etre supérieur a debut"
-		assert fin <= 49, "fin doit etre inférieur ou égal à 48"
 	#fin _assertArguments
 	
 	
@@ -119,5 +165,18 @@ class Horaire(object):
 		self._debut = nouveauDebut
 		self._fin = nouvelFin
 	#fin changeHoraire
+	
+	
+	def __eq__(self, autre):
+		"""
+		Teste l'égalité entre deux Horaires.
+		@param self: L'argument implicite
+		@type autre: Horaire
+		@param autre: l'horaire avec lequel faire la comparaison
+		@rtype: bool
+		@return: True si ces deux Horaires sont égaux, False sinon
+		"""
+		return ((self._debut == autre._debut) and (self._fin == autre._fin))
+	#__eq__
 	
 #fin Horaire

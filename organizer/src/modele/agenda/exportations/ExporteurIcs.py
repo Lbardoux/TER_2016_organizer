@@ -1,9 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../agenda")
 import Exporteur
+from Horaire import transformeHoraire, traiteChiffre
+
 
 class ExporteurIcs(Exporteur.Exporteur):
 	"""
@@ -25,23 +27,6 @@ class ExporteurIcs(Exporteur.Exporteur):
 	#__init__
 	
 	
-	def _traiteChiffre(self, chiffre):
-		"""
-		Transforme un entier en chaine, et si celui-ci n'a que des unités,
-		ajoute un 0 supplémentaire devant.
-		@param self: L'argument implicite.
-		@type chiffre: int
-		@param chiffre: l'entier à retravailler.
-		@rtype: str
-		@return: une chaine formatée pour ce chiffre.
-		"""
-		if chiffre < 10:
-			return "0" + str(chiffre)
-		#if
-		return str(chiffre)
-	#_traiteChiffre
-	
-	
 	def _assembleDate(self, annee, mois, jour, heure):
 		"""
 		Assemble une date dans le format suivant :
@@ -59,15 +44,12 @@ class ExporteurIcs(Exporteur.Exporteur):
 		@return: une date au format précisé plus haut.
 		"""
 		chaine = str(annee)
-		chaine += self._traiteChiffre(mois)
-		chaine += self._traiteChiffre(jour)
+		chaine += traiteChiffre(mois)
+		chaine += traiteChiffre(jour)
 		chaine += "T"
-		#temp = (heure-1)*15
-		heureDebut, minuteDebut = self._transformeHoraire(heure)
-		#heureDebut = 7 + (temp//60)
-		#minuteDebut = (temp)%60
-		chaine += self._traiteChiffre(heureDebut)
-		chaine += self._traiteChiffre(minuteDebut)
+		heureDebut, minuteDebut = transformeHoraire(heure)
+		chaine += traiteChiffre(heureDebut)
+		chaine += traiteChiffre(minuteDebut)
 		chaine += "00Z"
 		return chaine
 	#_assembleDate

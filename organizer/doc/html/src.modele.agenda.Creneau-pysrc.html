@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.modele.agenda.Creneau</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.modele-module.html">Package&nbsp;modele</a> ::
+        <a href="src.modele.agenda-module.html">Package&nbsp;agenda</a> ::
+        Module&nbsp;Creneau
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.modele.agenda.Creneau-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="src.modele.agenda.Creneau-module.html">Module src.modele.agenda.Creneau</a></h1>
+<pre class="py-src">
+&#65279;#!/usr/bin/python3
+# -*-coding:utf-8 -*
+
+import Horaire
+from Horaire import transformeHoraire, traiteChiffre
+
+class Creneau(object):
+        """
+        La classe centrale d'un agenda.
+        Le cr&#233;neau est un emplacement que l'on alloue sur l'agenda.
+        Il contient donc parfois de l'information suppl&#233;mentaire.
+        @ivar _identifiant: l'identifiant unique d'un cr&#233;neau, sous la forme d'un entier naturel non nul.
+        @ivar _horaire: Une r&#233;f&#233;rence sur un Horaire.
+        @ivar _informations: un dictionnaire contenant des informations additionnelles sous la forme str -> valeur
+        @author: Laurent Bardoux p1108365
+        @version: 1.0
+        """
+        
+        def __init__(self, identifiant, horaire):
+                """
+                Le constructeur de cette classe.
+                @precondition: identifiant doit etre unique dans une annee , M{horaire is not None}.
+                @param self: l'argument implicite
+                @param identifiant: l'id unique associ&#233; &#224; ce cr&#233;neau.
+                @type identifiant: entier naturel non nul.
+                @param horaire: une instance de Horaire, qui d&#233;finira le placement sur l'agenda
+                @type horaire: L{Horaire}
+                Globalement, on peut mettre ce que l'on veut comme identifiant, comme un
+                UID, ou un simple entier.
+                """
+                self._identifiant = identifiant
+                self._horaire = horaire
+                self._informations = dict()
+        #fin __init__
+        
+        
+        @property
+        def identifiant(self):
+                """Un accesseur pour l'identifiant unique."""
+                return self._identifiant
+        #fin identifiant
+        
+        
+        @identifiant.setter
+        def identifiant(self, valeur):
+                """Un mutateur pour l'identifiant unique."""
+                self._identifiant = valeur
+        #fin identifiant
+        
+        
+        @property
+        def horaire(self):
+                """Un accesseur pour l'L{Horaire} contenu dans le Creneau."""
+                return self._horaire
+        #fin horaire
+        
+        
+        @horaire.setter
+        def horaire(self, nouvelHoraire):
+                """
+                Un setter pour l'Horaire.
+                @precondition: type(nouvelHoraire) is Horaire
+                """
+                self._horaire = nouvelHoraire
+        #fin horaire
+        
+        
+        @property
+        def informations(self):
+                """Un accesseur pour les informations contenues dans ce Creneau."""
+                return self._informations
+        #fin informations
+        
+        
+        def existe(self, clef):
+                """
+                Test si la clef existe d&#233;j&#224; dans le dictionnaire.
+                @param self: l'argument implicite.
+                @param clef: la clef a test&#233;
+                @type clef: str
+                @return: True si la clef existe, False sinon
+                """
+                if type(clef) is str:
+                        return clef in self._informations.keys()
+                #if
+        #fin existe
+        
+        
+        def ajouterInformation(self, clef, info):
+                """
+                Permet d'ajouter une information dans le dictionnaire, sous la forme clef -> info.
+                Vous pouvez v&#233;rifier l'unicit&#233; d'une clef gr&#226;ce &#224; la m&#233;thode self.existe.
+                Si la clef existe d&#233;j&#224;, rien ne se passera (pas d'&#233;crasement).
+                @param self: l'argument implicite.
+                @param clef: la clef pour identifier l'information dans le dictionnaire.
+                @type clef: str
+                @param info: Ce que l'on veut stocker dans le dictionnaire.
+                @type info: object
+                @precondition: type(clef) is str
+                """
+                if not self.existe(clef):
+                        self._informations[clef] = info
+                #if
+        #fin ajouterInformation
+        
+        
+        def enleverInformation(self, clef):
+                """
+                Permet de supprimer, si elle existe, l'information associ&#233;e &#224; M{clef}.
+                @param self: L'argument implicite.
+                @type clef: str
+                @param clef: la clef dont on veut supprimer l'information.
+                """
+                if self.existe(clef):
+                        del self._informations[clef]
+                #if
+        #enleverInformation
+        
+        
+        def __le__(self, autre):
+                """
+                Permet de comparer des Creneaux via <=.
+                @param self: l'argument implicite.
+                @type autre: Creneau
+                @param autre: le second Creneau avec lequel comparer.
+                @rtype: bool
+                @return: True si self <= autre, False sinon.
+                """
+                return self.horaire.debut <= autre.horaire.debut
+        #__le__
+        
+        
+        def versChaine(self):
+                """
+                Retourne sous forme de chaine une description du Creneau.
+                Elle doit etre surcharg&#233; par les classes d&#233;riv&#233;es.
+                @param self: L'argument implicite
+                @rtype: str
+                @return: une chaine descriptive
+                """
+                return "il y a un cr&#233;neau reserv&#233; entre " + self._horaire.debutstr + " &#224; " + self._horaire.finstr
+        #versChaine
+        
+        
+        def __eq__(self, autre):
+                """
+                Il faut trouver un moyen de comparer des creneaux, et pour cela,
+                la tache revient aux classes filles (h&#233;las)
+                @param self: L'argument implicite.
+                @type autre: Creneau
+                @param autre: Le second Creneau avec lequel comparer
+                @rtype: bool
+                @return: True si ils sont identiques, False sinon
+                """
+                #solution temporaire, il n'y a aucun moyen de faire &#231;a &#224; ce niveau
+                return True
+        #__eq__
+        
+#fin Creneau
+<script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Feb 13 22:35:37 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

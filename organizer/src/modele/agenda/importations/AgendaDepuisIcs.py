@@ -1,18 +1,16 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
-
 
 import sys, os
 import veventIcs
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils")
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../icalendar-3.9.2")
-from icalendar import Calendar
+import icalendar
 import extension
 
 # Mapping des composants que l'on veut traiter.
 _composants = {
-	"VEVENT" : veventIcs.parseVevent
-	
+	"VEVENT" : veventIcs.parseVevent,
+	"CSP_FORMATION" : lambda x : x
 }
 
 # pas besoin de toucher à cela, tout se fait plus haut.
@@ -38,7 +36,7 @@ def importer(agenda, nom):
 	
 	with open(nom, 'r') as fichier:
 		donnees = fichier.read()
-		calendrier = Calendar.from_ical(donnees)
+		calendrier = icalendar.Calendar.from_ical(donnees)
 		for composant in calendrier.walk():
 			fonction = _composants.get(composant.name, None)
 			if fonction is not None:

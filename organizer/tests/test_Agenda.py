@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 import unittest
 import sys
@@ -150,20 +150,6 @@ class Test_Agenda(unittest.TestCase):
 			self.cible.recupererSemaineParNumJour(2016, 35, 5)
 		#with
 	#test_recupererSemaineParNumJour_echec
-	
-	
-	def test_importeDepuisIcs_erreur_extension(self):
-		"""Teste si une erreur d'extension génère bien une exception"""
-		with self.assertRaises(ValueError):
-			self.cible.importeDepuisIcs("oups.icssss")
-		#with
-	#test_importeDepuisIcs_erreur_extension
-	
-	
-	def test_importeDepuisIcs_sans_erreur(self):
-		"""Teste si une bonne extension ne génère pas d'exception"""
-		self.cible.importeDepuisIcs("tests/ADECal.ics")
-	#test_importeDepuisIcs_sans_erreur
 	
 	
 	def test_recupererJour_ok(self):

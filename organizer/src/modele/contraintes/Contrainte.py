@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
 
@@ -33,7 +33,7 @@ class Contrainte:
 		
 		@param self: L'argument implicite de la classe
 		
-		@return : une lambda expression identité
+		@return: une lambda expression identité
 		"""
 		return lambda x:x
 	#fin injection_contrainte

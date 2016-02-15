@@ -6,6 +6,7 @@
 TEST_DIR=tests/
 INTEGRATION_DIR=integration/
 SRC_DIR=src/
+LIB_DIR=src/
 MAIN_FILE=main.py
 NAME=CSP_Organizer
 
@@ -35,7 +36,7 @@ test :
 	@echo "Lancement des tests unitaires situés dans " $(TEST_DIR)
 	$(PYTHON) -m unittest discover -s $(TEST_DIR)
 	@echo "\nTests d'integrations :"
-	$(PYTHON) $(TEST_DIR)$(INTEGRATION_DIR)integration_*.py
+	find $(TEST_DIR)$(INTEGRATION_DIR) -name "integration_*.py" -exec $(PYTHON) {} \;
 
 # Nettoyage des binaires
 clean :
@@ -51,9 +52,9 @@ mrproper : clean
 install:
 	# on fera un Readme exigeant d'avoir setuptools, etc
 	#installation de icalendar
-	$(PYTHON) $(SRC_DIR)icalendar-3.9.2/setup.py install
+	$(PYTHON) $(LIB_DIR)icalendar-3.9.2/setup.py install --user
 	#installation de pyconstraint
-	$(PYTHON) $(SRC_DIR)pyconstraints-1.0.1/setup.py install
+	$(PYTHON) $(LIB_DIR)pyconstraints-1.0.1/setup.py install --user
 	#installation de pytz	
-	$(PYTHON) $(SRC_DIR)pytz-2015.7/setup.py install
+	$(PYTHON) $(LIB_DIR)pytz-2015.7/setup.py install --user
 

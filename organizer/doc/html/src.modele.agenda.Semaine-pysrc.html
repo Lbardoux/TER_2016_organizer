@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.modele.agenda.Semaine</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.modele-module.html">Package&nbsp;modele</a> ::
+        <a href="src.modele.agenda-module.html">Package&nbsp;agenda</a> ::
+        Module&nbsp;Semaine
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.modele.agenda.Semaine-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="src.modele.agenda.Semaine-module.html">Module src.modele.agenda.Semaine</a></h1>
+<pre class="py-src">
+&#65279;#!/usr/bin/python3
+# -*-coding:utf-8 -*
+
+import Jour, Modifier
+from FabriqueCreneau import CreneauxPossible as CP
+
+
+###############################################################################
+# Le nom des champs de l'argument de construction :
+DEBUT = "_debut_"
+FIN = "_fin_"
+N_DEBUT = "_ndebut_"
+N_FIN = "_nfin_"
+# syntaxe g&#233;n&#233;rale :
+# {DEBUT : jour_debut, N_DEBUT : numero_debut, FIN : jour_fin, N_FIN : numero_fin}
+###############################################################################
+
+def construireArgument(nomPremierJour, numeroPremierJour, nomDernierJour, numeroDernierJour):
+        """
+        Permet de construire plus facilement un argument pour le __init__ de L{Semaine}.
+        Cela autorise ainsi les semaines incompl&#232;tes lors des d&#233;but ou des fins de mois.
+        Il faut voir cette fonction comme : 
+        Lundi x  --->  vendredi y
+        @precondition: ^nom(Premier|Dernier)Jour$ doit appartenir &#224; JOURS_LEGAUX dans L{Jour}.
+        @precondition: ^numero(Premier|Dernier)Jour$ doit &#234;tre compris entre 1 et 31.
+        @type nomPremierJour: str
+        @param nomPremierJour: un des noms de jours l&#233;gaux
+        @type numeroPremierJour: int
+        @param numeroPremierJour: le num&#233;ro de ce premier jour
+        @type nomDernierJour: str
+        @param nomDernierJour: un des noms de jours l&#233;gaux
+        @type numeroDernierJour: int
+        @param numeroDernierJour: le num&#233;ro de ce dernier jour
+        @rtype: dict.
+        @return: Un argument valable pour le __init__ de L{Semaine}.
+        """
+        resultat = dict()
+        resultat[DEBUT] = nomPremierJour
+        resultat[N_DEBUT] = numeroPremierJour
+        resultat[FIN] = nomDernierJour
+        resultat[N_FIN] = numeroDernierJour
+        return resultat
+#construireArgument
+
+
+class Semaine(Modifier.Modifier):
+        """
+        La classe qui va d&#233;finir une Semaine.
+        Il faut savoir qu'une semaine d'un mois peut tr&#232;s bien contenir moins de 7 jours.
+        Par exemple, elle peut se finir un jeudi (passage au mois d'apr&#232;s, dont la premi&#232;re semaine
+        commence un vendredi)
+        @author: Laurent Bardoux p1108365
+        @version: 1.0
+        @ivar _numero: le num&#233;ro de cette semaine dans le mois courant
+        @ivar _jours: un conteneur de L{Jour}, identifi&#233;s par leurs JOURS
+        @ivar _listeNomJours: une liste des jours connus
+        """
+        
+        def __init__(self, numero, intervalle):
+                """
+                Le constructeur de cette classe.
+                ATTENTION, Il est vivement recommand&#233; d'utiliser la fonction
+                construireArgument pour cr&#233;er l'argument intervalle.
+                @param self: L'argument implicite.
+                @type numero: int.
+                @param numero: Le num&#233;ro de la semaine dans le mois courant.
+                @type intervalle: dict
+                @param intervalle: Un dictionnaire contenant tout ce qu'il faut pour assembler correctement une Semaine.
+                """
+                super(Semaine, self).__init__()
+                self._numero = numero
+                self._jours = dict()
+                self._listeNomJours = list()
+                tempNum = intervalle[N_DEBUT]
+                i = 0
+                condition = False
+                while i < len(Jour.JOURS_LEGAUX):
+                        nomActuel = Jour.JOURS_LEGAUX[i]
+                        if intervalle[DEBUT] == nomActuel:
+                                condition = True
+                        #if
+                        if condition == True:
+                                self._jours[nomActuel] = Jour.Jour(tempNum, nomActuel)
+                                self._listeNomJours.append(nomActuel)
+                                tempNum += 1
+                        #if
+                        if intervalle[FIN] == nomActuel:
+                                condition = False
+                                break
+                        #if
+                        i += 1
+                #while
+        #__init__
+        
+        
+        @property
+        def numero(self):
+                """L'accesseur pour le num&#233;ro de la semaine."""
+                return self._numero
+        #numero
+        
+        
+        @numero.setter
+        def numero(self, nouveauNumero):
+                """Le mutateur associ&#233;, pour changer ce num&#233;ro."""
+                self._numero = nouveauNumero
+        #numero
+        
+        
+        @property
+        def jours(self):
+                """L'accesseur pour les jours que contient cette semaine."""
+                return self._jours
+        #jours
+        
+        
+        @property
+        def listeNomJours(self):
+                """
+                Un accesseur pour conna&#238;tre les jours connus par cette Semaine, dans
+                l'ordre officiel europ&#233;en, permettant d'it&#233;rer plus facilement.
+                """
+                return self._listeNomJours
+        #listeNomJours
+        
+        
+        def recupererJour(self, nomJour):
+                """
+                Cette fonction permet de r&#233;cup&#233;rer un L{Jour} dans la Semaine, 
+                si il existe.
+                @param self: l'argument implicite.
+                @type nomJour: str
+                @param nomJour: un nom de jour connu, appartenant &#224; JOURS_LEGAUX.
+                @rtype: Jour
+                @return: le jour voulu, ou None si il n'est pas trouv&#233;.
+                """
+                if nomJour in self._listeNomJours:
+                        return self._jours[nomJour]
+                #if
+                return None
+        #recupererJour
+        
+        
+        def trouveJour(self, jour):
+                """
+                Permet de trouver le L{Jour} dont le num&#233;ro est M{jour}.
+                Si rien n'est trouv&#233;, None est renvoy&#233;.
+                @param self: L'argument implicite.
+                @type jour: int
+                @param jour: le jour que l'on souhaite chercher.
+                @rtype: L{Jour}
+                @return: Le L{Jour} de la semaine demand&#233;.
+                """
+                for j in self._jours.values():
+                        if j.numero == jour:
+                                return j
+                        #if
+                #for
+                return None
+        #_trouveJour
+        
+        
+        def ajouterCreneau(self, jour, debut, fin, typeCreneau=CP.CRENEAU):
+                """
+                Etape 4 de la descente dans l'architecture.
+                Ceci va "ajouter" un L{Creneau} dans le M{jour}, entre
+                M{debut} et M{fin}.
+                @param self: L'argument implicite
+                @type jour: int
+                @param jour: le num&#233;ro du jour dans lequel ins&#233;rer ce cr&#233;neau.
+                @type debut: int [1, 48]
+                @param debut: l'heure de d&#233;but du cr&#233;neau
+                @type fin: int [1, 48]
+                @param fin: l'heure de fin du cr&#233;neau
+                @type typeCreneau: enum
+                @param typeCreneau: une valeur enum&#233;r&#233;e pour la fabrique de creneau
+                @precondition: debut < fin, debut/fin doivent etre compris dans leurs intervalles respectifs
+                @raise ValueError: Si un des arguments est erron&#233;.
+                @rtype: L{Creneau}
+                @return: un Creneau valable.
+                """
+                # On nous certifie au dessus que cela ne renverra pas None
+                jourConcerne = self.trouveJour(jour)
+                
+                try:
+                        resultat = jourConcerne.ajouterCreneau(debut, fin, typeCreneau)
+                except ValueError:
+                        raise
+                else:
+                        self.ajoutDeCreneau()
+                        return resultat
+                #try
+        #ajouterCreneau
+        
+        
+        def supprimerCreneau(self, jour, idCreneau):
+                """
+                Lance la suppression d'un L{Creneau} si il existe.
+                @param self: L'argument implicite
+                @type jour: int
+                @param jour: le num&#233;ro du jour o&#249; le cr&#233;neau se situe.
+                @type idCreneau: object
+                @param idCreneau: l'identifiant unique du cr&#233;neau que l'on veut supprimer.
+                @raise ValueError: En cas d'erreur sur les arguments.
+                """
+                # Certification au dessus que None ne sera pas trouv&#233;.
+                jourCible = self.trouveJour(jour)
+                
+                try:
+                        jourCible.supprimerCreneau(idCreneau)
+                except ValueError:
+                        raise
+                else:
+                        self.retraitDeCreneau()
+                #try
+        #supprimerCreneau
+        
+#Semaine
+<script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Feb 13 22:35:37 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

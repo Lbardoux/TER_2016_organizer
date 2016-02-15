@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 import unittest
 import sys
@@ -118,6 +118,11 @@ class Test_Mois(unittest.TestCase):
 			self.cible.supprimerCreneau(-1, 1)
 		#with
 	#test_supprimerCreneau_echec_numjour
+	
+	
+	def test_jours(self):
+		"""Teste la propriété get des jours d'un mois"""
+		self.assertEqual(len(self.cible.jours), 31)
 	
 #Test_Mois
 

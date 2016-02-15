@@ -1,4 +1,4 @@
-﻿#!/usr/bin/python
+﻿#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
 import Jour, Modifier
@@ -19,23 +19,20 @@ def construireArgument(nomPremierJour, numeroPremierJour, nomDernierJour, numero
 	"""
 	Permet de construire plus facilement un argument pour le __init__ de L{Semaine}.
 	Cela autorise ainsi les semaines incomplètes lors des début ou des fins de mois.
-	
 	Il faut voir cette fonction comme : 
 	Lundi x  --->  vendredi y
-	
-	@precondition : ^nom(Premier|Dernier)Jour$ doit appartenir à JOURS_LEGAUX dans L{Jour}.
-	@precondition : ^numero(Premier|Dernier)Jour$ doit être compris entre 1 et 31.
-	
-	@type nomPremierJour : str
-	@param nomPremierJour :
-	@type numeroPremierJour : int
-	@param numeroPremierJour :
-	@type nomDernierJour : str
-	@param nomDernierJour :
-	@type numeroDernierJour : int
-	@param numeroDernierJour :
-	@rtype : dict.
-	@return : Un argument valable pour le __init__ de L{Semaine}.
+	@precondition: ^nom(Premier|Dernier)Jour$ doit appartenir à JOURS_LEGAUX dans L{Jour}.
+	@precondition: ^numero(Premier|Dernier)Jour$ doit être compris entre 1 et 31.
+	@type nomPremierJour: str
+	@param nomPremierJour: un des noms de jours légaux
+	@type numeroPremierJour: int
+	@param numeroPremierJour: le numéro de ce premier jour
+	@type nomDernierJour: str
+	@param nomDernierJour: un des noms de jours légaux
+	@type numeroDernierJour: int
+	@param numeroDernierJour: le numéro de ce dernier jour
+	@rtype: dict.
+	@return: Un argument valable pour le __init__ de L{Semaine}.
 	"""
 	resultat = dict()
 	resultat[DEBUT] = nomPremierJour
@@ -52,26 +49,23 @@ class Semaine(Modifier.Modifier):
 	Il faut savoir qu'une semaine d'un mois peut très bien contenir moins de 7 jours.
 	Par exemple, elle peut se finir un jeudi (passage au mois d'après, dont la première semaine
 	commence un vendredi)
-	
-	@author : Laurent Bardoux p1108365
-	@version : 1.0
-	
-	@ivar _numero : le numéro de cette semaine dans le mois courant
-	@ivar _jours : un conteneur de L{Jour}, identifiés par leurs JOURS
-	@ivar _listeNomJours : une liste des jours connus
+	@author: Laurent Bardoux p1108365
+	@version: 1.0
+	@ivar _numero: le numéro de cette semaine dans le mois courant
+	@ivar _jours: un conteneur de L{Jour}, identifiés par leurs JOURS
+	@ivar _listeNomJours: une liste des jours connus
 	"""
 	
 	def __init__(self, numero, intervalle):
 		"""
 		Le constructeur de cette classe.
-		ATTENTION : Il est vivement recommandé d'utiliser la fonction
+		ATTENTION, Il est vivement recommandé d'utiliser la fonction
 		construireArgument pour créer l'argument intervalle.
-		@param self : L'argument implicite.
-		@type numero : int.
-		@param numero : Le numéro de la semaine dans le mois courant.
-		@type intervalle : dict formaté.
-		@param intervalle : Un dictionnaire contenant tout ce qu'il faut pour
-			assembler correctement une Semaine.
+		@param self: L'argument implicite.
+		@type numero: int.
+		@param numero: Le numéro de la semaine dans le mois courant.
+		@type intervalle: dict
+		@param intervalle: Un dictionnaire contenant tout ce qu'il faut pour assembler correctement une Semaine.
 		"""
 		super(Semaine, self).__init__()
 		self._numero = numero
@@ -101,37 +95,21 @@ class Semaine(Modifier.Modifier):
 	
 	@property
 	def numero(self):
-		"""
-		L'accesseur pour le numéro de la semaine.
-		@param self : L'argument implicite.
-		@rtype : int
-		@return : le numéro de la semaine dans le mois courant.
-		"""
+		"""L'accesseur pour le numéro de la semaine."""
 		return self._numero
 	#numero
 	
 	
 	@numero.setter
 	def numero(self, nouveauNumero):
-		"""
-		Le mutateur associé, pour changer ce numéro.
-		@param self : L'argument implicite.
-		@type nouveauNumero : int.
-		@param nouveauNumero : le nouveau numéro que l'on souhaite.
-		"""
+		"""Le mutateur associé, pour changer ce numéro."""
 		self._numero = nouveauNumero
 	#numero
 	
 	
 	@property
 	def jours(self):
-		"""
-		L'accesseur pour les jours que contient cette semaine.
-		@param self : L'argument implicite.
-		@rtype : dict.
-		@return : un dictionnaire contenant les jours de cette semaine dans le mois courant.
-		@postcondition : accès à ce dictionnaire en lecture seule.
-		"""
+		"""L'accesseur pour les jours que contient cette semaine."""
 		return self._jours
 	#jours
 	
@@ -141,9 +119,6 @@ class Semaine(Modifier.Modifier):
 		"""
 		Un accesseur pour connaître les jours connus par cette Semaine, dans
 		l'ordre officiel européen, permettant d'itérer plus facilement.
-		@param self : l'argument implicite.
-		@rtype : list
-		@return : la liste des JOURS connus classée.
 		"""
 		return self._listeNomJours
 	#listeNomJours
@@ -153,11 +128,11 @@ class Semaine(Modifier.Modifier):
 		"""
 		Cette fonction permet de récupérer un L{Jour} dans la Semaine, 
 		si il existe.
-		@param self : l'argument implicite.
-		@type nomJour : str
-		@param nomJour : un nom de jour connu, appartenant à JOURS_LEGAUX.
-		@rtype : Jour
-		@return : le jour voulu, ou None si il n'est pas trouvé.
+		@param self: l'argument implicite.
+		@type nomJour: str
+		@param nomJour: un nom de jour connu, appartenant à JOURS_LEGAUX.
+		@rtype: Jour
+		@return: le jour voulu, ou None si il n'est pas trouvé.
 		"""
 		if nomJour in self._listeNomJours:
 			return self._jours[nomJour]
@@ -170,11 +145,11 @@ class Semaine(Modifier.Modifier):
 		"""
 		Permet de trouver le L{Jour} dont le numéro est M{jour}.
 		Si rien n'est trouvé, None est renvoyé.
-		@param self : L'argument implicite.
-		@type jour : int
-		@param jour : le jour que l'on souhaite chercher.
-		@rtype : L{Jour}
-		@return : Le L{Jour} de la semaine demandé.
+		@param self: L'argument implicite.
+		@type jour: int
+		@param jour: le jour que l'on souhaite chercher.
+		@rtype: L{Jour}
+		@return: Le L{Jour} de la semaine demandé.
 		"""
 		for j in self._jours.values():
 			if j.numero == jour:
@@ -190,19 +165,19 @@ class Semaine(Modifier.Modifier):
 		Etape 4 de la descente dans l'architecture.
 		Ceci va "ajouter" un L{Creneau} dans le M{jour}, entre
 		M{debut} et M{fin}.
-		@param self : L'argument implicite
-		@type jour : int
-		@param jour : le numéro du jour dans lequel insérer ce créneau.
-		@type debut : int [1, 48]
-		@param debut : l'heure de début du créneau
-		@type fin : int [1, 48]
-		@param fin : l'heure de fin du créneau
-		@type typeCreneau : enum
-		@param typeCreneau : une valeur enumérée pour la fabrique de creneau
-		@precondition : debut < fin, debut/fin doivent etre compris dans leurs intervalles respectifs
-		@raise ArgumentInvalide : Si un des arguments est erroné.
-		@rtype : Creneau
-		@return : un Creneau valable.
+		@param self: L'argument implicite
+		@type jour: int
+		@param jour: le numéro du jour dans lequel insérer ce créneau.
+		@type debut: int [1, 48]
+		@param debut: l'heure de début du créneau
+		@type fin: int [1, 48]
+		@param fin: l'heure de fin du créneau
+		@type typeCreneau: enum
+		@param typeCreneau: une valeur enumérée pour la fabrique de creneau
+		@precondition: debut < fin, debut/fin doivent etre compris dans leurs intervalles respectifs
+		@raise ValueError: Si un des arguments est erroné.
+		@rtype: L{Creneau}
+		@return: un Creneau valable.
 		"""
 		# On nous certifie au dessus que cela ne renverra pas None
 		jourConcerne = self.trouveJour(jour)
@@ -221,12 +196,12 @@ class Semaine(Modifier.Modifier):
 	def supprimerCreneau(self, jour, idCreneau):
 		"""
 		Lance la suppression d'un L{Creneau} si il existe.
-		@param self : L'argument implicite
-		@type jour : int
-		@param jour : le numéro du jour où le créneau se situe.
-		@type idCreneau : ...
-		@param idCreneau : l'identifiant unique du créneau que l'on veut supprimer.
-		@raise CreneauInexistant : En cas d'erreur sur les arguments.
+		@param self: L'argument implicite
+		@type jour: int
+		@param jour: le numéro du jour où le créneau se situe.
+		@type idCreneau: object
+		@param idCreneau: l'identifiant unique du créneau que l'on veut supprimer.
+		@raise ValueError: En cas d'erreur sur les arguments.
 		"""
 		# Certification au dessus que None ne sera pas trouvé.
 		jourCible = self.trouveJour(jour)

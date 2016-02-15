@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class Hierarchy</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Trees&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">&nbsp;</td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="class-tree.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<center><b>
+ [ <a href="module-tree.html">Module Hierarchy</a>
+ | <a href="class-tree.html">Class Hierarchy</a> ]
+</b></center><br />
+<h1 class="epydoc">Class Hierarchy</h1>
+<ul class="nomargin-top">
+    <li> <strong class="uidlink"><a href="src.main.CSP_organizer-class.html">src.main.CSP_organizer</a></strong>:
+      <em class="summary">La classe principale du programme</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.contraintes.Contrainte.Contrainte-class.html">src.modele.contraintes.Contrainte.Contrainte</a></strong>:
+      <em class="summary">La classe abstraite qui va permettre le polymorphisme pour une 
+        contrainte.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="src.modele.contraintes.Blocage.Blocage-class.html">src.modele.contraintes.Blocage.Blocage</a></strong>:
+      <em class="summary">La classe qui d&#233;finit une contrainte de verrouillage d'un horaire 
+        Par exemple, il ne peux y avoir aucun cours entre 13h et 14h.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.contraintes.DateLimite.DateLimite-class.html">src.modele.contraintes.DateLimite.DateLimite</a></strong>:
+      <em class="summary">La classe qui d&#233;finit une deadline dans l'ordonnancement Par 
+        exemple, Tel cours doit se finir avant 18h, ou telle UE avant telle
+        date.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.contraintes.Obligation.Obligation-class.html">src.modele.contraintes.Obligation.Obligation</a></strong>:
+      <em class="summary">Cette classe d&#233;finit une contrainte qui impose quelque chose.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.contraintes.Precedence.Precedence-class.html">src.modele.contraintes.Precedence.Precedence</a></strong>:
+      <em class="summary">La classe qui d&#233;finit une contrainte de pr&#233;c&#233;dence (ie un element 
+        du cursus doit avoir lieu avant un autre, par exemple un CM doit 
+        avoir lieu avant le TP associ&#233;.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.contraintes.Ressource.Ressource-class.html">src.modele.contraintes.Ressource.Ressource</a></strong>:
+      <em class="summary">La classe qui g&#232;re la notion de ressource.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">Fabrique.Fabrique</strong>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.importations.veventIcs.VeventParser-class.html">src.modele.agenda.importations.veventIcs.VeventParser</a></strong>:
+      <em class="summary">La classe conteneur charg&#233;e de r&#233;cup&#233;rer les informations d'un 
+        Vevent dans le but de cr&#233;er et remplir un Creneau par la suite.</em>
+    </li>
+    <li> <strong class="uidlink">object</strong>:
+      <em class="summary">The most base type</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.Agenda.Agenda-class.html">src.modele.agenda.Agenda.Agenda</a></strong>:
+      <em class="summary">La classe qui va repr&#233;senter un agenda.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.Creneau.Creneau-class.html">src.modele.agenda.Creneau.Creneau</a></strong>:
+      <em class="summary">La classe centrale d'un agenda.</em>
+    </li>
+    <li> <strong class="uidlink">Creneau.Creneau</strong>:
+      <em class="summary">La classe centrale d'un agenda.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="src.modele.formation.Seance.Seance-class.html">src.modele.formation.Seance.Seance</a></strong>:
+      <em class="summary">La classe mere pour tout element d'une formation.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="src.modele.formation.Autre.Autre-class.html">src.modele.formation.Autre.Autre</a></strong>:
+      <em class="summary">La classe Autre qui h&#233;rite la classe seance Ceci represente le type
+        de s&#233;ance autre que CM TD TP Examen @version : 1.0 @author : Liu 
+        Zhuying</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.formation.Cm.Cm-class.html">src.modele.formation.Cm.Cm</a></strong>:
+      <em class="summary">La classe Cm qui h&#233;rite la classe seance @version : 1.0 @author : 
+        Liu Zhuying</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.formation.Examen.Examen-class.html">src.modele.formation.Examen.Examen</a></strong>:
+      <em class="summary">La classe Examen qui h&#233;rite la classe seance @version : 1.0 @author
+        : Liu Zhuying</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.formation.Td.Td-class.html">src.modele.formation.Td.Td</a></strong>:
+      <em class="summary">La classe Td qui h&#233;rite la classe seance @version : 1.0 @author : 
+        Liu Zhuying</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.formation.Tp.Tp-class.html">src.modele.formation.Tp.Tp</a></strong>:
+      <em class="summary">La classe tp qui h&#233;rite la classe seance @version : 1.0 @author : 
+        Liu Zhuying</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.diff.Diff.Diff-class.html">src.modele.agenda.diff.Diff.Diff</a></strong>:
+      <em class="summary">La classe charg&#233;e de faire un &quot;diff&quot;, donc de donner les 
+        diff&#233;rences au format texte, entre 2 <a 
+        href="src.modele.agenda.Agenda-module.html" 
+        class="link">Agenda</a>s.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.formation.Enseignant.Enseignant-class.html">src.modele.formation.Enseignant.Enseignant</a></strong>:
+      <em class="summary">La classe qui repr&#233;sente une salle.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.exportations.Exporteur.Exporteur-class.html">src.modele.agenda.exportations.Exporteur.Exporteur</a></strong>:
+      <em class="summary">Voici une classe g&#233;n&#233;rique charg&#233;e d'exporter un <a 
+        href="src.modele.agenda.Agenda-module.html" 
+        class="link">Agenda</a>.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.exportations.ExporteurIcs.ExporteurIcs-class.html">src.modele.agenda.exportations.ExporteurIcs.ExporteurIcs</a></strong>:
+      <em class="summary">La classe charg&#233;e d'exporter un <a 
+        href="src.modele.agenda.Agenda-module.html" class="link">Agenda</a>
+        au format .ics.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.exportations.ExporteurTxt.ExporteurTxt-class.html">src.modele.agenda.exportations.ExporteurTxt.ExporteurTxt</a></strong>:
+      <em class="summary">La classe charg&#233;e d'exporter un Agenda au format texte.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">Fabrique.Fabrique</strong>:
+      <em class="summary">Une classe abstraite g&#233;n&#233;rique pour cr&#233;er des fabriques plus 
+        facilements.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="src.modele.contraintes.FabriqueContrainte.FabriqueContrainte-class.html">src.modele.contraintes.FabriqueContrainte.FabriqueContrainte</a></strong>:
+      <em class="summary">Voici la classe qui va se charger de la cr&#233;ation des contraintes.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.FabriqueCreneau.FabriqueCreneau-class.html">src.modele.agenda.FabriqueCreneau.FabriqueCreneau</a></strong>:
+      <em class="summary">La fabrique qui va construire des <a 
+        href="src.modele.agenda.Creneau-module.html" 
+        class="link">Creneau</a> (ou des classes plus sp&#233;cialis&#233;es, comme 
+        une Seance, un Cm, etc.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="src.outils.Fabrique.Fabrique-class.html">src.outils.Fabrique.Fabrique</a></strong>:
+      <em class="summary">Une classe abstraite g&#233;n&#233;rique pour cr&#233;er des fabriques plus 
+        facilements.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.formation.Formation.Formation-class.html">src.modele.formation.Formation.Formation</a></strong>:
+      <em class="summary">La classe Cm qui h&#233;rite la classe seance</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.outils.GenerateurId.GenerateurId-class.html">src.outils.GenerateurId.GenerateurId</a></strong>:
+      <em class="summary">Une classe qui va se charger de g&#233;n&#233;rer des identifiants.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.formation.Groupe.Groupe-class.html">src.modele.formation.Groupe.Groupe</a></strong>:
+      <em class="summary">La classe qui d&#233;finit un groupe pour une formation.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.Horaire.Horaire-class.html">src.modele.agenda.Horaire.Horaire</a></strong>:
+      <em class="summary">La classe qui d&#233;finit un horaire pour un Cr&#233;neau.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.Jour.Jour-class.html">src.modele.agenda.Jour.Jour</a></strong>:
+      <em class="summary">La classe qui repr&#233;sente un jour dans un agenda.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.formation.listeFormation.ListeFormation-class.html">src.modele.formation.listeFormation.ListeFormation</a></strong>:
+      <em class="summary">La classe qui contient une liste de formations</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.Modifier.Modifier-class.html">src.modele.agenda.Modifier.Modifier</a></strong>:
+      <em class="summary">Classe commune aux <a href="src.modele.agenda.Annee-module.html" 
+        class="link">Annee</a>, <a 
+        href="src.modele.agenda.Mois-module.html" class="link">Mois</a>, <a
+        href="src.modele.agenda.Semaine-module.html" 
+        class="link">Semaine</a>, permettant de savoir si il y a de la 
+        donn&#233;e int&#233;ressante dedans.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.Mois.Mois-class.html">src.modele.agenda.Mois.Mois</a></strong>:
+      <em class="summary">La classe qui repr&#233;sente un mois dans une ann&#233;e.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.Semaine.Semaine-class.html">src.modele.agenda.Semaine.Semaine</a></strong>:
+      <em class="summary">La classe qui va d&#233;finir une Semaine.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="src.outils.observateur.Observable.Observable-class.html">src.outils.observateur.Observable.Observable</a></strong>:
+      <em class="summary">L'alter-ego de la classe <a 
+        href="src.outils.observateur.Observeur.Observeur-class.html" 
+        class="link">Observeur</a>.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.outils.observateur.Observeur.Observeur-class.html">src.outils.observateur.Observeur.Observeur</a></strong>:
+      <em class="summary">La partie ext&#233;rieur du design pattern observateur.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.formation.Salle.Salle-class.html">src.modele.formation.Salle.Salle</a></strong>:
+      <em class="summary">La classe qui repr&#233;sente une salle.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.modele.formation.Ue.Ue-class.html">src.modele.formation.Ue.Ue</a></strong>:
+      <em class="summary">La classe qui repr&#233;sente une unit&#233; d'enseignement.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="src.vue.dialog.Ui_Dialog-class.html">src.vue.dialog.Ui_Dialog</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="src.vue.mainwindow.Ui_MainWindow-class.html">src.vue.mainwindow.Ui_MainWindow</a></strong>
+    </li>
+    <li> <strong class="uidlink">int</strong>:
+      <em class="summary">int(x=0) -&gt; int or long int(x, base=10) -&gt; int or long</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="PyQt4.QtGui.QPaintDevice.PaintDeviceMetric-class.html">PyQt4.QtGui.QPaintDevice.PaintDeviceMetric</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="PyQt4.QtGui.QWidget.RenderFlag-class.html">PyQt4.QtGui.QWidget.RenderFlag</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="PyQt4.QtGui.QFrame.Shadow-class.html">PyQt4.QtGui.QFrame.Shadow</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="PyQt4.QtGui.QFrame.Shape-class.html">PyQt4.QtGui.QFrame.Shape</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="PyQt4.QtGui.QFrame.StyleMask-class.html">PyQt4.QtGui.QFrame.StyleMask</a></strong>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">sip.simplewrapper</strong>
+    <ul>
+    <li> <strong class="uidlink">PyQt4.QtGui.QPaintDevice</strong>:
+      <em class="summary">QPaintDevice()</em>
+    <ul>
+    <li> <strong class="uidlink">PyQt4.QtGui.QWidget</strong>:
+      <em class="summary">QWidget(QWidget parent=None, Qt.WindowFlags flags=0)</em>
+    <ul>
+    <li> <strong class="uidlink">PyQt4.QtGui.QFrame</strong>:
+      <em class="summary">QFrame(QWidget parent=None, Qt.WindowFlags flags=0)</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="src.vue.seanceVue.monFrame-class.html">src.vue.seanceVue.monFrame</a></strong>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="PyQt4.QtGui.QWidget.RenderFlags-class.html">PyQt4.QtGui.QWidget.RenderFlags</a></strong>:
+      <em class="summary">QWidget.RenderFlags(QWidget.RenderFlags) QWidget.RenderFlags(int) 
+        QWidget.RenderFlags()</em>
+    </li>
+    <li> <strong class="uidlink">sip.wrapper</strong>
+    <ul>
+    <li> <strong class="uidlink">PyQt4.QtCore.QObject</strong>:
+      <em class="summary">QObject(QObject parent=None)</em>
+    <ul>
+    <li> <strong class="uidlink">PyQt4.QtGui.QWidget</strong>:
+      <em class="summary">QWidget(QWidget parent=None, Qt.WindowFlags flags=0)</em>
+    <ul>
+    <li> <strong class="uidlink">PyQt4.QtGui.QFrame</strong>:
+      <em class="summary">QFrame(QWidget parent=None, Qt.WindowFlags flags=0)</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="src.vue.seanceVue.monFrame-class.html">src.vue.seanceVue.monFrame</a></strong>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+</ul>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Trees&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Feb 13 22:35:36 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
 import sys, os
@@ -16,23 +16,21 @@ class FabriqueCreneau(Fabrique.Fabrique):
 	"""
 	La fabrique qui va construire des L{Creneau} (ou des classes plus
 	spécialisées, comme une L{Seance}, un L{Cm}, etc.
-	
 	USAGE :
-		Si on veut quelque chose de particulier, il suffit de renseigner
-		un des enum situé plus haut (CreneauxPossible).
-		Il faudra néanmoins fournir un Horaire en tant qu'unique argument.
-	
-	@author : Laurent Bardoux p1108365
-	@version : 1.0
+	Si on veut quelque chose de particulier, il suffit de renseigner
+	un des enum situé plus haut (CreneauxPossible).
+	Il faudra néanmoins fournir un Horaire en tant qu'unique argument.
+	@author: Laurent Bardoux p1108365
+	@version: 1.0
 	"""
 	
 	def __init__(self):
 		"""
 		Le constructeur de cette fabrique de L{Creneau}.
 		Il va initialiser le dictionnaire pour la création d'une Fabrique.
-		@param self : L'argument implicite.
+		@param self: L'argument implicite.
 		"""
-		# ilfaudra tenir ce dictionnaire à jour si on veut créer d'autre choses.
+		# il faudra tenir ce dictionnaire à jour si on veut créer d'autre choses.
 		# mais également l'enum situé plus haut
 		monDico = {
 			CreneauxPossible.CRENEAU : lambda ident, horaire : Creneau.Creneau(ident, horaire),

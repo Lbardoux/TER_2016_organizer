@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
 import Exporteur
@@ -37,7 +37,7 @@ class ExporteurTxt(Exporteur.Exporteur):
 		@raise IOError: En cas de problème d'écriture.
 		"""
 		for creneau in jour.creneaux:
-			
+			print("Not yet implemented")
 		#for
 	#_faireJour
 	
