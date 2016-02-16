@@ -6,6 +6,9 @@ from Enseignant import Enseignant
 from listeSalle import ListeSalle
 from listeFormation import ListeFormation
 from listeEnseignant import ListeEnseignant
+from urllib2 import urlopen
+from lxml import etree
+import sys,os
 
 class Base(object):
 	"""
@@ -16,48 +19,21 @@ class Base(object):
 		self._listeSalle = ListeSalle()
 		self._listeFormation = ListeFormation()
 		self._listeEnseignant = ListeEnseignant()
-		self._configuration()
+		self._parserXML()
 	#fin __init__
 	
-	def _configuration(self):
+	def _parserXML(self):
 		"""
 		"""
-		self._listeEnseignant.ajouterEnseignant(Enseignant(1,"GUERIN LASSOUS", "Isabelle"))
-		self._listeEnseignant.ajouterEnseignant(Enseignant(2,"GUILLOU", "Erwan"))
-		self._listeEnseignant.ajouterEnseignant(Enseignant(3,"LEFEVRE", "Marie"))
-		self._listeEnseignant.ajouterEnseignant(Enseignant(4,"BRANDEL", "Sylvain"))
-		self._listeEnseignant.ajouterEnseignant(Enseignant(5,"TABARD", "Aurelien"))
-		self._listeEnseignant.ajouterEnseignant(Enseignant(6,"COQUERY", "Emmanuel"))
-		self._listeEnseignant.ajouterEnseignant(Enseignant(7,"GAVIN", "Gerald"))
-		self._listeEnseignant.ajouterEnseignant(Enseignant(8,"JEAN-DAUBIAS", "Stephanie"))
-		self._listeEnseignant.ajouterEnseignant(Enseignant(9,"CANIOU", "Yves"))
-		self._listeEnseignant.ajouterEnseignant(Enseignant(10,"CHAINE", "Raphaelle"))
-		self._listeEnseignant.ajouterEnseignant(Enseignant(11,"HASSAS", "Salima"))
-		self._listeEnseignant.ajouterEnseignant(Enseignant(12,"AUSSEM", "Alexandre"))
-		
-		self._listeFormation.ajouterFormation(Formation(1, 4, "Informatique", 8))
-		self._listeFormation.ajouterFormation(Formation(2, 5, "TI", 6))
-		self._listeFormation.ajouterFormation(Formation(3, 5, "DS", 12))
-		self._listeFormation.ajouterFormation(Formation(4, 5, "SRIV", 9))
-		self._listeFormation.ajouterFormation(Formation(5, 5, "IA", 11))
-		self._listeFormation.ajouterFormation(Formation(6, 5, "IMAGE", 10))
-		
-		self._listeSalle.ajouterSalle(Salle(1, "Nautibus C1", 70))
-		self._listeSalle.ajouterSalle(Salle(2, "Nautibus C2", 70))
-		self._listeSalle.ajouterSalle(Salle(3, "Nautibus C3", 70))
-		self._listeSalle.ajouterSalle(Salle(4, "Nautibus C4", 70))
-		self._listeSalle.ajouterSalle(Salle(5, "Nautibus C5", 70))
-		self._listeSalle.ajouterSalle(Salle(6, "Nautibus TD1", 35))
-		self._listeSalle.ajouterSalle(Salle(7, "Nautibus TD2", 35))
-		self._listeSalle.ajouterSalle(Salle(8, "Nautibus TD3", 35))
-		self._listeSalle.ajouterSalle(Salle(9, "Nautibus TD4", 35))
-		self._listeSalle.ajouterSalle(Salle(10, "Nautibus TD5", 35))
-		self._listeSalle.ajouterSalle(Salle(11, "Nautibus TP1", 20))
-		self._listeSalle.ajouterSalle(Salle(12, "Nautibus TP2", 20))
-		self._listeSalle.ajouterSalle(Salle(13, "Nautibus TP3", 20))
-		self._listeSalle.ajouterSalle(Salle(14, "Nautibus TP4", 20))
-		self._listeSalle.ajouterSalle(Salle(15, "Nautibus TP5", 20))
-	#fin _configuration
+		fichier = open(os.path.dirname(os.path.realpath(__file__))+"/base.xml","r")
+		tree = etree.parse(fichier)
+		for i in tree.xpath("/base/enseignants/enseignant"):
+			self._listeEnseignant.ajouterEnseignant(Enseignant(int(i.find("idEnseignant").text),i.find("nom").text, i.find("prenom").text)) 
+		for i in tree.xpath("/base/formations/formation"):
+			self._listeFormation.ajouterFormation(Formation(int(i.find("idFormation").text), int(i.find("niveau").text), i.find("nom").text, i.find("idEnseignant").text))
+		for i in tree.xpath("/base/salles/salle"):
+			self._listeSalle.ajouterSalle(Salle(int(i.find("idSalle").text),i.find("nom").text,i.find("taille")))
+	#fin _parserXML
 	
 	@property
 	def salles(self):
