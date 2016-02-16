@@ -4,7 +4,6 @@
 Le package suivant utilise sans l'importer l'API Agenda.
 Ainsi, il ne faut pas changer les méthodes, au risque de tout casser.
 
-
 Pour créer un nouvel Exporteur, il suffit de :
 Créer une classe hériant de Exporteur
 définir un bon constructeur (prenant une str en parametre, et appellant le

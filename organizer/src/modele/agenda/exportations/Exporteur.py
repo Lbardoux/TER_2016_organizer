@@ -7,6 +7,7 @@ class Exporteur(object):
 	Voici une classe générique chargée d'exporter un L{Agenda}.
 	Le format d'exportation sera spécifié dans les classes filles.
 	@ivar _nomFichier: le nom du fichier dans lequel exporter l'L{Agenda}.
+	@ivar _nomAgenda: Le nom de l'agenda que l'on va exporter.
 	@author: Laurent Bardoux
 	@version: 1.0
 	"""
@@ -20,6 +21,7 @@ class Exporteur(object):
 		@precondition: nom désigne un fichier valide
 		"""
 		self._nomFichier = nom
+		self._nomAgenda = ""
 	#__init__
 	
 	
@@ -33,6 +35,7 @@ class Exporteur(object):
 		@precondition: self._nomFichier doit etre un fichier valide.
 		@raise IOError: si le nom de fichier pose problème (droits, existence, etc)
 		"""
+		self._nomAgenda = agenda.nom
 		with open(self._nomFichier, 'w') as fichier:
 			self._ecrireEntete(fichier)
 			for annee in agenda.listeAnnees:
@@ -100,7 +103,9 @@ class Exporteur(object):
 		@param fichier: le fichier dans lequel écrire.
 		@raise IOError: En cas de problème d'écriture.
 		"""
-		for jour in semaine.jours.values():
+		for nomJour in semaine.listeNomJours:
+			jour = semaine.jours[nomJour]
+			#for jour in semaine.jours.values():
 			if len(jour.creneaux) > 0:
 				self._faireJour(annee, mois, jour, fichier)
 			#if

@@ -109,7 +109,6 @@ class Diff(object):
 		inserer = False
 		compteur = 0
 		while compteur < len(liste1):
-			# Les différents cas doivent gérer l'incrément
 			if liste1[compteur] is None and liste2[compteur] is None:
 				compteur += 1
 			elif liste1[compteur] is not None and liste2[compteur] is None:

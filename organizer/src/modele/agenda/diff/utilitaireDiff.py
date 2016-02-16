@@ -34,37 +34,6 @@ def avoirPremierCreneauDepuis(liste, depart):
 #avoirPremierCreneauDepuis
 
 
-def definirBornes(debut1, fin1, debut2, fin2):
-	"""
-	Cette fonction va définir les 2 bornes de l'intervalle quel'on veut
-	capturer, elle cache donc la foret d'ifs pour la définition de ces bornes.
-	@type debut1: int
-	@param debut1: le nombre de départ du premier creneau
-	@type fin1: int
-	@param fin1: le nombre de fin du premier creneau
-	@type debut2: int
-	@param debut2: le nombre de départ du second creneau
-	@type fin2: int
-	@param fin2: le nombre de fin du second creneau
-	@rtype: tuple
-	@return: le debut et la fin de l'intervalle a capturer.
-	"""
-	# le "debut" est le creneau qui commence le plus tot.
-	debut = debut1 if debut1 < debut2 else debut2
-	fin = 0
-	if debut1 == debut2:
-		# si le depart est le meme, le plus long gagne.
-		fin = fin1 if fin1 > fin2 else fin2
-	elif debut1 < debut2:
-		# si l'un commence avant l'autre, c'est sa fin qui compte
-		fin = fin1
-	else:
-		fin = fin2
-	#if
-	return (debut, fin)
-#definirBornes
-
-
 def decrireContenu(liste, borneSup=255):
 	"""
 	Décrit le contenu d'une liste de L{Creneau}x.

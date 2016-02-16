@@ -2,6 +2,7 @@
 # -*-coding:utf-8 -*
 
 import Exporteur
+from diff.utilitaireDiff import decrireContenu
 
 class ExporteurTxt(Exporteur.Exporteur):
 	"""
@@ -36,9 +37,10 @@ class ExporteurTxt(Exporteur.Exporteur):
 		@param fichier: le fichier dans lequel écrire.
 		@raise IOError: En cas de problème d'écriture.
 		"""
-		for creneau in jour.creneaux:
-			print("Not yet implemented")
-		#for
+		dateJour = "Pour le " + str(jour.nom) + " " + str(jour.numero) + " " + str(mois.nom)
+		dateJour += " " + str(annee.an) + ", nous avons :"
+		contenu = decrireContenu(jour.creneaux)
+		fichier.write(dateJour + "\n" + str(contenu) + "\n")
 	#_faireJour
 	
 	
@@ -50,17 +52,7 @@ class ExporteurTxt(Exporteur.Exporteur):
 		@param fichier: Le fichier dans lequel écrire l'entete.
 		@raise IOError: Si les droits d'écriture ne sont pas autorisés.
 		"""
+		fichier.write("Export de l'agenda " + str(self._nomAgenda) + " :\n\n")
 	#_ecrireEntete
-	
-	
-	def _ecrirePied(self, fichier):
-		"""
-		Va écrire le pied dans le fichier.
-		@param self: L'argument implicite.
-		@type fichier: file
-		@param fichier: Le fichier dans lequel écrire l'entete.
-		@raise IOError: Si les droits d'écriture ne sont pas autorisés.
-		"""
-	#_ecrirePied
 	
 #ExporteurTxt
