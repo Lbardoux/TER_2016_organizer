@@ -1,4 +1,4 @@
-﻿#!/usr/bin/python
+﻿#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
 import Horaire, FabriqueCreneau
@@ -58,9 +58,7 @@ class Jour(object):
 	
 	@property
 	def numero(self):
-		"""
-		L'accesseur pour le numéro du jour.
-		"""
+		"""L'accesseur pour le numéro du jour."""
 		return self._numero
 	#numero
 	
@@ -162,7 +160,7 @@ class Jour(object):
 		@param self: L'argument implicite
 		@type idCreneau: Ce que l'on veut
 		@param idCreneau: l'identifiant unique du créneau que l'on veut supprimer.
-		@raise CreneauInexistant: En cas d'erreur sur les arguments.
+		@raise ValueError: En cas d'erreur sur les arguments.
 		"""
 		#stocker ailleurs ce creneau ? (ctrl-z, ctr-y)
 		cible = None
@@ -177,5 +175,20 @@ class Jour(object):
 		#if
 		self._creneaux.remove(cible)
 	#supprimerCreneau
+	
+	
+	def avoirPremierCreneauDepuis(self, depart):
+		"""
+		Cette fonction permet de récupérer le premier "creneau" au format
+		numérique pour avoir un point de départ.
+		L'idée est de chercher le premier creneau occupé (en ignorant les
+		blancs dans la liste) à partir de départ.
+		@param self: L'argument implicite
+		@type depart: int
+		@param depart: le point de départ de la recherche
+		@rtype: L{Creneau}
+		@return: Le premier Creneau avec debut >= depart
+		"""
+	
 	
 #Jour

@@ -1,0 +1,395 @@
+Analyse par UE :
+UE RMob, resp. DUPONT :
+ - Heures à placer 30 -> CM(25) TD(5) TP(0) EXAMEN(0)
+ - Heures placées 30.0 -> CM(22.5) TD(7.5) TP(0.0) EXAMEN(0.0)
+   ******************* ECART : [2.5, -2.5, 0.0]
+ - Interventions placées :
+    * DUPONT : CM(7.5) TD(7.5) TP(0.0)
+    * VERRIER : CM(15.0) TD(0.0) TP(0.0)
+UE RSF, resp. DUPONT :
+ - Heures à placer 30 -> CM(15) TD(3) TP(12) EXAMEN(0)
+ - Heures placées 30.0 -> CM(16.5) TD(1.5) TP(12.0) EXAMEN(0.0)
+   ******************* ECART : [-1.5, 1.5, 0.0]
+ - Interventions placées :
+    * DUPONT : CM(9.0) TD(0.0) TP(12.0)
+    * IGL : CM(4.5) TD(1.5) TP(0.0)
+    * REYMOND : CM(3.0) TD(0.0) TP(0.0)
+UE SPAI, resp. GLUCK :
+ - Heures à placer 31.75 -> CM(25) TD(0) TP(6) EXAMEN(0.75)
+ - Heures placées 31.75 -> CM(25.0) TD(0.0) TP(6.0) EXAMEN(0.75)
+ - Interventions placées :
+    * GLUCK : CM(25.0) TD(0.0) TP(6.0) EXAMEN(0.75)
+UE RA, resp. BEGIN :
+ - Heures à placer 43.5 -> CM(19.5) TD(4.5) TP(18) EXAMEN(1.5)
+ - Heures placées 32.0 -> CM(15.5) TD(1.5) TP(15.0) EXAMEN(0.0)
+   ******************* ECART : [4.0, 3.0, 3.0]
+ - Interventions placées :
+    * Artero : CM(7.5) TD(0.0) TP(0.0)
+    * Gelas : CM(8.0) TD(0.0) TP(9.0)
+    * Gelas -- Artero : CM(0.0) TD(0.0) TP(6.0)
+    * RTERO : CM(0.0) TD(1.5) TP(0.0)
+UE QSM, resp. IGL :
+ - Heures à placer 31.5 -> CM(18) TD(4) TP(8) EXAMEN(1.5)
+ - Heures placées 30.0 -> CM(18.0) TD(4.0) TP(8.0) EXAMEN(0.0)
+ - Interventions placées :
+    * IGL : CM(18.0) TD(4.0) TP(8.0)
+UE TER, resp. CANIOU :
+ - Heures à placer 95 -> CM(0) TD(90) TP(0) EXAMEN(5)
+ - Heures placées 95.0 -> CM(0.0) TD(95.0) TP(0.0) EXAMEN(0.0)
+   ******************* ECART : [0.0, -5.0, 0.0]
+ - Interventions placées :
+    * SANS : CM(0.0) TD(95.0) TP(0.0)
+UE AdminSR, resp. GLUCK :
+ - Heures à placer 46 -> CM(12) TD(0) TP(34) EXAMEN(0)
+ - Heures placées 46.0 -> CM(9.0) TD(0.0) TP(37.0) EXAMEN(0.0)
+   ******************* ECART : [3.0, 0.0, -3.0]
+ - Interventions placées :
+    * GLUCK : CM(9.0) TD(0.0) TP(21.0)
+    * GLUCK+EXCOFFIER : CM(0.0) TD(0.0) TP(16.0)
+UE AR, resp. GELAS :
+ - Heures à placer 40.5 -> CM(21) TD(0) TP(18) EXAMEN(1.5)
+ - Heures placées 40.5 -> CM(21.0) TD(0.0) TP(15.0) EXAMEN(4.5)
+   ******************* ECART : [0.0, 0.0, 3.0]
+ - Interventions placées :
+    * BUSSON : CM(6.0) TD(0.0) TP(0.0)
+    * GELAS : CM(3.0) TD(0.0) TP(9.0) EXAMEN(4.5)
+    * REUTER : CM(0.0) TD(0.0) TP(6.0)
+    * REYMOND : CM(12.0) TD(0.0) TP(0.0)
+UE ASR, resp. CANIOU :
+ - Heures à placer 32 -> CM(15) TD(0) TP(15) EXAMEN(2)
+ - Heures placées 26.0 -> CM(13.0) TD(0.0) TP(13.0) EXAMEN(0.0)
+   ******************* ECART : [2.0, 0.0, 2.0]
+ - Interventions placées :
+    * AL : CM(1.0) TD(0.0) TP(0.0)
+    * CANIOU : CM(12.0) TD(0.0) TP(13.0)
+UE NT, resp. GELAS :
+ - Heures à placer 37 -> CM(12) TD(0) TP(25) EXAMEN(0)
+ - Heures placées 37.0 -> CM(12.0) TD(0.0) TP(25.0) EXAMEN(0.0)
+ - Interventions placées :
+    * BECHARA : CM(0.0) TD(0.0) TP(4.0)
+    * GELAS : CM(9.0) TD(0.0) TP(21.0)
+    * ORENES : CM(3.0) TD(0.0) TP(0.0)
+UE Droit informatique, resp. BERGHEAUD :
+ - Heures à placer 31.5 -> CM(30) TD(0) TP(0) EXAMEN(1.5)
+ - Heures placées 27.0 -> CM(27.0) TD(0.0) TP(0.0) EXAMEN(0.0)
+   ******************* ECART : [3.0, 0.0, 0.0]
+ - Interventions placées :
+    * BERGHEAUD : CM(27.0) TD(0.0) TP(0.0)
+UE CoMétier, resp. LALLIARD :
+ - Heures à placer 30 -> CM(0) TD(30) TP(0) EXAMEN(0)
+ - Heures placées 30.0 -> CM(0.0) TD(30.0) TP(0.0) EXAMEN(0.0)
+ - Interventions placées :
+    * LALLIARD : CM(0.0) TD(30.0) TP(0.0)
+RE gérée à part
+UE Anglais, resp. DUCREUX :
+ - Heures à placer 30 -> CM(0) TD(30) TP(0) EXAMEN(0)
+ - Heures placées 30.0 -> CM(0.0) TD(30.0) TP(0.0) EXAMEN(0.0)
+ - Interventions placées :
+    * DUCREUX : CM(0.0) TD(30.0) TP(0.0)
+UE CCNA, resp. RICO :
+ - Heures à placer 30 -> CM(0) TD(0) TP(30) EXAMEN(0)
+ - Heures placées 62.5 -> CM(0.0) TD(0.0) TP(62.5) EXAMEN(0.0)
+   ******************* ECART : [0.0, 0.0, -32.5]
+ - Interventions placées :
+    * RICO+BONNEVILLE : CM(0.0) TD(0.0) TP(62.5)
+**************************** Statistiques par semaine :
+S2015W40 : 9.0 heures présentielles, dont 1.0 de TER + si CCNA : 0
+S2015W42 : 31.0 heures présentielles, dont 2.0 de TER + si CCNA 1.75
+S2015W43 : 35.0 heures présentielles, dont 11.0 de TER + si CCNA 3.0
+S2015W46 : 26.0 heures présentielles, dont 4.5 de TER + si CCNA 3.0
+S2015W47 : 30.75 heures présentielles, dont 5.75 de TER + si CCNA 6.75
+S2015W50 : 33.0 heures présentielles, dont 10.0 de TER + si CCNA 3.0
+S2015W51 : 33.0 heures présentielles, dont 6.0 de TER + si CCNA : 0
+S2016W01 : 29.0 heures présentielles, dont 3.5 de TER + si CCNA 1.5
+S2016W02 : 33.0 heures présentielles, dont 3.0 de TER + si CCNA 6.0
+S2016W05 : 23.25 heures présentielles, dont 4.0 de TER + si CCNA 4.0
+S2016W06 : 21.0 heures présentielles, dont 9.0 de TER + si CCNA 3.0
+S2016W09 : 34.5 heures présentielles, dont 3.5 de TER + si CCNA 3.0
+S2016W10 : 31.0 heures présentielles, dont 2.0 de TER + si CCNA 2.0
+S2016W14 : 30.75 heures présentielles, dont 3.75 de TER + si CCNA 5.0
+S2016W15 : 24.5 heures présentielles, dont 6.5 de TER + si CCNA 3.0
+S2016W19 : 28.0 heures présentielles, dont 8.0 de TER + si CCNA 5.0
+S2016W20 : 16.0 heures présentielles, dont 11.0 de TER + si CCNA 7.5
+S2016W23 : 16.5 heures présentielles, dont 8.0 de TER + si CCNA 5.0
+**************************** Statistiques sur l'année :
+- Moyenne travaillée par semaine : 28.734375
+- Minimum travaillé : 16.0 pour la semaine S2016W20
+- Maximim travaillé : 35.0 pour la semaine S2015W43
+- Heures totales sur l'année : 459.75
+- Heures préparation avant soutenance TER : 3.5
+**************************** Contraintes RTS :
+La dernière occurence programmée de [RSF SPAI RA QSM ]a lieu le 2016-02-03, avant 2016-02-05
+**************************** Résumé par intervenant :
+AL
+  * ASR : CM(1.0) TD(0.0) TP(0.0)
+  Créneaux :
+      CM, 1.0,  le Thu 19/11/15 de 15:15 à 16:15
+Artero
+  * RA : CM(7.5) TD(0.0) TP(0.0)
+  Créneaux :
+      CM, 3.0,  le Wed 14/10/15 de 14:15 à 17:15
+      CM, 3.0,  le Thu 22/10/15 de 16:00 à 19:00
+      CM, 1.5,  le Mon 09/11/15 de 13:15 à 14:45
+BECHARA
+  * NT : CM(0.0) TD(0.0) TP(4.0)
+  Créneaux :
+      TP, 4.0,  le Thu 14/04/16 de 08:00 à 12:00
+BERGHEAUD
+  * Droit informatique : CM(27.0) TD(0.0) TP(0.0)
+  Créneaux :
+      CM, 3.0,  le Tue 01/03/16 de 08:45 à 11:45
+      CM, 3.0,  le Thu 03/03/16 de 13:15 à 16:15
+      CM, 3.0,  le Tue 08/03/16 de 08:45 à 11:45
+      CM, 3.0,  le Tue 05/04/16 de 08:45 à 11:45
+      CM, 3.0,  le Tue 12/04/16 de 08:45 à 11:45
+      CM, 3.0,  le Tue 10/05/16 de 08:45 à 11:45
+      CM, 3.0,  le Wed 11/05/16 de 08:45 à 11:45
+      CM, 3.0,  le Tue 17/05/16 de 08:45 à 11:45
+      CM, 3.0,  le Tue 07/06/16 de 08:45 à 11:45
+BUSSON
+  * AR : CM(6.0) TD(0.0) TP(0.0)
+  Créneaux :
+      CM, 3.0,  le Mon 11/04/16 de 08:30 à 11:30
+      CM, 3.0,  le Mon 09/05/16 de 08:30 à 11:30
+CANIOU
+  * ASR : CM(12.0) TD(0.0) TP(13.0)
+  Créneaux :
+      CM, 3.0,  le Thu 01/10/15 de 14:00 à 17:00
+      CM, 3.0,  le Wed 14/10/15 de 09:00 à 12:00
+      TP, 3.0,  le Fri 16/10/15 de 13:00 à 16:00
+      CM, 3.0,  le Tue 10/11/15 de 09:00 à 12:00
+      TP, 3.0,  le Tue 10/11/15 de 13:00 à 16:00
+      CM, 3.0,  le Mon 07/12/15 de 08:45 à 11:45
+      TP, 3.0,  le Wed 09/12/15 de 13:00 à 16:00
+      TP, 1.0,  le Mon 14/12/15 de 09:00 à 10:00
+      TP, 3.0,  le Wed 16/12/15 de 08:45 à 11:45
+DUCREUX
+  * Anglais : CM(0.0) TD(30.0) TP(0.0)
+  Créneaux :
+      TD, 2.0,  le Fri 02/10/15 de 10:00 à 12:00
+      TD, 2.0,  le Fri 16/10/15 de 10:00 à 12:00
+      TD, 2.0,  le Fri 13/11/15 de 10:00 à 12:00
+      TD, 2.0,  le Fri 20/11/15 de 10:00 à 12:00
+      TD, 2.0,  le Fri 11/12/15 de 10:00 à 12:00
+      TD, 2.0,  le Fri 18/12/15 de 10:00 à 12:00
+      TD, 2.0,  le Fri 15/01/16 de 10:00 à 12:00
+      TD, 2.0,  le Fri 05/02/16 de 10:00 à 12:00
+      TD, 2.0,  le Fri 12/02/16 de 10:00 à 12:00
+      TD, 2.0,  le Fri 04/03/16 de 10:00 à 12:00
+      TD, 2.0,  le Fri 11/03/16 de 10:00 à 12:00
+      TD, 2.0,  le Fri 08/04/16 de 10:00 à 12:00
+      TD, 2.0,  le Fri 15/04/16 de 10:00 à 12:00
+      TD, 2.0,  le Fri 13/05/16 de 10:00 à 12:00
+      TD, 2.0,  le Fri 20/05/16 de 10:00 à 12:00
+DUPONT
+  * RMob : CM(7.5) TD(7.5) TP(0.0)
+  Créneaux :
+      CM, 2.5,  le Tue 05/01/16 de 16:00 à 18:30
+      CM, 3.0,  le Tue 12/01/16 de 13:00 à 16:00
+      CM, 2.0,  le Fri 15/01/16 de 08:00 à 10:00
+      TD, 3.75,  le Thu 04/02/16 de 13:15 à 17:00
+      TD, 3.75,  le Fri 05/02/16 de 13:15 à 17:00
+  * RSF : CM(9.0) TD(0.0) TP(12.0)
+  Créneaux :
+      CM, 3.0,  le Fri 02/10/15 de 13:15 à 16:15
+      CM, 3.0,  le Thu 15/10/15 de 14:15 à 17:15
+      CM, 3.0,  le Thu 22/10/15 de 08:45 à 11:45
+      TP, 2.5,  le Fri 23/10/15 de 10:00 à 12:30
+      TP, 3.5,  le Fri 23/10/15 de 13:30 à 17:00
+      TP, 6.0,  le Fri 13/11/15 de 13:00 à 19:00
+GELAS
+  * AR : CM(3.0) TD(0.0) TP(9.0) EXAMEN(4.5)
+  Créneaux :
+      CM, 3.0,  le Thu 07/01/16 de 13:15 à 16:15
+      TP, 3.0,  le Mon 08/02/16 de 09:00 à 12:00
+      TP, 3.0,  le Mon 29/02/16 de 09:00 à 12:00
+      TP, 3.0,  le Mon 07/03/16 de 09:00 à 12:00
+      EXAMEN, 3.0,  le Mon 04/04/16 de 09:00 à 12:00
+      EXAMEN, 1.5,  le Fri 10/06/16 de 10:00 à 11:30
+  * NT : CM(9.0) TD(0.0) TP(21.0)
+  Créneaux :
+      CM, 3.0,  le Wed 02/03/16 de 12:45 à 15:45
+      TP, 3.0,  le Fri 04/03/16 de 13:15 à 16:15
+      TP, 3.0,  le Mon 07/03/16 de 13:15 à 16:15
+      TP, 3.0,  le Tue 08/03/16 de 13:00 à 16:00
+      TP, 3.0,  le Thu 10/03/16 de 13:15 à 16:15
+      CM, 3.0,  le Fri 11/03/16 de 13:15 à 16:15
+      TP, 3.0,  le Tue 05/04/16 de 12:45 à 15:45
+      TP, 3.0,  le Fri 08/04/16 de 13:15 à 16:15
+      TP, 3.0,  le Thu 14/04/16 de 13:15 à 16:15
+      CM, 3.0,  le Fri 13/05/16 de 14:00 à 17:00
+GLUCK
+  * SPAI : CM(25.0) TD(0.0) TP(6.0) EXAMEN(0.75)
+  Créneaux :
+      CM, 3.0,  le Mon 12/10/15 de 08:45 à 11:45
+      CM, 3.0,  le Tue 13/10/15 de 14:00 à 17:00
+      CM, 3.0,  le Thu 15/10/15 de 09:00 à 12:00
+      CM, 3.0,  le Wed 21/10/15 de 08:45 à 11:45
+      TP, 3.0,  le Mon 09/11/15 de 08:45 à 11:45
+      CM, 3.0,  le Thu 12/11/15 de 08:45 à 11:45
+      CM, 3.0,  le Mon 16/11/15 de 08:45 à 11:45
+      TP, 3.0,  le Tue 17/11/15 de 12:45 à 15:45
+      CM, 3.0,  le Wed 18/11/15 de 08:45 à 11:45
+      CM, 2.0,  le Wed 18/11/15 de 13:00 à 15:00
+      CM, 2.0,  le Mon 14/12/15 de 13:00 à 15:00
+      EXAMEN, 0.75,  le Mon 01/02/16 de 09:00 à 09:45
+  * AdminSR : CM(9.0) TD(0.0) TP(21.0)
+  Créneaux :
+      CM, 3.0,  le Tue 13/10/15 de 09:00 à 12:00
+      TP, 3.0,  le Tue 17/11/15 de 08:30 à 11:30
+      CM, 3.0,  le Tue 08/12/15 de 08:45 à 11:45
+      CM, 3.0,  le Tue 15/12/15 de 08:45 à 11:45
+      TP, 3.0,  le Tue 15/12/15 de 13:00 à 16:00
+      TP, 3.0,  le Wed 16/12/15 de 13:15 à 16:15
+      TP, 3.0,  le Tue 05/01/16 de 08:15 à 11:15
+      TP, 3.0,  le Wed 06/01/16 de 13:15 à 16:15
+      TP, 3.0,  le Tue 12/01/16 de 08:15 à 11:15
+      TP, 3.0,  le Wed 13/01/16 de 13:15 à 16:15
+GLUCK+EXCOFFIER
+  * AdminSR : CM(0.0) TD(0.0) TP(16.0)
+  Créneaux :
+      TP, 4.0,  le Fri 11/12/15 de 13:30 à 17:30
+      TP, 4.0,  le Fri 18/12/15 de 13:30 à 17:30
+      TP, 4.0,  le Mon 04/01/16 de 08:45 à 12:45
+      TP, 4.0,  le Mon 11/01/16 de 08:45 à 12:45
+Gelas
+  * RA : CM(8.0) TD(0.0) TP(9.0)
+  Créneaux :
+      CM, 3.0,  le Mon 12/10/15 de 13:00 à 16:00
+      CM, 3.0,  le Wed 21/10/15 de 13:45 à 16:45
+      CM, 2.0,  le Wed 18/11/15 de 15:15 à 17:15
+      TP, 3.0,  le Mon 11/01/16 de 14:00 à 17:00
+      TP, 3.0,  le Tue 12/01/16 de 16:00 à 19:00
+      TP, 3.0,  le Thu 14/01/16 de 13:00 à 16:00
+Gelas -- Artero
+  * RA : CM(0.0) TD(0.0) TP(6.0)
+  Créneaux :
+      TP, 3.0,  le Mon 04/01/16 de 14:00 à 17:00
+      TP, 3.0,  le Tue 05/01/16 de 12:45 à 15:45
+IGL
+  * RSF : CM(4.5) TD(1.5) TP(0.0)
+  Créneaux :
+      CM, 3.0,  le Mon 19/10/15 de 09:00 à 12:00
+      CM, 1.5,  le Mon 19/10/15 de 13:00 à 14:30
+      TD, 1.5,  le Mon 19/10/15 de 14:30 à 16:00
+  * QSM : CM(18.0) TD(4.0) TP(8.0)
+  Créneaux :
+      CM, 2.0,  le Mon 16/11/15 de 13:00 à 15:00
+      CM, 4.0,  le Thu 19/11/15 de 08:00 à 12:00
+      CM, 4.0,  le Mon 07/12/15 de 13:00 à 17:00
+      CM, 4.0,  le Thu 10/12/15 de 08:00 à 12:00
+      TD, 2.0,  le Mon 14/12/15 de 15:15 à 17:15
+      TP, 4.0,  le Thu 17/12/15 de 08:00 à 12:00
+      CM, 4.0,  le Thu 07/01/16 de 08:00 à 12:00
+      TP, 4.0,  le Wed 13/01/16 de 08:00 à 12:00
+      TD, 2.0,  le Wed 03/02/16 de 12:45 à 14:45
+LALLIARD
+  * CoMétier : CM(0.0) TD(30.0) TP(0.0)
+  Créneaux :
+      TD, 4.0,  le Mon 01/02/16 de 13:00 à 17:00
+      TD, 4.0,  le Mon 08/02/16 de 13:00 à 17:00
+      TD, 4.0,  le Mon 29/02/16 de 13:00 à 17:00
+      TD, 4.0,  le Wed 02/03/16 de 08:00 à 12:00
+      TD, 4.0,  le Mon 04/04/16 de 13:00 à 17:00
+      TD, 3.0,  le Wed 06/04/16 de 09:00 à 12:00
+      TD, 3.0,  le Mon 09/05/16 de 13:30 à 16:30
+      TD, 4.0,  le Mon 06/06/16 de 13:00 à 17:00
+ORENES
+  * NT : CM(3.0) TD(0.0) TP(0.0)
+  Créneaux :
+      CM, 3.0,  le Wed 09/03/16 de 09:00 à 12:00
+REUTER
+  * AR : CM(0.0) TD(0.0) TP(6.0)
+  Créneaux :
+      TP, 3.0,  le Wed 18/05/16 de 09:00 à 12:00
+      TP, 3.0,  le Wed 18/05/16 de 13:30 à 16:30
+REYMOND
+  * RSF : CM(3.0) TD(0.0) TP(0.0)
+  Créneaux :
+      CM, 3.0,  le Tue 02/02/16 de 13:00 à 16:00
+  * AR : CM(12.0) TD(0.0) TP(0.0)
+  Créneaux :
+      CM, 3.0,  le Thu 11/02/16 de 08:45 à 11:45
+      CM, 3.0,  le Thu 03/03/16 de 08:45 à 11:45
+      CM, 3.0,  le Thu 10/03/16 de 08:45 à 11:45
+      CM, 3.0,  le Thu 07/04/16 de 08:45 à 11:45
+RICO+BONNEVILLE
+  * CCNA : CM(0.0) TD(0.0) TP(62.5)
+  Créneaux :
+      TP, 1.75,  le Tue 13/10/15 de 17:15 à 19:00
+      TP, 3.0,  le Mon 19/10/15 de 16:00 à 19:00
+      TP, 3.0,  le Tue 10/11/15 de 16:00 à 19:00
+      TP, 3.0,  le Tue 17/11/15 de 16:00 à 19:00
+      TP, 1.75,  le Thu 19/11/15 de 17:15 à 19:00
+      TP, 2.0,  le Fri 20/11/15 de 16:30 à 18:30
+      TP, 3.0,  le Tue 08/12/15 de 15:30 à 18:30
+      TP, 1.5,  le Mon 04/01/16 de 17:15 à 18:45
+      TP, 3.0,  le Thu 14/01/16 de 09:30 à 12:30
+      TP, 3.0,  le Fri 15/01/16 de 16:00 à 19:00
+      TP, 2.0,  le Mon 01/02/16 de 10:00 à 12:00
+      TP, 2.0,  le Tue 02/02/16 de 16:45 à 18:45
+      TP, 1.25,  le Tue 09/02/16 de 13:30 à 14:45
+      TP, 1.75,  le Tue 09/02/16 de 16:15 à 18:00
+      TP, 3.0,  le Tue 01/03/16 de 15:30 à 18:30
+      TP, 2.0,  le Tue 08/03/16 de 16:15 à 18:15
+      TP, 3.0,  le Tue 05/04/16 de 16:00 à 19:00
+      TP, 2.0,  le Thu 07/04/16 de 16:30 à 18:30
+      TP, 3.0,  le Tue 12/04/16 de 15:30 à 18:30
+      TP, 2.0,  le Mon 09/05/16 de 16:30 à 18:30
+      TP, 3.0,  le Tue 10/05/16 de 15:30 à 18:30
+      TP, 3.0,  le Tue 17/05/16 de 15:30 à 18:30
+      TP, 2.0,  le Wed 18/05/16 de 16:30 à 18:30
+      TP, 2.5,  le Thu 19/05/16 de 13:30 à 16:00
+      TP, 5.0,  le Tue 07/06/16 de 13:30 à 18:30
+RTERO
+  * RA : CM(0.0) TD(1.5) TP(0.0)
+  Créneaux :
+      TD, 1.5,  le Thu 12/11/15 de 16:00 à 17:30
+SANS
+  * TER : CM(0.0) TD(95.0) TP(0.0)
+  Créneaux :
+      TD, 1.0,  le Thu 01/10/15 de 11:30 à 12:30
+      TD, 2.0,  le Fri 16/10/15 de 08:00 à 10:00
+      TD, 3.0,  le Tue 20/10/15 de 09:00 à 12:00
+      TD, 3.0,  le Tue 20/10/15 de 14:00 à 17:00
+      TD, 3.0,  le Thu 22/10/15 de 13:00 à 16:00
+      TD, 2.0,  le Fri 23/10/15 de 08:00 à 10:00
+      TD, 3.0,  le Thu 12/11/15 de 13:00 à 16:00
+      TD, 2.75,  le Mon 16/11/15 de 15:00 à 17:45
+      TD, 3.0,  le Fri 20/11/15 de 13:15 à 16:15
+      TD, 2.0,  le Tue 08/12/15 de 13:15 à 15:15
+      TD, 3.0,  le Wed 09/12/15 de 08:45 à 11:45
+      TD, 2.0,  le Wed 09/12/15 de 16:00 à 18:00
+      TD, 3.0,  le Thu 10/12/15 de 15:15 à 18:15
+      TD, 2.5,  le Tue 15/12/15 de 16:15 à 18:45
+      TD, 1.5,  le Wed 16/12/15 de 16:30 à 18:00
+      TD, 2.0,  le Thu 17/12/15 de 16:00 à 18:00
+      TD, 3.5,  le Fri 08/01/16 de 13:30 à 17:00
+      TD, 3.0,  le Fri 15/01/16 de 13:00 à 16:00
+      TD, 2.0,  le Wed 03/02/16 de 09:00 à 11:00
+      TD, 2.0,  le Wed 03/02/16 de 15:00 à 17:00
+      TD, 3.0,  le Tue 09/02/16 de 08:45 à 11:45
+      TD, 3.5,  le Wed 10/02/16 de 08:30 à 12:00
+      TD, 2.5,  le Fri 12/02/16 de 14:00 à 16:30
+      TD, 1.75,  le Tue 01/03/16 de 13:30 à 15:15
+      TD, 1.75,  le Fri 04/03/16 de 08:00 à 09:45
+      TD, 2.0,  le Wed 09/03/16 de 13:45 à 15:45
+      TD, 1.75,  le Wed 06/04/16 de 14:00 à 15:45
+      TD, 2.0,  le Thu 07/04/16 de 14:00 à 16:00
+      TD, 3.5,  le Wed 13/04/16 de 08:30 à 12:00
+      TD, 3.0,  le Wed 13/04/16 de 13:00 à 16:00
+      TD, 2.0,  le Wed 11/05/16 de 13:45 à 15:45
+      TD, 3.0,  le Thu 12/05/16 de 09:00 à 12:00
+      TD, 3.0,  le Thu 12/05/16 de 14:00 à 17:00
+      TD, 2.0,  le Tue 17/05/16 de 13:15 à 15:15
+      TD, 3.0,  le Fri 20/05/16 de 13:15 à 16:15
+      TD, 3.0,  le Mon 06/06/16 de 09:00 à 12:00
+      TD, 5.0,  le Wed 08/06/16 de 09:00 à 14:00
+VERRIER
+  * RMob : CM(15.0) TD(0.0) TP(0.0)
+  Créneaux :
+      CM, 3.0,  le Wed 02/03/16 de 16:00 à 19:00
+      CM, 3.0,  le Wed 09/03/16 de 16:00 à 19:00
+      CM, 3.0,  le Wed 06/04/16 de 16:00 à 19:00
+      CM, 3.0,  le Wed 13/04/16 de 16:00 à 19:00
+      CM, 3.0,  le Wed 11/05/16 de 16:00 à 19:00

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 import unittest
 import sys
@@ -17,9 +17,6 @@ class Test_Horaire(unittest.TestCase):
 		cible = Horaire(18, 22)
 		self.assertEqual(cible._debut , 18)
 		self.assertEqual(cible._fin , 22)
-		with self.assertRaises(AssertionError):
-			cible = Horaire(45, 51)
-		#with
 	#fin test_init
 	
 	
@@ -31,9 +28,6 @@ class Test_Horaire(unittest.TestCase):
 		self.assertEqual(25, cible.debut)
 		cible.debut = 26
 		self.assertEqual(26, cible.debut)
-		with self.assertRaises(AssertionError):
-			cible.debut = 59
-		#with
 	#fin test_debut
 	
 	
@@ -48,47 +42,13 @@ class Test_Horaire(unittest.TestCase):
 		with self.assertRaises(AssertionError):
 			cible.fin = 14
 		#with
-		with self.assertRaises(AssertionError):
-			cible.fin = 58
-		#with
 	#fin test_fin
 	
 	
 	def test_changeHoraire(self):
 		"""Tests de changeHoraire"""
 		cible = Horaire(40, 48) # de 19 à 20h, pas cool ;(
-		with self.assertRaises(AssertionError):
-			cible.changeHoraire(34, 50)
-		#with
-		with self.assertRaises(AssertionError):
-			cible.changeHoraire(222, 241)
-		#with
-		with self.assertRaises(AssertionError):
-			cible.changeHoraire(240, 222)
-		#with
 	#fin test_changeHoraire
-	
-	
-	@unittest.skip("Plus du tout d'actualité")
-	def test_getJourDe(self):
-		"""Tests de getJourDe"""
-		cible = Horaire(1, 2)
-		self.assertEqual(cible.getJourDe(1), cible.getJourDe(45))
-		self.assertNotEqual(cible.getJourDe(84), cible.getJourDe(42))
-		self.assertEqual(cible.getJourDe(57), cible.getJourDe(96))
-		self.assertNotEqual(cible.getJourDe(235), cible.getJourDe(242))
-	#fin test_getJourDe
-	
-	
-	@unittest.skip("Plus du tout d'actualité")
-	def test_getSemaineDe(self):
-		"""Tests de getJourDe"""
-		cible = Horaire(1, 2)
-		self.assertEqual(cible.getSemaineDe(1), cible.getSemaineDe(240))
-		self.assertNotEqual(cible.getSemaineDe(84), cible.getSemaineDe(241))
-		self.assertEqual(cible.getSemaineDe(241), cible.getSemaineDe(480))
-		self.assertNotEqual(cible.getSemaineDe(235), cible.getSemaineDe(242))
-	#fin test_getSemaineDe
 	
 #fin Test_Horaire
 

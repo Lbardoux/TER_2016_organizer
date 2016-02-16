@@ -1,4 +1,4 @@
-﻿#!/usr/bin/python
+﻿#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
 import Annee
@@ -13,12 +13,13 @@ class Agenda(object):
 	principale.
 	Les "fils" sont des dépendances (ou des contraintes) qu'il va falloir respecter.
 	
-	EXEMPLE :
-	AgendaCours
-	|------ AgendaVacance
-	|------ AgendaEnseignant1
-	|              `-------------etc
-	`------ AgendaRecherche
+	EXEMPLE ::
+		AgendaCours
+		|------ AgendaVacance
+		|------ AgendaEnseignant1
+		|              `-------------etc
+		`------ AgendaRecherche
+	
 	Ainsi, toutes Modifications dans les fils doit impliquer des vérifications dans le
 	père.
 	A note que la liste des L{Annee} sera régit par un mécanisme d'autovivification.

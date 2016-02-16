@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 """
 Ce package contient des tests d'intégrations, qui doivent juste se dérouler correctement.

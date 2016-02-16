@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
 
@@ -7,6 +7,7 @@ class Exporteur(object):
 	Voici une classe générique chargée d'exporter un L{Agenda}.
 	Le format d'exportation sera spécifié dans les classes filles.
 	@ivar _nomFichier: le nom du fichier dans lequel exporter l'L{Agenda}.
+	@ivar _nomAgenda: Le nom de l'agenda que l'on va exporter.
 	@author: Laurent Bardoux
 	@version: 1.0
 	"""
@@ -20,26 +21,8 @@ class Exporteur(object):
 		@precondition: nom désigne un fichier valide
 		"""
 		self._nomFichier = nom
+		self._nomAgenda = ""
 	#__init__
-	
-	
-	def _transformeHoraire(self, horaire):
-		"""
-		Opère la conversion d'un entier représentant un horaire
-		vers des unités plus ... human friendly.
-		conversion d'un entier entre 1 et 49 vers des heures
-		allant de 7h00 à 19h00 de 15 minutes à chaque fois
-		@param self: L'argument implicite
-		@type horaire: int
-		@param horaire: l'entier que l'on veut convertir.
-		@rtype: tuple
-		@return: un tuple contenant (heures, minutes)
-		"""
-		temp = (horaire-1)*15
-		heure = 7 + (temp//60)
-		minute = (temp)%60
-		return (heure, minute)
-	#_transformeHoraire
 	
 	
 	def exporter(self, agenda):
@@ -52,6 +35,7 @@ class Exporteur(object):
 		@precondition: self._nomFichier doit etre un fichier valide.
 		@raise IOError: si le nom de fichier pose problème (droits, existence, etc)
 		"""
+		self._nomAgenda = agenda.nom
 		with open(self._nomFichier, 'w') as fichier:
 			self._ecrireEntete(fichier)
 			for annee in agenda.listeAnnees:
@@ -119,7 +103,9 @@ class Exporteur(object):
 		@param fichier: le fichier dans lequel écrire.
 		@raise IOError: En cas de problème d'écriture.
 		"""
-		for jour in semaine.jours.values():
+		for nomJour in semaine.listeNomJours:
+			jour = semaine.jours[nomJour]
+			#for jour in semaine.jours.values():
 			if len(jour.creneaux) > 0:
 				self._faireJour(annee, mois, jour, fichier)
 			#if

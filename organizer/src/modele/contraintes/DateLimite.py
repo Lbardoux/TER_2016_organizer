@@ -1,8 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
-import os, sys
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/")
 import Contrainte
 
 class DateLimite(Contrainte.Contrainte):
@@ -18,10 +16,10 @@ class DateLimite(Contrainte.Contrainte):
 	def __init__(self, limite):
 		"""
 		Le constructeur de cette contrainte.
-		@param self : l'argument implicite.
-		@type limite : un entier.
-		@param limite : la valeur maximale (exclue).
-		@postcondition : L'objet est bien initialisé.
+		@param self: l'argument implicite.
+		@type limite: un entier.
+		@param limite: la valeur maximale (exclue).
+		@postcondition: L'objet est bien initialisé.
 		"""
 		self._limite = limite
 		
@@ -33,7 +31,7 @@ class DateLimite(Contrainte.Contrainte):
 		La fonction polymorphique qui injecte une lambda expression
 		correspondant à cette contrainte.
 		@param self: l'argument implicite
-		@return une lambda exprimant cette limite M{pour tout x, x < _limite}
+		@return: une lambda exprimant cette limite M{pour tout x, x < _limite}
 		"""
 		return lambda x : x < self._limite
 	#fin injectionContrainte
@@ -43,7 +41,7 @@ class DateLimite(Contrainte.Contrainte):
 		"""
 		Un accesseur pour la limite de cette contrainte.
 		@param self: l'argument implicite
-		@return la valeur entière représentant cette deadline
+		@return: la valeur entière représentant cette deadline
 		"""
 		return self._limite
 	#fin limite

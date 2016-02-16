@@ -1,11 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 import unittest
 import sys
 sys.path.insert(0, "../src")
 
 from src.modele.agenda.Jour import *
-from src.outils.erreurs.erreurs import *
 
 class SimiliCreneau:
 	def __init__(self, chiffre):
@@ -126,7 +125,7 @@ class Test_Jour(unittest.TestCase):
 		i = 0
 		cible = Jour(15, LUNDI)
 		while i < len(f):
-			with self.assertRaises(Exception):
+			with self.assertRaises(ValueError):
 				cible.ajouterCreneau(d[i], f[i])
 			#with
 			i += 1
@@ -137,7 +136,7 @@ class Test_Jour(unittest.TestCase):
 	def test_ajouterCreneau_mauvais_creneau(self):
 		"""Teste si un enum erroné renvoi bien une exception."""
 		cible = Jour(15, LUNDI)
-		with self.assertRaises(Exception):
+		with self.assertRaises(ValueError):
 			cible.ajouterCreneau(15, 18, "rate")
 		#with
 	#test_ajouterCreneau_mauvais_horaire
@@ -174,7 +173,7 @@ class Test_Jour(unittest.TestCase):
 			simili = SimiliCreneau(i)
 			cible.creneaux.append(simili)
 		#for
-		with self.assertRaises(Exception):
+		with self.assertRaises(ValueError):
 			cible.supprimerCreneau(25)
 		#with
 	#test_supprimerCreneau_echec

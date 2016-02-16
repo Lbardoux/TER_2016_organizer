@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*
 import unittest
 import sys
@@ -23,7 +23,7 @@ class Test_Exporteur(unittest.TestCase):
 	
 	def test_exporter(self):
 		"""Teste la fonction d'export"""
-		obj = Exporteur("rien")
+		obj = Exporteur("tests/rien")
 		obj.exporter(Agenda("olol", 2005))
 	#test_exporter
 	

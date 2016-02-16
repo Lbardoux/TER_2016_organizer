@@ -1,8 +1,6 @@
-#!/usr/bin/python3
+#!/usr/bin/python33
 # -*-coding:utf-8 -*
 
-import os, sys
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/")
 import Contrainte
 
 class Blocage(Contrainte.Contrainte):
@@ -17,11 +15,11 @@ class Blocage(Contrainte.Contrainte):
 	def __init__(self, *valeurs):
 		"""
 		Le constructeur de cette classe
-		@precondition : M{self is not None} && M{valeurs => multiples entiers}
-		@postcondition : self est bien initialisé, et la liste correctement parsée.
-		@param self : L'argument implicite.
-		@param *valeurs : une nombre +/- fini d'entiers
-		@type *valeurs : liste d'entiers naturels
+		@precondition: M{self is not None} && M{valeurs => multiples entiers}
+		@postcondition: self est bien initialisé, et la liste correctement parsée.
+		@param self: L'argument implicite.
+		@param valeurs: une nombre +/- fini d'entiers
+		@type valeurs: liste d'entiers naturels
 		"""
 		self._valeurs = [n for n in valeurs if type(n) is int and n >= 0]
 		
@@ -32,8 +30,8 @@ class Blocage(Contrainte.Contrainte):
 		"""
 		La fonction qui retourne une lambda expression exprimant un blocage.
 		Via une fermeture sur son argument _valeurs.
-		@precondition : M{self is not None} et self préalablement initialisé.
-		@param self : L'argument implicite.
+		@precondition: M{self is not None} et self préalablement initialisé.
+		@param self: L'argument implicite.
 		"""
 		return lambda x : self.estPasDansListe(x)
 
@@ -44,8 +42,8 @@ class Blocage(Contrainte.Contrainte):
 		"""
 		Fonction temporaire qui va effectuer le travail.
 		Compare L{valeur} à tous les éléments de la liste _valeurs
-		@precondition : self doit etre initialisé, et not None
-		@return true si valeur n'est pas dans la liste, false sinon
+		@precondition: self doit etre initialisé, et not None
+		@return: true si valeur n'est pas dans la liste, false sinon
 		"""
 		liste = [n for n in self._valeurs if n == valeur]
 		return not liste
@@ -55,10 +53,10 @@ class Blocage(Contrainte.Contrainte):
 	def valeurs(self):
 		"""
 		L'accesseur pour récupérer la liste des valeurs interdites.
-		@param self : L'argument implicite
-		@precondition : self doit etre préalablement construit
-		@postcondition : self n'est pas modifié à l'issue de cet appel.
-		@return : la liste d'entiers contenue dans cet objet.
+		@param self: L'argument implicite
+		@precondition: self doit etre préalablement construit
+		@postcondition: self n'est pas modifié à l'issue de cet appel.
+		@return: la liste d'entiers contenue dans cet objet.
 		"""
 		return self._valeurs
 	#fin valeurs
