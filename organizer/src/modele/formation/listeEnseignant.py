@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
-import Enseignant
+from Enseignant import Enseignant
 class ListeEnseignant(object):
 	"""
 	La classe qui contient une liste d'enseignants
@@ -41,7 +41,7 @@ class ListeEnseignant(object):
 		@type nouvelle: un enseignant
 		"""
 		if type(nouveau) is Enseignant: 
-			self._liste.append(nouvelle)
+			self._liste.append(nouveau)
 	#fin ajouterEnseignant
 	
 	def supprimerEnseignant(self, unEnseignant):
@@ -61,4 +61,17 @@ class ListeEnseignant(object):
 		#fin if
 	#fin supprimerEnseignant
 	
+	def trouverEnseignant(self, chaine):
+		"""
+		La fonction qui cherche un enseignant par son nom et prenom
+		@param self: L'argument implicite
+		@param chaine: nom + " " + prenom
+		@type chaine: str
+		"""
+		for i in self._liste:
+			if i.nom +" "+i.prenom == chaine:
+				return i
+		return None
+	#fin trouverEnseignant
+		
 #fin ListeEnseignant

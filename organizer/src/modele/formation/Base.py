@@ -1,45 +1,46 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*
-import Salle
-import Formation
-import Enseignant
-import listeSalle
-import listeFormation
-import listeEnseignant
+from Salle import Salle
+from Formation import Formation
+from Enseignant import Enseignant
+from listeSalle import ListeSalle
+from listeFormation import ListeFormation
+from listeEnseignant import ListeEnseignant
 
-class Base(objet):
+class Base(object):
 	"""
 	"""
 	def __init__(self):
 		"""
 		"""
-		self._listeSalle = []
-		self._listeFormation = []
-		self._listeEnseignant = []
+		self._listeSalle = ListeSalle()
+		self._listeFormation = ListeFormation()
+		self._listeEnseignant = ListeEnseignant()
 		self._configuration()
 	#fin __init__
 	
 	def _configuration(self):
 		"""
 		"""
-		self._listeSalle.ajouterEnseignant(Enseignant(1,"GUERIN LASSOUS", "Isabelle"))
-		self._listeSalle.ajouterEnseignant(Enseignant(2,"GUILLOU", "Erwan"))
-		self._listeSalle.ajouterEnseignant(Enseignant(3,"LEFEVRE", "Marie"))
-		self._listeSalle.ajouterEnseignant(Enseignant(4,"BRANDEL", "Sylvain"))
-		self._listeSalle.ajouterEnseignant(Enseignant(5,"TABARD", "Aurelien"))
-		self._listeSalle.ajouterEnseignant(Enseignant(6,"COQUERY", "Emmanuel"))
-		self._listeSalle.ajouterEnseignant(Enseignant(7,"GAVIN", "Gerald"))
-		self._listeSalle.ajouterEnseignant(Enseignant(8,"JEAN-DAUBIAS", "Stephanie"))
-		self._listeSalle.ajouterEnseignant(Enseignant(9,"CANIOU", "Yves"))
-		self._listeSalle.ajouterEnseignant(Enseignant(10,"CHAINE", "Raphaelle"))
-		self._listeSalle.ajouterEnseignant(Enseignant(11,"HASSAS", "Salima"))
-		self._listeSalle.ajouterEnseignant(Enseignant(12,"AUSSEM", "Alexandre"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(1,"GUERIN LASSOUS", "Isabelle"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(2,"GUILLOU", "Erwan"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(3,"LEFEVRE", "Marie"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(4,"BRANDEL", "Sylvain"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(5,"TABARD", "Aurelien"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(6,"COQUERY", "Emmanuel"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(7,"GAVIN", "Gerald"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(8,"JEAN-DAUBIAS", "Stephanie"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(9,"CANIOU", "Yves"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(10,"CHAINE", "Raphaelle"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(11,"HASSAS", "Salima"))
+		self._listeEnseignant.ajouterEnseignant(Enseignant(12,"AUSSEM", "Alexandre"))
 		
 		self._listeFormation.ajouterFormation(Formation(1, 4, "Informatique", 8))
 		self._listeFormation.ajouterFormation(Formation(2, 5, "TI", 6))
 		self._listeFormation.ajouterFormation(Formation(3, 5, "DS", 12))
-		self._listeFormation.ajouterFormation(Formation(4, 4, "SRIV", 9))
-		self._listeFormation.ajouterFormation(Formation(5, 4, "IA", 11))
+		self._listeFormation.ajouterFormation(Formation(4, 5, "SRIV", 9))
+		self._listeFormation.ajouterFormation(Formation(5, 5, "IA", 11))
+		self._listeFormation.ajouterFormation(Formation(6, 5, "IMAGE", 10))
 		
 		self._listeSalle.ajouterSalle(Salle(1, "Nautibus C1", 70))
 		self._listeSalle.ajouterSalle(Salle(2, "Nautibus C2", 70))
@@ -76,7 +77,7 @@ class Base(objet):
 	def enseignants(self):
 		"""
 		"""
-		return self._listeenseignant
+		return self._listeEnseignant
 	#fin enseignants
 	
 #fin Base
