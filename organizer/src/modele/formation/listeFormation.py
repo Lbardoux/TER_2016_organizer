@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*-coding:utf-8 -*
-import Formation
+from Formation import Formation
 class ListeFormation(object):
 	"""
 	La classe qui contient une liste de formations
