@@ -35,8 +35,8 @@ test :
 	@clear
 	@echo "Lancement des tests unitaires situés dans " $(TEST_DIR)
 	$(PYTHON) -m unittest discover -s $(TEST_DIR)
-	@echo "\nTests d'integrations :"
-	find $(TEST_DIR)$(INTEGRATION_DIR) -name "integration_*.py" -exec $(PYTHON) {} \;
+	#@echo "\nTests d'integrations :"
+	#find $(TEST_DIR)$(INTEGRATION_DIR) -name "integration_*.py" -exec $(PYTHON) {} \;
 
 # Nettoyage des binaires
 clean :

@@ -113,10 +113,10 @@ class Creneau(Observable):
 		Vous pouvez vérifier l'unicité d'une clef grâce à la méthode self.existe.
 		Si la clef existe déjà, rien ne se passera (pas d'écrasement).
 		@param self: l'argument implicite.
-		@param clef: la clef pour identifier l'information dans le dictionnaire.
 		@type clef: str
-		@param info: Ce que l'on veut stocker dans le dictionnaire.
+		@param clef: la clef pour identifier l'information dans le dictionnaire.
 		@type info: object
+		@param info: Ce que l'on veut stocker dans le dictionnaire.
 		@precondition: type(clef) is str
 		"""
 		if not self.existe(clef):

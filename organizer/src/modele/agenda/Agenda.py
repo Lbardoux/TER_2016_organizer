@@ -36,6 +36,9 @@ class Agenda(Observable, Observeur):
 	@ivar _pere: l'agenda pere, None équivaut à la racine.
 	@ivar _listeFils: Le niveau inférieur de l'arborescence
 	@ivar _listeAnnees: la liste des L{Annee} disponible pour cet agenda.
+	
+	@ivar _formation: La Formation à laquelle est lié cet Agenda.
+	@ivar _contraintes: Les contraintes auxquelles est lié cet Agenda
 	"""
 	
 	def __init__(self, nom, annee):
@@ -53,6 +56,11 @@ class Agenda(Observable, Observeur):
 		self._pere = None
 		self._listeFils = list()
 		self._listeAnnees = [Annee.Annee(annee)]
+		
+		#Branchement avec le reste, par composition
+		self._formation = None
+		# Les contraintes spécifiques à cet Agenda (pas celle des dépendances)
+		self._contraintes = None
 	#__init__
 	
 	
@@ -110,7 +118,7 @@ class Agenda(Observable, Observeur):
 		"""
 		Le mutateur pour affecter une liste à la liste des fils
 		Attention, la précédente liste est alors perdue !
-		@precondition : autre doit etre une liste d'Agenda !
+		@precondition: autre doit etre une liste d'Agenda !
 		"""
 		if type(autre) is list:
 			self._listeFils = autre

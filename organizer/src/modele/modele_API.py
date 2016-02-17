@@ -68,6 +68,8 @@ class ModeleAgenda(object):
 		cible = self._agendas.get(agenda.nomComplet, None)
 		if cible is not None:
 			cible.detruire()
+			del self._agendas[agenda.nomComplet]
+			del agenda
 		#if
 	#dechargerAgenda
 	
@@ -167,6 +169,21 @@ class ModeleAgenda(object):
 		#if
 		return self._agendas.get(nom)
 	#avoirAgendaParNomComplet
+	
+	
+	def exporterAuFormatTxt(self, agenda, nomExport):
+		"""
+		Permet d'exporter l'I{agenda} au format texte.
+		@param self: L'argument implicite.
+		@type agenda: L{Agenda}
+		@param agenda: L'agenda que l'on veut exporter.
+		@type nomExport: str
+		@param nomExport: le nom sous lequel exporter (nom de fichier)
+		@raise IOError: si un problème survient avec les manipulations de fichiers.
+		"""
+		exporteur = self._fabrique.fabrique(FabriqueExporteur.exporteurs.TXT, nomExport)
+		exporteur.exporter(agenda)
+	#exporterAuFormatTxt
 	
 	
 	@property
