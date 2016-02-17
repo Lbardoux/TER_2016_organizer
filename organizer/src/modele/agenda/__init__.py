@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*-coding:utf-8 -*
 """
-#### USAGE DE L'API Agenda ####
+API Agenda.
 
 Agenda :
 Cette classe est la partie frontale de l'API, c'est vers elle que les
@@ -66,3 +66,4 @@ Je vais à présent détailler le fonctionnement de chacune d'elles :
 
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/")
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../outils")

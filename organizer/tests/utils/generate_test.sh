@@ -20,7 +20,7 @@ PRINT () {
 }
 
 PRINT "#!"
-PRINT "`which python`""\n"
+PRINT "`which python3`""\n"
 PRINT "# -*-coding:utf-8 -*\n"
 PRINT "import unittest\n"
 PRINT "import sys\n"

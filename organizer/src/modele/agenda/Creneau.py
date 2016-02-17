@@ -1,10 +1,10 @@
 ﻿#!/usr/bin/python3
 # -*-coding:utf-8 -*
 
-import Horaire
 from Horaire import transformeHoraire, traiteChiffre
+from observateur.Observable import *
 
-class Creneau(object):
+class Creneau(Observable):
 	"""
 	La classe centrale d'un agenda.
 	Le créneau est un emplacement que l'on alloue sur l'agenda.
@@ -30,6 +30,7 @@ class Creneau(object):
 		Globalement, on peut mettre ce que l'on veut comme identifiant, comme un
 		UID, ou un simple entier.
 		"""
+		super(Creneau, self).__init__()
 		self._identifiant = identifiant
 		self._horaire = horaire
 		self._informations = dict()
@@ -74,6 +75,7 @@ class Creneau(object):
 	
 	
 	@horaire.setter
+	@notifier
 	def horaire(self, nouvelHoraire):
 		"""
 		Un setter pour l'Horaire.
@@ -104,6 +106,7 @@ class Creneau(object):
 	#existe
 	
 	
+	@notifier
 	def ajouterInformation(self, clef, info):
 		"""
 		Permet d'ajouter une information dans le dictionnaire, sous la forme clef -> info.
@@ -122,6 +125,7 @@ class Creneau(object):
 	#fin ajouterInformation
 	
 	
+	@notifier
 	def enleverInformation(self, clef):
 		"""
 		Permet de supprimer, si elle existe, l'information associée à M{clef}.

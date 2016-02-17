@@ -76,7 +76,14 @@
   <a href="src.modele.agenda.Jour-module.html" class="link">Jour</a>. C'est
   &#233;galement le point d'entr&#233;e de la structure de stockage.</p>
 
-<!-- ==================== INSTANCE METHODS ==================== -->
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Laurent Bardoux p1108365
+      </p>
+      <p><strong>Version:</strong>
+        1.0
+      </p>
+</div><!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
 <table class="summary" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
@@ -113,7 +120,7 @@
   </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">str</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -164,9 +171,29 @@
       
     </td>
   </tr>
-<tr>
+<tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Annee.Annee-class.html#_verifieNumeroMois" class="summary-sig-name" onclick="show_private();">_verifieNumeroMois</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">mois</span>)</span><br />
+      Effectue la v&#233;rification et la lev&#233;e d'exception sur le num&#233;ro de 
+      mois.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Annee-pysrc.html#Annee._verifieNumeroMois">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="src.modele.agenda.Semaine-module.html" 
+      class="link">Semaine</a>.</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -186,7 +213,8 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type"><a href="src.modele.agenda.Creneau-module.html" 
+      class="link">Creneau</a></span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -215,12 +243,32 @@
           <td><span class="summary-sig"><a href="src.modele.agenda.Annee.Annee-class.html#supprimerCreneau" class="summary-sig-name">supprimerCreneau</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">mois</span>,
         <span class="summary-sig-arg">jour</span>,
-        <span class="summary-sig-arg">idCreneau</span>)</span><br />
+        <span class="summary-sig-arg">creneau</span>)</span><br />
       Lance la suppression d'un <a 
       href="src.modele.agenda.Creneau-module.html" class="link">Creneau</a>
       si il existe.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="src.modele.agenda.Annee-pysrc.html#Annee.supprimerCreneau">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Annee.Annee-class.html#insererCreneau" class="summary-sig-name">insererCreneau</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">creneau</span>,
+        <span class="summary-sig-arg">mois</span>,
+        <span class="summary-sig-arg">jour</span>)</span><br />
+      Cette fonction permet d'ins&#233;rer un creneau dans l'Ann&#233;e courant.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Annee-pysrc.html#Annee.insererCreneau">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -280,7 +328,7 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="src.modele.agenda.Annee.Annee-class.html#_generateur" class="summary-name" onclick="show_private();">_generateur</a><br />
+        <a name="_generateur"></a><span class="summary-name">_generateur</span><br />
       le g&#233;n&#233;rateur des identifiants sp&#233;cifiques &#224; cette ann&#233;e.
     </td>
   </tr>
@@ -399,9 +447,10 @@
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
-        <li><strong class="pname"><code>an</code></strong> (int) - l'ann&#233;e dont on veut le nom du premier jour. @rtype : str @return
-          : le nom du premier jour</li>
+        <li><strong class="pname"><code>an</code></strong> (int) - l'ann&#233;e dont on veut le nom du premier jour.</li>
     </ul></dd>
+    <dt>Returns: str</dt>
+        <dd>le nom du premier jour</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -451,6 +500,36 @@
   </dl>
 </td></tr></table>
 </div>
+<a name="_verifieNumeroMois"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_verifieNumeroMois</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">mois</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Annee-pysrc.html#Annee._verifieNumeroMois">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Effectue la v&#233;rification et la lev&#233;e d'exception sur le num&#233;ro de 
+  mois.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
+        <li><strong class="pname"><code>mois</code></strong> (int) - le num&#233;ro de mois &#224; tester.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Si le num&#233;ro de mois est erron&#233;</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
 <a name="recupererSemaineParNumJour"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -477,12 +556,12 @@
         <li><strong class="pname"><code>mois</code></strong> (int [1,12]) - le num&#233;ro du mois souhait&#233;.</li>
         <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro  du jour voulu.</li>
     </ul></dd>
+    <dt>Returns: <a href="src.modele.agenda.Semaine-module.html" 
+      class="link">Semaine</a>.</dt>
+        <dd>la semaine demand&#233; si elle existe.</dd>
     <dt>Raises:</dt>
     <dd><ul class="nomargin-top">
-        <li><code><strong class='fraise'>ArgumentInvalide</strong></code> - si le num&#233;ro de mois est incorrect. @rtype : <a 
-        href="src.modele.agenda.Semaine-module.html" 
-        class="link">Semaine</a>. @return : la semaine demand&#233; si elle 
-        existe.</li>
+        <li><code><strong class='fraise'>ValueError</strong></code> - si le num&#233;ro de mois est incorrect.</li>
     </ul></dd>
   </dl>
 </td></tr></table>
@@ -519,17 +598,21 @@
         <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour dans lequel ins&#233;rer ce cr&#233;neau.</li>
         <li><strong class="pname"><code>debut</code></strong> (int [1, 48]) - l'heure de d&#233;but du cr&#233;neau</li>
         <li><strong class="pname"><code>fin</code></strong> (int [1, 48]) - l'heure de fin du cr&#233;neau</li>
-        <li><strong class="pname"><code>typeCreneau</code></strong> (enum) - une valeur enum&#233;r&#233;e pour la fabrique de creneau @precondition : 
-          debut &lt; fin, mois/jour/debut/fin doivent etre compris dans 
-          leurs intervalles respectifs</li>
+        <li><strong class="pname"><code>typeCreneau</code></strong> (enum) - une valeur enum&#233;r&#233;e pour la fabrique de creneau</li>
     </ul></dd>
+    <dt>Returns: <a href="src.modele.agenda.Creneau-module.html" 
+      class="link">Creneau</a></dt>
+        <dd>un Creneau manipulable.</dd>
     <dt>Raises:</dt>
     <dd><ul class="nomargin-top">
-        <li><code><strong class='fraise'>ArgumentInvalide</strong></code> - Si un probl&#232;me avec les arguments a eu lieu. @rtype : Creneau 
-        @return : un Creneau manipulable.</li>
+        <li><code><strong class='fraise'>ValueError</strong></code> - Si un probl&#232;me avec les arguments a eu lieu.</li>
     </ul></dd>
   </dl>
-</td></tr></table>
+<div class="fields">      <p><strong>Precondition:</strong>
+        debut &lt; fin, mois/jour/debut/fin doivent etre compris dans leurs
+        intervalles respectifs
+      </p>
+</div></td></tr></table>
 </div>
 <a name="supprimerCreneau"></a>
 <div>
@@ -541,7 +624,7 @@
   <h3 class="epydoc"><span class="sig"><span class="sig-name">supprimerCreneau</span>(<span class="sig-arg">self</span>,
         <span class="sig-arg">mois</span>,
         <span class="sig-arg">jour</span>,
-        <span class="sig-arg">idCreneau</span>)</span>
+        <span class="sig-arg">creneau</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="src.modele.agenda.Annee-pysrc.html#Annee.supprimerCreneau">source&nbsp;code</a></span>&nbsp;
@@ -557,43 +640,47 @@
         <li><strong class="pname"><code>self</code></strong> - L'argument implicite</li>
         <li><strong class="pname"><code>mois</code></strong> (int) - le mois dont on veut supprimer le cr&#233;neau.</li>
         <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour o&#249; le cr&#233;neau se situe.</li>
-        <li><strong class="pname"><code>idCreneau</code></strong> (...) - l'identifiant unique du cr&#233;neau que l'on veut supprimer.</li>
+        <li><strong class="pname"><code>creneau</code></strong> (<a href="src.modele.agenda.Creneau-module.html" 
+          class="link">Creneau</a>) - le cr&#233;neau que l'on veut supprimer.</li>
     </ul></dd>
     <dt>Raises:</dt>
     <dd><ul class="nomargin-top">
-        <li><code><strong class='fraise'>CreneauInexistant</strong></code> - En cas d'erreur sur les arguments.</li>
+        <li><code><strong class='fraise'>ValueError</strong></code> - En cas d'erreur sur les arguments.</li>
     </ul></dd>
   </dl>
 </td></tr></table>
 </div>
-<br />
-<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
-<a name="section-InstanceVariableDetails"></a>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Instance Variable Details</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-InstanceVariableDetails"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-</table>
-<a name="_generateur"></a>
-<div class="private">
+<a name="insererCreneau"></a>
+<div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
-  <h3 class="epydoc">_generateur</h3>
-  le g&#233;n&#233;rateur des identifiants sp&#233;cifiques &#224; cette ann&#233;e. @author : 
-  Laurent Bardoux p1108365 @version : 1.0
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">insererCreneau</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">creneau</span>,
+        <span class="sig-arg">mois</span>,
+        <span class="sig-arg">jour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Annee-pysrc.html#Annee.insererCreneau">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Cette fonction permet d'ins&#233;rer un creneau dans l'Ann&#233;e courant.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite</li>
+        <li><strong class="pname"><code>creneau</code></strong> (<a href="src.modele.agenda.Creneau-module.html" 
+          class="link">Creneau</a>) - Le cr&#233;neaux (ou une classe d&#233;riv&#233;e) que l'on veut ins&#233;rer.</li>
+        <li><strong class="pname"><code>mois</code></strong> (int) - le num&#233;ro du mois dans lequel ins&#233;rer ce cr&#233;neau.</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour dans lequel ins&#233;rer ce cr&#233;neau.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Si les donn&#233;es sont erron&#233;es.</li>
+    </ul></dd>
   </dl>
 </td></tr></table>
 </div>
@@ -624,7 +711,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Feb 16 09:27:14 2016
+    Generated by Epydoc 3.0.1 on Wed Feb 17 10:57:32 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

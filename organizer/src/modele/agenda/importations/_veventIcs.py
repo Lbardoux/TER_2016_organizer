@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # -*-coding:utf-8 -*
 
-import sys, os
 
 _heure_minimale = 7
 _heure_maximale = 19
@@ -172,7 +171,6 @@ def parseVevent(composant, agenda):
 		obj.injection()
 	except ValueError as e:
 		if debug:
-			#affichage temporaire
 			print("BEGIN:VEVENT -- erreur")
 			for i in composant.items():
 				print("\t" + str(i[0]) + ":" + str(composant.decoded(str(i[0]))))

@@ -100,11 +100,11 @@ class Test_DIff(unittest.TestCase):
 		
 		d = Diff(a1, a2)
 		d.comparer()
-		for clef in d.moments:
-			print(clef)
-			for i in d.differences[clef]:
-				print(i)
-			#if
+		#for clef in d.moments:
+		#	print(clef)
+		#	for i in d.differences[clef]:
+		#		print(i)
+		#	#if
 		#if
 	#test_compare_2_agendas_differents
 	

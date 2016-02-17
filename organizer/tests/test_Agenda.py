@@ -73,11 +73,10 @@ class Test_Agenda(unittest.TestCase):
 	
 	
 	def test_retirerFils(self):
-		"""Test du retrait des fils dans la listeCreneaux"""
+		"""Test du retrait des fils dans la listeFils"""
 		fils1 = Agenda("fiston1", 2015)
 		fils2 = Agenda("fiston2", 2015)
-		fils3 = Agenda("fiston1", 2015)
-		self.cible.insererFils(fils1, fils2, fils3)
+		self.cible.insererFils(fils1, fils2)
 		self.cible.retirerFils("fiston1")
 		self.assertEqual(len(self.cible.listeFils), 1)
 	#fin test_retirerFils
@@ -126,7 +125,7 @@ class Test_Agenda(unittest.TestCase):
 		#with
 	#test_supprimerCreneau_echec_local
 	
-	@unittest.skip("")
+	
 	def test_supprimerCreneau_echec_interne(self):
 		"""Teste la suppression qui échoue plus bas à cause des arguments"""
 		c1 = self.cible.ajouterCreneau(2015, 5, 24, 12, 18)

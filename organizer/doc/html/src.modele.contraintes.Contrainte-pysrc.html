@@ -63,43 +63,40 @@
 <a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
 <a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
 <a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
-<a name="Contrainte"></a><div id="Contrainte-def"><a name="L6"></a><tt class="py-lineno"> 6</tt> <a class="py-toggle" href="#" id="Contrainte-toggle" onclick="return toggle('Contrainte');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="src.modele.contraintes.Contrainte.Contrainte-class.html">Contrainte</a><tt class="py-op">:</tt> </tt>
+<a name="Contrainte"></a><div id="Contrainte-def"><a name="L6"></a><tt class="py-lineno"> 6</tt> <a class="py-toggle" href="#" id="Contrainte-toggle" onclick="return toggle('Contrainte');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="src.modele.contraintes.Contrainte.Contrainte-class.html">Contrainte</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="Contrainte-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Contrainte-expanded"><a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
 <a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">        La classe abstraite qui va permettre le polymorphisme pour une</tt> </tt>
 <a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">        contrainte.</tt> </tt>
 <a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">        Elle ne devra pas etre instanci&#233;e telle qu'elle.</tt> </tt>
-<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">        @author: Laurent Bardoux p1108365</tt> </tt>
-<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">        @version: 1.0</tt> </tt>
-<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">         </tt>
-<a name="Contrainte.__init__"></a><div id="Contrainte.__init__-def"><a name="L16"></a><tt class="py-lineno">16</tt> <a class="py-toggle" href="#" id="Contrainte.__init__-toggle" onclick="return toggle('Contrainte.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.modele.contraintes.Contrainte.Contrainte-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Contrainte.__init__-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Contrainte.__init__-expanded"><a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
-<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">                Le constructeur de cette classe, qui sera utilis&#233; dans les </tt> </tt>
-<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">                classes d&#233;riv&#233;es.</tt> </tt>
-<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">                @param self: Le param&#232;tre implicite lors de l'appel.</tt> </tt>
-<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">                @precondition: M{self != None}</tt> </tt>
-<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">                @postcondition: l'objet est initialis&#233; et pret &#224; l'emploi.</tt> </tt>
-<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
-</div><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-comment">#fin __init__</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">        @author: Laurent Bardoux p1108365</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">        @version: 1.0</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">         </tt>
+<a name="Contrainte.__init__"></a><div id="Contrainte.__init__-def"><a name="L15"></a><tt class="py-lineno">15</tt> <a class="py-toggle" href="#" id="Contrainte.__init__-toggle" onclick="return toggle('Contrainte.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.modele.contraintes.Contrainte.Contrainte-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Contrainte.__init__-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Contrainte.__init__-expanded"><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">                Le constructeur de cette classe, qui sera utilis&#233; dans les </tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">                classes d&#233;riv&#233;es.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">                @param self: Le param&#232;tre implicite lors de l'appel.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">                @precondition: M{self != None}</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">                @postcondition: l'objet est initialis&#233; et pret &#224; l'emploi.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-comment">#__init__</tt> </tt>
 <a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">         </tt>
 <a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">         </tt>
 <a name="Contrainte.injectionContrainte"></a><div id="Contrainte.injectionContrainte-def"><a name="L27"></a><tt class="py-lineno">27</tt> <a class="py-toggle" href="#" id="Contrainte.injectionContrainte-toggle" onclick="return toggle('Contrainte.injectionContrainte');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.modele.contraintes.Contrainte.Contrainte-class.html#injectionContrainte">injectionContrainte</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="Contrainte.injectionContrainte-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Contrainte.injectionContrainte-expanded"><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
 <a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">                Cette fonction doit renvoyer une lambda expression pour appliquer</tt> </tt>
 <a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">                la contrainte qu'elle sp&#233;cifie.</tt> </tt>
-<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
-<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring">                Ici elle ne fera rien (fonction f:x -&gt; x)</tt> </tt>
-<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
-<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">                @param self: L'argument implicite de la classe</tt> </tt>
-<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
-<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring">                @return: une lambda expression identit&#233;</tt> </tt>
-<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
-<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt><tt class="py-name">x</tt> </tt>
-</div></div><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-comment">#fin injection_contrainte</tt> </tt>
-<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">         </tt>
-<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-comment">#fin Contrainte</tt> </tt>
-<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">                Ici elle ne fera rien (fonction f:x -&gt; x)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring">                @param self: L'argument implicite de la classe</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-docstring">                @return: une lambda expression identit&#233;</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt><tt class="py-name">x</tt> </tt>
+</div></div><a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-comment">#injection_contrainte</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">         </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-comment">#Contrainte</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -132,7 +129,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Feb 16 09:27:15 2016
+    Generated by Epydoc 3.0.1 on Wed Feb 17 10:57:33 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

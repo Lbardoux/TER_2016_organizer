@@ -1,15 +1,13 @@
 #!/usr/bin/python3
 # -*-coding:utf-8 -*
 
-import sys, os
-import veventIcs
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../../outils")
+import _veventIcs
 import icalendar
 import extension
 
 # Mapping des composants que l'on veut traiter.
 _composants = {
-	"VEVENT" : veventIcs.parseVevent,
+	"VEVENT" : _veventIcs.parseVevent,
 	"CSP_FORMATION" : lambda x : x
 }
 

@@ -4,8 +4,10 @@
 import Annee
 import Jour
 from FabriqueCreneau import CreneauxPossible as CP
+from observateur.Observable import *
+from observateur.Observeur import *
 
-class Agenda(object):
+class Agenda(Observable, Observeur):
 	"""
 	La classe qui va représenter un agenda.
 	Elle fournit donc les fonctions requises pour la création et la
@@ -45,6 +47,8 @@ class Agenda(object):
 		@type nom: str
 		@precondition: M{nom doit etre une chaine non vide}
 		"""
+		Observeur.__init__(self)
+		Observable.__init__(self)
 		self._nom = nom
 		self._pere = None
 		self._listeFils = list()
@@ -60,6 +64,7 @@ class Agenda(object):
 	
 	
 	@pere.setter
+	@notifier
 	def pere(self, agendaPere):
 		"""
 		Une fonction pour ajouter un père à cet agenda.
@@ -71,12 +76,13 @@ class Agenda(object):
 	
 	@property
 	def nom(self):
-		"""Un accesseur pour le nom de l'agenda courant."""
-		return self._nom
+		"""Un accesseur pour le nom de l'agenda courant (privé de l'arborescence)."""
+		return self._nom.split("/")[-1]
 	#nom
 	
 	
 	@nom.setter
+	@notifier
 	def nom(self, autreNom):
 		"""Le mutateur associé au nom."""
 		if type(autreNom) is str:
@@ -112,6 +118,14 @@ class Agenda(object):
 	#listeFils
 	
 	
+	@property
+	def nomComplet(self):
+		"""Renvoi le nom complet de l'Agenda (chemin inclu)"""
+		return self._nom
+	#nomComplet
+	
+	
+	@notifier
 	def insererFils(self, *fils):
 		"""
 		Cette fonction permet d'insérer des fils à cet agenda.
@@ -132,20 +146,30 @@ class Agenda(object):
 	#insererFils
 	
 	
+	@notifier
 	def retirerFils(self, *nomFils):
 		"""
 		La fonction qui permet de retirer des agendas fils.
 		Elle devra surement être mis à jour pour éviter les références circulaires
 		ou propager les destructions.
+		En effet, on va propager la destruction en profondeur.
 		@param self: l'argument implicite.
 		@param nomFils: Les noms des agendas directs de l'agenda courant.
 		@type nomFils: list(str)
 		@postcondition: les agendas ayant les noms apparaissant dans la liste sont retirés
 		"""
-		for nom in nomFils:
-			if type(nom) is str:
-				self._listeFils = [fils for fils in self._listeFils if fils.nom != nom]
-			#if
+		for nom in [elt for elt in nomFils if type(elt) is str]:
+			for i, element in enumerate(self._listeFils):
+				if element.nom == nom or element.nomComplet == nom:
+					element._pere = None
+					#vider la liste des fils de cet element
+					for fils in element._listeFils:
+						element.retirerFils(fils.nom)
+					#for
+					del self._listeFils[i]
+					break
+				#if
+			#for
 		#for
 	#retirerFils
 	
@@ -226,10 +250,16 @@ class Agenda(object):
 		cible = self._autoVivification(self._trouveAnnee(annee), annee)
 		creneau = cible.ajouterCreneau(mois, jour, debut, fin, typeCreneau)
 		creneau.dateExacte = (annee, mois, jour)
+		try:
+			creneau.ajouterObserveur(self)
+		except ReferenceError:
+			pass
+		#try
 		return creneau
 	#ajouterCreneau
 	
 	
+	@notifier
 	def supprimerCreneau(self, annee, mois, jour, creneau):
 		"""
 		Lance la suppression d'un L{Creneau} si il existe.
@@ -250,6 +280,11 @@ class Agenda(object):
 		#if
 		
 		anneeCible.supprimerCreneau(mois, jour, creneau)
+		try:
+			creneau.enleverObserveur(self)
+		except ValueError:
+			pass
+		#try
 	#supprimerCreneau
 	
 	
@@ -305,11 +340,11 @@ class Agenda(object):
 			jourTemp.insererCreneau(i)
 		#for
 		
-		resultat = jourTemp.creneaux
-		return resultat
+		return jourTemp.creneaux
 	#recupererJour
 	
 	
+	@notifier
 	def deplacerCreneau(self, creneau, annee, mois, jour, debut ,fin):
 		"""
 		Cette fonction permet de déplacer un creneau dans l'Agenda courant.
@@ -332,14 +367,40 @@ class Agenda(object):
 		self.supprimerCreneau(anneeActuelle, moisActuel, jourActuel, creneau)
 		creneau.horaire.debut = debut
 		creneau.horaire.fin = fin
-		#auto vivification
 		cible = self._autoVivification(self._trouveAnnee(annee), annee)
 		cible.insererCreneau(creneau, mois, jour)
-		# tout s'est bien passé (0 exception), on actualise
 		creneau.dateExacte = (annee, mois, jour)
 	#deplacerCreneau
 	
 	
+	@notifier
+	def miseAJour(self, observable, *arguments):
+		"""
+		Lorsque un créneau nous notifie d'une modification, on notifie
+		nous aussi.
+		@param self: L'argument implicite
+		@type observable: L{Observable}
+		@param observable: L'objet qui nous notifie du changement.
+		@type arguments: list
+		@param arguments: les éventuels arguments supplémentaires fournis lors de l'appel.
+		"""
+		pass
+	#misAJour
 	
+	
+	def detruire(self):
+		"""
+		Un destructeur pour l'Agenda.
+		Cela va mettre à None pas mal de chose pour éviter les références circulaires.
+		Toutes les listes seront vidées, et les Agendas fils également.
+		@param self: L'argument implicite
+		"""
+		self._pere = None
+		for fils in self._listeFils:
+			fils.detruire()
+		#for
+		del self._listeFils
+		del self._listeAnnees
+	#detruireAgenda
 	
 #fin Agenda

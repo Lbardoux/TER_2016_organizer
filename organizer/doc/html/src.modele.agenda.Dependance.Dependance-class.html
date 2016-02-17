@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.modele.agenda.Dependance.Dependance</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.modele-module.html">Package&nbsp;modele</a> ::
+        <a href="src.modele.agenda-module.html">Package&nbsp;agenda</a> ::
+        <a href="src.modele.agenda.Dependance-module.html">Module&nbsp;Dependance</a> ::
+        Class&nbsp;Dependance
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.modele.agenda.Dependance.Dependance-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Dependance</h1><p class="nomargin-top"><span class="codelink"><a href="src.modele.agenda.Dependance-pysrc.html#Dependance">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+   object --+    
+            |    
+<a href="src.modele.agenda.Agenda.Agenda-class.html">Agenda.Agenda</a> --+
+                |
+               <strong class="uidshort">Dependance</strong>
+</pre>
+
+<hr />
+<p>La classe qui d&#233;finit une d&#233;pendance pour un Agenda. Actuellement, une
+  d&#233;pendance est un <a href="src.modele.agenda.Agenda-module.html" 
+  class="link">Agenda</a>, dont les cr&#233;neaux sont consid&#233;r&#233;s comme des <a 
+  href="src.modele.contraintes.Blocage.Blocage-class.html" 
+  class="link">Blocage</a>s, et qui est immuable (comprendre que, en tant 
+  que d&#233;pendance, on ne peut le modifier directement). Attention, on ne 
+  doit pas s'en servir comme Agenda principal (ie son attribut pere ne doit
+  jamais etre None !)</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Laurent Bardoux p1108365
+      </p>
+      <p><strong>Version:</strong>
+        1.0
+      </p>
+</div><!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Dependance.Dependance-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">nom</span>,
+        <span class="summary-sig-arg">annee</span>)</span><br />
+      Le constructeur de cette classe.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Dependance-pysrc.html#Dependance.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="src.modele.agenda.Creneau-module.html" 
+      class="link">Creneau</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Dependance.Dependance-class.html#ajouterCreneau" class="summary-sig-name">ajouterCreneau</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">annee</span>,
+        <span class="summary-sig-arg">mois</span>,
+        <span class="summary-sig-arg">jour</span>,
+        <span class="summary-sig-arg">debut</span>,
+        <span class="summary-sig-arg">fin</span>,
+        <span class="summary-sig-arg">typeCreneau</span>=<span class="summary-sig-default">CP.CRENEAU</span>)</span><br />
+      Surcharge de cette m&#233;thode pour prendre en compte les sp&#233;cifications 
+      d'une Dependance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Dependance-pysrc.html#Dependance.ajouterCreneau">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="src.modele.agenda.Agenda.Agenda-class.html">Agenda.Agenda</a></code></b>:
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#deplacerCreneau">deplacerCreneau</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#insererFils">insererFils</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#listeAnnees">listeAnnees</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#listeFils">listeFils</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#nom">nom</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#nomComplet">nomComplet</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#pere">pere</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#recupererJour">recupererJour</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#recupererSemaineParNumJour">recupererSemaineParNumJour</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#retirerFils">retirerFils</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#supprimerCreneau">supprimerCreneau</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="src.modele.agenda.Agenda.Agenda-class.html">Agenda.Agenda</a></code></b> (private):
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#_autoVivification" onclick="show_private();">_autoVivification</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#_trouveAnnee" onclick="show_private();">_trouveAnnee</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="src.modele.agenda.Agenda.Agenda-class.html">Agenda.Agenda</a></code></b> (private):
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#_listeAnnees" onclick="show_private();">_listeAnnees</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#_listeFils" onclick="show_private();">_listeFils</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#_nom" onclick="show_private();">_nom</a></code>,
+      <code><a href="src.modele.agenda.Agenda.Agenda-class.html#_pere" onclick="show_private();">_pere</a></code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">nom</span>,
+        <span class="sig-arg">annee</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Dependance-pysrc.html#Dependance.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Le constructeur de cette classe. Il va construire un 
+  &quot;Agenda&quot; avec nom et annee.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
+        <li><strong class="pname"><code>nom</code></strong> (str) - le nom complet de l'agenda (chemin abslu/relatif inclus)</li>
+        <li><strong class="pname"><code>annee</code></strong> (int) - l'annee (car oui il en faut bien une) d'initialisation de 
+          l'agenda.</li>
+    </ul></dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+<div class="fields">      <p><strong>Precondition:</strong>
+        <i class="math">annee &gt; 0</i>
+      </p>
+</div></td></tr></table>
+</div>
+<a name="ajouterCreneau"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ajouterCreneau</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">annee</span>,
+        <span class="sig-arg">mois</span>,
+        <span class="sig-arg">jour</span>,
+        <span class="sig-arg">debut</span>,
+        <span class="sig-arg">fin</span>,
+        <span class="sig-arg">typeCreneau</span>=<span class="sig-default">CP.CRENEAU</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Dependance-pysrc.html#Dependance.ajouterCreneau">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Surcharge de cette m&#233;thode pour prendre en compte les sp&#233;cifications 
+  d'une Dependance. Cela creera forc&#233;ment un blocage Etape 1 de la descente
+  dans l'architecture. Ceci va &quot;ajouter&quot; un <a 
+  href="src.modele.agenda.Creneau-module.html" class="link">Creneau</a> 
+  dans le <i class="math">mois</i> de l'annee <i class="math">annee</i>, <i
+  class="math">jour</i>, entre <i class="math">debut</i> et <i 
+  class="math">fin</i>. Noter que si annee n'existe pas, elle sera 
+  automatiquement cr&#233;&#233;e.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite</li>
+        <li><strong class="pname"><code>annee</code></strong> (int) - l'annee dans laquelle ins&#233;rer ce cr&#233;neau.</li>
+        <li><strong class="pname"><code>mois</code></strong> (int) - le num&#233;ro du mois dans lequel ins&#233;rer ce cr&#233;neau.</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour dans lequel ins&#233;rer ce cr&#233;neau.</li>
+        <li><strong class="pname"><code>debut</code></strong> (int [1, 48]) - l'heure de d&#233;but du cr&#233;neau</li>
+        <li><strong class="pname"><code>fin</code></strong> (int [1, 48]) - l'heure de fin du cr&#233;neau</li>
+        <li><strong class="pname"><code>typeCreneau</code></strong> (enum) - une valeur enum&#233;r&#233;e pour la fabrique de creneau</li>
+    </ul></dd>
+    <dt>Returns: <a href="src.modele.agenda.Creneau-module.html" 
+      class="link">Creneau</a></dt>
+        <dd>Un cr&#233;neau nouvellement cr&#233;&#233;.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - si les arguments sont erron&#233;s.</li>
+    </ul></dd>
+    <dt>Overrides:
+        <a href="src.modele.agenda.Agenda.Agenda-class.html#ajouterCreneau">Agenda.Agenda.ajouterCreneau</a>
+    </dt>
+  </dl>
+<div class="fields">      <p><strong>Precondition:</strong>
+        debut &lt; fin, mois/jour/debut/fin doivent etre compris dans leurs
+        intervalles respectifs
+      </p>
+</div></td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed Feb 17 10:57:33 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

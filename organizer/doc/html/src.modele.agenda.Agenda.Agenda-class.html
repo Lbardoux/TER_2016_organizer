@@ -192,7 +192,8 @@ object --+
           <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#listeFils" class="summary-sig-name">listeFils</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">autre</span>)</span><br />
       Le mutateur pour affecter une liste &#224; la liste des fils Attention, la
-      pr&#233;c&#233;dente liste est alors perdue !</td>
+      pr&#233;c&#233;dente liste est alors perdue ! @precondition : autre doit etre 
+      une liste d'Agenda !</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.listeFils">source&nbsp;code</a></span>
             
@@ -205,6 +206,23 @@ object --+
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#nomComplet" class="summary-sig-name">nomComplet</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Renvoi le nom complet de l'Agenda (chemin inclu)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.nomComplet">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -240,7 +258,7 @@ object --+
   </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type"><a href="src.modele.agenda.Annee-module.html" class="link">Annee</a></span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -260,14 +278,14 @@ object --+
   </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type"><a href="src.modele.agenda.Annee-module.html" class="link">Annee</a></span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#_autoVivification" class="summary-sig-name" onclick="show_private();">_autoVivification</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">cible</span>,
         <span class="summary-sig-arg">annee</span>)</span><br />
-      G&#232;re l'autovivification  de ce dictionnaire si cible est None.</td>
+      G&#232;re l'autovivification  de cette liste si cible est None.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda._autoVivification">source&nbsp;code</a></span>
             
@@ -279,7 +297,8 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type"><a href="src.modele.agenda.Creneau-module.html" 
+      class="link">Creneau</a></span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -310,7 +329,7 @@ object --+
         <span class="summary-sig-arg">annee</span>,
         <span class="summary-sig-arg">mois</span>,
         <span class="summary-sig-arg">jour</span>,
-        <span class="summary-sig-arg">idCreneau</span>)</span><br />
+        <span class="summary-sig-arg">creneau</span>)</span><br />
       Lance la suppression d'un <a 
       href="src.modele.agenda.Creneau-module.html" class="link">Creneau</a>
       si il existe.</td>
@@ -325,7 +344,8 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type"><a href="src.modele.agenda.Semaine-module.html" 
+      class="link">Semaine</a></span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -346,7 +366,7 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">list(Creneau)</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -360,6 +380,29 @@ object --+
       les arguments sont coh&#233;rents.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.recupererJour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#deplacerCreneau" class="summary-sig-name">deplacerCreneau</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">creneau</span>,
+        <span class="summary-sig-arg">annee</span>,
+        <span class="summary-sig-arg">mois</span>,
+        <span class="summary-sig-arg">jour</span>,
+        <span class="summary-sig-arg">debut</span>,
+        <span class="summary-sig-arg">fin</span>)</span><br />
+      Cette fonction permet de d&#233;placer un creneau dans l'Agenda courant.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.deplacerCreneau">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -503,14 +546,16 @@ object --+
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>self</code></strong> - L'argument implicite</li>
-        <li><strong class="pname"><code>nom</code></strong> (str @precondition : <i class="math">nom doit etre une chaine non 
-          vide</i>) - le nom de cet agenda.</li>
+        <li><strong class="pname"><code>nom</code></strong> (str) - le nom de cet agenda.</li>
     </ul></dd>
     <dt>Overrides:
         object.__init__
     </dt>
   </dl>
-</td></tr></table>
+<div class="fields">      <p><strong>Precondition:</strong>
+        <i class="math">nom doit etre une chaine non vide</i>
+      </p>
+</div></td></tr></table>
 </div>
 <a name="pere"></a>
 <div>
@@ -529,11 +574,6 @@ object --+
   
   <p>Une fonction pour ajouter un p&#232;re &#224; cet agenda.</p>
   <dl class="fields">
-    <dt>Parameters:</dt>
-    <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>self</code></strong> - le param&#232;tre implicite</li>
-        <li><strong class="pname"><code>agendaPere</code></strong> (Agenda, ou un type d&#233;riv&#233;) - le futur papa de l'agenda courant</li>
-    </ul></dd>
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
         <li><code>@pere.setter</code></li>
@@ -541,10 +581,6 @@ object --+
   </dl>
 <div class="fields">      <p><strong>Precondition:</strong>
         agendaPere is not None.
-      </p>
-      <p><strong>Postcondition:</strong>
-        si self._pere &#233;tait &#224; None, agendaPere devient le p&#232;re de cet 
-        agenda.
       </p>
 </div></td></tr></table>
 </div>
@@ -611,17 +647,35 @@ object --+
   </tr></table>
   
   <p>Le mutateur pour affecter une liste &#224; la liste des fils Attention, la 
-  pr&#233;c&#233;dente liste est alors perdue !</p>
+  pr&#233;c&#233;dente liste est alors perdue ! @precondition : autre doit etre une 
+  liste d'Agenda !</p>
   <dl class="fields">
-    <dt>Parameters:</dt>
-    <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>self</code></strong> - l'argument implicite</li>
-        <li><strong class="pname"><code>autre</code></strong> (une liste vide ou de Fils. @precondition : autre doit etre une 
-          liste d'Agenda !) - la nouvelle liste, vide ou contenant des Fils</li>
-    </ul></dd>
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
         <li><code>@listeFils.setter</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="nomComplet"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">nomComplet</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.nomComplet">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Renvoi le nom complet de l'Agenda (chemin inclu)</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@property</code></li>
     </ul></dd>
   </dl>
 </td></tr></table>
@@ -647,13 +701,18 @@ object --+
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>self</code></strong> - l'argument implicite</li>
-        <li><strong class="pname"><code>fils</code></strong> (des Agendas @precondition : *fils doit &#234;tre constitu&#233; d'Agendas 
-          @postcondition : seul les agendas sont ins&#233;r&#233;s dans la liste 
-          @rtype : int @return : le nombre d'&#233;l&#233;ment dans la liste des 
-          fils.) - un nombre variable d'arguments, de pr&#233;f&#233;rence des agendas</li>
+        <li><strong class="pname"><code>fils</code></strong> (list(Agenda)) - un nombre variable d'arguments, de pr&#233;f&#233;rence des agendas</li>
     </ul></dd>
+    <dt>Returns: int</dt>
+        <dd>le nombre d'&#233;l&#233;ment dans la liste des fils.</dd>
   </dl>
-</td></tr></table>
+<div class="fields">      <p><strong>Precondition:</strong>
+        *fils doit &#234;tre constitu&#233; d'Agendas
+      </p>
+      <p><strong>Postcondition:</strong>
+        seul les agendas sont ins&#233;r&#233;s dans la liste
+      </p>
+</div></td></tr></table>
 </div>
 <a name="retirerFils"></a>
 <div>
@@ -677,11 +736,13 @@ object --+
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>self</code></strong> - l'argument implicite.</li>
-        <li><strong class="pname"><code>nomFils</code></strong> (list(str) @postcondition : les agendas ayant les noms 
-          apparaissant dans la liste sont retir&#233;s) - Les noms des agendas directs de l'agenda courant.</li>
+        <li><strong class="pname"><code>nomFils</code></strong> (list(str)) - Les noms des agendas directs de l'agenda courant.</li>
     </ul></dd>
   </dl>
-</td></tr></table>
+<div class="fields">      <p><strong>Postcondition:</strong>
+        les agendas ayant les noms apparaissant dans la liste sont retir&#233;s
+      </p>
+</div></td></tr></table>
 </div>
 <a name="_trouveAnnee"></a>
 <div class="private">
@@ -705,12 +766,12 @@ object --+
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
-        <li><strong class="pname"><code>annee</code></strong> (int) - Le num&#233;ro de l'ann&#233;e voulue (2005 par exemple) @rtype : <a 
-          href="src.modele.agenda.Annee-module.html" class="link">Annee</a>
-          @return : None si pas trouv&#233;e, une r&#233;f&#233;rence sur <a 
-          href="src.modele.agenda.Annee-module.html" class="link">Annee</a>
-          sinon.</li>
+        <li><strong class="pname"><code>annee</code></strong> (int) - Le num&#233;ro de l'ann&#233;e voulue (2005 par exemple)</li>
     </ul></dd>
+    <dt>Returns: <a href="src.modele.agenda.Annee-module.html" class="link">Annee</a></dt>
+        <dd>None si pas trouv&#233;e, une r&#233;f&#233;rence sur <a 
+          href="src.modele.agenda.Annee-module.html" class="link">Annee</a>
+          sinon.</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -730,19 +791,21 @@ object --+
     </td>
   </tr></table>
   
-  <p>G&#232;re l'autovivification  de ce dictionnaire si cible est None. Ie cr&#233;e
-  une nouvelle <a href="src.modele.agenda.Annee-module.html" 
-  class="link">Annee</a> avec <i class="math">annee</i> comme num&#233;ro. Ne 
-  fait rien si cible n'est pas None.</p>
+  <p>G&#232;re l'autovivification  de cette liste si cible est None. La liste 
+  des ann&#233;es est tri&#233;e ! Ie cr&#233;e une nouvelle <a 
+  href="src.modele.agenda.Annee-module.html" class="link">Annee</a> avec <i
+  class="math">annee</i> comme num&#233;ro. Ne fait rien si cible n'est pas 
+  None.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
         <li><strong class="pname"><code>cible</code></strong> (<a href="src.modele.agenda.Annee-module.html" 
           class="link">Annee</a>) - None (r&#233;sultat de la recherche de _trouveAnnee) ou une Annee</li>
-        <li><strong class="pname"><code>annee</code></strong> (int) - l'annee que l'on veut potentiellement vivifier. @rtype : Annee 
-          @return : une Annee, quoiqu'il arrive.</li>
+        <li><strong class="pname"><code>annee</code></strong> (int) - l'annee que l'on veut potentiellement vivifier.</li>
     </ul></dd>
+    <dt>Returns: <a href="src.modele.agenda.Annee-module.html" class="link">Annee</a></dt>
+        <dd>une Annee, quoiqu'il arrive.</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -781,18 +844,21 @@ object --+
         <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour dans lequel ins&#233;rer ce cr&#233;neau.</li>
         <li><strong class="pname"><code>debut</code></strong> (int [1, 48]) - l'heure de d&#233;but du cr&#233;neau</li>
         <li><strong class="pname"><code>fin</code></strong> (int [1, 48]) - l'heure de fin du cr&#233;neau</li>
-        <li><strong class="pname"><code>typeCreneau</code></strong> (enum) - une valeur enum&#233;r&#233;e pour la fabrique de creneau @precondition : 
-          debut &lt; fin, mois/jour/debut/fin doivent etre compris dans 
-          leurs intervalles respectifs</li>
+        <li><strong class="pname"><code>typeCreneau</code></strong> (enum) - une valeur enum&#233;r&#233;e pour la fabrique de creneau</li>
     </ul></dd>
+    <dt>Returns: <a href="src.modele.agenda.Creneau-module.html" 
+      class="link">Creneau</a></dt>
+        <dd>Un cr&#233;neau nouvellement cr&#233;&#233;.</dd>
     <dt>Raises:</dt>
     <dd><ul class="nomargin-top">
-        <li><code><strong class='fraise'>ArgumentInvalide</strong></code> - si les arguments sont erron&#233;s. @rtype : <a 
-        href="src.modele.agenda.Creneau-module.html" 
-        class="link">Creneau</a> @return : Un cr&#233;neau nouvellement cr&#233;&#233;.</li>
+        <li><code><strong class='fraise'>ValueError</strong></code> - si les arguments sont erron&#233;s.</li>
     </ul></dd>
   </dl>
-</td></tr></table>
+<div class="fields">      <p><strong>Precondition:</strong>
+        debut &lt; fin, mois/jour/debut/fin doivent etre compris dans leurs
+        intervalles respectifs
+      </p>
+</div></td></tr></table>
 </div>
 <a name="supprimerCreneau"></a>
 <div>
@@ -805,7 +871,7 @@ object --+
         <span class="sig-arg">annee</span>,
         <span class="sig-arg">mois</span>,
         <span class="sig-arg">jour</span>,
-        <span class="sig-arg">idCreneau</span>)</span>
+        <span class="sig-arg">creneau</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.supprimerCreneau">source&nbsp;code</a></span>&nbsp;
@@ -822,11 +888,11 @@ object --+
         <li><strong class="pname"><code>annee</code></strong> (int) - l'ann&#233;e dont on veut supprimer un creneau.</li>
         <li><strong class="pname"><code>mois</code></strong> (int) - le mois dont on veut supprimer le cr&#233;neau.</li>
         <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour o&#249; le cr&#233;neau se situe.</li>
-        <li><strong class="pname"><code>idCreneau</code></strong> (...) - l'identifiant unique du cr&#233;neau que l'on veut supprimer.</li>
+        <li><strong class="pname"><code>creneau</code></strong> (ref(Creneau)) - la r&#233;f&#233;rence du Creneau que l'on veut supprimer.</li>
     </ul></dd>
     <dt>Raises:</dt>
     <dd><ul class="nomargin-top">
-        <li><code><strong class='fraise'>CreneauInexistant</strong></code> - En cas d'erreur sur les arguments.</li>
+        <li><code><strong class='fraise'>ValueError</strong></code> - En cas d'erreur sur les arguments.</li>
     </ul></dd>
   </dl>
 </td></tr></table>
@@ -858,11 +924,12 @@ object --+
         <li><strong class="pname"><code>mois</code></strong> (int) - Le mois maintenant, de l'annee en question.</li>
         <li><strong class="pname"><code>jour</code></strong> (int) - un des num&#233;ros de jours de ce mois</li>
     </ul></dd>
+    <dt>Returns: <a href="src.modele.agenda.Semaine-module.html" 
+      class="link">Semaine</a></dt>
+        <dd>La semaine d&#233;sir&#233;e</dd>
     <dt>Raises:</dt>
     <dd><ul class="nomargin-top">
-        <li><code><strong class='fraise'>ValueError</strong></code> - si un des arguments ne matche pas @rtype : <a 
-        href="src.modele.agenda.Semaine-module.html" 
-        class="link">Semaine</a> @return : La semaine d&#233;sir&#233;e</li>
+        <li><code><strong class='fraise'>ValueError</strong></code> - si un des arguments ne matche pas</li>
     </ul></dd>
   </dl>
 </td></tr></table>
@@ -894,14 +961,56 @@ object --+
         <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
         <li><strong class="pname"><code>annee</code></strong> (int) - l'Ann&#233;e dont on veut r&#233;cup&#233;rer les donn&#233;es.</li>
         <li><strong class="pname"><code>mois</code></strong> (int) - Le mois maintenant, de l'annee en question.</li>
-        <li><strong class="pname"><code>jour</code></strong> (int) - un des num&#233;ros de jours de ce mois @rtype : list @return : la 
-          liste des <a href="src.modele.agenda.Creneau-module.html" 
-          class="link">Creneau</a> de ce jour l&#224;, toujours, meme si elle 
-          est vide.</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - un des num&#233;ros de jours de ce mois</li>
     </ul></dd>
+    <dt>Returns: list(Creneau)</dt>
+        <dd>la liste des <a href="src.modele.agenda.Creneau-module.html" 
+          class="link">Creneau</a> de ce jour l&#224;, toujours, meme si elle 
+          est vide.</dd>
     <dt>Raises:</dt>
     <dd><ul class="nomargin-top">
         <li><code><strong class='fraise'>ValueError</strong></code> - si un des arguments est mauvais.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="deplacerCreneau"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">deplacerCreneau</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">creneau</span>,
+        <span class="sig-arg">annee</span>,
+        <span class="sig-arg">mois</span>,
+        <span class="sig-arg">jour</span>,
+        <span class="sig-arg">debut</span>,
+        <span class="sig-arg">fin</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.deplacerCreneau">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Cette fonction permet de d&#233;placer un creneau dans l'Agenda 
+  courant.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite</li>
+        <li><strong class="pname"><code>creneau</code></strong> (<a href="src.modele.agenda.Creneau-module.html" 
+          class="link">Creneau</a>) - Le cr&#233;neaux (ou une classe d&#233;riv&#233;e) que l'on veut d&#233;placer.</li>
+        <li><strong class="pname"><code>annee</code></strong> (int) - l'annee dans laquelle ins&#233;rer ce cr&#233;neau.</li>
+        <li><strong class="pname"><code>mois</code></strong> (int) - le num&#233;ro du mois dans lequel ins&#233;rer ce cr&#233;neau.</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour dans lequel ins&#233;rer ce cr&#233;neau.</li>
+        <li><strong class="pname"><code>debut</code></strong> (int [1, 48]) - l'heure de d&#233;but du cr&#233;neau</li>
+        <li><strong class="pname"><code>fin</code></strong> (int [1, 48]) - l'heure de fin du cr&#233;neau</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Si les donn&#233;es sont erron&#233;es.</li>
     </ul></dd>
   </dl>
 </td></tr></table>
@@ -933,7 +1042,7 @@ object --+
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Feb 16 09:27:14 2016
+    Generated by Epydoc 3.0.1 on Wed Feb 17 10:57:32 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
