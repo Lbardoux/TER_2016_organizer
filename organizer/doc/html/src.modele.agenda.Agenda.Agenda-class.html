@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.modele.agenda.Agenda.Agenda</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.modele-module.html">Package&nbsp;modele</a> ::
+        <a href="src.modele.agenda-module.html">Package&nbsp;agenda</a> ::
+        <a href="src.modele.agenda.Agenda-module.html">Module&nbsp;Agenda</a> ::
+        Class&nbsp;Agenda
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.modele.agenda.Agenda.Agenda-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Agenda</h1><p class="nomargin-top"><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+object --+
+         |
+        <strong class="uidshort">Agenda</strong>
+</pre>
+
+<hr />
+<p>La classe qui va repr&#233;senter un agenda. Elle fournit donc les 
+  fonctions requises pour la cr&#233;ation et la maintenance d'un agenda. Un 
+  agenda est une arborescence d'agendas, dont la racine est la partie 
+  principale. Les &quot;fils&quot; sont des d&#233;pendances (ou des 
+  contraintes) qu'il va falloir respecter.</p>
+  <p>EXEMPLE :</p>
+<pre class="literalblock">
+       AgendaCours
+       |------ AgendaVacance
+       |------ AgendaEnseignant1
+       |              `-------------etc
+       `------ AgendaRecherche
+</pre>
+  <p>Ainsi, toutes Modifications dans les fils doit impliquer des 
+  v&#233;rifications dans le p&#232;re. A note que la liste des <a 
+  href="src.modele.agenda.Annee-module.html" class="link">Annee</a> sera 
+  r&#233;git par un m&#233;canisme d'autovivification. ie, que la demande d'une ann&#233;e
+  qui n'existe pas dans la liste entrainera sa cr&#233;ation, meme si celle-ci 
+  reste vide au final.</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Laurent Bardoux p1108365
+      </p>
+      <p><strong>Version:</strong>
+        1.0
+      </p>
+</div><!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">nom</span>,
+        <span class="summary-sig-arg">annee</span>)</span><br />
+      Le constructeur de la classe, qui prend simplement le nom de l'agenda
+      en param&#232;tre.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#pere" class="summary-sig-name">pere</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">agendaPere</span>)</span><br />
+      Une fonction pour ajouter un p&#232;re &#224; cet agenda.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.pere">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#nom" class="summary-sig-name">nom</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">autreNom</span>)</span><br />
+      Le mutateur associ&#233; au nom.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.nom">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#listeAnnees" class="summary-sig-name">listeAnnees</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Un accesseur pour la liste des ann&#233;es</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.listeAnnees">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#listeFils" class="summary-sig-name">listeFils</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">autre</span>)</span><br />
+      Le mutateur pour affecter une liste &#224; la liste des fils Attention, la
+      pr&#233;c&#233;dente liste est alors perdue !</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.listeFils">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#insererFils" class="summary-sig-name">insererFils</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*fils</span>)</span><br />
+      Cette fonction permet d'ins&#233;rer des fils &#224; cet agenda.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.insererFils">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#retirerFils" class="summary-sig-name">retirerFils</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*nomFils</span>)</span><br />
+      La fonction qui permet de retirer des agendas fils.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.retirerFils">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#_trouveAnnee" class="summary-sig-name" onclick="show_private();">_trouveAnnee</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">annee</span>)</span><br />
+      Trouve et renvoi l'<a href="src.modele.agenda.Annee-module.html" 
+      class="link">Annee</a> qui a <i class="math">annee</i> comme attribut
+      an.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda._trouveAnnee">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#_autoVivification" class="summary-sig-name" onclick="show_private();">_autoVivification</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cible</span>,
+        <span class="summary-sig-arg">annee</span>)</span><br />
+      G&#232;re l'autovivification  de ce dictionnaire si cible est None.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda._autoVivification">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#ajouterCreneau" class="summary-sig-name">ajouterCreneau</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">annee</span>,
+        <span class="summary-sig-arg">mois</span>,
+        <span class="summary-sig-arg">jour</span>,
+        <span class="summary-sig-arg">debut</span>,
+        <span class="summary-sig-arg">fin</span>,
+        <span class="summary-sig-arg">typeCreneau</span>=<span class="summary-sig-default">CP.CRENEAU</span>)</span><br />
+      Etape 1 de la descente dans l'architecture.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.ajouterCreneau">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#supprimerCreneau" class="summary-sig-name">supprimerCreneau</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">annee</span>,
+        <span class="summary-sig-arg">mois</span>,
+        <span class="summary-sig-arg">jour</span>,
+        <span class="summary-sig-arg">idCreneau</span>)</span><br />
+      Lance la suppression d'un <a 
+      href="src.modele.agenda.Creneau-module.html" class="link">Creneau</a>
+      si il existe.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.supprimerCreneau">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#recupererSemaineParNumJour" class="summary-sig-name">recupererSemaineParNumJour</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">annee</span>,
+        <span class="summary-sig-arg">mois</span>,
+        <span class="summary-sig-arg">jour</span>)</span><br />
+      Permet de r&#233;cup&#233;rer une Semaine sous la forme d'un dictionnaire de 
+      jour (mapping : &quot;lundi&quot; -&gt; list(Jour)).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.recupererSemaineParNumJour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Agenda.Agenda-class.html#recupererJour" class="summary-sig-name">recupererJour</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">annee</span>,
+        <span class="summary-sig-arg">mois</span>,
+        <span class="summary-sig-arg">jour</span>)</span><br />
+      Permet de r&#233;cup&#233;rer un jour sp&#233;cifique selon le format suivant : 
+      jour_voulu = <i class="math">jour/mois/annee</i> L'autovivification 
+      est &#233;galement assur&#233;e, permettant de toujours r&#233;cup&#233;rer une liste si 
+      les arguments sont coh&#233;rents.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.recupererJour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_listeAnnees"></a><span class="summary-name">_listeAnnees</span><br />
+      la liste des <a href="src.modele.agenda.Annee-module.html" 
+      class="link">Annee</a> disponible pour cet agenda.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_listeFils"></a><span class="summary-name">_listeFils</span><br />
+      Le niveau inf&#233;rieur de l'arborescence
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_nom"></a><span class="summary-name">_nom</span><br />
+      le nom de l'agenda courant
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_pere"></a><span class="summary-name">_pere</span><br />
+      l'agenda pere, None &#233;quivaut &#224; la racine.
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">nom</span>,
+        <span class="sig-arg">annee</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Le constructeur de la classe, qui prend simplement le nom de l'agenda 
+  en param&#232;tre.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite</li>
+        <li><strong class="pname"><code>nom</code></strong> (str @precondition : <i class="math">nom doit etre une chaine non 
+          vide</i>) - le nom de cet agenda.</li>
+    </ul></dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="pere"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">pere</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">agendaPere</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.pere">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Une fonction pour ajouter un p&#232;re &#224; cet agenda.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - le param&#232;tre implicite</li>
+        <li><strong class="pname"><code>agendaPere</code></strong> (Agenda, ou un type d&#233;riv&#233;) - le futur papa de l'agenda courant</li>
+    </ul></dd>
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@pere.setter</code></li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Precondition:</strong>
+        agendaPere is not None.
+      </p>
+      <p><strong>Postcondition:</strong>
+        si self._pere &#233;tait &#224; None, agendaPere devient le p&#232;re de cet 
+        agenda.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="nom"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">nom</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">autreNom</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.nom">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Le mutateur associ&#233; au nom.</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@nom.setter</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="listeAnnees"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">listeAnnees</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.listeAnnees">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Un accesseur pour la liste des ann&#233;es</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@property</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="listeFils"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">listeFils</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">autre</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.listeFils">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Le mutateur pour affecter une liste &#224; la liste des fils Attention, la 
+  pr&#233;c&#233;dente liste est alors perdue !</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - l'argument implicite</li>
+        <li><strong class="pname"><code>autre</code></strong> (une liste vide ou de Fils. @precondition : autre doit etre une 
+          liste d'Agenda !) - la nouvelle liste, vide ou contenant des Fils</li>
+    </ul></dd>
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@listeFils.setter</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="insererFils"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">insererFils</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*fils</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.insererFils">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Cette fonction permet d'ins&#233;rer des fils &#224; cet agenda. Les ajouts se 
+  feront &#224; la fin de la liste.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - l'argument implicite</li>
+        <li><strong class="pname"><code>fils</code></strong> (des Agendas @precondition : *fils doit &#234;tre constitu&#233; d'Agendas 
+          @postcondition : seul les agendas sont ins&#233;r&#233;s dans la liste 
+          @rtype : int @return : le nombre d'&#233;l&#233;ment dans la liste des 
+          fils.) - un nombre variable d'arguments, de pr&#233;f&#233;rence des agendas</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="retirerFils"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">retirerFils</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*nomFils</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.retirerFils">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>La fonction qui permet de retirer des agendas fils. Elle devra 
+  surement &#234;tre mis &#224; jour pour &#233;viter les r&#233;f&#233;rences circulaires ou 
+  propager les destructions.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - l'argument implicite.</li>
+        <li><strong class="pname"><code>nomFils</code></strong> (list(str) @postcondition : les agendas ayant les noms 
+          apparaissant dans la liste sont retir&#233;s) - Les noms des agendas directs de l'agenda courant.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_trouveAnnee"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_trouveAnnee</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">annee</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda._trouveAnnee">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Trouve et renvoi l'<a href="src.modele.agenda.Annee-module.html" 
+  class="link">Annee</a> qui a <i class="math">annee</i> comme attribut 
+  an.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
+        <li><strong class="pname"><code>annee</code></strong> (int) - Le num&#233;ro de l'ann&#233;e voulue (2005 par exemple) @rtype : <a 
+          href="src.modele.agenda.Annee-module.html" class="link">Annee</a>
+          @return : None si pas trouv&#233;e, une r&#233;f&#233;rence sur <a 
+          href="src.modele.agenda.Annee-module.html" class="link">Annee</a>
+          sinon.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_autoVivification"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_autoVivification</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">cible</span>,
+        <span class="sig-arg">annee</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda._autoVivification">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>G&#232;re l'autovivification  de ce dictionnaire si cible est None. Ie cr&#233;e
+  une nouvelle <a href="src.modele.agenda.Annee-module.html" 
+  class="link">Annee</a> avec <i class="math">annee</i> comme num&#233;ro. Ne 
+  fait rien si cible n'est pas None.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
+        <li><strong class="pname"><code>cible</code></strong> (<a href="src.modele.agenda.Annee-module.html" 
+          class="link">Annee</a>) - None (r&#233;sultat de la recherche de _trouveAnnee) ou une Annee</li>
+        <li><strong class="pname"><code>annee</code></strong> (int) - l'annee que l'on veut potentiellement vivifier. @rtype : Annee 
+          @return : une Annee, quoiqu'il arrive.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ajouterCreneau"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ajouterCreneau</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">annee</span>,
+        <span class="sig-arg">mois</span>,
+        <span class="sig-arg">jour</span>,
+        <span class="sig-arg">debut</span>,
+        <span class="sig-arg">fin</span>,
+        <span class="sig-arg">typeCreneau</span>=<span class="sig-default">CP.CRENEAU</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.ajouterCreneau">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Etape 1 de la descente dans l'architecture. Ceci va 
+  &quot;ajouter&quot; un <a href="src.modele.agenda.Creneau-module.html" 
+  class="link">Creneau</a> dans le <i class="math">mois</i> de l'annee <i 
+  class="math">annee</i>, <i class="math">jour</i>, entre <i 
+  class="math">debut</i> et <i class="math">fin</i>. Noter que si annee 
+  n'existe pas, elle sera automatiquement cr&#233;&#233;e.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite</li>
+        <li><strong class="pname"><code>annee</code></strong> (int) - l'annee dans laquelle ins&#233;rer ce cr&#233;neau.</li>
+        <li><strong class="pname"><code>mois</code></strong> (int) - le num&#233;ro du mois dans lequel ins&#233;rer ce cr&#233;neau.</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour dans lequel ins&#233;rer ce cr&#233;neau.</li>
+        <li><strong class="pname"><code>debut</code></strong> (int [1, 48]) - l'heure de d&#233;but du cr&#233;neau</li>
+        <li><strong class="pname"><code>fin</code></strong> (int [1, 48]) - l'heure de fin du cr&#233;neau</li>
+        <li><strong class="pname"><code>typeCreneau</code></strong> (enum) - une valeur enum&#233;r&#233;e pour la fabrique de creneau @precondition : 
+          debut &lt; fin, mois/jour/debut/fin doivent etre compris dans 
+          leurs intervalles respectifs</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ArgumentInvalide</strong></code> - si les arguments sont erron&#233;s. @rtype : <a 
+        href="src.modele.agenda.Creneau-module.html" 
+        class="link">Creneau</a> @return : Un cr&#233;neau nouvellement cr&#233;&#233;.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="supprimerCreneau"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">supprimerCreneau</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">annee</span>,
+        <span class="sig-arg">mois</span>,
+        <span class="sig-arg">jour</span>,
+        <span class="sig-arg">idCreneau</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.supprimerCreneau">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Lance la suppression d'un <a 
+  href="src.modele.agenda.Creneau-module.html" class="link">Creneau</a> si 
+  il existe.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite</li>
+        <li><strong class="pname"><code>annee</code></strong> (int) - l'ann&#233;e dont on veut supprimer un creneau.</li>
+        <li><strong class="pname"><code>mois</code></strong> (int) - le mois dont on veut supprimer le cr&#233;neau.</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour o&#249; le cr&#233;neau se situe.</li>
+        <li><strong class="pname"><code>idCreneau</code></strong> (...) - l'identifiant unique du cr&#233;neau que l'on veut supprimer.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>CreneauInexistant</strong></code> - En cas d'erreur sur les arguments.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="recupererSemaineParNumJour"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">recupererSemaineParNumJour</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">annee</span>,
+        <span class="sig-arg">mois</span>,
+        <span class="sig-arg">jour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.recupererSemaineParNumJour">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Permet de r&#233;cup&#233;rer une Semaine sous la forme d'un dictionnaire de 
+  jour (mapping : &quot;lundi&quot; -&gt; list(Jour)).</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
+        <li><strong class="pname"><code>annee</code></strong> (int) - l'Ann&#233;e dont on veut r&#233;cup&#233;rer les donn&#233;es.</li>
+        <li><strong class="pname"><code>mois</code></strong> (int) - Le mois maintenant, de l'annee en question.</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - un des num&#233;ros de jours de ce mois</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - si un des arguments ne matche pas @rtype : <a 
+        href="src.modele.agenda.Semaine-module.html" 
+        class="link">Semaine</a> @return : La semaine d&#233;sir&#233;e</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="recupererJour"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">recupererJour</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">annee</span>,
+        <span class="sig-arg">mois</span>,
+        <span class="sig-arg">jour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Agenda-pysrc.html#Agenda.recupererJour">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Permet de r&#233;cup&#233;rer un jour sp&#233;cifique selon le format suivant : 
+  jour_voulu = <i class="math">jour/mois/annee</i> L'autovivification est 
+  &#233;galement assur&#233;e, permettant de toujours r&#233;cup&#233;rer une liste si les 
+  arguments sont coh&#233;rents.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
+        <li><strong class="pname"><code>annee</code></strong> (int) - l'Ann&#233;e dont on veut r&#233;cup&#233;rer les donn&#233;es.</li>
+        <li><strong class="pname"><code>mois</code></strong> (int) - Le mois maintenant, de l'annee en question.</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - un des num&#233;ros de jours de ce mois @rtype : list @return : la 
+          liste des <a href="src.modele.agenda.Creneau-module.html" 
+          class="link">Creneau</a> de ce jour l&#224;, toujours, meme si elle 
+          est vide.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - si un des arguments est mauvais.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Feb 16 09:27:14 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

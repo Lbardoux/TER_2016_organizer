@@ -69,9 +69,7 @@ class Mois(Modifier.Modifier):
 		@return: le jour suivant de la fin du mois
 		"""
 		joursRestants = self._nbJours
-		compteurSemaine = 1
-		numDebutSemaine = 1
-		numFinSemaine = 1
+		compteurSemaine, numDebutSemaine, numFinSemaine = 1, 1, 1
 		_liste = Jour.JOURS_LEGAUX
 		tailleListe = len(_liste)
 		i = _liste.index(jourDebut)
@@ -80,7 +78,6 @@ class Mois(Modifier.Modifier):
 		while joursRestants > 0:
 			if (tailleListe - i) < joursRestants:
 				numFinSemaine = numDebutSemaine + tailleListe - i - 1
-				#print("du " + _liste[i] + " " + str(numDebutSemaine) + " au " + _liste[tailleListe-1] + " " + str(numFinSemaine))
 				temp = Semaine(compteurSemaine, construireArgument(_liste[i], numDebutSemaine, _liste[tailleListe-1], numFinSemaine))
 				joursRestants -= tailleListe-i
 				i = 0
@@ -89,7 +86,6 @@ class Mois(Modifier.Modifier):
 				self._semaines.append(temp)
 				apres = _liste[0]
 			else:
-				#print("du " + _liste[i] + " " + str(numDebutSemaine) + " au " + _liste[joursRestants-1] + " " + str(numFinSemaine + joursRestants))
 				temp = Semaine(compteurSemaine, construireArgument(_liste[i], numDebutSemaine, _liste[joursRestants-1], numFinSemaine + joursRestants))
 				self._semaines.append(temp)
 				apres = _liste[joursRestants%tailleListe]
@@ -155,6 +151,25 @@ class Mois(Modifier.Modifier):
 	#jours
 	
 	
+	def _verifierSemaine(self, numJour):
+		"""
+		Permet de factoriser la récupération et levée d'exception lors
+		de la récupération de la L{Semaine} concernée.
+		@param self: l'argument implicite
+		@type numJour: int
+		@param numJour: le numéro du jour dont on voudrait la semaine englobante.
+		@rtype: L{Semaine}
+		@return: La semaine trouvée
+		@raise ValueError: si les numéros amènent à une erreurs
+		"""
+		semaineCible = self.recupererSemaineParNumJour(numJour)
+		if semaineCible is None:
+			raise ValueError("Le jour numéro " + str(numJour) + " n'est pas dans ce mois !")
+		#if
+		return semaineCible
+	#_verifierSemaine
+	
+	
 	def recupererSemaineParNumJour(self, numJour):
 		"""
 		Permet la récupération d'une semaine complète par un numéro de jour.
@@ -195,44 +210,58 @@ class Mois(Modifier.Modifier):
 		@rtype: L{Creneau}
 		@return: un Creneau 
 		"""
-		semaine = self.recupererSemaineParNumJour(jour)
-		if semaine is not None:
-			resultat = None
-			try:
-				resultat = semaine.ajouterCreneau(jour, debut, fin, typeCreneau)
-			except ValueError:
-				raise
-			else:
-				self.ajoutDeCreneau()
-				return resultat
-			#try
+		semaine = self._verifierSemaine(jour)
+		resultat = None
+		try:
+			resultat = semaine.ajouterCreneau(jour, debut, fin, typeCreneau)
+		except ValueError:
+			raise
 		else:
-			raise ValueError("Ce jour " + str(jour) + " n'existe pas dans ce mois !")
-		#if
+			self.ajoutDeCreneau()
+			return resultat
+		#try
 	#ajouterCreneau
 	
 	
-	def supprimerCreneau(self, jour, idCreneau):
+	def supprimerCreneau(self, jour, creneau):
 		"""
 		Lance la suppression d'un L{Creneau} si il existe.
 		@param self: L'argument implicite
 		@type jour: int
 		@param jour: le numéro du jour où le créneau se situe.
-		@type idCreneau: object
-		@param idCreneau: l'identifiant unique du créneau que l'on veut supprimer.
+		@type creneau: L{Creneau}
+		@param creneau: l'identifiant unique du créneau que l'on veut supprimer.
 		@raise ValueError: En cas d'erreur sur les arguments.
 		"""
-		semaineCible = self.recupererSemaineParNumJour(jour)
-		if semaineCible is None:
-			raise ValueError("Le jour numéro " + jour + " n'est pas dans ce mois !")
-		#if
+		semaineCible = self._verifierSemaine(jour)
 		try:
-			semaineCible.supprimerCreneau(jour, idCreneau)
+			semaineCible.supprimerCreneau(jour, creneau)
 		except ValueError:
 			raise
 		else:
 			self.retraitDeCreneau()
 		#try
 	#supprimerCreneau
+	
+	
+	def insererCreneau(self, creneau, jour):
+		"""
+		Cette fonction permet d'insérer un creneau dans le mois courant.
+		@param self: L'argument implicite
+		@type creneau: L{Creneau}
+		@param creneau: Le créneaux (ou une classe dérivée) que l'on veut insérer.
+		@type jour: int
+		@param jour: le numéro du jour dans lequel insérer ce créneau.
+		@raise ValueError: Si les données sont erronées.
+		"""
+		semaineCible = self._verifierSemaine(jour)
+		try:
+			semaineCible.insererCreneau(creneau, jour)
+		except ValueError:
+			raise
+		else:
+			self.ajoutDeCreneau()
+		#try
+	#insererCreneau
 	
 #Mois

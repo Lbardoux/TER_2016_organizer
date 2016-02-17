@@ -45,13 +45,9 @@ class Cm(Seance.Seance):
 		@rtype: bool
 		@return: True si ils sont identiques, False sinon
 		"""
-		#On ne compare pas 2 Creneaux de type différents
-		if Creneau.Creneau.__eq__(self, autre) == True:
-			testSeance = Seance.Seance.__eq__(self, autre)
-			#nos tests spécifiques à Cm
-			return testSeance
-		#if
-		return False
+		testSeance = Seance.Seance.__eq__(self, autre)
+		#nos tests spécifiques à Cm
+		return testSeance
 	#__eq__
 
 #fin Cm

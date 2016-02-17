@@ -5,6 +5,7 @@ import sys
 sys.path.insert(0, "../src")
 
 from src.modele.contraintes.Blocage import *
+from src.modele.agenda.Horaire import *
 
 class Test_Blocage(unittest.TestCase):
 	"""
@@ -12,43 +13,42 @@ class Test_Blocage(unittest.TestCase):
 	@author : Laurent Bardoux p1108365
 	"""
 	
-	def test_init_getter(self):
-		"""
-		Les tests du getter et du constructeur
-		"""
-		maliste = [1, 2, 3, 4, 5, 6]
-		cible = Blocage(1,2,3,4,5,6)
-		self.assertFalse(cible.valeurs() is None)
-		self.assertEqual(len(cible.valeurs()), 6)
-		for i, elt in enumerate(cible.valeurs()):
-			self.assertEqual(elt, maliste[i])
-		#fin for
-	#fin test_init_getter
-
-
-	def test_init_getter_2(self):
-		"""
-		Plus de tests sur les cas d'erreurs
-		"""
-		cible = Blocage(-1, 5, "lol")
-		self.assertEqual(len(cible.valeurs()), 1)
-	#fin test_init_getter_2
-
-	def test_injection(self):
-		"""
-		Test de la lambda expression retournée.
-		"""
-		cible = Blocage(1,2,3,4,5,6)
-		fonction = cible.injectionContrainte()
-		self.assertTrue(fonction(18))
-		self.assertTrue(fonction(0))
-		self.assertFalse(fonction(6))
-		self.assertFalse(fonction(1))
-		self.assertFalse(fonction(3))
-	#fin test_injection
+	@classmethod
+	def setUpClass(cls):
+		"""A faire au début des tests"""
+		cls.cible = Blocage("id", Horaire(14, 28))
+	#setUpClass
 	
-#fin Test_Blocage
+	
+	def setUp(self):
+		"""A faire avant chaque test"""
+		self.cible._raison = ""
+	#setUp
+	
+	
+	def test_init_raison(self):
+		"""Teste si raison a bien été mis vide"""
+		self.assertEqual(self.cible._raison, "")
+	#test_init_raison
+	
+	
+	def test_get_raison(self):
+		"""Teste la propriété get de la _raison"""
+		oracle = "parce que :D"
+		self.cible._raison = oracle
+		self.assertEqual(self.cible.raison, oracle)
+	#test_get_raison
+	
+	
+	def test_set_raison(self):
+		"""Teste la propriété set de la _raison"""
+		oracle = "parce que :D"
+		self.cible.raison = oracle
+		self.assertEqual(self.cible.raison, oracle)
+	#test_set_raison
+	
+#Test_Blocage
 
 if __name__ == "__main__":
 	unittest.main()
-#fin if
+#if

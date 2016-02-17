@@ -91,9 +91,9 @@ class Test_Annee(unittest.TestCase):
 	def test_supprimerCreneau_ok(self):
 		"""Teste la suppression d'un creneau qui fonctionne"""
 		cible = Annee(2002)
-		cible.ajouterCreneau(2, 15, 2, 8)
-		cible.ajouterCreneau(2, 15, 2, 8)
-		cible.supprimerCreneau(2, 15, 1)
+		c1 = cible.ajouterCreneau(2, 15, 2, 8)
+		c2 = cible.ajouterCreneau(2, 15, 2, 8)
+		cible.supprimerCreneau(2, 15, c1)
 		self.assertEqual(cible.nbCreneaux, 1)
 	#test_supprimerCreneau_ok
 	
@@ -104,7 +104,7 @@ class Test_Annee(unittest.TestCase):
 		pour l'arborescence
 		"""
 		cible = Annee(2002)
-		with self.assertRaises(Exception):
+		with self.assertRaises(ValueError):
 			cible.supprimerCreneau(1, 33, 158)
 		#with
 	#test_supprimerCreneau_echec_interne
@@ -113,7 +113,7 @@ class Test_Annee(unittest.TestCase):
 	def test_supprimerCreneau_echec_local(self):
 		"""Teste la suppression d'un creneau avec un mauvais numéro de mois"""
 		cible = Annee(2002)
-		with self.assertRaises(Exception):
+		with self.assertRaises(ValueError):
 			cible.supprimerCreneau(15, 25, 158)
 		#with
 	#test_supprimerCreneau_echec_local

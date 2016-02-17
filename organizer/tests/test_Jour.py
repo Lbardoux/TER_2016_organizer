@@ -153,12 +153,13 @@ class Test_Jour(unittest.TestCase):
 	def test_supprimerCreneau_ok(self):
 		"""Teste une suppression qui se passe bien."""
 		cible = Jour(15)
-		oracle = [1, 18]
+		simili = None
+		oracle = [1, 15]
 		for i in [1, 15, 18]:
 			simili = SimiliCreneau(i)
 			cible.creneaux.append(simili)
 		#for
-		cible.supprimerCreneau(15)
+		cible.supprimerCreneau(simili)
 		self.assertEqual(len(cible.creneaux), 2)
 		for i, elt in enumerate(cible.creneaux):
 			self.assertEqual(oracle[i], elt.identifiant)
@@ -169,12 +170,14 @@ class Test_Jour(unittest.TestCase):
 	def test_supprimerCreneau_echec(self):
 		"""Teste une suppression qui echoue."""
 		cible = Jour(15)
+		simili = None
 		for i in [1, 15, 18]:
 			simili = SimiliCreneau(i)
 			cible.creneaux.append(simili)
 		#for
+		simili = SimiliCreneau(45)
 		with self.assertRaises(ValueError):
-			cible.supprimerCreneau(25)
+			cible.supprimerCreneau(simili)
 		#with
 	#test_supprimerCreneau_echec
 	

@@ -9,7 +9,7 @@ import enum, Fabrique
 
 
 # Création de l'enum pour la fabrique
-Contraintes = enum.enum('BLOCAGE', 'PRECEDENCE', 'OBLIGATION', 'DATE_LIMITE', 'RESSOURCE')
+Contraintes = enum.enum('PRECEDENCE', 'OBLIGATION', 'DATE_LIMITE', 'RESSOURCE')
 
 
 class FabriqueContrainte(Fabrique.Fabrique):
@@ -38,7 +38,6 @@ class FabriqueContrainte(Fabrique.Fabrique):
 		cas echeant
 		"""
 		dico = {
-			Contraintes.BLOCAGE : lambda *x : Blocage.Blocage(*x),
 			Contraintes.PRECEDENCE : lambda x, y : Precedence.Precedence(x, y),
 			Contraintes.OBLIGATION : lambda x : Obligation.Obligation(x),
 			Contraintes.DATE_LIMITE : lambda x : DateLimite.DateLimite(x),

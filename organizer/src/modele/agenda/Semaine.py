@@ -193,26 +193,42 @@ class Semaine(Modifier.Modifier):
 	#ajouterCreneau
 	
 	
-	def supprimerCreneau(self, jour, idCreneau):
+	def supprimerCreneau(self, jour, creneau):
 		"""
 		Lance la suppression d'un L{Creneau} si il existe.
 		@param self: L'argument implicite
 		@type jour: int
 		@param jour: le numéro du jour où le créneau se situe.
-		@type idCreneau: object
-		@param idCreneau: l'identifiant unique du créneau que l'on veut supprimer.
+		@type creneau: L{Creneau}
+		@param creneau: le créneau que l'on veut supprimer.
 		@raise ValueError: En cas d'erreur sur les arguments.
 		"""
 		# Certification au dessus que None ne sera pas trouvé.
 		jourCible = self.trouveJour(jour)
 		
 		try:
-			jourCible.supprimerCreneau(idCreneau)
+			jourCible.supprimerCreneau(creneau)
 		except ValueError:
 			raise
 		else:
 			self.retraitDeCreneau()
 		#try
 	#supprimerCreneau
+	
+	
+	def insererCreneau(self, creneau, jour):
+		"""
+		Cette fonction permet d'insérer un creneau dans le mois courant.
+		@param self: L'argument implicite
+		@type creneau: L{Creneau}
+		@param creneau: Le créneaux (ou une classe dérivée) que l'on veut insérer.
+		@type jour: int
+		@param jour: le numéro du jour dans lequel insérer ce créneau.
+		"""
+		# Certification au dessus que None ne sera pas trouvé.
+		jourCible = self.trouveJour(jour)
+		jourCible.insererCreneau(creneau)
+		self.ajoutDeCreneau()
+	#insererCreneau
 	
 #Semaine

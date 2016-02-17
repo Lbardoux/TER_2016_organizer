@@ -96,10 +96,13 @@ class Seance(Creneau):
 		@rtype: bool
 		@return: True si ils sont identiques, False sinon
 		"""
-		cond = self._salle == autre._salle
-		cond = cond and self._enseignant == autre._enseignant
-		cond = cond and self._salle == autre._salle
-		return cond and self._nom == autre._nom
+		if Creneau.__eq__(self, autre) == True:
+			cond = self._salle == autre._salle
+			cond = cond and self._enseignant == autre._enseignant
+			cond = cond and self._salle == autre._salle
+			return cond and self._nom == autre._nom
+		#if
+		return False
 	#__eq__
 	
 #fin Seance

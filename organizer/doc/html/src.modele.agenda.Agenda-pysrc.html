@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.modele.agenda.Agenda</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.modele-module.html">Package&nbsp;modele</a> ::
+        <a href="src.modele.agenda-module.html">Package&nbsp;agenda</a> ::
+        Module&nbsp;Agenda
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.modele.agenda.Agenda-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="src.modele.agenda.Agenda-module.html">Module src.modele.agenda.Agenda</a></h1>
+<pre class="py-src">
+&#65279;#!/usr/bin/python3
+# -*-coding:utf-8 -*
+
+import Annee
+from FabriqueCreneau import CreneauxPossible as CP
+
+class Agenda(object):
+        """
+        La classe qui va repr&#233;senter un agenda.
+        Elle fournit donc les fonctions requises pour la cr&#233;ation et la
+        maintenance d'un agenda.
+        Un agenda est une arborescence d'agendas, dont la racine est la partie
+        principale.
+        Les "fils" sont des d&#233;pendances (ou des contraintes) qu'il va falloir respecter.
+        
+        EXEMPLE ::
+                AgendaCours
+                |------ AgendaVacance
+                |------ AgendaEnseignant1
+                |              `-------------etc
+                `------ AgendaRecherche
+        
+        Ainsi, toutes Modifications dans les fils doit impliquer des v&#233;rifications dans le
+        p&#232;re.
+        A note que la liste des L{Annee} sera r&#233;git par un m&#233;canisme d'autovivification.
+        ie, que la demande d'une ann&#233;e qui n'existe pas dans la liste entrainera sa cr&#233;ation,
+        meme si celle-ci reste vide au final.
+        
+        @author: Laurent Bardoux p1108365
+        @version: 1.0
+        
+        @ivar _nom: le nom de l'agenda courant
+        @ivar _pere: l'agenda pere, None &#233;quivaut &#224; la racine.
+        @ivar _listeFils: Le niveau inf&#233;rieur de l'arborescence
+        @ivar _listeAnnees: la liste des L{Annee} disponible pour cet agenda.
+        """
+        
+        def __init__(self, nom, annee):
+                """
+                Le constructeur de la classe, qui prend simplement le nom de l'agenda en
+                param&#232;tre.
+                @param self : L'argument implicite
+                @param nom : le nom de cet agenda.
+                @type nom : str
+                @precondition : M{nom doit etre une chaine non vide}
+                """
+                self._nom = nom
+                self._pere = None
+                self._listeFils = list()
+                self._listeAnnees = [Annee.Annee(annee)]
+        #__init__
+        
+        
+        @property
+        def pere(self):
+                """
+                Un accesseur pour le p&#232;re de cet agenda.
+                @param self: l'argument implicite
+                @rtype: L{Agenda}
+                @return: une r&#233;f&#233;rence sur l'Agenda p&#232;re, ou None si il n'y en a pas.
+                """
+                return self._pere
+        #pere
+        
+        
+        @pere.setter
+        def pere(self, agendaPere):
+                """
+                Une fonction pour ajouter un p&#232;re &#224; cet agenda.
+                @precondition: agendaPere is not None.
+                @postcondition: si self._pere &#233;tait &#224; None, agendaPere devient le p&#232;re de cet agenda.
+                @param self: le param&#232;tre implicite
+                @param agendaPere: le futur papa de l'agenda courant
+                @type agendaPere: Agenda, ou un type d&#233;riv&#233;
+                """
+                self._pere = agendaPere
+        #pere
+        
+        
+        @property
+        def nom(self):
+                """
+                Un accesseur pour le nom de l'agenda courant.
+                @param self : L'argument implicite.
+                @rtype : str
+                @return : le nom de l'agenda courant.
+                """
+                return self._nom
+        #nom
+        
+        
+        @nom.setter
+        def nom(self, autreNom):
+                """Le mutateur associ&#233; au nom."""
+                if type(autreNom) is str:
+                        self._nom = autreNom
+                #if
+        #nom
+        
+        
+        @property
+        def listeAnnees(self):
+                """Un accesseur pour la liste des ann&#233;es"""
+                return self._listeAnnees
+        #listeAnnees
+        
+        
+        @property
+        def listeFils(self):
+                """
+                L'accesseur pour r&#233;cup&#233;rer la liste des fils d'un agenda.
+                @param self : l'argument implicite.
+                @rtype : list
+                @return : une r&#233;f&#233;rence sur la liste des fils
+                """
+                return self._listeFils
+        #fin listeFils
+        
+
+        @listeFils.setter
+        def listeFils(self, autre):
+                """
+                Le mutateur pour affecter une liste &#224; la liste des fils
+                Attention, la pr&#233;c&#233;dente liste est alors perdue !
+                @param self : l'argument implicite
+                @param autre : la nouvelle liste, vide ou contenant des Fils
+                @type autre : une liste vide ou de Fils.
+                @precondition : autre doit etre une liste d'Agenda !
+                """
+                if type(autre) is list:
+                        self._listeFils = autre
+                #if
+        #listeFils
+        
+        
+        def insererFils(self, *fils):
+                """
+                Cette fonction permet d'ins&#233;rer des fils &#224; cet agenda.
+                Les ajouts se feront &#224; la fin de la liste.
+                @param self : l'argument implicite
+                @param fils : un nombre variable d'arguments, de pr&#233;f&#233;rence des agendas
+                @type fils : des Agendas
+                @precondition : *fils doit &#234;tre constitu&#233; d'Agendas
+                @postcondition : seul les agendas sont ins&#233;r&#233;s dans la liste
+                @rtype : int
+                @return : le nombre d'&#233;l&#233;ment dans la liste des fils.
+                """
+                for fiston in fils:
+                        if type(fiston) is Agenda:
+                                self._listeFils.append(fiston)
+                                fiston.pere = self
+                        #if
+                #for
+                return len(self._listeFils)
+        #insererFils
+        
+        
+        def retirerFils(self, *nomFils):
+                """
+                La fonction qui permet de retirer des agendas fils.
+                Elle devra surement &#234;tre mis &#224; jour pour &#233;viter les r&#233;f&#233;rences circulaires
+                ou propager les destructions.
+                @param self : l'argument implicite.
+                @param nomFils : Les noms des agendas directs de l'agenda courant.
+                @type nomFils : list(str)
+                @postcondition : les agendas ayant les noms apparaissant dans la liste sont retir&#233;s
+                """
+                for nom in nomFils:
+                        if type(nom) is str:
+                                self._listeFils = [fils for fils in self._listeFils if fils.nom != nom]
+                        #if
+                #for
+        #retirerFils
+        
+        
+        def _trouveAnnee(self, annee):
+                """
+                Trouve et renvoi l'L{Annee} qui a M{annee} comme attribut an.
+                @param self : L'argument implicite.
+                @type annee : int
+                @param annee : Le num&#233;ro de l'ann&#233;e voulue (2005 par exemple)
+                @rtype : L{Annee}
+                @return : None si pas trouv&#233;e, une r&#233;f&#233;rence sur L{Annee} sinon.
+                """
+                for anneeConnue in self._listeAnnees:
+                        if anneeConnue.an == annee:
+                                return anneeConnue
+                        #if
+                #for
+                return None
+        #_trouveAnnee
+        
+        
+        def _autoVivification(self, cible, annee):
+                """
+                G&#232;re l'autovivification  de ce dictionnaire si cible est None.
+                Ie cr&#233;e une nouvelle L{Annee} avec M{annee} comme num&#233;ro.
+                Ne fait rien si cible n'est pas None.
+                @param self : L'argument implicite.
+                @type cible : L{Annee}
+                @param cible : None (r&#233;sultat de la recherche de _trouveAnnee) ou une Annee
+                @type annee : int
+                @param annee : l'annee que l'on veut potentiellement vivifier.
+                @rtype : Annee
+                @return : une Annee, quoiqu'il arrive.
+                """
+                if cible is None:
+                        temp = Annee.Annee(annee)
+                        self._listeAnnees.append(temp)
+                        return temp
+                #if
+                return cible
+        #_autoVivification
+        
+        
+        def ajouterCreneau(self, annee, mois, jour, debut, fin, typeCreneau=CP.CRENEAU):
+                """
+                Etape 1 de la descente dans l'architecture.
+                Ceci va "ajouter" un L{Creneau} dans le M{mois} de l'annee M{annee},
+                M{jour}, entre M{debut} et M{fin}.
+                Noter que si annee n'existe pas, elle sera automatiquement cr&#233;&#233;e.
+                @param self : L'argument implicite
+                @type annee : int
+                @param annee : l'annee dans laquelle ins&#233;rer ce cr&#233;neau.
+                @type mois : int
+                @param mois : le num&#233;ro du mois dans lequel ins&#233;rer ce cr&#233;neau.
+                @type jour : int
+                @param jour : le num&#233;ro du jour dans lequel ins&#233;rer ce cr&#233;neau.
+                @type debut : int [1, 48]
+                @param debut : l'heure de d&#233;but du cr&#233;neau
+                @type fin : int [1, 48]
+                @param fin : l'heure de fin du cr&#233;neau
+                @type typeCreneau : enum
+                @param typeCreneau : une valeur enum&#233;r&#233;e pour la fabrique de creneau
+                @precondition : debut < fin, mois/jour/debut/fin doivent etre compris dans leurs intervalles respectifs
+                @raise ArgumentInvalide : si les arguments sont erron&#233;s.
+                @rtype : L{Creneau}
+                @return : Un cr&#233;neau nouvellement cr&#233;&#233;.
+                """
+                cible = self._autoVivification(self._trouveAnnee(annee), annee)
+                return cible.ajouterCreneau(mois, jour, debut, fin, typeCreneau)
+        #ajouterCreneau
+        
+        
+        def supprimerCreneau(self, annee, mois, jour, idCreneau):
+                """
+                Lance la suppression d'un L{Creneau} si il existe.
+                @param self : L'argument implicite
+                @type annee : int
+                @param annee : l'ann&#233;e dont on veut supprimer un creneau.
+                @type mois : int
+                @param mois : le mois dont on veut supprimer le cr&#233;neau.
+                @type jour : int
+                @param jour : le num&#233;ro du jour o&#249; le cr&#233;neau se situe.
+                @type idCreneau : ...
+                @param idCreneau : l'identifiant unique du cr&#233;neau que l'on veut supprimer.
+                @raise CreneauInexistant : En cas d'erreur sur les arguments.
+                """
+                anneeCible = self._trouveAnnee(annee)
+                if anneeCible is None:
+                        raise ValueError("L'ann&#233;e " + str(annee) + " n'existe pas !")
+                #if
+                
+                # Cette ligne peut balancer une exception.
+                anneeCible.supprimerCreneau(mois, jour, idCreneau)
+        #supprimerCreneau
+        
+        
+        def recupererSemaineParNumJour(self, annee, mois, jour):
+                """
+                Permet de r&#233;cup&#233;rer une Semaine sous la forme d'un
+                dictionnaire de jour (mapping : "lundi" -> list(Jour)).
+                @param self : L'argument implicite.
+                @type annee : int
+                @param annee : l'Ann&#233;e dont on veut r&#233;cup&#233;rer les donn&#233;es.
+                @type mois : int
+                @param mois : Le mois maintenant, de l'annee en question.
+                @type jour : int
+                @param jour : un des num&#233;ros de jours de ce mois
+                @raise ValueError : si un des arguments ne matche pas 
+                @rtype : L{Semaine}
+                @return : La semaine d&#233;sir&#233;e
+                """
+                cible = self._autoVivification(self._trouveAnnee(annee), annee)
+                semaine = cible.recupererSemaineParNumJour(mois, jour)
+                return semaine
+        #recupererSemaineParNumJour
+        
+        
+        def recupererJour(self, annee, mois, jour):
+                """
+                Permet de r&#233;cup&#233;rer un jour sp&#233;cifique selon le format suivant :
+                jour_voulu = M{jour/mois/annee}
+                L'autovivification est &#233;galement assur&#233;e, permettant de toujours
+                r&#233;cup&#233;rer une liste si les arguments sont coh&#233;rents.
+                @param self : L'argument implicite.
+                @type annee : int
+                @param annee : l'Ann&#233;e dont on veut r&#233;cup&#233;rer les donn&#233;es.
+                @type mois : int
+                @param mois : Le mois maintenant, de l'annee en question.
+                @type jour : int
+                @param jour : un des num&#233;ros de jours de ce mois
+                @rtype : list
+                @return : la liste des L{Creneau} de ce jour l&#224;, toujours, meme si elle est vide.
+                @raise ValueError : si un des arguments est mauvais.
+                """
+                semaine = self.recupererSemaineParNumJour(annee, mois, jour)
+                resultat = semaine.trouveJour(jour)
+                return resultat.creneaux
+        #recupererJour
+        
+#fin Agenda
+<script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Feb 16 09:27:15 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

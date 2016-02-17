@@ -93,9 +93,9 @@ class Test_Mois(unittest.TestCase):
 	
 	def test_supprimerCreneau_ok(self):
 		"""Teste de la suppression si tout va bien"""
-		self.cible.ajouterCreneau(8, 12, 14)
-		self.cible.ajouterCreneau(7, 12, 14)
-		self.cible.supprimerCreneau(7, 1)
+		c1 = self.cible.ajouterCreneau(8, 12, 14)
+		c2 = self.cible.ajouterCreneau(7, 12, 14)
+		self.cible.supprimerCreneau(7, c2)
 		self.assertFalse(self.cible.semaines[0].jours[DIMANCHE].creneaux)
 	#test_supprimerCreneau_ok
 	
@@ -104,8 +104,8 @@ class Test_Mois(unittest.TestCase):
 		"""Teste de la suppression en cas de mauvais arguments"""
 		self.cible.ajouterCreneau(8, 12, 14)
 		self.cible.ajouterCreneau(7, 12, 14)
-		with self.assertRaises(Exception):
-			self.cible.supprimerCreneau(7, 0)
+		with self.assertRaises(ValueError):
+			self.cible.supprimerCreneau(7, None)
 		#with
 	#test_supprimerCreneau_echec_interne
 	
@@ -114,7 +114,7 @@ class Test_Mois(unittest.TestCase):
 		"""Teste de la suppression en cas de mauvais numéro de jour"""
 		self.cible.ajouterCreneau(8, 12, 14)
 		self.cible.ajouterCreneau(7, 12, 14)
-		with self.assertRaises(Exception):
+		with self.assertRaises(ValueError):
 			self.cible.supprimerCreneau(-1, 1)
 		#with
 	#test_supprimerCreneau_echec_numjour

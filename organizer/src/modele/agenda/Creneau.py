@@ -13,6 +13,7 @@ class Creneau(object):
 	@ivar _horaire: Une référence sur un Horaire.
 	@ivar _informations: un dictionnaire contenant des informations additionnelles sous la forme str -> valeur
 	@ivar _typeCreneau: Le type de créneau
+	@ivar _dateExacte: La date au format chaine.
 	@author: Laurent Bardoux p1108365
 	@version: 1.0
 	"""
@@ -33,28 +34,29 @@ class Creneau(object):
 		self._horaire = horaire
 		self._informations = dict()
 		self._typeCreneau = 0
-	#fin __init__
+		self._dateExacte = ""
+	#__init__
 	
 	
 	@property
 	def identifiant(self):
 		"""Un accesseur pour l'identifiant unique."""
 		return self._identifiant
-	#fin identifiant
+	#identifiant
 	
 	
 	@identifiant.setter
 	def identifiant(self, valeur):
 		"""Un mutateur pour l'identifiant unique."""
 		self._identifiant = valeur
-	#fin identifiant
+	#identifiant
 	
 	
 	@property
 	def horaire(self):
 		"""Un accesseur pour l'L{Horaire} contenu dans le Creneau."""
 		return self._horaire
-	#fin horaire
+	#horaire
 	
 	
 	@property
@@ -78,14 +80,14 @@ class Creneau(object):
 		@precondition: type(nouvelHoraire) is Horaire
 		"""
 		self._horaire = nouvelHoraire
-	#fin horaire
+	#horaire
 	
 	
 	@property
 	def informations(self):
 		"""Un accesseur pour les informations contenues dans ce Creneau."""
 		return self._informations
-	#fin informations
+	#informations
 	
 	
 	def existe(self, clef):
@@ -99,7 +101,7 @@ class Creneau(object):
 		if type(clef) is str:
 			return clef in self._informations.keys()
 		#if
-	#fin existe
+	#existe
 	
 	
 	def ajouterInformation(self, clef, info):
@@ -131,6 +133,20 @@ class Creneau(object):
 			del self._informations[clef]
 		#if
 	#enleverInformation
+	
+	
+	@property
+	def dateExacte(self):
+		"""Renvoie la date exacte au format chaine"""
+		return self._dateExacte
+	#dateExacte
+	
+	
+	@dateExacte.setter
+	def dateExacte(self, valeur):
+		"""Permet de modifier la date exacte de ce Creneau"""
+		self._dateExacte = valeur
+	#dateExacte
 	
 	
 	def __le__(self, autre):

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.modele.agenda.diff</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.modele-module.html">Package&nbsp;modele</a> ::
+        <a href="src.modele.agenda-module.html">Package&nbsp;agenda</a> ::
+        Package&nbsp;diff
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.modele.agenda.diff-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package diff</h1><p class="nomargin-top"><span class="codelink"><a href="src.modele.agenda.diff-pysrc.html">source&nbsp;code</a></span></p>
+<p>Le package qui offre un moyen de comparer 2 Agendas.</p>
+  <h1 class="heading">Introduction</h1>
+    <p>La classe <a href="src.modele.agenda.diff.Diff-module.html" 
+    class="link">Diff</a> propos&#233;e par le package permet de comparer 2 <a 
+    href="src.modele.agenda.Agenda-module.html" class="link">Agenda</a>s et
+    d'en fournir un retour textuel. Par exemple : :</p>
+<pre class="literalblock">
+       Pour le lundi 10 aout 2015:
+       -----------------------------
+       agenda 1 ne contient rien !
+       Alors que
+       agenda 2 contient :
+               Un CM nomm&#233; &quot;&quot; est pr&#233;vu de 13h15 &#224; 14h45
+       -----------------------------
+
+       Pour le jeudi 10 decembre 2015:
+       -----------------------------
+       agenda 1 contient :
+               Un CM nomm&#233; &quot;&quot; est pr&#233;vu de 13h15 &#224; 14h45
+       Alors que
+       agenda 2 ne contient rien !
+       -----------------------------
+</pre>
+  <h1 class="heading">Usage</h1>
+    <p>Pour pouvoir utiliser cette diff&#233;rence, il y a deux temps 
+    essentiels.</p>
+    <ol start="1">
+      <li>
+        <b>Lancer la comparaison.</b>
+        <p>Pour lancer la comparaison, il suffit d'executer les 
+        instructions suivantes :</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>monDiff = Diff(agenda1, agenda2) <span class="py-comment"># o&#249; agenda[12] sont des Agenda</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>monDiff.comparer()</pre>
+        <p>A partir de l&#224;, les agendas sont compar&#233;s.</p>
+      </li>
+      <li>
+        <b>Obtenir le compte rendu.</b>
+        <p>Il faut savoir 2 choses sur le &quot;compte-rendu&quot; :</p>
+        <ul>
+          <li>
+            les diff&#233;rences sont rang&#233;es dans <b>monDiff.differences</b>, 
+            dans un dictionnaire, sous la forme <b>&quot;clef&quot; -&gt; 
+            list(difference)</b>
+          </li>
+          <li>
+            les clefs de ce dictionnaires sont rang&#233;es dans l'ordre 
+            chronologique dans <b>monDiff.moments</b>.
+          </li>
+        </ul>
+        <p>Il suffit alors, par exemple, de proc&#233;der comme ceci :</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> clef <span class="py-keyword">in</span> monDiff.moments:
+<span class="py-more">... </span>    <span class="py-keyword">print</span>(clef)
+<span class="py-more">... </span>    <span class="py-keyword">for</span> difference <span class="py-keyword">in</span> monDiff.differences[clef]:
+<span class="py-more">... </span>            <span class="py-keyword">print</span>(difference)</pre>
+        <p>Et voil&#224; le travail.</p>
+      </li>
+    </ol>
+  <h1 class="heading">Notes</h1>
+    <p>Il reste beaucoup de cas &#224; tester pour valider enti&#232;rement cette 
+    fonctionnalit&#233;s. On pourrait aussi traiter les cas de multiples 
+    cr&#233;neaux.</p>
+
+<!-- ==================== SUBMODULES ==================== -->
+<a name="section-Submodules"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Submodules</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Submodules"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr><td class="summary">
+  <ul class="nomargin">
+    <li> <strong class="uidlink"><a href="src.modele.agenda.diff.Diff-module.html">src.modele.agenda.diff.Diff</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="src.modele.agenda.diff.utilitaireDiff-module.html">src.modele.agenda.diff.utilitaireDiff</a></strong>    </li>
+  </ul></td></tr>
+</table>
+
+<br />
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'src.modele.agenda.diff'"><code class="variable-quote">'</code><code class="variable-string">src.modele.agenda.diff</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Feb 16 09:27:14 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

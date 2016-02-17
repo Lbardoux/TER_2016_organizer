@@ -21,3 +21,6 @@ Modules
 @author: Zhuying Liu pxxxxxxx
 @version: 1.0
 """
+
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/")

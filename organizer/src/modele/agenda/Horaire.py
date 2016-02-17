@@ -77,11 +77,9 @@ class Horaire(object):
 	
 	@property
 	def debut(self):
-		"""
-		L'accesseur pour avoir le quart d'heure de début
-		"""
+		"""L'accesseur pour avoir le quart d'heure de début"""
 		return self._debut
-	#fin debut
+	#debut
 	
 	
 	@debut.setter
@@ -94,7 +92,7 @@ class Horaire(object):
 			self._assertArguments(valeur, self._fin)
 			self._debut = valeur
 		#if
-	#fin debut
+	#debut
 	
 	
 	@property
@@ -117,7 +115,7 @@ class Horaire(object):
 	def fin(self):
 		"""L'accesseur pour avoir le quart d'heure de fin"""
 		return self._fin
-	#fin fin
+	#fin
 	
 	
 	@fin.setter
@@ -130,7 +128,7 @@ class Horaire(object):
 			self._assertArguments(self._debut, valeur)
 			self._fin = valeur
 		#if
-	#fin fin
+	#fin
 	
 	
 	def _assertArguments(self, debut, fin):
@@ -145,7 +143,7 @@ class Horaire(object):
 		assert type(debut) is int, "debut doit etre un entier"
 		assert type(fin) is int, "fin doit etre un entier"
 		assert fin > debut, "fin doit etre supérieur a debut"
-	#fin _assertArguments
+	#_assertArguments
 	
 	
 	def changeHoraire(self, nouveauDebut, nouvelFin):
@@ -179,4 +177,4 @@ class Horaire(object):
 		return ((self._debut == autre._debut) and (self._fin == autre._fin))
 	#__eq__
 	
-#fin Horaire
+#Horaire

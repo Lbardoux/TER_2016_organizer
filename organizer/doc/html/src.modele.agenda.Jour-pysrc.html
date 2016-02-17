@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.modele.agenda.Jour</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.modele-module.html">Package&nbsp;modele</a> ::
+        <a href="src.modele.agenda-module.html">Package&nbsp;agenda</a> ::
+        Module&nbsp;Jour
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.modele.agenda.Jour-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="src.modele.agenda.Jour-module.html">Module src.modele.agenda.Jour</a></h1>
+<pre class="py-src">
+&#65279;#!/usr/bin/python3
+# -*-coding:utf-8 -*
+
+import Horaire, FabriqueCreneau
+from FabriqueCreneau import CreneauxPossible as CP
+
+###############################################################################
+# Liste des valeurs l&#233;gales pour un nom de jour.
+# On peut les utiliser dans nos code pour simplifier les traitements
+LUNDI = "lundi"
+MARDI = "mardi"
+MERCREDI = "mercredi"
+JEUDI = "jeudi"
+VENDREDI = "vendredi"
+SAMEDI = "samedi"
+DIMANCHE = "dimanche"
+
+JOURS_LEGAUX = [LUNDI, MARDI, MERCREDI, JEUDI, VENDREDI, SAMEDI, DIMANCHE]
+###############################################################################
+
+
+class Jour(object):
+        """
+        La classe qui repr&#233;sente un jour dans un agenda.
+        Cette classe va donc contenir des L{Creneau}, afin que l'on puisse trouver
+        chaque cr&#233;neau en fonction d'un jour en particulier.
+        @ivar _numero: Le num&#233;ro du jour dans le mois.
+        @ivar _nom: le nom du jour parmi ceux connus.
+        @ivar _creneaux: la liste de L{Creneau} que contient cette journ&#233;e.
+        @cvar _usine: La fabrique communes aux Jour
+        Bien entendu, ces num&#233;ros ne sont pas fix&#233;s &#224; l'avance, ils vont varier lors
+        de la cr&#233;ation de chaque journ&#233;e, selon le calendrier europ&#233;en.
+        @author: Laurent Bardoux p1108365
+        @version: 1.0
+        """
+
+        _usine = FabriqueCreneau.FabriqueCreneau()
+        
+        def __init__(self, numero, nom=LUNDI):
+                """
+                Permet de cr&#233;er un jour en pr&#233;cisant les donn&#233;es temporelles.
+                @param self: L'argument implicite.
+                @type numero: int [1, 31].
+                @param numero: le num&#233;ro du jour dans le mois.
+                @type nom: str.
+                @param nom: le nom du jour (de Lundi &#224; Dimanche), optionnel (lundi par d&#233;faut).
+                """
+                self._numero = numero
+                self._creneaux = list()
+                
+                if nom in JOURS_LEGAUX:
+                        self._nom = nom
+                else:
+                        self._nom = LUNDI
+                #if
+        #__init__
+        
+        
+        @property
+        def numero(self):
+                """L'accesseur pour le num&#233;ro du jour."""
+                return self._numero
+        #numero
+        
+        
+        @numero.setter
+        def numero(self, nouveauNumero):
+                """
+                Le mutateur pour changer le num&#233;ro.
+                Attention, aucune v&#233;rification n'est fa&#238;tes &#224; ce niveau l&#224; !
+                @precondition: M{0 < nouveauNumero <= 31}
+                """
+                if nouveauNumero>0 and nouveauNumero<=31:
+                        self._numero = nouveauNumero
+                #if
+        #numero
+        
+        
+        @property
+        def nom(self):
+                """
+                L'accesseur pour le nom du jour dans la semaine.
+                """
+                return self._nom
+        #nom
+        
+        
+        @property
+        def creneaux(self):
+                """
+                L'accesseur pour la liste tri&#233;e des L{Creneau}.
+                """
+                return self._creneaux
+        #creneaux
+        
+        
+        def insererCreneau(self, creneau):
+                """
+                Cette fonction permet d'ajouter proprement un L{Creneau} dans la liste.
+                Les insertions se font &#224; l'aide tu tri par insertion afin que l'on puisse lire s&#233;quentiellement
+                les L{Creneau} dans le but d'une conversion au format texte par exemple.
+                Attention !
+                Les cr&#233;neaux doivent supporter l'op&#233;ration < (def __lt__(self, autre))
+                @param self: L'argument implicite.
+                @type creneau: L{Creneau}.
+                @param creneau: le cr&#233;neau que l'on souhaite ajouter.
+                A noter qu'il est tout &#224; fait possible d'ajouter des cr&#233;neaux aux m&#234;me horaires (par exemple,
+                dans le cas de plusieurs groupes pour un m&#234;me cours).
+                @postcondition: la liste interne est tri&#233;e apr&#232;s l'insertion.
+                """
+                for i, element in enumerate(self._creneaux):
+                        if creneau <= element:
+                                self._creneaux.insert(i, creneau)
+                                return
+                        #if
+                #for
+                
+                # Cas ou creneau est le plus grand de tous, donc on le met &#224; la fin
+                self._creneaux.append(creneau)
+        #ajouterCreneau
+        
+        
+        def ajouterCreneau(self, debut, fin, typeCreneau=CP.CRENEAU):
+                """
+                Etape finale de la descente dans l'architecture.
+                Ceci va "ajouter" un L{Creneau} entre
+                M{debut} et M{fin}.
+                @param self: L'argument implicite
+                @type debut: int [1, 48]
+                @param debut: l'heure de d&#233;but du cr&#233;neau
+                @type fin: int [1, 48]
+                @param fin: l'heure de fin du cr&#233;neau
+                @type typeCreneau: enum
+                @param typeCreneau: une valeur enum&#233;r&#233;e pour la fabrique de creneau
+                @precondition: debut < fin, debut/fin doivent etre compris dans leurs intervalles respectifs
+                @raise ValueError: Si un des arguments est mauvais.
+                @rtype: L{Creneau}
+                @return: un Creneau fraichement cr&#233;&#233;.
+                """
+                horaire = None
+                try:
+                        horaire = Horaire.Horaire(debut, fin)
+                except AssertionError:
+                        raise ValueError("les horaires du creneaux sont invalides !")
+                #try
+
+                # L'identifiant sera attribu&#233; par les autorit&#233;s habilit&#233;s (Annee)
+                nouveauCreneau = self._usine.fabrique(typeCreneau, 1, horaire)
+                if nouveauCreneau is None:
+                        raise ValueError("Le cr&#233;neau demand&#233; " + str(typeCreneau) + " n'existe pas !")
+                #if
+                self.insererCreneau(nouveauCreneau)
+                return nouveauCreneau
+        #ajouterCreneau
+        
+        
+        def supprimerCreneau(self, idCreneau):
+                """
+                Lance la suppression d'un L{Creneau} si il existe.
+                @param self: L'argument implicite
+                @type idCreneau: Ce que l'on veut
+                @param idCreneau: l'identifiant unique du cr&#233;neau que l'on veut supprimer.
+                @raise ValueError: En cas d'erreur sur les arguments.
+                """
+                #stocker ailleurs ce creneau ? (ctrl-z, ctr-y)
+                cible = None
+                for creneau in self._creneaux:
+                        if creneau.identifiant == idCreneau:
+                                cible = creneau
+                                break
+                        #if
+                #for
+                if cible is None:
+                        raise ValueError(" Pas de cr&#233;neau portant cet identifiant " + str(idCreneau))
+                #if
+                self._creneaux.remove(cible)
+        #supprimerCreneau
+        
+        
+        def avoirPremierCreneauDepuis(self, depart):
+                """
+                Cette fonction permet de r&#233;cup&#233;rer le premier "creneau" au format
+                num&#233;rique pour avoir un point de d&#233;part.
+                L'id&#233;e est de chercher le premier creneau occup&#233; (en ignorant les
+                blancs dans la liste) &#224; partir de d&#233;part.
+                @param self: L'argument implicite
+                @type depart: int
+                @param depart: le point de d&#233;part de la recherche
+                @rtype: L{Creneau}
+                @return: Le premier Creneau avec debut >= depart
+                """
+        
+        
+#Jour
+<script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Feb 16 09:27:15 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

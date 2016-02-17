@@ -5,6 +5,8 @@ import sys
 sys.path.insert(0, "../src")
 
 from src.modele.agenda.Semaine import *
+from src.modele.agenda.Creneau import *
+from src.modele.agenda.Horaire import *
 import src.modele.agenda.Jour
 
 class Test_Semaine(unittest.TestCase):
@@ -134,7 +136,7 @@ class Test_Semaine(unittest.TestCase):
 	def test_ajouteCreneau_echec(self):
 		"""Teste si l'ajout échoue bien quand un argument foire"""
 		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
-		with self.assertRaises(Exception):
+		with self.assertRaises(ValueError):
 			cible.ajouterCreneau(2, -1, -1)
 		#with
 	#test_ajouteCreneau_echec
@@ -143,10 +145,10 @@ class Test_Semaine(unittest.TestCase):
 	def test_supprimerCreneau_ok(self):
 		"""Teste si la suppression marche quand tout va bien"""
 		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
-		cible.ajouterCreneau(4, 2, 8)
-		cible.ajouterCreneau(4, 2, 12)
-		cible.ajouterCreneau(4, 24, 30)
-		cible.supprimerCreneau(4, 1)
+		c1 = cible.ajouterCreneau(4, 2, 8)
+		c2 = cible.ajouterCreneau(4, 2, 12)
+		c3 = cible.ajouterCreneau(4, 24, 30)
+		cible.supprimerCreneau(4, c1)
 		self.assertEqual(len(cible._jours[Jour.VENDREDI]._creneaux), 2)
 	#test_supprimerCreneau_ok
 	
@@ -154,11 +156,12 @@ class Test_Semaine(unittest.TestCase):
 	def test_supprimerCreneau_echec(self):
 		"""Teste si la suppression echoue quand rien ne va"""
 		cible = Semaine(2, construireArgument(Jour.MERCREDI, 2, Jour.SAMEDI, 5))
-		cible.ajouterCreneau(4, 2, 8)
-		cible.ajouterCreneau(4, 2, 12)
-		cible.ajouterCreneau(4, 24, 30)
-		with self.assertRaises(Exception):
-			cible.supprimerCreneau(4, 42)
+		c1 = cible.ajouterCreneau(4, 2, 8)
+		c2 = cible.ajouterCreneau(4, 2, 12)
+		c3 = cible.ajouterCreneau(4, 24, 30)
+		c4 = Creneau(25, Horaire(14, 18))
+		with self.assertRaises(ValueError):
+			cible.supprimerCreneau(4, c4)
 		#with
 	#test_supprimerCreneau_echec
 	

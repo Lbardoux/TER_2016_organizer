@@ -78,18 +78,14 @@ class Jour(object):
 	
 	@property
 	def nom(self):
-		"""
-		L'accesseur pour le nom du jour dans la semaine.
-		"""
+		"""L'accesseur pour le nom du jour dans la semaine."""
 		return self._nom
 	#nom
 	
 	
 	@property
 	def creneaux(self):
-		"""
-		L'accesseur pour la liste triée des L{Creneau}.
-		"""
+		"""L'accesseur pour la liste triée des L{Creneau}."""
 		return self._creneaux
 	#creneaux
 	
@@ -154,41 +150,27 @@ class Jour(object):
 	#ajouterCreneau
 	
 	
-	def supprimerCreneau(self, idCreneau):
+	def supprimerCreneau(self, creneau):
 		"""
 		Lance la suppression d'un L{Creneau} si il existe.
 		@param self: L'argument implicite
-		@type idCreneau: Ce que l'on veut
-		@param idCreneau: l'identifiant unique du créneau que l'on veut supprimer.
+		@type creneau: Creneau
+		@param creneau: le créneau que l'on veut supprimer.
 		@raise ValueError: En cas d'erreur sur les arguments.
 		"""
 		#stocker ailleurs ce creneau ? (ctrl-z, ctr-y)
 		cible = None
-		for creneau in self._creneaux:
-			if creneau.identifiant == idCreneau:
-				cible = creneau
+		for i, c in enumerate(self._creneaux):
+			if c is creneau:
+				cible = c
+				del self._creneaux[i]
 				break
 			#if
 		#for
 		if cible is None:
-			raise ValueError(" Pas de créneau portant cet identifiant " + str(idCreneau))
+			raise ValueError("Ce créneau n'existe pas dans ce jour")
 		#if
-		self._creneaux.remove(cible)
+		#self._creneaux.remove(cible)
 	#supprimerCreneau
-	
-	
-	def avoirPremierCreneauDepuis(self, depart):
-		"""
-		Cette fonction permet de récupérer le premier "creneau" au format
-		numérique pour avoir un point de départ.
-		L'idée est de chercher le premier creneau occupé (en ignorant les
-		blancs dans la liste) à partir de départ.
-		@param self: L'argument implicite
-		@type depart: int
-		@param depart: le point de départ de la recherche
-		@rtype: L{Creneau}
-		@return: Le premier Creneau avec debut >= depart
-		"""
-	
 	
 #Jour

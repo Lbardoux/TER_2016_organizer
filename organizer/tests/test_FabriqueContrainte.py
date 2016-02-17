@@ -19,17 +19,6 @@ class Test_FabriqueContrainte(unittest.TestCase):
 	#fin setUp
 	
 	
-	def test_blocage(self):
-		"""
-		Test l'instanciation d'un Blocage
-		"""
-		blocage = self.cible.fabrique(Contraintes.BLOCAGE, 1, 2, 3)
-		self.assertTrue(blocage is not None)
-		fonction = blocage.injectionContrainte()
-		self.assertTrue(fonction(5))
-		self.assertFalse(fonction(2))
-	#fin test_init
-
 	def test_precedence(self):
 		"""
 		Test l'instanciation d'une Precedence
