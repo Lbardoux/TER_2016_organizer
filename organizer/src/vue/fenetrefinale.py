@@ -10,6 +10,7 @@ import Jour
 import Ue, Seance, Cm, Td, Tp, Examen, Autre 
 import datetime
 import Horaire
+import Base
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from final import *
@@ -19,14 +20,18 @@ from arbreUe import *
 from seanceVue import *
 
 
+base = Base.Base()
+
 app = QApplication(sys.argv)
 w = QMainWindow(None)
 ui = Ui_MainWindow()
 ui.setupUi(w)
+for i in range(base.formations.taille):
+	ui.formations.addItem("")
+	ui.formations.setItemText(i,base.formations.liste[i].chaine)
+
 a = arbreUe(ui.listeUe,"arbre")
 liste = []
-
-
 a.premiereConfiguration(liste)
 a.secondeConfiguration(liste)
 """
