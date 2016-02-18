@@ -7,9 +7,10 @@ class Salle(object):
 	@ivar _nom: le nom de la salle
 	@ivar _taille: le nombre de personnes que cette salle peut contenir 
 	@ivar _typeSalle: le type de cette salle(salle TP, salle TD, labo) pour les futures fonctionnalités 
-	@version : 1.0
-	@author : Liu Zhuying
+	@version: 1.0
+	@author: Liu Zhuying
 	"""
+	
 	def __init__(self, id_salle, nomSalle, taille, typeSalle = 0):
 		"""
 		Le constructeur de la classe salle.
@@ -27,7 +28,7 @@ class Salle(object):
 			self._idSalle = id_salle
 		else:
 			self.idSalle = 1
-		#fin if
+		#if
 		
 		self._nom = nomSalle
 		
@@ -35,87 +36,67 @@ class Salle(object):
 			self._taille = taille
 		else:
 			self._taille = 1
-		#fin if
+		#if
 		
 		self._typeSalle = typeSalle	
-	#fin __init__
+	#__init__
+	
 	
 	@property
 	def idSalle(self):
-		"""
-		L'accesseur pour l'id de cette salle
-		"""
+		"""L'accesseur pour l'id de cette salle"""
 		return self._idSalle
-	#fin idSalle
+	#idSalle
+	
 	
 	@idSalle.setter
 	def idSalle(self, nouvelId):
-		"""
-		Le mutateur pour l'identifiant de la salle
-		@param self : L'argument implicite
-		@param nouvelId : le nouvel identifiant voulu
-		@type nouvelId : entier naturel non nul
-		"""
+		"""Le mutateur pour l'identifiant de la salle"""
 		if nouvelId > 0:
 			self._idSalle = nouvelId
-	#fin idSalle
+		#if
+	#idSalle
+	
 	
 	@property
 	def nom(self):
-		"""
-		L'accesseur pour le nom de cette salle
-		"""
+		"""L'accesseur pour le nom de cette salle"""
 		return self._nom
-	#fin nom
+	#nom
+	
 	
 	@nom.setter
 	def nom(self, nouveauNom):
-		"""
-		Le mutateur pour le nom de la salle
-		@param self: L'argument implicite
-		@param nouveauNom: le nouveau nom voulu
-		@type nouveauNom: str
-		"""
+		"""Le mutateur pour le nom de la salle"""
 		self._nom = nouveauNom
-	#fin nom
+	#nom
 	
 	@property
 	def taille(self):
-		"""
-		L'accesseur pour la taille de cette salle
-		"""
+		"""L'accesseur pour la taille de cette salle"""
 		return self._taille
-	#fin taille
+	#taille
 	
 	@taille.setter
 	def taille(self, nouvelleTaille):
-		"""
-		Le mutateur pour la taille de la salle
-		@param self: L'argument implicite
-		@param nouvelleTaille: la nouvelle taille voulue
-		@type nouvelleTaille: entier naturel non nul
-		"""
+		"""Le mutateur pour la taille de la salle"""
 		if nouvelleTaille > 0:
 			self._taille = nouvelleTaille
-	#fin taille
+		#if
+	#taille
+	
 	
 	@property
 	def typeSalle(self):
-		"""
-		L'accesseur pour le type de cette salle
-		"""
+		"""L'accesseur pour le type de cette salle"""
 		return self._typeSalle
-	#fin typeSalle
+	#typeSalle
+	
 	
 	@typeSalle.setter
 	def typeSalle(self, nouveauType):
-		"""
-		Le mutateur pour le type de la salle
-		@param self: L'argument implicite
-		@param nouveauType: le nouveau type voulu
-		@type nouveauType: entier naturel
-		"""
+		"""Le mutateur pour le type de la salle"""
 		self._typeSalle = nouveauType
-	#fin typeSalle
+	#typeSalle
 	
-#fin Salle
+#Salle

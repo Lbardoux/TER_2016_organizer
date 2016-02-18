@@ -5,192 +5,133 @@ import Ue
 class Formation(object):
 	"""
 	La classe Cm qui hérite la classe seance
-	@ivar _idFormation : l'identifiant de la formation
-	@ivar _niveau : le niveau de la formation 1->L1 2->L2 3->L3 4->M1 5->M2 6->D1 7->D2 8->D3 0->Autres
-	@ivar _nom : le nom de la formation
-	@ivar _idEnseignant : l'identifiant du responsable de la formation
-	@ivar _listeUe
-	@version : 1.0
-	@author : Liu Zhuying
+	@ivar _idFormation: l'identifiant de la formation
+	@ivar _niveau: le niveau de la formation 1->L1 2->L2 3->L3 4->M1 5->M2 6->D1 7->D2 8->D3 0->Autres
+	@ivar _nom: le nom de la formation
+	@ivar _idEnseignant: l'identifiant du responsable de la formation
+	@ivar _listeUe: la liste des L{Ue}s de cette formation.
+	@version: 1.0
+	@author: Liu Zhuying
 	"""
+	
 	def __init__(self, idFormation, niveau, nom, id_enseignant):
 		"""
 		Le constructeur de la classe Formation.
-		@param self : L'argument implicite
-		@param idFormation : l'identifiant que cette formation aura
-		@type idFormation : entier naturel non nul
-		@param niveau : le niveau que cette formation aura
-		@type niveau : entier naturel
-		@param nom :  le nom que cette formation aura
-		@type nom : str
-		@param id_enseignant : l'identifiant du responsable de cette formation
-		@type id_enseignant : entier naturel non nul
+		@param self: L'argument implicite
+		@param idFormation: l'identifiant que cette formation aura
+		@type idFormation: entier naturel non nul
+		@param niveau: le niveau que cette formation aura
+		@type niveau: entier naturel
+		@param nom:  le nom que cette formation aura
+		@type nom: str
+		@param id_enseignant: l'identifiant du responsable de cette formation
+		@type id_enseignant: entier naturel non nul
 		"""
-		if idFormation > 0:
-			self._idFormation = idFormation
-		else:
-			self._idFormation = 1
-		#fin if
-		
-		if niveau > 0:
-			self._niveau = niveau
-		else:
-			self._niveau = 0
-		#fin if
-		
-		if bool(nom.strip()):
-			self._nom = nom
-		else:
-			self._nom = "Nom Par Defaut"
-		#fin if
-		
-		if id_enseignant > 0:
-			self._idEnseignant = id_enseignant
-		else:
-			self._idEnseignant = 1
-		#fin if
-		
-		self._listeUe = []	
-	#fin __init__
+		self._idFormation = idFormation if idFormation > 0 else 1
+		self._niveau = niveau if niveau > 0 else 0
+		self._nom = nom if bool(nom.strip()) else "Nom Par Defaut"
+		self._idEnseignant = id_enseignant if int(id_enseignant) > 0 else 1
+		self._listeUe = list()
+	#__init__
+	
 	
 	@property
 	def idFormation(self):
-		"""
-		L'accesseur pour l'identifiant de cette Formation
-		@param self : L'argument implicite
-		@return : son id
-		"""
+		"""L'accesseur pour l'identifiant de cette Formation"""
 		return self._idFormation
-	#fin idFormation
+	#idFormation
+	
 	
 	@idFormation.setter
 	def idFormation(self, nouvelId):
-		"""
-		Le mutateur pour l'identifiant de cette Formation
-		@param self : L'argument implicite
-		@param nouvelId : le nouvel identifiant voulu
-		@type nouvelId : entier naturel non nul
-		"""
+		"""Le mutateur pour l'identifiant de cette Formation"""
 		if nouvelId > 0:
 			self._idFormation = nouvelId
-	#fin idFormation
+		#if
+	#idFormation
+	
 	
 	@property
 	def idEnseignant(self):
-		"""
-		L'accesseur pour l'identifiant du responsable de cette formation
-		@param self : L'argument implicite
-		@return : l'identifiant du groupe
-		"""
+		"""L'accesseur pour l'identifiant du responsable de cette formation"""
 		return self._idEnseignant
-	#fin idEnseignant
+	#idEnseignant
+	
 	
 	@idEnseignant.setter
 	def idEnseignant(self, nouvelId):
-		"""
-		Le mutateur pour l'identifiant de l'enseignant
-		@param self : L'argument implicite
-		@param nouvelId : le nouvel identifiant voulu
-		@type nouvelId : entier naturel non nul
-		"""
+		"""Le mutateur pour l'identifiant de l'enseignant"""
 		if nouvelId > 0:
 			self._idEnseignant = nouvelId
-	#fin idEnseignant
+		#if
+	#idEnseignant
+	
 	
 	@property
 	def niveau(self):
-		"""
-		L'accesseur pour le niveau de cette formation
-		@param self : L'argument implicite
-		@return : le niveau
-		"""
+		"""L'accesseur pour le niveau de cette formation"""
 		return self._niveau
-	#fin niveau
+	#niveau
+	
 	
 	@niveau.setter
 	def niveau(self, nouveauNiveau):
-		"""
-		Le mutateur pour le niveau de cette formation
-		@param self : L'argument implicite
-		@param nouveauNiveau : le nouveau niveau voulu
-		@type nouveauNiveau : entier naturel
-		"""
+		"""Le mutateur pour le niveau de cette formation"""
 		if nouveauNiveau > 0:
 			self._niveau = nouveauNiveau
-	#fin niveau
+		#if
+	#niveau
+	
 	
 	@property
 	def nom(self):
-		"""
-		L'accesseur pour le nom de cette formation
-		@param self : L'argument implicite
-		@return : le nom
-		"""
+		"""L'accesseur pour le nom de cette formation"""
 		return self._nom
-	#fin nom
+	#nom
+	
 	
 	@nom.setter
 	def nom(self, nouveauNom):
-		"""
-		Le mutateur pour le nom de cette formation
-		@param self : L'argument implicite
-		@param nouveauNom : le nouveau nom voulu
-		@type nouveauNom : str
-		"""
+		"""Le mutateur pour le nom de cette formation"""
 		if bool(nouveauNom .strip()):
 			self._nom = nouveauNom
-	#fin nom
+		#if
+	#nom
+	
 	
 	@property
 	def listeUe(self):
-		"""
-		L'accesseur pour la liste des Ues de cette formation
-		@param self : L'argument implicite
-		@return : la liste des Ues
-		"""
+		"""L'accesseur pour la liste des Ues de cette formation"""
 		return self._listeUe
-	#fin listeUe
+	#listeUe
+	
 	
 	@property
 	def nombreUe(self):
-		"""
-		L'accesseur pour le nombre des Ue la liste des Ues 
-		@param self : L'argument implicite
-		@return : le nombre des Ue
-		"""
+		"""L'accesseur pour le nombre des Ue la liste des Ues"""
 		return len(self._listeUe)
-	#fin nombreUe
+	#nombreUe
+	
 	
 	def ajouterUe(self, nouvelleUe):
-		"""
-		 La fonction qui ajoute une Ue dans la liste des Ues
-		 @param self : L'argument implicite
-		 @param nouvelleUe : la nouvelle à ajouter
-		 @type nouvelleUe : Ue
-		"""
+		"""La fonction qui ajoute une Ue dans la liste des Ues"""
 		if nouvelleUe not in self._listeUe:
 			self._listeUe.append(nouvelleUe)
+		#if
 	#ajouterUe
 	
+	
 	def supprimerUe(self, uneUe):
-		"""
-		 La fonction qui supprime une Ue dans la liste des Ues
-		 @param self : L'argument implicite
-		 @param uneUe : l'Ue à supprimer
-		 @type uneUe : Ue
-		"""
+		"""La fonction qui supprime une Ue dans la liste des Ues"""
 		if uneUe in self._listeUe:
 			self._listeUe.remove(uneUe)
+		#if
 	#supprimerUe
+	
 	
 	@property
 	def chaine(self):
-		"""
-		La fonction qui convertit une formation en une chaine de caractère(comme master 1 informatique)
-		@param self : L'argument implicite
-		@return : une chaine de caractère qui décrit la formation
-		"""
-		
+		"""La fonction qui convertit une formation en une chaine de caractère(comme master 1 informatique)"""
 		if self._niveau in [1,2,3]:
 			diplome = "Licence"
 			annee = self._niveau
@@ -203,10 +144,8 @@ class Formation(object):
 		else:
 			diplome = ""
 			annee = ""
-		#fin if
-		 
+		#if
 		return diplome + " " + str(annee) + " " + self._nom
-	#fin chaine
-		
-#fin Formation
-
+	#chaine
+	
+#Formation
