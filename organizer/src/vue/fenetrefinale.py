@@ -53,6 +53,9 @@ w.show()
 d = QDialog(None)
 dialog = Ui_Dialog()
 dialog.setupUi(d)
+for i in range(base.enseignants.taille):
+	dialog.responsableUe.addItem("")
+	dialog.responsableUe.setItemText(i,base.enseignants.liste[i].nom +" "+ base.enseignants.liste[i].prenom)
 
 def showDialog():
 	d.show()
@@ -87,8 +90,9 @@ def dessinerArbre():
 #fin def
 
 def printInfo():
-	print dialog.responsableUe.currentText()
+	enseignant = base.enseignants.trouverEnseignant(dialog.responsableUe.currentText())
 	ue = Ue.Ue(str(dialog.codeUe.text()),str(dialog.nomUe.text()),1)
+	ue.idEnseignant = enseignant.idEnseignant
 	
 	for i in range(dialog.nbCM.value()):
 		horaire = Horaire.Horaire(1,dialog.dureeCM.value())
@@ -122,9 +126,6 @@ def printInfo():
 	
 	liste.append(ue)
 	dessinerArbre()
-	print dialog.nbCM.value()
-	print dialog.dureeCM.value()
-	print dialog.nbTP.value()
 	reinitializerChamps()
 	d.close()
 #fin printInfo
