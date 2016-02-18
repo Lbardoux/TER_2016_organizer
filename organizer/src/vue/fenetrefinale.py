@@ -5,8 +5,11 @@ import sys,os
 sys.path.insert(0,os.path.dirname(os.path.realpath(__file__))+"/../modele/formation/")
 sys.path.insert(0,os.path.dirname(os.path.realpath(__file__))+"/../../tests/integration/")
 sys.path.insert(0,os.path.dirname(os.path.realpath(__file__))+"/../modele/agenda/")
+sys.path.insert(0,os.path.dirname(os.path.realpath(__file__))+"/../modele/")
 import integration_agenda
 import Jour
+import Agenda
+import modele_API
 import Ue, Seance, Cm, Td, Tp, Examen, Autre 
 import datetime
 import Horaire
@@ -20,6 +23,11 @@ from arbreUe import *
 from seanceVue import *
 
 
+ma = modele_API.ModeleAgenda()
+agenda = ma.chargerAgenda("/home/emilie/Bureau/TER_2016_organizer/organizer/tests/ADECal.ics")
+listeFrame=[]
+
+
 base = Base.Base()
 
 app = QApplication(sys.argv)
@@ -29,7 +37,12 @@ ui.setupUi(w)
 for i in range(base.formations.taille):
 	ui.formations.addItem("")
 	ui.formations.setItemText(i,base.formations.liste[i].chaine)
-
+"""	
+creneaux = agenda.recupererJour(2016,2,9)
+for i in creneaux:
+	f = monFrame(ui.un,"seance1")
+	f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
+"""
 a = arbreUe(ui.listeUe,"arbre")
 liste = []
 a.premiereConfiguration(liste)
@@ -133,21 +146,25 @@ def printInfo():
 
 def setDateStr():
 	s = ui.dateEdit.date()
-	
+	listeFrame = []
 	jour = s.toPyDate()
 	jourAvant = jour
 	jourApres = jour
 	listeJours = []
 	listeJours.append(s.toString("dd/MM/yyyy"))
+	listeCreneaux = []
+	listeCreneaux.append(agenda.recupererJour(jour.year,jour.month,jour.day))
 	
 	for i in range(s.dayOfWeek()-1):
 		jourAvant = jourAvant - datetime.timedelta(days=1)
 		listeJours.insert(0,jourAvant.strftime('%d/%m/%Y'))
+		listeCreneaux.insert(0,agenda.recupererJour(jourAvant.year,jourAvant.month,jourAvant.day))
 	#fin for
 	
 	for i in range(7-s.dayOfWeek()):
 		jourApres = jourApres + datetime.timedelta(days=1)
 		listeJours.append(jourApres.strftime('%d/%m/%Y'))
+		listeCreneaux.append(agenda.recupererJour(jourApres.year,jourApres.month,jourApres.day))
 	#fin for
 	
 	ui.lundi.setText(listeJours[0]+" Lundi")
@@ -155,6 +172,27 @@ def setDateStr():
 	ui.mercredi.setText(listeJours[2]+" Mercredi")
 	ui.jeudi.setText(listeJours[3]+" Jeudi")
 	ui.vendredi.setText(listeJours[4]+" Vendredi")
+
+	for i in listeCreneaux[0]:
+		f = monFrame(ui.un,"seance1")
+		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
+		
+	for i in listeCreneaux[1]:
+		f = monFrame(ui.deux,"seance1")
+		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
+		
+	for i in listeCreneaux[2]:
+		f = monFrame(ui.trois,"seance1")
+		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
+	
+	for i in listeCreneaux[3]:
+		f = monFrame(ui.quatre,"seance1")
+		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
+	
+	for i in listeCreneaux[4]:
+		f = monFrame(ui.cinq,"seance1")
+		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
+
 #fin setDateStr
 
 def fleche1Clique():
