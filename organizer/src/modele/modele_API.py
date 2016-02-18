@@ -15,7 +15,7 @@ class ModeleAgenda(object):
 	C'est elle qui va contenir tous les éléments que la Vue va pouvoir lire.
 	Elle permet essentiellement de stocker les Agendas ouverts.
 	B{Mais aussi de gérer l'ouverture/fermeture de dépendances (vu que cela consiste
-	à charger/décharger des fichiers.}
+	à charger/décharger des fichiers).}
 	@ivar _agendas: un dictionnaire mappant des L{Agenda}s par leurs noms
 	@ivar _fabrique: La fabrique d'exporteurs pour les différentes exportations.
 	@author: Laurent Bardoux p1108365

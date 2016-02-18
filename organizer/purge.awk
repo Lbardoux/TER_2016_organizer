@@ -29,5 +29,5 @@ $0 ~ /^.*""".*$/ {
 
 c == 0 {
     nbLigne++;
-    print >>src_{FILENAME};
+    print;
 }

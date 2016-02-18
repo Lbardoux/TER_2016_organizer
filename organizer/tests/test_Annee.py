@@ -5,8 +5,9 @@ import sys
 sys.path.insert(0, "../src")
 
 from src.modele.agenda.Annee import *
+from src.modele.agenda.Creneau import *
+from src.modele.agenda.Horaire import *
 from src.modele.agenda.Jour import *
-import calendar
 
 class Test_Annee(unittest.TestCase):
 	"""
@@ -14,13 +15,34 @@ class Test_Annee(unittest.TestCase):
 	@author : Laurent Bardoux p1108365.
 	"""
 	
-	def test_init(self):
-		"""Teste l'initialisation d'une Annee."""
-		cible = Annee(2015)
-		self.assertEqual(cible._an, 2015)
-		self.assertEqual(cible._nbCreneaux, 0)
-		self.assertEqual(len(cible._mois), 12)
-	#test_init
+	def setUp(self):
+		"""A faire avant chaque test"""
+		self.cible = Annee(2015)
+	#setUp
+	
+	
+	def test_init_an(self):
+		"""Teste l'initialisation d'une Annee sur le champs an."""
+		self.assertEqual(self.cible._an, 2015)
+	#test_init_an
+	
+	
+	def test_init_nbCreneau(self):
+		"""Teste l'initialisation d'une Annee sur le champs an."""
+		self.assertEqual(self.cible._nbCreneaux, 0)
+	#test_init_nbCreneau
+	
+	
+	def test_init_usine(self):
+		"""Certifie qu'une usine ou assimilé est mise à l'instanciation"""
+		self.assertEqual(self.cible._generateur.suivant(), 1)
+	#test_init_usine
+	
+	
+	def test_init_nbMois(self):
+		"""Teste l'initialisation d'une Annee sur les mois"""
+		self.assertEqual(len(self.cible._mois), 12)
+	#test_init_nbMois
 	
 	
 	def test_premierJourAnnee(self):
@@ -40,6 +62,12 @@ class Test_Annee(unittest.TestCase):
 	#test_get_an
 	
 	
+	def test_get_mois(self):
+		"""Teste la propriété get de _mois"""
+		self.assertEqual(len(self.cible.mois), 12)
+	#test_get_mois
+	
+	
 	def test_recupererSemaineParNumJour(self):
 		"""Teste la récupération d'une semaine"""
 		cible = Annee(2002)
@@ -47,16 +75,20 @@ class Test_Annee(unittest.TestCase):
 	#test_recupererSemaineParNumJour_echec
 	
 	
-	def test_recupererSemaineParNumJour_echec(self):
-		"""Teste la récupération d'une semaine en cas de mauvais argument."""
-		cible = Annee(2002)
-		with self.assertRaises(Exception):
-			cible.recupererSemaineParNumJour(0, 15)
+	def test_recupererSemaineParNumJour_echec_num_mois(self):
+		"""Teste la récupération d'une semaine en cas de mauvais argument sur le numéro de mois."""
+		with self.assertRaises(ValueError):
+			self.cible.recupererSemaineParNumJour(0, 15)
 		#with
-		with self.assertRaises(Exception):
-			cible.recupererSemaineParNumJour(13, 15)
+	#test_recupererSemaineParNumJour_echec_num_mois
+	
+	
+	def test_recupererSemaineParNumJour_echec_num_jour(self):
+		"""Teste la récupération d'une semaine en cas de mauvais argument sur le numéro de jour."""
+		with self.assertRaises(ValueError):
+			self.cible.recupererSemaineParNumJour(0, -1)
 		#with
-	#test_recupererSemaineParNumJour_echec
+	#test_recupererSemaineParNumJour_echec_num_mois
 	
 	
 	def test_ajouterCreneau_ok(self):
@@ -117,6 +149,29 @@ class Test_Annee(unittest.TestCase):
 			cible.supprimerCreneau(15, 25, 158)
 		#with
 	#test_supprimerCreneau_echec_local
+	
+	
+	def test_inserer_creneau_mauvais_num_mois(self):
+		"""Teste si l'insertion echoue si le numéro de mois est erroné"""
+		with self.assertRaises(ValueError):
+			self.cible.insererCreneau("whatever", -1, 15)
+		#with
+	#test_inserer_creneau_mauvais_num_mois
+	
+	
+	def test_inserer_creneau_mauvais_num_jour(self):
+		"""Teste si l'insertion echoue si le numéro de jour est erroné"""
+		with self.assertRaises(ValueError):
+			self.cible.insererCreneau("whatever", 10, 35)
+		#with
+	#test_inserer_creneau_mauvais_num_jour
+	
+	
+	def test_inserer_creneau_reussi(self):
+		"""Teste si l'insertion echoue si le numéro de mois est erroné"""
+		self.cible.insererCreneau(Creneau(25, Horaire.Horaire(2, 4)), 10, 15)
+		self.assertEqual(self.cible.nbCreneaux, 1)
+	#test_inserer_creneau_mauvais_num_mois
 	
 #Test_Annee
 

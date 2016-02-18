@@ -231,6 +231,7 @@ class Agenda(Observable, Observeur):
 	#_autoVivification
 	
 	
+	@notifier
 	def ajouterCreneau(self, annee, mois, jour, debut, fin, typeCreneau=CP.CRENEAU):
 		"""
 		Etape 1 de la descente dans l'architecture.
@@ -356,6 +357,8 @@ class Agenda(Observable, Observeur):
 	def deplacerCreneau(self, creneau, annee, mois, jour, debut ,fin):
 		"""
 		Cette fonction permet de déplacer un creneau dans l'Agenda courant.
+		Le creneau en question doit provenir de ce meme agenda !
+		I{creneau} sera mis a l'emplacement donné par I{annee, mois, jour, debut, fin}
 		@param self: L'argument implicite
 		@type creneau: L{Creneau}
 		@param creneau: Le créneaux (ou une classe dérivée) que l'on veut déplacer.
@@ -375,9 +378,7 @@ class Agenda(Observable, Observeur):
 		self.supprimerCreneau(anneeActuelle, moisActuel, jourActuel, creneau)
 		creneau.horaire.debut = debut
 		creneau.horaire.fin = fin
-		cible = self._autoVivification(self._trouveAnnee(annee), annee)
-		cible.insererCreneau(creneau, mois, jour)
-		creneau.dateExacte = (annee, mois, jour)
+		self.insererCreneau(creneau, annee, mois, jour)
 	#deplacerCreneau
 	
 	
@@ -394,6 +395,58 @@ class Agenda(Observable, Observeur):
 		"""
 		pass
 	#misAJour
+	
+	
+	@notifier
+	def insererCreneau(self, creneau, annee, mois, jour):
+		"""
+		Cette fonction permet d'insérer un creneau dans l'Année courante.
+		Le I{creneau} ne doit pas déjà exister dans l'agenda courant, sinon
+		on s'expose à des doublons (dramatique).
+		@param self: L'argument implicite
+		@type creneau: L{Creneau}
+		@param creneau: Le créneaux (ou une classe dérivée) que l'on veut insérer.
+		@type annee: int
+		@param annee: l'annee dans laquelle on veut insérer le créneau
+		@type mois: int
+		@param mois: le numéro du mois dans lequel insérer ce créneau.
+		@type jour: int
+		@param jour: le numéro du jour dans lequel insérer ce créneau.
+		@raise ValueError: Si les données sont erronées.
+		"""
+		cible = self._autoVivification(self._trouveAnnee(annee), annee)
+		cible.insererCreneau(creneau, mois, jour)
+		creneau.dateExacte = (annee, mois, jour)
+		try:
+			creneau.ajouterObserveur(self)
+		except ReferenceError:
+			pass
+		#try
+		return creneau
+	#insererCreneau
+	
+	
+	@notifier
+	def echangerDeuxCreneaux(self, creneau1, creneau2):
+		"""
+		La fonction qui va permettre d'échanger 2 créneaux.
+		Pour l'instant, elle ne s'occupe pas des problèmes d'Horaire.
+		@todo: gérer les echanges d'horaires
+		@preconditon: les 2 créneaux doivent exister dans l'agenda courant.
+		@param self: L'argument implicite
+		@type creneau1: L{Creneau} ou une classe dérivée
+		@param creneau1: le premier creneau a échanger
+		@type creneau2: L{Creneau} ou une classe dérivée
+		@param creneau2: le premier creneau a échanger
+		@raise ValueError: si un  des créneaux n'est pas dans l'agenda courant.
+		"""
+		yy1, mm1, jj1 = creneau1.dateExacte
+		yy2, mm2, jj2 = creneau2.dateExacte
+		debut1, fin1 = creneau1.horaire.debut, creneau1.horaire.fin
+		debut2, fin2 = creneau2.horaire.debut, creneau2.horaire.fin
+		self.deplacerCreneau(creneau1, yy2, mm2, jj2, debut2, fin2)
+		self.deplacerCreneau(creneau2, yy1, mm1, jj1, debut1, fin1)
+	#echangerDeuxCreneaux
 	
 	
 	def detruire(self):

@@ -35,7 +35,7 @@ class Creneau(Observable):
 		self._horaire = horaire
 		self._informations = dict()
 		self._typeCreneau = 0
-		self._dateExacte = ""
+		self._dateExacte = ()
 	#__init__
 	
 	
