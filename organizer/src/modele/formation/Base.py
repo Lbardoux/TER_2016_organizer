@@ -6,7 +6,7 @@ from Enseignant import Enseignant
 from listeSalle import ListeSalle
 from listeFormation import ListeFormation
 from listeEnseignant import ListeEnseignant
-from urllib2 import urlopen
+#from urllib import urlopen
 from lxml import etree
 import sys,os
 

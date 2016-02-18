@@ -2,11 +2,11 @@
 # -*-coding:utf-8 -*
 
 from agenda.exportations.FabriqueExporteur import *
-from agenda.diff.Diff import *
-from agenda.importations.AgendaDepuisIcs import importer
+from diff.Diff import *
+from importations.AgendaDepuisIcs import importer
 from datetime import datetime
-import agenda.Agenda
-import agenda.Dependance
+import Agenda
+import Dependance
 
 class ModeleAgenda(object):
 	"""

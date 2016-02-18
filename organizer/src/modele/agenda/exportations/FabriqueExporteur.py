@@ -29,7 +29,7 @@ class FabriqueExporteur(Fabrique.Fabrique):
 		et l'enum.
 		"""
 		dico = {
-			exporteurs.ICS: lambda nom : ExporteurIcs.ExporteurIcs(nom)
+			exporteurs.ICS: lambda nom : ExporteurIcs.ExporteurIcs(nom),
 			exporteurs.TXT : lambda nom : ExporteurTxt.ExporteurTxt(nom)
 		}
 		super(FabriqueExporteur, self).__init__(dico)
