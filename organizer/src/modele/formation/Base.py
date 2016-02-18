@@ -124,8 +124,8 @@ class Base(object):
 						enseignant = test.text
 					#if
 					h = seance.find("horaire")
-					d += int(h.find("debut").text) + 1
-					f += int(h.find("fin").text) + 1
+					d = int(h.find("debut").text) + 1
+					f = int(h.find("fin").text) + 1
 					nouvelleSeance = usine.fabrique(attribut[i], idSeance, Horaire(d, f))
 					nouvelleSeance.nom = nom
 					nouvelleSeance.salle = salle

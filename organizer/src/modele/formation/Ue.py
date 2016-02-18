@@ -220,7 +220,6 @@ class Ue(object):
 		@param nouvelleSeance: la nouvelle Seance à ajouter
 		@type nouvelleSeance: une seance
 		"""
-		print("creation !")
 		self._listeSeance.append(nouvelleSeance)
 		if nouvelleSeance.typeCreneau == CP.CM:
 			self._nombreCm += 1
