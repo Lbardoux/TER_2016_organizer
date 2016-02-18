@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base>
+	<enseignants>
+		<enseignant>
+			<idEnseignant>1</idEnseignant>
+			<nom>GUERIN LASSOUS</nom>
+			<prenom>Isabelle</prenom>
+		</enseignant>
+		<enseignant>
+			<idEnseignant>2</idEnseignant>
+			<nom>GUILLOU</nom>
+			<prenom>Erwan</prenom>
+		</enseignant>
+		<enseignant>
+			<idEnseignant>3</idEnseignant>
+			<nom>LEFEVRE</nom>
+			<prenom>Marie</prenom>
+		</enseignant>
+		<enseignant>
+			<idEnseignant>4</idEnseignant>
+			<nom>BRANDEL</nom>
+			<prenom>Sylvain</prenom>
+		</enseignant>
+		<enseignant>
+			<idEnseignant>5</idEnseignant>
+			<nom>TABARD</nom>
+			<prenom>Aurelien</prenom>
+		</enseignant>
+		<enseignant>
+			<idEnseignant>6</idEnseignant>
+			<nom>COQUERY</nom>
+			<prenom>Emmanuel</prenom>
+		</enseignant>
+		<enseignant>
+			<idEnseignant>7</idEnseignant>
+			<nom>GAVIN</nom>
+			<prenom>Gerald</prenom>
+		</enseignant>
+		<enseignant>
+			<idEnseignant>8</idEnseignant>
+			<nom>JEAN-DAUBIAS</nom>
+			<prenom>Stephanie</prenom>
+		</enseignant>
+		<enseignant>
+			<idEnseignant>9</idEnseignant>
+			<nom>CANIOU</nom>
+			<prenom>Yves</prenom>
+		</enseignant>
+		<enseignant>
+			<idEnseignant>10</idEnseignant>
+			<nom>CHAINE</nom>
+			<prenom>Raphaelle</prenom>
+		</enseignant>
+		<enseignant>
+			<idEnseignant>11</idEnseignant>
+			<nom>HASSAS</nom>
+			<prenom>Salima</prenom>
+		</enseignant>
+		<enseignant>
+			<idEnseignant>12</idEnseignant>
+			<nom>AUSSEM</nom>
+			<prenom>Alexandre</prenom>
+		</enseignant>
+	</enseignants>
+	<salles>
+		<salle>
+			<idSalle>1</idSalle>
+			<nom>Nautibus C1</nom>
+			<taille>70</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>2</idSalle>
+			<nom>Nautibus C2</nom>
+			<taille>70</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>3</idSalle>
+			<nom>Nautibus C3</nom>
+			<taille>70</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>4</idSalle>
+			<nom>Nautibus C4</nom>
+			<taille>70</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>5</idSalle>
+			<nom>Nautibus C5</nom>
+			<taille>70</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>6</idSalle>
+			<nom>Nautibus TD1</nom>
+			<taille>35</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>7</idSalle>
+			<nom>Nautibus TD2</nom>
+			<taille>35</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>8</idSalle>
+			<nom>Nautibus TD3</nom>
+			<taille>35</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>9</idSalle>
+			<nom>Nautibus TD4</nom>
+			<taille>35</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>10</idSalle>
+			<nom>Nautibus TD5</nom>
+			<taille>35</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>11</idSalle>
+			<nom>Nautibus TP1</nom>
+			<taille>20</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>12</idSalle>
+			<nom>Nautibus TP2</nom>
+			<taille>20</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>13</idSalle>
+			<nom>Nautibus TP3</nom>
+			<taille>20</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>14</idSalle>
+			<nom>Nautibus TP4</nom>
+			<taille>20</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+		<salle>
+			<idSalle>15</idSalle>
+			<nom>Nautibus TP5</nom>
+			<taille>20</taille>
+			<typeSalle>0</typeSalle>
+		</salle>
+	</salles>
+	<formations>
+		<formation>
+			<idFormation>1</idFormation>
+			<nom>Informatique</nom>
+			<niveau>4</niveau>
+			<idEnseignant>8</idEnseignant>
+			<ues>
+				<ue>
+					<code>MIF11</code>
+					<nom>Reseaux</nom>
+					<idEnseignant>1</idEnseignant>
+					<seances>
+						<cms>
+							<cm>
+								<idSeance>1</idSeance>
+								<horaire>
+									<debut>0</debut>
+									<fin>8</fin>
+								</horaire>
+								<nom>Couche transport</nom>
+								<salle>Nautibus C1</salle>
+								<enseignant>Isabelle GUERIN LASSOUS</enseignant>
+							</cm>
+							<cm>
+								<idSeance>2</idSeance>
+								<horaire>
+									<debut>0</debut>
+									<fin>8</fin>
+								</horaire>
+								<nom>Wifi</nom>
+								<salle>Nautibus C1</salle>
+								<enseignant>Isabelle GUERIN LASSOUS</enseignant>
+							</cm>
+						</cms>
+						<tds>
+							<td>
+								<idSeance>3</idSeance>
+								<horaire>
+									<debut>0</debut>
+									<fin>8</fin>
+								</horaire>
+								<nom>Revision</nom>
+								<salle>Nautibus TD5</salle>
+								<enseignant>Isabelle GUERIN LASSOUS</enseignant>
+							</td>
+							<td>
+								<idSeance>4</idSeance>
+								<horaire>
+									<debut>0</debut>
+									<fin>8</fin>
+								</horaire>
+								<nom>Revision</nom>
+								<salle>Nautibus TD2</salle>
+								<enseignant>Isabelle GUERIN LASSOUS</enseignant>
+							</td>
+						</tds>
+						<tps>
+						</tps>
+						<examens>
+						</examens>
+						<autres>
+						</autres>
+					</seances>
+				</ue>
+			</ues>
+		</formation>
+		<formation>
+			<idFormation>2</idFormation>
+			<nom>TI</nom>
+			<niveau>5</niveau>
+			<idEnseignant>6</idEnseignant>
+		</formation>
+		<formation>
+			<idFormation>3</idFormation>
+			<nom>DS</nom>
+			<niveau>5</niveau>
+			<idEnseignant>12</idEnseignant>
+		</formation>
+		<formation>
+			<idFormation>4</idFormation>
+			<nom>SRIV</nom>
+			<niveau>5</niveau>
+			<idEnseignant>9</idEnseignant>
+		</formation>
+		<formation>
+			<idFormation>5</idFormation>
+			<nom>IA</nom>
+			<niveau>5</niveau>
+			<idEnseignant>11</idEnseignant>
+		</formation>
+		<formation>
+			<idFormation>6</idFormation>
+			<nom>Image</nom>
+			<niveau>5</niveau>
+			<idEnseignant>8</idEnseignant>
+		</formation>
+	</formations>
+</base>
