@@ -147,7 +147,9 @@ def printInfo():
 def setDateStr():
 	s = ui.dateEdit.date()
 	
-	
+	for i in listeFrame:
+		i.close()
+		
 	jour = s.toPyDate()
 	jourAvant = jour
 	jourApres = jour
