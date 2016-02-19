@@ -25,8 +25,8 @@ from seanceVue import *
 
 ma = modele_API.ModeleAgenda()
 agenda = ma.chargerAgenda("/home/emilie/Bureau/TER_2016_organizer/organizer/tests/ADECal.ics")
-listeFrame=[]
 
+listeFrame = []
 
 base = Base.Base()
 
@@ -146,7 +146,8 @@ def printInfo():
 
 def setDateStr():
 	s = ui.dateEdit.date()
-	listeFrame = []
+	
+	
 	jour = s.toPyDate()
 	jourAvant = jour
 	jourApres = jour
@@ -172,27 +173,39 @@ def setDateStr():
 	ui.mercredi.setText(listeJours[2]+" Mercredi")
 	ui.jeudi.setText(listeJours[3]+" Jeudi")
 	ui.vendredi.setText(listeJours[4]+" Vendredi")
-
+	
+	
+	
 	for i in listeCreneaux[0]:
 		f = monFrame(ui.un,"seance1")
 		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
+		f.show()
+		listeFrame .append(f)
 		
 	for i in listeCreneaux[1]:
 		f = monFrame(ui.deux,"seance1")
 		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
+		f.show()
+		listeFrame .append(f)
 		
 	for i in listeCreneaux[2]:
 		f = monFrame(ui.trois,"seance1")
 		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
-	
+		f.show()
+		listeFrame .append(f)
+		
 	for i in listeCreneaux[3]:
 		f = monFrame(ui.quatre,"seance1")
 		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
-	
+		f.show()
+		listeFrame .append(f)
+		
 	for i in listeCreneaux[4]:
 		f = monFrame(ui.cinq,"seance1")
 		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
-
+		f.show()
+		listeFrame .append(f)
+		
 #fin setDateStr
 
 def fleche1Clique():
