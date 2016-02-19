@@ -183,6 +183,7 @@ class Diff(object):
 			fin2 = liste2[compteur][0].horaire.fin
 			texte = ""
 			resultat = fin1 if fin1 < fin2 else fin2
+			resultat += 1
 		#if
 		if texte is not None:
 			if clef not in self._moments:
@@ -190,9 +191,9 @@ class Diff(object):
 				self._differences[clef] = list()
 			#if
 			texte = "-----------------------------\n"
-			texte += str(self.agenda1.nom) + "prévoit de : " + str(liste1[compteur][0].versChaine())
+			texte += str(self.agenda1.nom) + " prévoit : \n" + str(liste1[compteur][0].versChaine())
 			texte += "\nalors que \n"
-			texte += str(self.agenda2.nom) + "prévoit de : " + str(liste2[compteur][0].versChaine())
+			texte += str(self.agenda2.nom) + " prévoit : \n" + str(liste2[compteur][0].versChaine())
 			texte += "\n-----------------------------\n"
 			self._differences[clef].append(texte)
 		#if
@@ -221,12 +222,13 @@ class Diff(object):
 		resultat = compteur
 		texte = ""
 		if liste1[compteur] is not None:
-			resultat = liste1[compteur][0].horaire.fin
+			#rajout d'un +1 ici !
+			resultat = liste1[compteur][0].horaire.fin + 1
 			texte = "-----------------------------\n"
-			texte += str(self.agenda1.nom) + "prévoit de : " + str(liste1[compteur][0].versChaine())
+			texte += str(self.agenda1.nom) + " prévoit : \n\t" + str(liste1[compteur][0].versChaine())
 			texte += "\nalors que \n"
 			ite = compteur
-			texte += str(self.agenda2.nom) + "prévoit de :\n"
+			texte += str(self.agenda2.nom) + " prévoit :\n"
 			while ite < liste1[compteur][0].horaire.fin:
 				if liste2[ite] is not None:
 					texte += "\t" + liste2[ite][0].versChaine() + "\n"
@@ -237,9 +239,10 @@ class Diff(object):
 			#while
 			texte += "-----------------------------\n"
 		else:
-			resultat = liste2[compteur][0].horaire.fin
+			#rajout d'un +1 ici !
+			resultat = liste2[compteur][0].horaire.fin + 1
 			texte = "-----------------------------\n"
-			texte += str(self.agenda1.nom) + "prévoit de :\n"
+			texte += str(self.agenda1.nom) + " prévoit :\n"
 			ite = compteur
 			while ite < liste2[compteur][0].horaire.fin:
 				if liste1[ite] is not None:
@@ -250,7 +253,7 @@ class Diff(object):
 				#if
 			#while
 			texte += "\nalors que \n"
-			texte += str(self.agenda2.nom) + "prévoit de : " + str(liste2[compteur][0].versChaine())
+			texte += str(self.agenda2.nom) + " prévoit :\n\t" + str(liste2[compteur][0].versChaine())
 			texte += "\n-----------------------------\n"
 		#if
 		if clef not in self._moments and texte is not None:

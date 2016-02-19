@@ -7,7 +7,7 @@ TEST_DIR=tests/
 INTEGRATION_DIR=integration/
 SRC_DIR=src/
 LIB_DIR=src/
-MAIN_FILE=fenetrefinale.py
+MAIN_FILE=vue/fenetrefinale.py
 NAME=CSP_Organizer
 
 # Recuperation du python local pour l'execution
@@ -23,7 +23,7 @@ doc : mrproper
 	@echo "Pour un compte-rendu, voir doc/report.txt"
 
 exec :
-	$(PYTHON) $(SRC_DIR)vue/$(MAIN_FILE)
+	$(PYTHON) $(SRC_DIR)$(MAIN_FILE)
 
 package : doc
 	@echo "Mis en paquetage du projet :"

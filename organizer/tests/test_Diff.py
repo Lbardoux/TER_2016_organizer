@@ -5,6 +5,7 @@ import sys
 sys.path.insert(0, "../src")
 
 from src.modele.agenda.diff.Diff import *
+from src.modele.agenda.importations.AgendaDepuisIcs import *
 from src.modele.agenda.Agenda import *
 from src.modele.agenda.FabriqueCreneau import CreneauxPossible as CP
 
@@ -100,13 +101,52 @@ class Test_DIff(unittest.TestCase):
 		
 		d = Diff(a1, a2)
 		d.comparer()
-		#for clef in d.moments:
-		#	print(clef)
-		#	for i in d.differences[clef]:
-		#		print(i)
-		#	#if
-		#if
 	#test_compare_2_agendas_differents
+	
+	def test_compare_gros_agendas_identiques(self):
+		"""Teste la comparaison sur de gros agendas"""
+		a1 = Agenda("olol", 2016)
+		importer(a1, "tests/ADECal.ics")
+		a2 = a1
+		
+		d = Diff(a1, a2)
+		d.comparer()
+		self.assertEqual(len(d.moments), 0)
+	#test_compare_gros_agendas_identiques
+	
+	
+	def dumper(self, d):
+		"""Affiche le contenu"""
+		for i in d.moments:
+			for j in d.differences[i]:
+				print(j)
+	#dumper
+	
+	
+	def test_cas_particulier_1(self):
+		"""Teste le cas particulier 1 sur les agendas"""
+		a1 = Agenda("de base", 2016)
+		a2 = Agenda("après", 2016)
+		importer(a1, "tests/fichiers/cas_particulier1.ics")
+		importer(a2, "tests/fichiers/cas_particulier1_2.ics")
+		
+		d = Diff(a1, a2)
+		d.comparer()
+		#self.dumper(d)
+	#test_cas_particulier_1
+	
+	
+	def test_cas_particulier_1(self):
+		"""Teste le cas particulier 1 sur les agendas"""
+		a1 = Agenda("de base", 2016)
+		a2 = Agenda("apres", 2016)
+		importer(a1, "tests/fichiers/cas_particulier2.ics")
+		importer(a2, "tests/fichiers/cas_particulier2_2.ics")
+		
+		d = Diff(a1, a2)
+		d.comparer()
+		#self.dumper(d)
+	#test_cas_particulier_2
 	
 #Test_Diff
 
