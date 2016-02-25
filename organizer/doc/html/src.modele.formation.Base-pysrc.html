@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.modele.formation.Base</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.modele-module.html">Package&nbsp;modele</a> ::
+        <a href="src.modele.formation-module.html">Package&nbsp;formation</a> ::
+        Module&nbsp;Base
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.modele.formation.Base-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="src.modele.formation.Base-module.html">Module src.modele.formation.Base</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/python3</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># -*-coding:utf-8 -*</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module src.modele.formation.Salle=src.modele.formation.Salle-module.html,Class src.modele.formation.Salle.Salle=src.modele.formation.Salle.Salle-class.html"><a title="src.modele.formation.Salle
+src.modele.formation.Salle.Salle" class="py-name" href="#" onclick="return doclink('link-0', 'Salle', 'link-0');">Salle</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name"><a title="src.modele.formation.Salle
+src.modele.formation.Salle.Salle" class="py-name" href="#" onclick="return doclink('link-1', 'Salle', 'link-0');">Salle</a></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module src.modele.formation.Formation=src.modele.formation.Formation-module.html,Class src.modele.formation.Formation.Formation=src.modele.formation.Formation.Formation-class.html"><a title="src.modele.formation.Formation
+src.modele.formation.Formation.Formation" class="py-name" href="#" onclick="return doclink('link-2', 'Formation', 'link-2');">Formation</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name"><a title="src.modele.formation.Formation
+src.modele.formation.Formation.Formation" class="py-name" href="#" onclick="return doclink('link-3', 'Formation', 'link-2');">Formation</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Module src.modele.formation.Enseignant=src.modele.formation.Enseignant-module.html,Class src.modele.formation.Enseignant.Enseignant=src.modele.formation.Enseignant.Enseignant-class.html"><a title="src.modele.formation.Enseignant
+src.modele.formation.Enseignant.Enseignant" class="py-name" href="#" onclick="return doclink('link-4', 'Enseignant', 'link-4');">Enseignant</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name"><a title="src.modele.formation.Enseignant
+src.modele.formation.Enseignant.Enseignant" class="py-name" href="#" onclick="return doclink('link-5', 'Enseignant', 'link-4');">Enseignant</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-6" class="py-name" targets="Module src.modele.formation.listeSalle=src.modele.formation.listeSalle-module.html"><a title="src.modele.formation.listeSalle" class="py-name" href="#" onclick="return doclink('link-6', 'listeSalle', 'link-6');">listeSalle</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Class src.modele.formation.listeSalle.ListeSalle=src.modele.formation.listeSalle.ListeSalle-class.html"><a title="src.modele.formation.listeSalle.ListeSalle" class="py-name" href="#" onclick="return doclink('link-7', 'ListeSalle', 'link-7');">ListeSalle</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-8" class="py-name" targets="Module src.modele.formation.listeFormation=src.modele.formation.listeFormation-module.html"><a title="src.modele.formation.listeFormation" class="py-name" href="#" onclick="return doclink('link-8', 'listeFormation', 'link-8');">listeFormation</a></tt> <tt class="py-keyword">import</tt> <tt id="link-9" class="py-name" targets="Class src.modele.formation.listeFormation.ListeFormation=src.modele.formation.listeFormation.ListeFormation-class.html"><a title="src.modele.formation.listeFormation.ListeFormation" class="py-name" href="#" onclick="return doclink('link-9', 'ListeFormation', 'link-9');">ListeFormation</a></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-10" class="py-name" targets="Module src.modele.formation.listeEnseignant=src.modele.formation.listeEnseignant-module.html"><a title="src.modele.formation.listeEnseignant" class="py-name" href="#" onclick="return doclink('link-10', 'listeEnseignant', 'link-10');">listeEnseignant</a></tt> <tt class="py-keyword">import</tt> <tt id="link-11" class="py-name" targets="Class src.modele.formation.listeEnseignant.ListeEnseignant=src.modele.formation.listeEnseignant.ListeEnseignant-class.html"><a title="src.modele.formation.listeEnseignant.ListeEnseignant" class="py-name" href="#" onclick="return doclink('link-11', 'ListeEnseignant', 'link-11');">ListeEnseignant</a></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-12" class="py-name" targets="Module src.modele.agenda.FabriqueCreneau=src.modele.agenda.FabriqueCreneau-module.html,Class src.modele.agenda.FabriqueCreneau.FabriqueCreneau=src.modele.agenda.FabriqueCreneau.FabriqueCreneau-class.html"><a title="src.modele.agenda.FabriqueCreneau
+src.modele.agenda.FabriqueCreneau.FabriqueCreneau" class="py-name" href="#" onclick="return doclink('link-12', 'FabriqueCreneau', 'link-12');">FabriqueCreneau</a></tt> <tt class="py-keyword">import</tt> <tt id="link-13" class="py-name"><a title="src.modele.agenda.FabriqueCreneau
+src.modele.agenda.FabriqueCreneau.FabriqueCreneau" class="py-name" href="#" onclick="return doclink('link-13', 'FabriqueCreneau', 'link-12');">FabriqueCreneau</a></tt><tt class="py-op">,</tt> <tt class="py-name">CreneauxPossible</tt> <tt class="py-keyword">as</tt> <tt class="py-name">CP</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-14" class="py-name" targets="Module src.modele.formation.Ue=src.modele.formation.Ue-module.html,Class src.modele.formation.Ue.Ue=src.modele.formation.Ue.Ue-class.html"><a title="src.modele.formation.Ue
+src.modele.formation.Ue.Ue" class="py-name" href="#" onclick="return doclink('link-14', 'Ue', 'link-14');">Ue</a></tt> <tt class="py-keyword">import</tt> <tt id="link-15" class="py-name"><a title="src.modele.formation.Ue
+src.modele.formation.Ue.Ue" class="py-name" href="#" onclick="return doclink('link-15', 'Ue', 'link-14');">Ue</a></tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-16" class="py-name" targets="Module src.modele.agenda.Horaire=src.modele.agenda.Horaire-module.html,Class src.modele.agenda.Horaire.Horaire=src.modele.agenda.Horaire.Horaire-class.html"><a title="src.modele.agenda.Horaire
+src.modele.agenda.Horaire.Horaire" class="py-name" href="#" onclick="return doclink('link-16', 'Horaire', 'link-16');">Horaire</a></tt> <tt class="py-keyword">import</tt> <tt id="link-17" class="py-name"><a title="src.modele.agenda.Horaire
+src.modele.agenda.Horaire.Horaire" class="py-name" href="#" onclick="return doclink('link-17', 'Horaire', 'link-16');">Horaire</a></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment">#from urllib import urlopen</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">lxml</tt> <tt class="py-keyword">import</tt> <tt class="py-name">etree</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt><tt class="py-name">os</tt> </tt>
+<a name="Base"></a><div id="Base-def"><a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt> <a class="py-toggle" href="#" id="Base-toggle" onclick="return toggle('Base');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="src.modele.formation.Base.Base-class.html">Base</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Base-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Base-expanded"><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="Base.__init__"></a><div id="Base.__init__-def"><a name="L21"></a><tt class="py-lineno"> 21</tt> <a class="py-toggle" href="#" id="Base.__init__-toggle" onclick="return toggle('Base.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.modele.formation.Base.Base-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Base.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Base.__init__-expanded"><a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_listeSalle</tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="src.modele.formation.listeSalle.ListeSalle" class="py-name" href="#" onclick="return doclink('link-18', 'ListeSalle', 'link-7');">ListeSalle</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_listeFormation</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="src.modele.formation.listeFormation.ListeFormation" class="py-name" href="#" onclick="return doclink('link-19', 'ListeFormation', 'link-9');">ListeFormation</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_listeEnseignant</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="src.modele.formation.listeEnseignant.ListeEnseignant" class="py-name" href="#" onclick="return doclink('link-20', 'ListeEnseignant', 'link-11');">ListeEnseignant</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method src.modele.formation.Base.Base._parserXML()=src.modele.formation.Base.Base-class.html#_parserXML"><a title="src.modele.formation.Base.Base._parserXML" class="py-name" href="#" onclick="return doclink('link-21', '_parserXML', 'link-21');">_parserXML</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt class="py-comment">#__init__</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">         </tt>
+<a name="Base._parserXML"></a><div id="Base._parserXML-def"><a name="L30"></a><tt class="py-lineno"> 30</tt> <a class="py-toggle" href="#" id="Base._parserXML-toggle" onclick="return toggle('Base._parserXML');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.modele.formation.Base.Base-class.html#_parserXML">_parserXML</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Base._parserXML-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Base._parserXML-expanded"><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">                @raise IOError: en cas de probl&#232;me avec ouverture/lecture de fichier.</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">                <tt class="py-name">fichier</tt> <tt class="py-op">=</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">realpath</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">"/../../../data/base.xml"</tt><tt class="py-op">,</tt><tt class="py-string">"r"</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">                <tt class="py-name">tree</tt> <tt class="py-op">=</tt> <tt class="py-name">etree</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method src.modele.agenda.importations._veventIcs.VeventParser.parse()=src.modele.agenda.importations._veventIcs.VeventParser-class.html#parse"><a title="src.modele.agenda.importations._veventIcs.VeventParser.parse" class="py-name" href="#" onclick="return doclink('link-22', 'parse', 'link-22');">parse</a></tt><tt class="py-op">(</tt><tt class="py-name">fichier</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">                <tt class="py-name">fichier</tt><tt class="py-op">.</tt><tt class="py-name">close</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">tree</tt><tt class="py-op">.</tt><tt class="py-name">xpath</tt><tt class="py-op">(</tt><tt class="py-string">"/base/enseignants/enseignant"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_listeEnseignant</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method src.modele.formation.listeEnseignant.ListeEnseignant.ajouterEnseignant()=src.modele.formation.listeEnseignant.ListeEnseignant-class.html#ajouterEnseignant"><a title="src.modele.formation.listeEnseignant.ListeEnseignant.ajouterEnseignant" class="py-name" href="#" onclick="return doclink('link-23', 'ajouterEnseignant', 'link-23');">ajouterEnseignant</a></tt><tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="src.modele.formation.Enseignant
+src.modele.formation.Enseignant.Enseignant" class="py-name" href="#" onclick="return doclink('link-24', 'Enseignant', 'link-4');">Enseignant</a></tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"idEnseignant"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">i</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"nom"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">,</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"prenom"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>  </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">                <tt class="py-comment">#for</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method src.modele.formation.Base.Base._parseFormation()=src.modele.formation.Base.Base-class.html#_parseFormation"><a title="src.modele.formation.Base.Base._parseFormation" class="py-name" href="#" onclick="return doclink('link-25', '_parseFormation', 'link-25');">_parseFormation</a></tt><tt class="py-op">(</tt><tt class="py-name">tree</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">tree</tt><tt class="py-op">.</tt><tt class="py-name">xpath</tt><tt class="py-op">(</tt><tt class="py-string">"/base/salles/salle"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_listeSalle</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Method src.modele.formation.listeSalle.ListeSalle.ajouterSalle()=src.modele.formation.listeSalle.ListeSalle-class.html#ajouterSalle"><a title="src.modele.formation.listeSalle.ListeSalle.ajouterSalle" class="py-name" href="#" onclick="return doclink('link-26', 'ajouterSalle', 'link-26');">ajouterSalle</a></tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="src.modele.formation.Salle
+src.modele.formation.Salle.Salle" class="py-name" href="#" onclick="return doclink('link-27', 'Salle', 'link-0');">Salle</a></tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"idSalle"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">i</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"nom"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">,</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"taille"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">                <tt class="py-comment">#for</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-comment">#_parserXML</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">         </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">         </tt>
+<a name="Base._parseFormation"></a><div id="Base._parseFormation-def"><a name="L47"></a><tt class="py-lineno"> 47</tt> <a class="py-toggle" href="#" id="Base._parseFormation-toggle" onclick="return toggle('Base._parseFormation');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.modele.formation.Base.Base-class.html#_parseFormation">_parseFormation</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">tree</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Base._parseFormation-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Base._parseFormation-expanded"><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">                Va parser le fichier xml pour r&#233;cup&#233;rer les informations sur les L{Formation}s</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">                Ces informations seront ensuite stock&#233;es dans self._listeFormation.</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">                @param self: L'argument implicite.</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">                @type tree: un arbre contenaut du xml</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">                @param tree: le xml completement pars&#233;, racine incluse.</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt id="link-28" class="py-name" targets="Package src.modele.formation=src.modele.formation-module.html"><a title="src.modele.formation" class="py-name" href="#" onclick="return doclink('link-28', 'formation', 'link-28');">formation</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">tree</tt><tt class="py-op">.</tt><tt class="py-name">xpath</tt><tt class="py-op">(</tt><tt class="py-string">"/base/formations/formation"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                        <tt class="py-comment"># on parse les attributs int&#233;ressants</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                        <tt id="link-29" class="py-name" targets="Variable src.modele.formation.Formation.Formation.idFormation=src.modele.formation.Formation.Formation-class.html#idFormation"><a title="src.modele.formation.Formation.Formation.idFormation" class="py-name" href="#" onclick="return doclink('link-29', 'idFormation', 'link-29');">idFormation</a></tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-30" class="py-name"><a title="src.modele.formation" class="py-name" href="#" onclick="return doclink('link-30', 'formation', 'link-28');">formation</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"idFormation"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                        <tt id="link-31" class="py-name" targets="Variable src.modele.formation.Formation.Formation.niveau=src.modele.formation.Formation.Formation-class.html#niveau"><a title="src.modele.formation.Formation.Formation.niveau" class="py-name" href="#" onclick="return doclink('link-31', 'niveau', 'link-31');">niveau</a></tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="src.modele.formation" class="py-name" href="#" onclick="return doclink('link-32', 'formation', 'link-28');">formation</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"niveau"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                        <tt id="link-33" class="py-name" targets="Variable src.modele.agenda.Agenda.Agenda.nom=src.modele.agenda.Agenda.Agenda-class.html#nom,Variable src.modele.agenda.Jour.Jour.nom=src.modele.agenda.Jour.Jour-class.html#nom,Variable src.modele.agenda.Mois.Mois.nom=src.modele.agenda.Mois.Mois-class.html#nom,Variable src.modele.formation.Enseignant.Enseignant.nom=src.modele.formation.Enseignant.Enseignant-class.html#nom,Variable src.modele.formation.Formation.Formation.nom=src.modele.formation.Formation.Formation-class.html#nom,Variable src.modele.formation.Salle.Salle.nom=src.modele.formation.Salle.Salle-class.html#nom,Variable src.modele.formation.Seance.Seance.nom=src.modele.formation.Seance.Seance-class.html#nom,Variable src.modele.formation.Ue.Ue.nom=src.modele.formation.Ue.Ue-class.html#nom"><a title="src.modele.agenda.Agenda.Agenda.nom
+src.modele.agenda.Jour.Jour.nom
+src.modele.agenda.Mois.Mois.nom
+src.modele.formation.Enseignant.Enseignant.nom
+src.modele.formation.Formation.Formation.nom
+src.modele.formation.Salle.Salle.nom
+src.modele.formation.Seance.Seance.nom
+src.modele.formation.Ue.Ue.nom" class="py-name" href="#" onclick="return doclink('link-33', 'nom', 'link-33');">nom</a></tt> <tt class="py-op">=</tt> <tt id="link-34" class="py-name"><a title="src.modele.formation" class="py-name" href="#" onclick="return doclink('link-34', 'formation', 'link-28');">formation</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"nom"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                        <tt id="link-35" class="py-name" targets="Variable src.modele.formation.Enseignant.Enseignant.idEnseignant=src.modele.formation.Enseignant.Enseignant-class.html#idEnseignant,Variable src.modele.formation.Formation.Formation.idEnseignant=src.modele.formation.Formation.Formation-class.html#idEnseignant,Variable src.modele.formation.Ue.Ue.idEnseignant=src.modele.formation.Ue.Ue-class.html#idEnseignant"><a title="src.modele.formation.Enseignant.Enseignant.idEnseignant
+src.modele.formation.Formation.Formation.idEnseignant
+src.modele.formation.Ue.Ue.idEnseignant" class="py-name" href="#" onclick="return doclink('link-35', 'idEnseignant', 'link-35');">idEnseignant</a></tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-36" class="py-name"><a title="src.modele.formation" class="py-name" href="#" onclick="return doclink('link-36', 'formation', 'link-28');">formation</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"idEnseignant"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                         </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                        <tt class="py-comment"># on cr&#233;e la nouvelle formation et on l'ajoute</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                        <tt class="py-name">nouvelleFormation</tt> <tt class="py-op">=</tt> <tt id="link-37" class="py-name"><a title="src.modele.formation.Formation
+src.modele.formation.Formation.Formation" class="py-name" href="#" onclick="return doclink('link-37', 'Formation', 'link-2');">Formation</a></tt><tt class="py-op">(</tt><tt id="link-38" class="py-name"><a title="src.modele.formation.Formation.Formation.idFormation" class="py-name" href="#" onclick="return doclink('link-38', 'idFormation', 'link-29');">idFormation</a></tt><tt class="py-op">,</tt> <tt id="link-39" class="py-name"><a title="src.modele.formation.Formation.Formation.niveau" class="py-name" href="#" onclick="return doclink('link-39', 'niveau', 'link-31');">niveau</a></tt><tt class="py-op">,</tt> <tt id="link-40" class="py-name"><a title="src.modele.agenda.Agenda.Agenda.nom
+src.modele.agenda.Jour.Jour.nom
+src.modele.agenda.Mois.Mois.nom
+src.modele.formation.Enseignant.Enseignant.nom
+src.modele.formation.Formation.Formation.nom
+src.modele.formation.Salle.Salle.nom
+src.modele.formation.Seance.Seance.nom
+src.modele.formation.Ue.Ue.nom" class="py-name" href="#" onclick="return doclink('link-40', 'nom', 'link-33');">nom</a></tt><tt class="py-op">,</tt> <tt id="link-41" class="py-name"><a title="src.modele.formation.Enseignant.Enseignant.idEnseignant
+src.modele.formation.Formation.Formation.idEnseignant
+src.modele.formation.Ue.Ue.idEnseignant" class="py-name" href="#" onclick="return doclink('link-41', 'idEnseignant', 'link-35');">idEnseignant</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_listeFormation</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name" targets="Method src.modele.formation.listeFormation.ListeFormation.ajouterFormation()=src.modele.formation.listeFormation.ListeFormation-class.html#ajouterFormation"><a title="src.modele.formation.listeFormation.ListeFormation.ajouterFormation" class="py-name" href="#" onclick="return doclink('link-42', 'ajouterFormation', 'link-42');">ajouterFormation</a></tt><tt class="py-op">(</tt><tt class="py-name">nouvelleFormation</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                         </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                        <tt class="py-comment"># on passe au parsing des Ues s'il y en a</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                        <tt class="py-name">lesUes</tt> <tt class="py-op">=</tt> <tt id="link-43" class="py-name"><a title="src.modele.formation" class="py-name" href="#" onclick="return doclink('link-43', 'formation', 'link-28');">formation</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"ues"</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">lesUes</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name" targets="Method src.modele.formation.Base.Base._parseUe()=src.modele.formation.Base.Base-class.html#_parseUe"><a title="src.modele.formation.Base.Base._parseUe" class="py-name" href="#" onclick="return doclink('link-44', '_parseUe', 'link-44');">_parseUe</a></tt><tt class="py-op">(</tt><tt class="py-name">nouvelleFormation</tt><tt class="py-op">,</tt> <tt class="py-name">lesUes</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                        <tt class="py-comment">#if</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                <tt class="py-comment">#for</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-comment">#_parseFormation</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">         </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">         </tt>
+<a name="Base._parseUe"></a><div id="Base._parseUe-def"><a name="L75"></a><tt class="py-lineno"> 75</tt> <a class="py-toggle" href="#" id="Base._parseUe-toggle" onclick="return toggle('Base._parseUe');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.modele.formation.Base.Base-class.html#_parseUe">_parseUe</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">formation</tt><tt class="py-op">,</tt> <tt class="py-param">element</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Base._parseUe-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Base._parseUe-expanded"><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">                Va lire la suite d'un bout de xml contenant les informations sur les Ues</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">                Le but sera alors de remplir la listeUes de I{formation}.</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">                @param self: L'argument implicite.</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">                @type formation: L{Formation}</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">                @param formation: La formation dans laquelle &#233;crire les donn&#233;es coolect&#233;es.</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">                @type element: Element</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">                @param element: le conteneur actuel dans lequel continuer &#224; I{parser}.</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">fils</tt> <tt class="py-keyword">in</tt> <tt class="py-name">element</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                        <tt id="link-45" class="py-name" targets="Variable src.modele.formation.Ue.Ue.code=src.modele.formation.Ue.Ue-class.html#code"><a title="src.modele.formation.Ue.Ue.code" class="py-name" href="#" onclick="return doclink('link-45', 'code', 'link-45');">code</a></tt> <tt class="py-op">=</tt> <tt class="py-name">fils</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"code"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                        <tt id="link-46" class="py-name"><a title="src.modele.agenda.Agenda.Agenda.nom
+src.modele.agenda.Jour.Jour.nom
+src.modele.agenda.Mois.Mois.nom
+src.modele.formation.Enseignant.Enseignant.nom
+src.modele.formation.Formation.Formation.nom
+src.modele.formation.Salle.Salle.nom
+src.modele.formation.Seance.Seance.nom
+src.modele.formation.Ue.Ue.nom" class="py-name" href="#" onclick="return doclink('link-46', 'nom', 'link-33');">nom</a></tt> <tt class="py-op">=</tt> <tt class="py-name">fils</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"nom"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                        <tt id="link-47" class="py-name"><a title="src.modele.formation.Enseignant.Enseignant.idEnseignant
+src.modele.formation.Formation.Formation.idEnseignant
+src.modele.formation.Ue.Ue.idEnseignant" class="py-name" href="#" onclick="return doclink('link-47', 'idEnseignant', 'link-35');">idEnseignant</a></tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">fils</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"idEnseignant"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                         </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">                        <tt class="py-name">nouvelleUe</tt> <tt class="py-op">=</tt> <tt id="link-48" class="py-name"><a title="src.modele.formation.Ue
+src.modele.formation.Ue.Ue" class="py-name" href="#" onclick="return doclink('link-48', 'Ue', 'link-14');">Ue</a></tt><tt class="py-op">(</tt><tt id="link-49" class="py-name"><a title="src.modele.formation.Ue.Ue.code" class="py-name" href="#" onclick="return doclink('link-49', 'code', 'link-45');">code</a></tt><tt class="py-op">,</tt> <tt id="link-50" class="py-name"><a title="src.modele.agenda.Agenda.Agenda.nom
+src.modele.agenda.Jour.Jour.nom
+src.modele.agenda.Mois.Mois.nom
+src.modele.formation.Enseignant.Enseignant.nom
+src.modele.formation.Formation.Formation.nom
+src.modele.formation.Salle.Salle.nom
+src.modele.formation.Seance.Seance.nom
+src.modele.formation.Ue.Ue.nom" class="py-name" href="#" onclick="return doclink('link-50', 'nom', 'link-33');">nom</a></tt><tt class="py-op">,</tt> <tt id="link-51" class="py-name"><a title="src.modele.formation.Enseignant.Enseignant.idEnseignant
+src.modele.formation.Formation.Formation.idEnseignant
+src.modele.formation.Ue.Ue.idEnseignant" class="py-name" href="#" onclick="return doclink('link-51', 'idEnseignant', 'link-35');">idEnseignant</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">                        <tt id="link-52" class="py-name"><a title="src.modele.formation" class="py-name" href="#" onclick="return doclink('link-52', 'formation', 'link-28');">formation</a></tt><tt class="py-op">.</tt><tt id="link-53" class="py-name" targets="Method src.modele.formation.Formation.Formation.ajouterUe()=src.modele.formation.Formation.Formation-class.html#ajouterUe"><a title="src.modele.formation.Formation.Formation.ajouterUe" class="py-name" href="#" onclick="return doclink('link-53', 'ajouterUe', 'link-53');">ajouterUe</a></tt><tt class="py-op">(</tt><tt class="py-name">nouvelleUe</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">                        <tt class="py-name">lesSeances</tt> <tt class="py-op">=</tt> <tt class="py-name">fils</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"seances"</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">lesSeances</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name" targets="Method src.modele.formation.Base.Base._parseSeances()=src.modele.formation.Base.Base-class.html#_parseSeances"><a title="src.modele.formation.Base.Base._parseSeances" class="py-name" href="#" onclick="return doclink('link-54', '_parseSeances', 'link-54');">_parseSeances</a></tt><tt class="py-op">(</tt><tt class="py-name">nouvelleUe</tt><tt class="py-op">,</tt> <tt class="py-name">lesSeances</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                        <tt class="py-comment">#if</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                <tt class="py-comment">#for</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-comment">#_parseUe</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">         </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">         </tt>
+<a name="Base._parseSeances"></a><div id="Base._parseSeances-def"><a name="L100"></a><tt class="py-lineno">100</tt> <a class="py-toggle" href="#" id="Base._parseSeances-toggle" onclick="return toggle('Base._parseSeances');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.modele.formation.Base.Base-class.html#_parseSeances">_parseSeances</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">ue</tt><tt class="py-op">,</tt> <tt class="py-param">element</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Base._parseSeances-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Base._parseSeances-expanded"><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">                Etape finale, va parser le contenu de chaque Seance, quelque soit son type.</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">                Chaque Seance lue avec succ&#232;s entrainera sa cr&#233;ation dans le mod&#232;le avec</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">                ajout dans I{ue}.</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">                @param self: L'argument implicite</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">                @type ue: L{Ue}</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">                @param ue: L'ue que l'on veut remplir avec les Seances trouv&#233;es.</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">                @type element: Element(xml)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">                @param element: La suite du xml que l'on veut parser.</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                <tt class="py-name">usine</tt> <tt class="py-op">=</tt> <tt id="link-55" class="py-name"><a title="src.modele.agenda.FabriqueCreneau
+src.modele.agenda.FabriqueCreneau.FabriqueCreneau" class="py-name" href="#" onclick="return doclink('link-55', 'FabriqueCreneau', 'link-12');">FabriqueCreneau</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                <tt class="py-name">fils</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">"cms"</tt><tt class="py-op">,</tt> <tt class="py-string">"tds"</tt><tt class="py-op">,</tt> <tt class="py-string">"tps"</tt><tt class="py-op">,</tt> <tt class="py-string">"examens"</tt><tt class="py-op">,</tt> <tt class="py-string">"autres"</tt><tt class="py-op">]</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                <tt class="py-name">attribut</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">CP</tt><tt class="py-op">.</tt><tt class="py-name">CM</tt><tt class="py-op">,</tt> <tt class="py-name">CP</tt><tt class="py-op">.</tt><tt class="py-name">TD</tt><tt class="py-op">,</tt> <tt class="py-name">CP</tt><tt class="py-op">.</tt><tt class="py-name">TP</tt><tt class="py-op">,</tt> <tt class="py-name">CP</tt><tt class="py-op">.</tt><tt class="py-name">EXAMEN</tt><tt class="py-op">,</tt> <tt class="py-name">CP</tt><tt class="py-op">.</tt><tt class="py-name">AUTRE</tt><tt class="py-op">]</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt><tt class="py-op">,</tt> <tt class="py-name">typeSeance</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">fils</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                        <tt class="py-name">cible</tt> <tt class="py-op">=</tt> <tt class="py-name">element</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">typeSeance</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">cible</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">seance</tt> <tt class="py-keyword">in</tt> <tt class="py-name">cible</tt><tt class="py-op">:</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">                                        <tt class="py-name">idSeance</tt> <tt class="py-op">=</tt> <tt class="py-name">seance</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"idSeance"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                                        <tt id="link-56" class="py-name"><a title="src.modele.agenda.Agenda.Agenda.nom
+src.modele.agenda.Jour.Jour.nom
+src.modele.agenda.Mois.Mois.nom
+src.modele.formation.Enseignant.Enseignant.nom
+src.modele.formation.Formation.Formation.nom
+src.modele.formation.Salle.Salle.nom
+src.modele.formation.Seance.Seance.nom
+src.modele.formation.Ue.Ue.nom" class="py-name" href="#" onclick="return doclink('link-56', 'nom', 'link-33');">nom</a></tt> <tt class="py-op">=</tt> <tt class="py-name">seance</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"nom"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                                        <tt id="link-57" class="py-name" targets="Variable src.modele.formation.Seance.Seance.salle=src.modele.formation.Seance.Seance-class.html#salle"><a title="src.modele.formation.Seance.Seance.salle" class="py-name" href="#" onclick="return doclink('link-57', 'salle', 'link-57');">salle</a></tt> <tt class="py-op">=</tt> <tt class="py-name">seance</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"salle"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                                        <tt id="link-58" class="py-name" targets="Variable src.modele.formation.Seance.Seance.enseignant=src.modele.formation.Seance.Seance-class.html#enseignant"><a title="src.modele.formation.Seance.Seance.enseignant" class="py-name" href="#" onclick="return doclink('link-58', 'enseignant', 'link-58');">enseignant</a></tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                                        <tt class="py-name">test</tt> <tt class="py-op">=</tt> <tt class="py-name">seance</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"enseignant"</tt><tt class="py-op">)</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">                                        <tt class="py-keyword">if</tt> <tt class="py-name">test</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">                                                <tt id="link-59" class="py-name"><a title="src.modele.formation.Seance.Seance.enseignant" class="py-name" href="#" onclick="return doclink('link-59', 'enseignant', 'link-58');">enseignant</a></tt> <tt class="py-op">=</tt> <tt class="py-name">test</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                                        <tt class="py-comment">#if</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">                                        <tt class="py-name">h</tt> <tt class="py-op">=</tt> <tt class="py-name">seance</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"horaire"</tt><tt class="py-op">)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">                                        <tt id="link-60" class="py-name" targets="Variable src.vue.fenetrefinale.d=src.vue.fenetrefinale-module.html#d"><a title="src.vue.fenetrefinale.d" class="py-name" href="#" onclick="return doclink('link-60', 'd', 'link-60');">d</a></tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">h</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"debut"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">                                        <tt class="py-name">f</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">h</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"fin"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">                                        <tt class="py-name">nouvelleSeance</tt> <tt class="py-op">=</tt> <tt class="py-name">usine</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name" targets="Method src.outils.Fabrique.Fabrique.fabrique()=src.outils.Fabrique.Fabrique-class.html#fabrique"><a title="src.outils.Fabrique.Fabrique.fabrique" class="py-name" href="#" onclick="return doclink('link-61', 'fabrique', 'link-61');">fabrique</a></tt><tt class="py-op">(</tt><tt class="py-name">attribut</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">idSeance</tt><tt class="py-op">,</tt> <tt id="link-62" class="py-name"><a title="src.modele.agenda.Horaire
+src.modele.agenda.Horaire.Horaire" class="py-name" href="#" onclick="return doclink('link-62', 'Horaire', 'link-16');">Horaire</a></tt><tt class="py-op">(</tt><tt id="link-63" class="py-name"><a title="src.vue.fenetrefinale.d" class="py-name" href="#" onclick="return doclink('link-63', 'd', 'link-60');">d</a></tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">                                        <tt class="py-name">nouvelleSeance</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="src.modele.agenda.Agenda.Agenda.nom
+src.modele.agenda.Jour.Jour.nom
+src.modele.agenda.Mois.Mois.nom
+src.modele.formation.Enseignant.Enseignant.nom
+src.modele.formation.Formation.Formation.nom
+src.modele.formation.Salle.Salle.nom
+src.modele.formation.Seance.Seance.nom
+src.modele.formation.Ue.Ue.nom" class="py-name" href="#" onclick="return doclink('link-64', 'nom', 'link-33');">nom</a></tt> <tt class="py-op">=</tt> <tt id="link-65" class="py-name"><a title="src.modele.agenda.Agenda.Agenda.nom
+src.modele.agenda.Jour.Jour.nom
+src.modele.agenda.Mois.Mois.nom
+src.modele.formation.Enseignant.Enseignant.nom
+src.modele.formation.Formation.Formation.nom
+src.modele.formation.Salle.Salle.nom
+src.modele.formation.Seance.Seance.nom
+src.modele.formation.Ue.Ue.nom" class="py-name" href="#" onclick="return doclink('link-65', 'nom', 'link-33');">nom</a></tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">                                        <tt class="py-name">nouvelleSeance</tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="src.modele.formation.Seance.Seance.salle" class="py-name" href="#" onclick="return doclink('link-66', 'salle', 'link-57');">salle</a></tt> <tt class="py-op">=</tt> <tt id="link-67" class="py-name"><a title="src.modele.formation.Seance.Seance.salle" class="py-name" href="#" onclick="return doclink('link-67', 'salle', 'link-57');">salle</a></tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">                                        <tt class="py-name">nouvelleSeance</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="src.modele.formation.Seance.Seance.enseignant" class="py-name" href="#" onclick="return doclink('link-68', 'enseignant', 'link-58');">enseignant</a></tt> <tt class="py-op">=</tt> <tt id="link-69" class="py-name"><a title="src.modele.formation.Seance.Seance.enseignant" class="py-name" href="#" onclick="return doclink('link-69', 'enseignant', 'link-58');">enseignant</a></tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">                                        <tt class="py-name">ue</tt><tt class="py-op">.</tt><tt id="link-70" class="py-name" targets="Method src.modele.formation.Ue.Ue.ajouterSeance()=src.modele.formation.Ue.Ue-class.html#ajouterSeance"><a title="src.modele.formation.Ue.Ue.ajouterSeance" class="py-name" href="#" onclick="return doclink('link-70', 'ajouterSeance', 'link-70');">ajouterSeance</a></tt><tt class="py-op">(</tt><tt class="py-name">nouvelleSeance</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">                                <tt class="py-comment">#for</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">                        <tt class="py-comment">#if</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">                <tt class="py-comment">#for</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-comment">#_parseSeances</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">         </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">         </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-decorator">@</tt><tt class="py-decorator">property</tt> </tt>
+<a name="Base.salles"></a><div id="Base.salles-def"><a name="L141"></a><tt class="py-lineno">141</tt> <a class="py-toggle" href="#" id="Base.salles-toggle" onclick="return toggle('Base.salles');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.modele.formation.Base.Base-class.html#salles">salles</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Base.salles-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Base.salles-expanded"><a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_listeSalle</tt> </tt>
+</div><a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt class="py-comment">#salles</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">         </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">        <tt class="py-decorator">@</tt><tt class="py-decorator">property</tt> </tt>
+<a name="Base.formations"></a><div id="Base.formations-def"><a name="L148"></a><tt class="py-lineno">148</tt> <a class="py-toggle" href="#" id="Base.formations-toggle" onclick="return toggle('Base.formations');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.modele.formation.Base.Base-class.html#formations">formations</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Base.formations-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Base.formations-expanded"><a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_listeFormation</tt> </tt>
+</div><a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">        <tt class="py-comment">#formations</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">         </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt class="py-decorator">@</tt><tt class="py-decorator">property</tt> </tt>
+<a name="Base.enseignants"></a><div id="Base.enseignants-def"><a name="L155"></a><tt class="py-lineno">155</tt> <a class="py-toggle" href="#" id="Base.enseignants-toggle" onclick="return toggle('Base.enseignants');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.modele.formation.Base.Base-class.html#enseignants">enseignants</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Base.enseignants-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Base.enseignants-expanded"><a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_listeEnseignant</tt> </tt>
+</div></div><a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">        <tt class="py-comment">#enseignants</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">         </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-comment">#Base</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Feb 25 17:02:58 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

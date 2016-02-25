@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.modele.agenda.Semaine.Semaine</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.modele-module.html">Package&nbsp;modele</a> ::
+        <a href="src.modele.agenda-module.html">Package&nbsp;agenda</a> ::
+        <a href="src.modele.agenda.Semaine-module.html">Module&nbsp;Semaine</a> ::
+        Class&nbsp;Semaine
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.modele.agenda.Semaine.Semaine-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Semaine</h1><p class="nomargin-top"><span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+       object --+    
+                |    
+<a href="src.modele.agenda.Modifier.Modifier-class.html">Modifier.Modifier</a> --+
+                    |
+                   <strong class="uidshort">Semaine</strong>
+</pre>
+
+<hr />
+<p>La classe qui va d&#233;finir une Semaine. Il faut savoir qu'une semaine 
+  d'un mois peut tr&#232;s bien contenir moins de 7 jours. Par exemple, elle 
+  peut se finir un jeudi (passage au mois d'apr&#232;s, dont la premi&#232;re semaine
+  commence un vendredi)</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Laurent Bardoux p1108365
+      </p>
+      <p><strong>Version:</strong>
+        1.0
+      </p>
+</div><!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Semaine.Semaine-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">numero</span>,
+        <span class="summary-sig-arg">intervalle</span>)</span><br />
+      Le constructeur de cette classe.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Jour</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Semaine.Semaine-class.html#recupererJour" class="summary-sig-name">recupererJour</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">nomJour</span>)</span><br />
+      Cette fonction permet de r&#233;cup&#233;rer un <a 
+      href="src.modele.agenda.Jour-module.html" class="link">Jour</a> dans 
+      la Semaine, si il existe.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.recupererJour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="src.modele.agenda.Jour-module.html" class="link">Jour</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Semaine.Semaine-class.html#trouveJour" class="summary-sig-name">trouveJour</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">jour</span>)</span><br />
+      Permet de trouver le <a href="src.modele.agenda.Jour-module.html" 
+      class="link">Jour</a> dont le num&#233;ro est <i class="math">jour</i>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.trouveJour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="src.modele.agenda.Creneau-module.html" 
+      class="link">Creneau</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Semaine.Semaine-class.html#ajouterCreneau" class="summary-sig-name">ajouterCreneau</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">jour</span>,
+        <span class="summary-sig-arg">debut</span>,
+        <span class="summary-sig-arg">fin</span>,
+        <span class="summary-sig-arg">typeCreneau</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Etape 4 de la descente dans l'architecture.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.ajouterCreneau">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Semaine.Semaine-class.html#supprimerCreneau" class="summary-sig-name">supprimerCreneau</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">jour</span>,
+        <span class="summary-sig-arg">creneau</span>)</span><br />
+      Lance la suppression d'un <a 
+      href="src.modele.agenda.Creneau-module.html" class="link">Creneau</a>
+      si il existe.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.supprimerCreneau">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.modele.agenda.Semaine.Semaine-class.html#insererCreneau" class="summary-sig-name">insererCreneau</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">creneau</span>,
+        <span class="summary-sig-arg">jour</span>)</span><br />
+      Cette fonction permet d'ins&#233;rer un creneau dans le mois courant.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.insererCreneau">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="src.modele.agenda.Modifier.Modifier-class.html">Modifier.Modifier</a></code></b>:
+      <code><a href="src.modele.agenda.Modifier.Modifier-class.html#ajoutDeCreneau">ajoutDeCreneau</a></code>,
+      <code><a href="src.modele.agenda.Modifier.Modifier-class.html#retraitDeCreneau">retraitDeCreneau</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_jours"></a><span class="summary-name">_jours</span><br />
+      un conteneur de <a href="src.modele.agenda.Jour-module.html" 
+      class="link">Jour</a>, identifi&#233;s par leurs JOURS
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_listeNomJours"></a><span class="summary-name">_listeNomJours</span><br />
+      une liste des jours connus
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_numero"></a><span class="summary-name">_numero</span><br />
+      le num&#233;ro de cette semaine dans le mois courant
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="src.modele.agenda.Modifier.Modifier-class.html">Modifier.Modifier</a></code></b> (private):
+      <code><a href="src.modele.agenda.Modifier.Modifier-class.html#_nbCreneaux" onclick="show_private();">_nbCreneaux</a></code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="src.modele.agenda.Semaine.Semaine-class.html#numero" class="summary-name">numero</a><br />
+      L'accesseur pour le num&#233;ro de la semaine.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="src.modele.agenda.Semaine.Semaine-class.html#jours" class="summary-name">jours</a><br />
+      L'accesseur pour les jours que contient cette semaine.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="src.modele.agenda.Semaine.Semaine-class.html#listeNomJours" class="summary-name">listeNomJours</a><br />
+      Un accesseur pour conna&#238;tre les jours connus par cette Semaine, dans 
+      l'ordre officiel europ&#233;en, permettant d'it&#233;rer plus facilement.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="src.modele.agenda.Modifier.Modifier-class.html">Modifier.Modifier</a></code></b>:
+      <code><a href="src.modele.agenda.Modifier.Modifier-class.html#nbCreneaux">nbCreneaux</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">numero</span>,
+        <span class="sig-arg">intervalle</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Le constructeur de cette classe. ATTENTION, Il est vivement recommand&#233;
+  d'utiliser la fonction construireArgument pour cr&#233;er l'argument 
+  intervalle.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
+        <li><strong class="pname"><code>numero</code></strong> (int.) - Le num&#233;ro de la semaine dans le mois courant.</li>
+        <li><strong class="pname"><code>intervalle</code></strong> (dict) - Un dictionnaire contenant tout ce qu'il faut pour assembler 
+          correctement une Semaine.</li>
+    </ul></dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="recupererJour"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">recupererJour</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">nomJour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.recupererJour">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Cette fonction permet de r&#233;cup&#233;rer un <a 
+  href="src.modele.agenda.Jour-module.html" class="link">Jour</a> dans la 
+  Semaine, si il existe.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - l'argument implicite.</li>
+        <li><strong class="pname"><code>nomJour</code></strong> (str) - un nom de jour connu, appartenant &#224; JOURS_LEGAUX.</li>
+    </ul></dd>
+    <dt>Returns: Jour</dt>
+        <dd>le jour voulu, ou None si il n'est pas trouv&#233;.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="trouveJour"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">trouveJour</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">jour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.trouveJour">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Permet de trouver le <a href="src.modele.agenda.Jour-module.html" 
+  class="link">Jour</a> dont le num&#233;ro est <i class="math">jour</i>. Si 
+  rien n'est trouv&#233;, None est renvoy&#233;.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite.</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - le jour que l'on souhaite chercher.</li>
+    </ul></dd>
+    <dt>Returns: <a href="src.modele.agenda.Jour-module.html" class="link">Jour</a></dt>
+        <dd>Le <a href="src.modele.agenda.Jour-module.html" 
+          class="link">Jour</a> de la semaine demand&#233;.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ajouterCreneau"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ajouterCreneau</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">jour</span>,
+        <span class="sig-arg">debut</span>,
+        <span class="sig-arg">fin</span>,
+        <span class="sig-arg">typeCreneau</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.ajouterCreneau">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Etape 4 de la descente dans l'architecture. Ceci va 
+  &quot;ajouter&quot; un <a href="src.modele.agenda.Creneau-module.html" 
+  class="link">Creneau</a> dans le <i class="math">jour</i>, entre <i 
+  class="math">debut</i> et <i class="math">fin</i>.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour dans lequel ins&#233;rer ce cr&#233;neau.</li>
+        <li><strong class="pname"><code>debut</code></strong> (int [1, 48]) - l'heure de d&#233;but du cr&#233;neau</li>
+        <li><strong class="pname"><code>fin</code></strong> (int [1, 48]) - l'heure de fin du cr&#233;neau</li>
+        <li><strong class="pname"><code>typeCreneau</code></strong> (enum) - une valeur enum&#233;r&#233;e pour la fabrique de creneau</li>
+    </ul></dd>
+    <dt>Returns: <a href="src.modele.agenda.Creneau-module.html" 
+      class="link">Creneau</a></dt>
+        <dd>un Creneau valable.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Si un des arguments est erron&#233;.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Precondition:</strong>
+        debut &lt; fin, debut/fin doivent etre compris dans leurs 
+        intervalles respectifs
+      </p>
+</div></td></tr></table>
+</div>
+<a name="supprimerCreneau"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">supprimerCreneau</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">jour</span>,
+        <span class="sig-arg">creneau</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.supprimerCreneau">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Lance la suppression d'un <a 
+  href="src.modele.agenda.Creneau-module.html" class="link">Creneau</a> si 
+  il existe.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour o&#249; le cr&#233;neau se situe.</li>
+        <li><strong class="pname"><code>creneau</code></strong> (<a href="src.modele.agenda.Creneau-module.html" 
+          class="link">Creneau</a>) - le cr&#233;neau que l'on veut supprimer.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - En cas d'erreur sur les arguments.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="insererCreneau"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">insererCreneau</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">creneau</span>,
+        <span class="sig-arg">jour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.modele.agenda.Semaine-pysrc.html#Semaine.insererCreneau">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Cette fonction permet d'ins&#233;rer un creneau dans le mois courant.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>self</code></strong> - L'argument implicite</li>
+        <li><strong class="pname"><code>creneau</code></strong> (<a href="src.modele.agenda.Creneau-module.html" 
+          class="link">Creneau</a>) - Le cr&#233;neaux (ou une classe d&#233;riv&#233;e) que l'on veut ins&#233;rer.</li>
+        <li><strong class="pname"><code>jour</code></strong> (int) - le num&#233;ro du jour dans lequel ins&#233;rer ce cr&#233;neau.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Property Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-PropertyDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="numero"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">numero</h3>
+  <p>L'accesseur pour le num&#233;ro de la semaine.</p>
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><i>unreachable</i>.numero(<span class="summary-sig-arg">self</span>)</span>
+        - L'accesseur pour le num&#233;ro de la semaine.
+    </dd>
+    <dt>Set Method:</dt>
+    <dd class="value"><span class="summary-sig"><i>unreachable</i>.numero(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">nouveauNumero</span>)</span>
+        - Le mutateur associ&#233;, pour changer ce num&#233;ro.
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="jours"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">jours</h3>
+  <p>L'accesseur pour les jours que contient cette semaine.</p>
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><i>unreachable</i>.jours(<span class="summary-sig-arg">self</span>)</span>
+        - L'accesseur pour les jours que contient cette semaine.
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="listeNomJours"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">listeNomJours</h3>
+  <p>Un accesseur pour conna&#238;tre les jours connus par cette Semaine, dans 
+  l'ordre officiel europ&#233;en, permettant d'it&#233;rer plus facilement.</p>
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><i>unreachable</i>.listeNomJours(<span class="summary-sig-arg">self</span>)</span>
+        - Un accesseur pour conna&#238;tre les jours connus par cette Semaine, dans 
+l'ordre officiel europ&#233;en, permettant d'it&#233;rer plus facilement.
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Feb 25 17:02:57 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

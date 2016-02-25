@@ -159,7 +159,7 @@ class Creneau(Observable):
 	
 	@property
 	def dateExacte(self):
-		"""Renvoie la date exacte au format chaine"""
+		"""Renvoie la date exacte"""
 		return self._dateExacte
 	#dateExacte
 	
@@ -194,11 +194,10 @@ class Creneau(Observable):
 		"""
 		resultat = self._horaire.debutstr + " à " + self._horaire.finstr
 		if self._resume == "":
-			resultat = "il y a un créneau reservé entre " + resultat
+			return "il y a un créneau reservé entre " + resultat
 		else:
-			resultat = self._resume + " entre " + resultat
+			return self._resume + " entre " + resultat
 		#if
-		return resultat 
 	#versChaine
 	
 	
@@ -212,7 +211,8 @@ class Creneau(Observable):
 		@rtype: bool
 		@return: True si ils sont identiques, False sinon
 		"""
-		return self._typeCreneau == autre._typeCreneau
+		test1 = self._resume.lower() == autre._resume.lower()
+		return test1 and self._typeCreneau == autre._typeCreneau
 	#__eq__
 	
 #fin Creneau

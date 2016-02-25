@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.vue.arbreUe</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.vue-module.html">Package&nbsp;vue</a> ::
+        Module&nbsp;arbreUe
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.vue.arbreUe-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="src.vue.arbreUe-module.html">Module src.vue.arbreUe</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line">  </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">insert</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">realpath</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">"/../modele/formation/"</tt><tt class="py-op">)</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module src.modele.formation.Ue=src.modele.formation.Ue-module.html,Class src.modele.formation.Ue.Ue=src.modele.formation.Ue.Ue-class.html"><a title="src.modele.formation.Ue
+src.modele.formation.Ue.Ue" class="py-name" href="#" onclick="return doclink('link-0', 'Ue', 'link-0');">Ue</a></tt><tt class="py-op">,</tt> <tt id="link-1" class="py-name" targets="Module src.modele.formation.Seance=src.modele.formation.Seance-module.html,Class src.modele.formation.Seance.Seance=src.modele.formation.Seance.Seance-class.html"><a title="src.modele.formation.Seance
+src.modele.formation.Seance.Seance" class="py-name" href="#" onclick="return doclink('link-1', 'Seance', 'link-1');">Seance</a></tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Module src.modele.formation.Cm=src.modele.formation.Cm-module.html,Class src.modele.formation.Cm.Cm=src.modele.formation.Cm.Cm-class.html"><a title="src.modele.formation.Cm
+src.modele.formation.Cm.Cm" class="py-name" href="#" onclick="return doclink('link-2', 'Cm', 'link-2');">Cm</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Module src.modele.formation.Td=src.modele.formation.Td-module.html,Class src.modele.formation.Td.Td=src.modele.formation.Td.Td-class.html"><a title="src.modele.formation.Td
+src.modele.formation.Td.Td" class="py-name" href="#" onclick="return doclink('link-3', 'Td', 'link-3');">Td</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Module src.modele.formation.Tp=src.modele.formation.Tp-module.html,Class src.modele.formation.Tp.Tp=src.modele.formation.Tp.Tp-class.html"><a title="src.modele.formation.Tp
+src.modele.formation.Tp.Tp" class="py-name" href="#" onclick="return doclink('link-4', 'Tp', 'link-4');">Tp</a></tt><tt class="py-op">,</tt> <tt id="link-5" class="py-name" targets="Module src.modele.formation.Examen=src.modele.formation.Examen-module.html,Class src.modele.formation.Examen.Examen=src.modele.formation.Examen.Examen-class.html"><a title="src.modele.formation.Examen
+src.modele.formation.Examen.Examen" class="py-name" href="#" onclick="return doclink('link-5', 'Examen', 'link-5');">Examen</a></tt><tt class="py-op">,</tt> <tt id="link-6" class="py-name" targets="Module src.modele.formation.Autre=src.modele.formation.Autre-module.html,Class src.modele.formation.Autre.Autre=src.modele.formation.Autre.Autre-class.html"><a title="src.modele.formation.Autre
+src.modele.formation.Autre.Autre" class="py-name" href="#" onclick="return doclink('link-6', 'Autre', 'link-6');">Autre</a></tt>  </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">PyQt4</tt> <tt class="py-keyword">import</tt> <tt class="py-name">QtCore</tt><tt class="py-op">,</tt> <tt class="py-name">QtGui</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line">        <tt id="link-7" class="py-name" targets="Function src.vue.arbreUe._fromUtf8()=src.vue.arbreUe-module.html#_fromUtf8,Function src.vue.dialog._fromUtf8()=src.vue.dialog-module.html#_fromUtf8,Function src.vue.dialog2._fromUtf8()=src.vue.dialog2-module.html#_fromUtf8,Function src.vue.final._fromUtf8()=src.vue.final-module.html#_fromUtf8,Function src.vue.mainwindow._fromUtf8()=src.vue.mainwindow-module.html#_fromUtf8,Function src.vue.seanceVue._fromUtf8()=src.vue.seanceVue-module.html#_fromUtf8"><a title="src.vue.arbreUe._fromUtf8
+src.vue.dialog._fromUtf8
+src.vue.dialog2._fromUtf8
+src.vue.final._fromUtf8
+src.vue.mainwindow._fromUtf8
+src.vue.seanceVue._fromUtf8" class="py-name" href="#" onclick="return doclink('link-7', '_fromUtf8', 'link-7');">_fromUtf8</a></tt> <tt class="py-op">=</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QString</tt><tt class="py-op">.</tt><tt class="py-name">fromUtf8</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">:</tt> </tt>
+<a name="_fromUtf8"></a><div id="_fromUtf8-def"><a name="L12"></a><tt class="py-lineno"> 12</tt> <a class="py-toggle" href="#" id="_fromUtf8-toggle" onclick="return toggle('_fromUtf8');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.vue.arbreUe-module.html#_fromUtf8">_fromUtf8</a><tt class="py-op">(</tt><tt class="py-param">s</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_fromUtf8-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="_fromUtf8-expanded"><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">s</tt> </tt>
+</div><a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Variable src.vue.arbreUe._encoding=src.vue.arbreUe-module.html#_encoding,Variable src.vue.dialog._encoding=src.vue.dialog-module.html#_encoding,Variable src.vue.dialog2._encoding=src.vue.dialog2-module.html#_encoding,Variable src.vue.final._encoding=src.vue.final-module.html#_encoding,Variable src.vue.mainwindow._encoding=src.vue.mainwindow-module.html#_encoding,Variable src.vue.seanceVue._encoding=src.vue.seanceVue-module.html#_encoding"><a title="src.vue.arbreUe._encoding
+src.vue.dialog._encoding
+src.vue.dialog2._encoding
+src.vue.final._encoding
+src.vue.mainwindow._encoding
+src.vue.seanceVue._encoding" class="py-name" href="#" onclick="return doclink('link-8', '_encoding', 'link-8');">_encoding</a></tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QApplication</tt><tt class="py-op">.</tt><tt class="py-name">UnicodeUTF8</tt> </tt>
+<a name="_translate"></a><div id="_translate-def"><a name="L17"></a><tt class="py-lineno"> 17</tt> <a class="py-toggle" href="#" id="_translate-toggle" onclick="return toggle('_translate');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.vue.arbreUe-module.html#_translate">_translate</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">,</tt> <tt class="py-param">text</tt><tt class="py-op">,</tt> <tt class="py-param">disambig</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_translate-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="_translate-expanded"><a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QApplication</tt><tt class="py-op">.</tt><tt class="py-name">translate</tt><tt class="py-op">(</tt><tt class="py-name">context</tt><tt class="py-op">,</tt> <tt class="py-name">text</tt><tt class="py-op">,</tt> <tt class="py-name">disambig</tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name"><a title="src.vue.arbreUe._encoding
+src.vue.dialog._encoding
+src.vue.dialog2._encoding
+src.vue.final._encoding
+src.vue.mainwindow._encoding
+src.vue.seanceVue._encoding" class="py-name" href="#" onclick="return doclink('link-9', '_encoding', 'link-8');">_encoding</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">:</tt> </tt>
+<a name="_translate"></a><div id="_translate-def"><a name="L20"></a><tt class="py-lineno"> 20</tt> <a class="py-toggle" href="#" id="_translate-toggle" onclick="return toggle('_translate');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.vue.arbreUe-module.html#_translate">_translate</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">,</tt> <tt class="py-param">text</tt><tt class="py-op">,</tt> <tt class="py-param">disambig</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_translate-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="_translate-expanded"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QApplication</tt><tt class="py-op">.</tt><tt class="py-name">translate</tt><tt class="py-op">(</tt><tt class="py-name">context</tt><tt class="py-op">,</tt> <tt class="py-name">text</tt><tt class="py-op">,</tt> <tt class="py-name">disambig</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">                 </tt>
+<a name="arbreUe"></a><div id="arbreUe-def"><a name="L23"></a><tt class="py-lineno"> 23</tt> <a class="py-toggle" href="#" id="arbreUe-toggle" onclick="return toggle('arbreUe');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="src.vue.arbreUe.arbreUe-class.html">arbreUe</a><tt class="py-op">(</tt><tt class="py-base-class">QtGui</tt><tt class="py-op">.</tt><tt class="py-base-class">QTreeWidget</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="arbreUe-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="arbreUe-expanded"><a name="arbreUe.__init__"></a><div id="arbreUe.__init__-def"><a name="L24"></a><tt class="py-lineno"> 24</tt> <a class="py-toggle" href="#" id="arbreUe.__init__-toggle" onclick="return toggle('arbreUe.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.vue.arbreUe.arbreUe-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">superieur</tt><tt class="py-op">,</tt> <tt class="py-param">nom</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="arbreUe.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="arbreUe.__init__-expanded"><a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">                <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-10" class="py-name" targets="Module src.vue.arbreUe=src.vue.arbreUe-module.html,Class src.vue.arbreUe.arbreUe=src.vue.arbreUe.arbreUe-class.html"><a title="src.vue.arbreUe
+src.vue.arbreUe.arbreUe" class="py-name" href="#" onclick="return doclink('link-10', 'arbreUe', 'link-10');">arbreUe</a></tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method src.modele.agenda.Agenda.Agenda.__init__()=src.modele.agenda.Agenda.Agenda-class.html#__init__,Method src.modele.agenda.Annee.Annee.__init__()=src.modele.agenda.Annee.Annee-class.html#__init__,Method src.modele.agenda.Creneau.Creneau.__init__()=src.modele.agenda.Creneau.Creneau-class.html#__init__,Method src.modele.agenda.Dependance.Dependance.__init__()=src.modele.agenda.Dependance.Dependance-class.html#__init__,Method src.modele.agenda.FabriqueCreneau.FabriqueCreneau.__init__()=src.modele.agenda.FabriqueCreneau.FabriqueCreneau-class.html#__init__,Method src.modele.agenda.Horaire.Horaire.__init__()=src.modele.agenda.Horaire.Horaire-class.html#__init__,Method src.modele.agenda.Jour.Jour.__init__()=src.modele.agenda.Jour.Jour-class.html#__init__,Method src.modele.agenda.Modifier.Modifier.__init__()=src.modele.agenda.Modifier.Modifier-class.html#__init__,Method src.modele.agenda.Mois.Mois.__init__()=src.modele.agenda.Mois.Mois-class.html#__init__,Method src.modele.agenda.Semaine.Semaine.__init__()=src.modele.agenda.Semaine.Semaine-class.html#__init__,Method src.modele.agenda.diff.Diff.Diff.__init__()=src.modele.agenda.diff.Diff.Diff-class.html#__init__,Method src.modele.agenda.exportations.Exporteur.Exporteur.__init__()=src.modele.agenda.exportations.Exporteur.Exporteur-class.html#__init__,Method src.modele.agenda.exportations.ExporteurIcs.ExporteurIcs.__init__()=src.modele.agenda.exportations.ExporteurIcs.ExporteurIcs-class.html#__init__,Method src.modele.agenda.exportations.ExporteurTxt.ExporteurTxt.__init__()=src.modele.agenda.exportations.ExporteurTxt.ExporteurTxt-class.html#__init__,Method src.modele.agenda.exportations.FabriqueExporteur.FabriqueExporteur.__init__()=src.modele.agenda.exportations.FabriqueExporteur.FabriqueExporteur-class.html#__init__,Method src.modele.agenda.importations._veventIcs.VeventParser.__init__()=src.modele.agenda.importations._veventIcs.VeventParser-class.html#__init__,Method src.modele.contraintes.Blocage.Blocage.__init__()=src.modele.contraintes.Blocage.Blocage-class.html#__init__,Method src.modele.contraintes.Contrainte.Contrainte.__init__()=src.modele.contraintes.Contrainte.Contrainte-class.html#__init__,Method src.modele.contraintes.DateLimite.DateLimite.__init__()=src.modele.contraintes.DateLimite.DateLimite-class.html#__init__,Method src.modele.contraintes.FabriqueContrainte.FabriqueContrainte.__init__()=src.modele.contraintes.FabriqueContrainte.FabriqueContrainte-class.html#__init__,Method src.modele.contraintes.Obligation.Obligation.__init__()=src.modele.contraintes.Obligation.Obligation-class.html#__init__,Method src.modele.contraintes.Precedence.Precedence.__init__()=src.modele.contraintes.Precedence.Precedence-class.html#__init__,Method src.modele.formation.Autre.Autre.__init__()=src.modele.formation.Autre.Autre-class.html#__init__,Method src.modele.formation.Base.Base.__init__()=src.modele.formation.Base.Base-class.html#__init__,Method src.modele.formation.Cm.Cm.__init__()=src.modele.formation.Cm.Cm-class.html#__init__,Method src.modele.formation.Enseignant.Enseignant.__init__()=src.modele.formation.Enseignant.Enseignant-class.html#__init__,Method src.modele.formation.Examen.Examen.__init__()=src.modele.formation.Examen.Examen-class.html#__init__,Method src.modele.formation.Formation.Formation.__init__()=src.modele.formation.Formation.Formation-class.html#__init__,Method src.modele.formation.Groupe.Groupe.__init__()=src.modele.formation.Groupe.Groupe-class.html#__init__,Method src.modele.formation.Salle.Salle.__init__()=src.modele.formation.Salle.Salle-class.html#__init__,Method src.modele.formation.Seance.Seance.__init__()=src.modele.formation.Seance.Seance-class.html#__init__,Method src.modele.formation.Td.Td.__init__()=src.modele.formation.Td.Td-class.html#__init__,Method src.modele.formation.Tp.Tp.__init__()=src.modele.formation.Tp.Tp-class.html#__init__,Method src.modele.formation.Ue.Ue.__init__()=src.modele.formation.Ue.Ue-class.html#__init__,Method src.modele.formation.listeEnseignant.ListeEnseignant.__init__()=src.modele.formation.listeEnseignant.ListeEnseignant-class.html#__init__,Method src.modele.formation.listeFormation.ListeFormation.__init__()=src.modele.formation.listeFormation.ListeFormation-class.html#__init__,Method src.modele.formation.listeSalle.ListeSalle.__init__()=src.modele.formation.listeSalle.ListeSalle-class.html#__init__,Method src.modele.modele_API.ModeleAgenda.__init__()=src.modele.modele_API.ModeleAgenda-class.html#__init__,Method src.outils.Fabrique.Fabrique.__init__()=src.outils.Fabrique.Fabrique-class.html#__init__,Method src.outils.GenerateurId.GenerateurId.__init__()=src.outils.GenerateurId.GenerateurId-class.html#__init__,Method src.outils.observateur.Observable.Observable.__init__()=src.outils.observateur.Observable.Observable-class.html#__init__,Method src.outils.observateur.Observeur.Observeur.__init__()=src.outils.observateur.Observeur.Observeur-class.html#__init__,Method src.vue.arbreUe.arbreUe.__init__()=src.vue.arbreUe.arbreUe-class.html#__init__,Method src.vue.seanceVue.monFrame.__init__()=src.vue.seanceVue.monFrame-class.html#__init__"><a title="src.modele.agenda.Agenda.Agenda.__init__
+src.modele.agenda.Annee.Annee.__init__
+src.modele.agenda.Creneau.Creneau.__init__
+src.modele.agenda.Dependance.Dependance.__init__
+src.modele.agenda.FabriqueCreneau.FabriqueCreneau.__init__
+src.modele.agenda.Horaire.Horaire.__init__
+src.modele.agenda.Jour.Jour.__init__
+src.modele.agenda.Modifier.Modifier.__init__
+src.modele.agenda.Mois.Mois.__init__
+src.modele.agenda.Semaine.Semaine.__init__
+src.modele.agenda.diff.Diff.Diff.__init__
+src.modele.agenda.exportations.Exporteur.Exporteur.__init__
+src.modele.agenda.exportations.ExporteurIcs.ExporteurIcs.__init__
+src.modele.agenda.exportations.ExporteurTxt.ExporteurTxt.__init__
+src.modele.agenda.exportations.FabriqueExporteur.FabriqueExporteur.__init__
+src.modele.agenda.importations._veventIcs.VeventParser.__init__
+src.modele.contraintes.Blocage.Blocage.__init__
+src.modele.contraintes.Contrainte.Contrainte.__init__
+src.modele.contraintes.DateLimite.DateLimite.__init__
+src.modele.contraintes.FabriqueContrainte.FabriqueContrainte.__init__
+src.modele.contraintes.Obligation.Obligation.__init__
+src.modele.contraintes.Precedence.Precedence.__init__
+src.modele.formation.Autre.Autre.__init__
+src.modele.formation.Base.Base.__init__
+src.modele.formation.Cm.Cm.__init__
+src.modele.formation.Enseignant.Enseignant.__init__
+src.modele.formation.Examen.Examen.__init__
+src.modele.formation.Formation.Formation.__init__
+src.modele.formation.Groupe.Groupe.__init__
+src.modele.formation.Salle.Salle.__init__
+src.modele.formation.Seance.Seance.__init__
+src.modele.formation.Td.Td.__init__
+src.modele.formation.Tp.Tp.__init__
+src.modele.formation.Ue.Ue.__init__
+src.modele.formation.listeEnseignant.ListeEnseignant.__init__
+src.modele.formation.listeFormation.ListeFormation.__init__
+src.modele.formation.listeSalle.ListeSalle.__init__
+src.modele.modele_API.ModeleAgenda.__init__
+src.outils.Fabrique.Fabrique.__init__
+src.outils.GenerateurId.GenerateurId.__init__
+src.outils.observateur.Observable.Observable.__init__
+src.outils.observateur.Observeur.Observeur.__init__
+src.vue.arbreUe.arbreUe.__init__
+src.vue.seanceVue.monFrame.__init__" class="py-name" href="#" onclick="return doclink('link-11', '__init__', 'link-11');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">superieur</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_nom</tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name" targets="Variable src.modele.agenda.Agenda.Agenda.nom=src.modele.agenda.Agenda.Agenda-class.html#nom,Variable src.modele.agenda.Jour.Jour.nom=src.modele.agenda.Jour.Jour-class.html#nom,Variable src.modele.agenda.Mois.Mois.nom=src.modele.agenda.Mois.Mois-class.html#nom,Variable src.modele.formation.Enseignant.Enseignant.nom=src.modele.formation.Enseignant.Enseignant-class.html#nom,Variable src.modele.formation.Formation.Formation.nom=src.modele.formation.Formation.Formation-class.html#nom,Variable src.modele.formation.Salle.Salle.nom=src.modele.formation.Salle.Salle-class.html#nom,Variable src.modele.formation.Seance.Seance.nom=src.modele.formation.Seance.Seance-class.html#nom,Variable src.modele.formation.Ue.Ue.nom=src.modele.formation.Ue.Ue-class.html#nom"><a title="src.modele.agenda.Agenda.Agenda.nom
+src.modele.agenda.Jour.Jour.nom
+src.modele.agenda.Mois.Mois.nom
+src.modele.formation.Enseignant.Enseignant.nom
+src.modele.formation.Formation.Formation.nom
+src.modele.formation.Salle.Salle.nom
+src.modele.formation.Seance.Seance.nom
+src.modele.formation.Ue.Ue.nom" class="py-name" href="#" onclick="return doclink('link-12', 'nom', 'link-12');">nom</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setGeometry</tt><tt class="py-op">(</tt><tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QRect</tt><tt class="py-op">(</tt><tt class="py-number">10</tt><tt class="py-op">,</tt> <tt class="py-number">50</tt><tt class="py-op">,</tt> <tt class="py-number">291</tt><tt class="py-op">,</tt> <tt class="py-number">641</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setLayoutDirection</tt><tt class="py-op">(</tt><tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">LeftToRight</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setFrameShape</tt><tt class="py-op">(</tt><tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QFrame</tt><tt class="py-op">.</tt><tt class="py-name">StyledPanel</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setVerticalScrollBarPolicy</tt><tt class="py-op">(</tt><tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">ScrollBarAlwaysOn</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setSelectionBehavior</tt><tt class="py-op">(</tt><tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QAbstractItemView</tt><tt class="py-op">.</tt><tt class="py-name">SelectItems</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setTextElideMode</tt><tt class="py-op">(</tt><tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">ElideMiddle</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setObjectName</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="src.vue.arbreUe._fromUtf8
+src.vue.dialog._fromUtf8
+src.vue.dialog2._fromUtf8
+src.vue.final._fromUtf8
+src.vue.mainwindow._fromUtf8
+src.vue.seanceVue._fromUtf8" class="py-name" href="#" onclick="return doclink('link-13', '_fromUtf8', 'link-7');">_fromUtf8</a></tt><tt class="py-op">(</tt><tt id="link-14" class="py-name"><a title="src.modele.agenda.Agenda.Agenda.nom
+src.modele.agenda.Jour.Jour.nom
+src.modele.agenda.Mois.Mois.nom
+src.modele.formation.Enseignant.Enseignant.nom
+src.modele.formation.Formation.Formation.nom
+src.modele.formation.Salle.Salle.nom
+src.modele.formation.Seance.Seance.nom
+src.modele.formation.Ue.Ue.nom" class="py-name" href="#" onclick="return doclink('link-14', 'nom', 'link-12');">nom</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_pile</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">,</tt><tt class="py-number">2</tt><tt class="py-op">,</tt><tt class="py-number">3</tt><tt class="py-op">,</tt><tt class="py-number">4</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-comment">#fin __init__</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">         </tt>
+<a name="arbreUe.premiereConfiguration"></a><div id="arbreUe.premiereConfiguration-def"><a name="L37"></a><tt class="py-lineno"> 37</tt> <a class="py-toggle" href="#" id="arbreUe.premiereConfiguration-toggle" onclick="return toggle('arbreUe.premiereConfiguration');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.vue.arbreUe.arbreUe-class.html#premiereConfiguration">premiereConfiguration</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">listeUe</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="arbreUe.premiereConfiguration-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="arbreUe.premiereConfiguration-expanded"><a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt id="link-15" class="py-name" targets="Variable src.modele.formation.Formation.Formation.listeUe=src.modele.formation.Formation.Formation-class.html#listeUe"><a title="src.modele.formation.Formation.Formation.listeUe" class="py-name" href="#" onclick="return doclink('link-15', 'listeUe', 'link-15');">listeUe</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">                        <tt class="py-name">item_0</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTreeWidgetItem</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">                         </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Variable src.modele.formation.Ue.Ue.nombreCm=src.modele.formation.Ue.Ue-class.html#nombreCm"><a title="src.modele.formation.Ue.Ue.nombreCm" class="py-name" href="#" onclick="return doclink('link-16', 'nombreCm', 'link-16');">nombreCm</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">                                <tt class="py-name">item_1</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTreeWidgetItem</tt><tt class="py-op">(</tt><tt class="py-name">item_0</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Variable src.modele.formation.Ue.Ue.listeCm=src.modele.formation.Ue.Ue-class.html#listeCm"><a title="src.modele.formation.Ue.Ue.listeCm" class="py-name" href="#" onclick="return doclink('link-17', 'listeCm', 'link-17');">listeCm</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">                                        <tt class="py-name">item_2</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTreeWidgetItem</tt><tt class="py-op">(</tt><tt class="py-name">item_1</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">                                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_cm</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_pile</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">                        <tt class="py-comment">#fin if</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                         </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Variable src.modele.formation.Ue.Ue.nombreTd=src.modele.formation.Ue.Ue-class.html#nombreTd"><a title="src.modele.formation.Ue.Ue.nombreTd" class="py-name" href="#" onclick="return doclink('link-18', 'nombreTd', 'link-18');">nombreTd</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                                <tt class="py-name">item_1</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTreeWidgetItem</tt><tt class="py-op">(</tt><tt class="py-name">item_0</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Variable src.modele.formation.Ue.Ue.listeTd=src.modele.formation.Ue.Ue-class.html#listeTd"><a title="src.modele.formation.Ue.Ue.listeTd" class="py-name" href="#" onclick="return doclink('link-19', 'listeTd', 'link-19');">listeTd</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                                        <tt class="py-name">item_2</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTreeWidgetItem</tt><tt class="py-op">(</tt><tt class="py-name">item_1</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_td</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_pile</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                        <tt class="py-comment">#fin if</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                         </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Variable src.modele.formation.Ue.Ue.nombreTp=src.modele.formation.Ue.Ue-class.html#nombreTp"><a title="src.modele.formation.Ue.Ue.nombreTp" class="py-name" href="#" onclick="return doclink('link-20', 'nombreTp', 'link-20');">nombreTp</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                                <tt class="py-name">item_1</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTreeWidgetItem</tt><tt class="py-op">(</tt><tt class="py-name">item_0</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Variable src.modele.formation.Ue.Ue.listeTp=src.modele.formation.Ue.Ue-class.html#listeTp"><a title="src.modele.formation.Ue.Ue.listeTp" class="py-name" href="#" onclick="return doclink('link-21', 'listeTp', 'link-21');">listeTp</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                                        <tt class="py-name">item_2</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTreeWidgetItem</tt><tt class="py-op">(</tt><tt class="py-name">item_1</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_tp</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_pile</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                        <tt class="py-comment">#fin if</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                         </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Variable src.modele.formation.Ue.Ue.nombreExamen=src.modele.formation.Ue.Ue-class.html#nombreExamen"><a title="src.modele.formation.Ue.Ue.nombreExamen" class="py-name" href="#" onclick="return doclink('link-22', 'nombreExamen', 'link-22');">nombreExamen</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                                <tt class="py-name">item_1</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTreeWidgetItem</tt><tt class="py-op">(</tt><tt class="py-name">item_0</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Variable src.modele.formation.Ue.Ue.listeExamen=src.modele.formation.Ue.Ue-class.html#listeExamen"><a title="src.modele.formation.Ue.Ue.listeExamen" class="py-name" href="#" onclick="return doclink('link-23', 'listeExamen', 'link-23');">listeExamen</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                                        <tt class="py-name">item_2</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTreeWidgetItem</tt><tt class="py-op">(</tt><tt class="py-name">item_1</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_examen</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_pile</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                        <tt class="py-comment">#fin if</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                         </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Variable src.modele.formation.Ue.Ue.nombreAutre=src.modele.formation.Ue.Ue-class.html#nombreAutre"><a title="src.modele.formation.Ue.Ue.nombreAutre" class="py-name" href="#" onclick="return doclink('link-24', 'nombreAutre', 'link-24');">nombreAutre</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                                <tt class="py-name">item_1</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTreeWidgetItem</tt><tt class="py-op">(</tt><tt class="py-name">item_0</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Variable src.modele.formation.Ue.Ue.listeAutre=src.modele.formation.Ue.Ue-class.html#listeAutre"><a title="src.modele.formation.Ue.Ue.listeAutre" class="py-name" href="#" onclick="return doclink('link-25', 'listeAutre', 'link-25');">listeAutre</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                                        <tt class="py-name">item_2</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTreeWidgetItem</tt><tt class="py-op">(</tt><tt class="py-name">item_1</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_autre</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_pile</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                        <tt class="py-comment">#fin if</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                         </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">raise_</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-comment">#fin premiereConfiguration</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">         </tt>
+<a name="arbreUe.secondeConfiguration"></a><div id="arbreUe.secondeConfiguration-def"><a name="L85"></a><tt class="py-lineno"> 85</tt> <a class="py-toggle" href="#" id="arbreUe.secondeConfiguration-toggle" onclick="return toggle('arbreUe.secondeConfiguration');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.vue.arbreUe.arbreUe-class.html#secondeConfiguration">secondeConfiguration</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">listeUe</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="arbreUe.secondeConfiguration-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="arbreUe.secondeConfiguration-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">headerItem</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-string">"Liste des UEs"</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                <tt class="py-name">__sortingEnabled</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">isSortingEnabled</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setSortingEnabled</tt><tt class="py-op">(</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                <tt class="py-name">compteur</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt id="link-26" class="py-name"><a title="src.modele.formation.Formation.Formation.listeUe" class="py-name" href="#" onclick="return doclink('link-26', 'listeUe', 'link-15');">listeUe</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">topLevelItem</tt><tt class="py-op">(</tt><tt class="py-name">compteur</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt id="link-27" class="py-name"><a title="src.vue.arbreUe._fromUtf8
+src.vue.dialog._fromUtf8
+src.vue.dialog2._fromUtf8
+src.vue.final._fromUtf8
+src.vue.mainwindow._fromUtf8
+src.vue.seanceVue._fromUtf8" class="py-name" href="#" onclick="return doclink('link-27', '_fromUtf8', 'link-7');">_fromUtf8</a></tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Variable src.modele.formation.Ue.Ue.code=src.modele.formation.Ue.Ue-class.html#code"><a title="src.modele.formation.Ue.Ue.code" class="py-name" href="#" onclick="return doclink('link-28', 'code', 'link-28');">code</a></tt> <tt class="py-op">+</tt><tt class="py-string">" "</tt><tt class="py-op">+</tt><tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="src.modele.agenda.Agenda.Agenda.nom
+src.modele.agenda.Jour.Jour.nom
+src.modele.agenda.Mois.Mois.nom
+src.modele.formation.Enseignant.Enseignant.nom
+src.modele.formation.Formation.Formation.nom
+src.modele.formation.Salle.Salle.nom
+src.modele.formation.Seance.Seance.nom
+src.modele.formation.Ue.Ue.nom" class="py-name" href="#" onclick="return doclink('link-29', 'nom', 'link-12');">nom</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">                         </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="src.modele.formation.Ue.Ue.nombreCm" class="py-name" href="#" onclick="return doclink('link-30', 'nombreCm', 'link-16');">nombreCm</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">topLevelItem</tt><tt class="py-op">(</tt><tt class="py-name">compteur</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_cm</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-string">"CMs"</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                                <tt class="py-name">compteur2</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="src.modele.formation.Ue.Ue.listeCm" class="py-name" href="#" onclick="return doclink('link-31', 'listeCm', 'link-17');">listeCm</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">topLevelItem</tt><tt class="py-op">(</tt><tt class="py-name">compteur</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_cm</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">compteur2</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt id="link-32" class="py-name"><a title="src.vue.arbreUe._fromUtf8
+src.vue.dialog._fromUtf8
+src.vue.dialog2._fromUtf8
+src.vue.final._fromUtf8
+src.vue.mainwindow._fromUtf8
+src.vue.seanceVue._fromUtf8" class="py-name" href="#" onclick="return doclink('link-32', '_fromUtf8', 'link-7');">_fromUtf8</a></tt><tt class="py-op">(</tt><tt class="py-string">"CM"</tt><tt class="py-op">+</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">compteur2</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                                        <tt class="py-name">compteur2</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                        <tt class="py-comment">#fin if</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                         </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="src.modele.formation.Ue.Ue.nombreTd" class="py-name" href="#" onclick="return doclink('link-33', 'nombreTd', 'link-18');">nombreTd</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">topLevelItem</tt><tt class="py-op">(</tt><tt class="py-name">compteur</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_td</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-string">"TDs"</tt><tt class="py-op">)</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                                <tt class="py-name">compteur2</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="src.modele.formation.Ue.Ue.listeTd" class="py-name" href="#" onclick="return doclink('link-34', 'listeTd', 'link-19');">listeTd</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">topLevelItem</tt><tt class="py-op">(</tt><tt class="py-name">compteur</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_td</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">compteur2</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt id="link-35" class="py-name"><a title="src.vue.arbreUe._fromUtf8
+src.vue.dialog._fromUtf8
+src.vue.dialog2._fromUtf8
+src.vue.final._fromUtf8
+src.vue.mainwindow._fromUtf8
+src.vue.seanceVue._fromUtf8" class="py-name" href="#" onclick="return doclink('link-35', '_fromUtf8', 'link-7');">_fromUtf8</a></tt><tt class="py-op">(</tt><tt class="py-string">"TD"</tt><tt class="py-op">+</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">compteur2</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                                        <tt class="py-name">compteur2</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                        <tt class="py-comment">#fin if</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                         </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="src.modele.formation.Ue.Ue.nombreTp" class="py-name" href="#" onclick="return doclink('link-36', 'nombreTp', 'link-20');">nombreTp</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">topLevelItem</tt><tt class="py-op">(</tt><tt class="py-name">compteur</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_tp</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-string">"TPs"</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                                <tt class="py-name">compteur2</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="src.modele.formation.Ue.Ue.listeTp" class="py-name" href="#" onclick="return doclink('link-37', 'listeTp', 'link-21');">listeTp</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">topLevelItem</tt><tt class="py-op">(</tt><tt class="py-name">compteur</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_tp</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">compteur2</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt id="link-38" class="py-name"><a title="src.vue.arbreUe._fromUtf8
+src.vue.dialog._fromUtf8
+src.vue.dialog2._fromUtf8
+src.vue.final._fromUtf8
+src.vue.mainwindow._fromUtf8
+src.vue.seanceVue._fromUtf8" class="py-name" href="#" onclick="return doclink('link-38', '_fromUtf8', 'link-7');">_fromUtf8</a></tt><tt class="py-op">(</tt><tt class="py-string">"TP"</tt><tt class="py-op">+</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">compteur2</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">                                        <tt class="py-name">compteur2</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">                                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">                        <tt class="py-comment">#fin if</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                         </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="src.modele.formation.Ue.Ue.nombreExamen" class="py-name" href="#" onclick="return doclink('link-39', 'nombreExamen', 'link-22');">nombreExamen</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">topLevelItem</tt><tt class="py-op">(</tt><tt class="py-name">compteur</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_examen</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-string">"Examens"</tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                                <tt class="py-name">compteur2</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="src.modele.formation.Ue.Ue.listeExamen" class="py-name" href="#" onclick="return doclink('link-40', 'listeExamen', 'link-23');">listeExamen</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">                                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">topLevelItem</tt><tt class="py-op">(</tt><tt class="py-name">compteur</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_examen</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">compteur2</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt id="link-41" class="py-name"><a title="src.vue.arbreUe._fromUtf8
+src.vue.dialog._fromUtf8
+src.vue.dialog2._fromUtf8
+src.vue.final._fromUtf8
+src.vue.mainwindow._fromUtf8
+src.vue.seanceVue._fromUtf8" class="py-name" href="#" onclick="return doclink('link-41', '_fromUtf8', 'link-7');">_fromUtf8</a></tt><tt class="py-op">(</tt><tt class="py-string">"Examen"</tt><tt class="py-op">+</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">compteur2</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                                        <tt class="py-name">compteur2</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">                                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">                        <tt class="py-comment">#fin if</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">                         </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="src.modele.formation.Ue.Ue.nombreAutre" class="py-name" href="#" onclick="return doclink('link-42', 'nombreAutre', 'link-24');">nombreAutre</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">topLevelItem</tt><tt class="py-op">(</tt><tt class="py-name">compteur</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_autre</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-string">"Autres"</tt><tt class="py-op">)</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">                                <tt class="py-name">compteur2</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">i</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="src.modele.formation.Ue.Ue.listeAutre" class="py-name" href="#" onclick="return doclink('link-43', 'listeAutre', 'link-25');">listeAutre</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">                                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">topLevelItem</tt><tt class="py-op">(</tt><tt class="py-name">compteur</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_autre</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-name">compteur2</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt id="link-44" class="py-name"><a title="src.vue.arbreUe._fromUtf8
+src.vue.dialog._fromUtf8
+src.vue.dialog2._fromUtf8
+src.vue.final._fromUtf8
+src.vue.mainwindow._fromUtf8
+src.vue.seanceVue._fromUtf8" class="py-name" href="#" onclick="return doclink('link-44', '_fromUtf8', 'link-7');">_fromUtf8</a></tt><tt class="py-op">(</tt><tt class="py-string">"Autre"</tt><tt class="py-op">+</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">compteur2</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">                                        <tt class="py-name">compteur2</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">                                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">                        <tt class="py-comment">#fin if</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">                         </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">                        <tt class="py-name">compteur</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">                <tt class="py-comment">#fin for</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setSortingEnabled</tt><tt class="py-op">(</tt><tt class="py-name">__sortingEnabled</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-comment">#fin secondeConfiguration       </tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-comment">#fin arbreUe</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Feb 25 17:02:58 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

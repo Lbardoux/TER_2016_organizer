@@ -432,7 +432,7 @@ class Agenda(Observable, Observeur):
 		La fonction qui va permettre d'échanger 2 créneaux.
 		Pour l'instant, elle ne s'occupe pas des problèmes d'Horaire.
 		@todo: gérer les echanges d'horaires
-		@preconditon: les 2 créneaux doivent exister dans l'agenda courant.
+		@precondition: les 2 créneaux doivent exister dans l'agenda courant.
 		@param self: L'argument implicite
 		@type creneau1: L{Creneau} ou une classe dérivée
 		@param creneau1: le premier creneau a échanger

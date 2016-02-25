@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.modele.modele_API</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.modele-module.html">Package&nbsp;modele</a> ::
+        Module&nbsp;modele_API
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.modele.modele_API-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module modele_API</h1><p class="nomargin-top"><span class="codelink"><a href="src.modele.modele_API-pysrc.html">source&nbsp;code</a></span></p>
+<p>Ce module contient la classe qui sert de partie frontale pour le 
+  mod&#232;le.</p>
+  <p>Elle aura pour principale tache le chargement/d&#233;chargement de 
+  fichiers, et les fonctionnalit&#233;s imposant le recours &#224; plusieurs Agenda 
+  diff&#233;rents (Comme le diff, etc).</p>
+  <h1 class="heading">Utilisation</h1>
+    <p>Il suffit juste d'instancier un objet de type ModeleAgenda.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>monModele = ModeleAgenda()
+<span class="py-output"># On peut donc utiliser monModele ensuite</span></pre>
+  <h1 class="heading">Fonctions publiques</h1>
+    <ol start="1">
+      <li>
+        <a 
+        href="src.modele.modele_API.ModeleAgenda-class.html#chargerAgenda" 
+        class="link">ModeleAgenda.chargerAgenda</a>(self, nomFichier)
+        <p><b>Description</b>:</p>
+        <p>Cette fonction permet de charger un agenda &#224; partir d'un fichier
+        .ics</p>
+        <p><b>Usage</b></p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>monModele.chargerAgenda(<span class="py-string">&quot;monFichier.ics&quot;</span>)
+<span class="py-output">&lt;Agenda 0x********&gt;</span></pre>
+      </li>
+      <li>
+        <a 
+        href="src.modele.modele_API.ModeleAgenda-class.html#dechargerAgenda"
+        class="link">ModeleAgenda.dechargerAgenda</a>(self, agenda)
+        <p><b>Description</b>:</p>
+        <p>Cette fonction permet de d&#233;charger un agenda &#224; partir de son 
+        nom</p>
+        <p><b>Usage</b></p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>monModele.dechargerAgenda(monAgenda.nom)
+<span class="py-output"># Suppression en m&#233;moire de cet Agenda si il est charg&#233;.</span></pre>
+      </li>
+      <li>
+        <a 
+        href="src.modele.modele_API.ModeleAgenda-class.html#ajouterDependanceA"
+        class="link">ModeleAgenda.ajouterDependanceA</a>(self, agenda, 
+        nomFichier)
+        <p><b>Description</b>:</p>
+        <p>Cette fonction permet d'ajouter une d&#233;pendance &#224; <i>agenda</i> 
+        en chargeant un nouvel agenda depuis <i>nomFichier</i>.</p>
+        <p><b>Usage</b></p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>monModele.ajouterDependanceA(monAgenda, <span class="py-string">&quot;monAgendaDependance.ics&quot;</span>)
+<span class="py-output"># monAgenda poss&#232;de d&#233;sormais monAgendaDependance comme ... d&#233;pendance.</span></pre>
+      </li>
+      <li>
+        <a 
+        href="src.modele.modele_API.ModeleAgenda-class.html#enleverDependanceDe"
+        class="link">ModeleAgenda.enleverDependanceDe</a>(self, agenda, 
+        nomDependance)
+        <p><b>Description</b>:</p>
+        <p>Cette fonction permet d'enlever une d&#233;pendance &#224; <i>agenda</i> 
+        en se basant sur le nom de la d&#233;pendance <i>nomDependance</i>.</p>
+        <p><b>Usage</b></p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>monModele.enleverDependanceDe(monAgenda, <span class="py-string">&quot;monAgendaDependance.ics&quot;</span>)
+<span class="py-output"># Si elle existe, cette d&#233;pendance (et toutes les d&#233;pendances li&#233;es) seront supprim&#233;s.</span></pre>
+      </li>
+      <li>
+        <a 
+        href="src.modele.modele_API.ModeleAgenda-class.html#sauvegarderAgenda"
+        class="link">ModeleAgenda.sauvegarderAgenda</a>(self, agenda, 
+        nomDeSauvegarde=None)
+        <p><b>Description</b>:</p>
+        <p>Cette fonction permet de sauvegarder un agenda. Si aucun nom 
+        n'est fourni, cela &#233;quivaut &#224; sauvegarder avec le nom de l'agenda. 
+        Si <i>nomDeSauvegarde</i> est donn&#233;, cela &#233;quivaut &#224; un enregistrer
+        sous.</p>
+        <p><b>Usage</b></p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>monModele.sauvegarderAgenda(monAgenda)
+<span class="py-output"># monAgenda est sauvegarder avec comme nom I{monAgenda.nom}</span></pre>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>monModele.sauvegarderAgenda(monAgenda, <span class="py-string">&quot;nouveauNom.ics&quot;</span>)
+<span class="py-output"># monAgenda est sauvegarder avec comme nom nouveauNom.ics</span></pre>
+      </li>
+      <li>
+        <a href="src.modele.modele_API.ModeleAgenda-class.html#faireDiff" 
+        class="link">ModeleAgenda.faireDiff</a>(self, agenda1, agenda2)
+        <p><b>Description</b>:</p>
+        <p>Cette fonction lance la recherche de diff&#233;rence entre 
+        <i>agenda1</i> et <i>agenda2</i>. <b>cf :</b> Diff</p>
+        <p><b>Usage</b></p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>monDiff = monModele.faireDiff(monAgenda1, monAgenda2)
+<span class="py-prompt">&gt;&gt;&gt; </span>monDiff
+<span class="py-output">&lt;Diff 0x*******&gt;</span></pre>
+      </li>
+      <li>
+        <a 
+        href="src.modele.modele_API.ModeleAgenda-class.html#avoirAgendaParNomComplet"
+        class="link">ModeleAgenda.avoirAgendaParNomComplet</a>(self, nom)
+        <p><b>Description</b>:</p>
+        <p>Cette fonction permet de r&#233;cup&#233;rer un agenda via son nom.</p>
+        <p><b>Usage</b></p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>monModele.avoirAgendaParNomComplet(<span class="py-string">&quot;monFichier.ics&quot;</span>)
+<span class="py-output">&lt;Agenda 0x00000000&gt;</span></pre>
+      </li>
+      <li>
+        <a 
+        href="src.modele.modele_API.ModeleAgenda-class.html#exporterAuFormatTxt"
+        class="link">ModeleAgenda.exporterAuFormatTxt</a>(self, agenda, 
+        nomExport)
+        <p><b>Description</b>:</p>
+        <p>Cette fonction permet d'exporter un agenda au format texte</p>
+        <p><b>Usage</b></p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>monModele.exporterAuFormatTxt(<span class="py-string">&quot;monFichier.txt&quot;</span>)
+<span class="py-output"># Voici le nouveau fichier nomm&#233; monFichier.txt</span></pre>
+      </li>
+    </ol>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="src.modele.modele_API.ModeleAgenda-class.html" class="summary-name">ModeleAgenda</a><br />
+      La classe qui permet de manipuler les Agendas et toutes les 
+        fonctionnalit&#233;s li&#233;es.
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'src.modele'"><code class="variable-quote">'</code><code class="variable-string">src.modele</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Feb 25 17:02:57 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

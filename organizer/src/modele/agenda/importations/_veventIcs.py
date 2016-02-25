@@ -136,6 +136,7 @@ class VeventParser:
 		Crée le creneau et le rempli correctement.
 		@param self: L'argument implicite.
 		@raise ValueError: en cas d'une insertion qui échoue.
+		@todo: corriger cette redondance ici, temporaire.
 		"""
 		creneau = self.agenda.ajouterCreneau(self.annee, self.mois, self.jour, self.debut, self.fin)
 		if self.uid is not None:
@@ -145,6 +146,8 @@ class VeventParser:
 			self.summary = self.summary.decode("utf-8")
 		#if
 		creneau.resume = self.summary
+		#redondance temporaire, à corriger
+		creneau.ajouterInformation("SUMMARY", self.summary)
 		for clef in self.informations.keys():
 			creneau.ajouterInformation(clef, self.informations[clef])
 		#for
