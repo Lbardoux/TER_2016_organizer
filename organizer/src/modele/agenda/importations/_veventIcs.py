@@ -77,10 +77,24 @@ def _uid(obj, attribut):
 	obj.uid = obj.composant.decoded(str(attribut[0]))
 #_uid
 
+
+def _summary(obj, attribut):
+	"""
+	Parse un attribut de type SUMMARY.
+	@type obj : VeventParser
+	@param obj: l'objet conteneur, dont on va devoir modifier les champs
+	@type attribut: ...
+	@param attribut: l'attribut lu, pour pouvoir extraire sa valeur.
+	"""
+	obj.summary = obj.composant.decoded(str(attribut[0]))
+#_summary
+
+
 _attribut_vevent = {
 	"DTSTART" : _dtstart,
 	"DTEND" : _dtend,
-	"UID" : _uid
+	"UID" : _uid,
+	"SUMMARY" : _summary
 }
 
 class VeventParser:
@@ -96,6 +110,7 @@ class VeventParser:
 	@ivar agenda: l'agenda cible
 	@ivar composant: le composant à parser.
 	@ivar informations: un dictionnaire contenant les informations non mappées
+	@ivar summary: le résumé du Vevent
 	@author: Laurent Bardoux p1108365
 	@version: 1.0
 	"""
@@ -126,6 +141,10 @@ class VeventParser:
 		if self.uid is not None:
 			creneau.identifiant = self.uid
 		#if
+		if type(self.summary) is not str:
+			self.summary = self.summary.decode("utf-8")
+		#if
+		creneau.resume = self.summary
 		for clef in self.informations.keys():
 			creneau.ajouterInformation(clef, self.informations[clef])
 		#for
@@ -150,6 +169,7 @@ class VeventParser:
 		self.agenda = agenda
 		self.composant = composant
 		self.informations = dict()
+		self.summary = ""
 	#__init__
 #VeventParser
 

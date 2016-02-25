@@ -40,22 +40,24 @@ class Ui_MainWindow(object):
         self.fleche1.setMinimumSize(QtCore.QSize(30, 30))
         self.fleche1.setMaximumSize(QtCore.QSize(30, 30))
         self.fleche1.setStyleSheet(_fromUtf8("#fleche1{\n"
-"background-color: grey;\n"
-"font: 75 16pt \"Waree\";\n"
-"color: white;\n"
-"}\n"
-""))
+			"background-color: grey;\n"
+			"font: 75 16pt \"Waree\";\n"
+			"color: white;\n"
+			"}\n"
+			""
+		))
         self.fleche1.setObjectName(_fromUtf8("fleche1"))
         self.horizontalLayout_2.addWidget(self.fleche1)
         self.fleche2 = QtGui.QToolButton(self.horizontalLayoutWidget)
         self.fleche2.setMinimumSize(QtCore.QSize(30, 30))
         self.fleche2.setMaximumSize(QtCore.QSize(30, 30))
         self.fleche2.setStyleSheet(_fromUtf8("#fleche2{\n"
-"background-color: grey;\n"
-"font: 75 16pt \"Waree\";\n"
-"color: white;\n"
-"}\n"
-""))
+			"background-color: grey;\n"
+			"font: 75 16pt \"Waree\";\n"
+			"color: white;\n"
+			"}\n"
+			""
+		))
         self.fleche2.setObjectName(_fromUtf8("fleche2"))
         self.horizontalLayout_2.addWidget(self.fleche2)
         self.buttonCalendrier = QtGui.QPushButton(self.centralwidget)
@@ -64,17 +66,18 @@ class Ui_MainWindow(object):
         self.jours = QtGui.QFrame(self.centralwidget)
         self.jours.setGeometry(QtCore.QRect(10, 40, 1001, 680))
         self.jours.setStyleSheet(_fromUtf8("#jours>.QFrame{\n"
-"        border-style: outset;\n"
-"        border-width: 2px;\n"
-"    border-color: black;\n"
-"    background-color: white;\n"
-"}\n"
-"#jours>.QFrame>.QLabel{\n"
-"    qproperty-alignment: AlignCenter;\n"
-"    font: 75 11pt \"Waree\";\n"
-"    background-color: black;\n"
-"    color:white;\n"
-"}"))
+			"        border-style: outset;\n"
+			"        border-width: 2px;\n"
+			"    border-color: black;\n"
+			"    background-color: white;\n"
+			"}\n"
+			"#jours>.QFrame>.QLabel{\n"
+			"    qproperty-alignment: AlignCenter;\n"
+			"    font: 75 11pt \"Waree\";\n"
+			"    background-color: black;\n"
+			"    color:white;\n"
+			"}"
+		))
         self.jours.setObjectName(_fromUtf8("jours"))
         self.horizontalLayout = QtGui.QHBoxLayout(self.jours)
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
@@ -156,16 +159,22 @@ class Ui_MainWindow(object):
         self.dateEdit.raise_()
         self.buttonCalendrier.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 25))
-        self.menubar.setObjectName(_fromUtf8("menubar"))
-        self.menuKlklk = QtGui.QMenu(self.menubar)
-        self.menuKlklk.setObjectName(_fromUtf8("menuKlklk"))
-        self.menuHklhlhkl = QtGui.QMenu(self.menubar)
-        self.menuHklhlhkl.setObjectName(_fromUtf8("menuHklhlhkl"))
-        self.menuGjhg = QtGui.QMenu(self.menubar)
-        self.menuGjhg.setObjectName(_fromUtf8("menuGjhg"))
-        MainWindow.setMenuBar(self.menubar)
+
+        MainWindow.menuBar().show()
+        #self.menubar = QtGui.QMenuBar(MainWindow)
+        #self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 25))
+        ##self.menuCoucou = QtGui.QMenu(self.menubar)
+        #self.menuCoucou = self.menubar.addMenu("&Fichier")
+        #self.menuCoucou.setObjectName(_fromUtf8("&Fichier"))
+        #self.menubar.setObjectName(_fromUtf8("menubar"))
+        #self.menuKlklk = QtGui.QMenu(self.menubar)
+        #self.menuKlklk.setObjectName(_fromUtf8("menuKlklk"))
+        #self.menuHklhlhkl = QtGui.QMenu(self.menubar)
+        #self.menuHklhlhkl.setObjectName(_fromUtf8("menuHklhlhkl"))
+        #self.menuGjhg = QtGui.QMenu(self.menubar)
+        #self.menuGjhg.setObjectName(_fromUtf8("menuGjhg"))
+        #MainWindow.setMenuBar(self.menubar)
+        
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
         MainWindow.setStatusBar(self.statusbar)
@@ -175,18 +184,18 @@ class Ui_MainWindow(object):
         self.actionExporter.setObjectName(_fromUtf8("actionExporter"))
         self.actionModifier = QtGui.QAction(MainWindow)
         self.actionModifier.setObjectName(_fromUtf8("actionModifier"))
-        self.menuKlklk.addAction(self.actionImporter)
-        self.menuKlklk.addAction(self.actionExporter)
-        self.menuHklhlhkl.addAction(self.actionModifier)
-        self.menubar.addAction(self.menuKlklk.menuAction())
-        self.menubar.addAction(self.menuHklhlhkl.menuAction())
-        self.menubar.addAction(self.menuGjhg.menuAction())
+        #self.menuKlklk.addAction(self.actionImporter)
+        #self.menuKlklk.addAction(self.actionExporter)
+        #self.menuHklhlhkl.addAction(self.actionModifier)
+        #self.menubar.addAction(self.menuKlklk.menuAction())
+        #self.menubar.addAction(self.menuHklhlhkl.menuAction())
+        #self.menubar.addAction(self.menuGjhg.menuAction())
 
-        self.retranslateUi(MainWindow)
+        #self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
+        MainWindow.setWindowTitle(_translate("Organizer", "Organizer", None))
         self.fleche1.setText(_translate("MainWindow", "<", None))
         self.fleche2.setText(_translate("MainWindow", ">", None))
         self.buttonCalendrier.setText(_translate("MainWindow", "#", None))
@@ -197,9 +206,9 @@ class Ui_MainWindow(object):
         self.vendredi.setText(_translate("MainWindow", "DATE", None))
         self.label_6.setText(_translate("MainWindow", "Selectionnez date : ", None))
         self.dateEdit.setDisplayFormat(_translate("MainWindow", "dd/MM/yyyy", None))
-        self.menuKlklk.setTitle(_translate("MainWindow", "Fichier", None))
-        self.menuHklhlhkl.setTitle(_translate("MainWindow", "Editer", None))
-        self.menuGjhg.setTitle(_translate("MainWindow", "gjhg", None))
+        #self.menuKlklk.setTitle(_translate("MainWindow", "Fichier", None))
+        #self.menuHklhlhkl.setTitle(_translate("MainWindow", "Editer", None))
+        #self.menuGjhg.setTitle(_translate("MainWindow", "gjhg", None))
         self.actionImporter.setText(_translate("MainWindow", "Importer", None))
         self.actionExporter.setText(_translate("MainWindow", "Exporter", None))
         self.actionModifier.setText(_translate("MainWindow", "Modifier", None))

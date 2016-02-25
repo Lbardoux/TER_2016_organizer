@@ -15,7 +15,7 @@ class ListeSalle(object):
 		@param self : L'argument implicite
 		"""
 		self._liste = []
-	#fin __init__
+	#__init__
 	
 	@property
 	def taille(self):
@@ -23,7 +23,7 @@ class ListeSalle(object):
 		La taille de cette liste
 		"""
 		return len(self._liste)
-	#fin taille
+	#taille
 	
 	@property
 	def liste(self):
@@ -31,7 +31,7 @@ class ListeSalle(object):
 		La liste complete
 		"""
 		return self._liste
-	#fin liste
+	#liste
 	
 	def ajouterSalle(self, nouvelle):
 		"""
@@ -42,7 +42,7 @@ class ListeSalle(object):
 		"""
 		if type(nouvelle) is Salle: 
 			self._liste.append(nouvelle)
-	#fin ajouterSalle
+	#ajouterSalle
 	
 	def supprimerSalle(self, uneSalle):
 		"""
@@ -56,9 +56,9 @@ class ListeSalle(object):
 				if(i.idSalle == uneSalle.idSalle):
 					self._liste.remove(i)
 					break
-				#fin if
-			#fin for
-		#fin if
-	#fin supprimerSalle
+				#if
+			#for
+		#if
+	#supprimerSalle
 	
-#fin ListeSalle
+#ListeSalle

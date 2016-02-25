@@ -1,6 +1,121 @@
 #!/usr/bin/python3
 # -*-coding:utf-8 -*
 
+"""
+Ce module contient la classe qui sert de partie frontale pour le modèle.
+
+Elle aura pour principale tache le chargement/déchargement de fichiers,
+et les fonctionnalités imposant le recours à plusieurs Agenda différents
+(Comme le diff, etc).
+
+Utilisation
+===========
+	Il suffit juste d'instancier un objet de type ModeleAgenda.
+	
+	>>> monModele = ModeleAgenda()
+	# On peut donc utiliser monModele ensuite
+	
+	
+Fonctions publiques
+===================
+	1. L{ModeleAgenda.chargerAgenda}(self, nomFichier)
+		
+		B{Description}:
+		
+		Cette fonction permet de charger un agenda à partir d'un fichier .ics
+		
+		B{Usage}
+		
+		>>> monModele.chargerAgenda("monFichier.ics")
+		<Agenda 0x********>
+	
+	2. L{ModeleAgenda.dechargerAgenda}(self, agenda)
+		
+		B{Description}:
+		
+		Cette fonction permet de décharger un agenda à partir de son nom
+		
+		B{Usage}
+		
+		>>> monModele.dechargerAgenda(monAgenda.nom)
+		# Suppression en mémoire de cet Agenda si il est chargé.
+	
+	3. L{ModeleAgenda.ajouterDependanceA}(self, agenda, nomFichier)
+		
+		B{Description}:
+		
+		Cette fonction permet d'ajouter une dépendance à I{agenda} en chargeant
+		un nouvel agenda depuis I{nomFichier}.
+		
+		B{Usage}
+		
+		>>> monModele.ajouterDependanceA(monAgenda, "monAgendaDependance.ics")
+		# monAgenda possède désormais monAgendaDependance comme ... dépendance.
+		
+	4. L{ModeleAgenda.enleverDependanceDe}(self, agenda, nomDependance)
+		
+		B{Description}:
+		
+		Cette fonction permet d'enlever une dépendance à I{agenda} en se basant sur le nom
+		de la dépendance I{nomDependance}.
+		
+		B{Usage}
+		
+		>>> monModele.enleverDependanceDe(monAgenda, "monAgendaDependance.ics")
+		# Si elle existe, cette dépendance (et toutes les dépendances liées) seront supprimés.
+		
+	5. L{ModeleAgenda.sauvegarderAgenda}(self, agenda, nomDeSauvegarde=None)
+		
+		B{Description}:
+		
+		Cette fonction permet de sauvegarder un agenda.
+		Si aucun nom n'est fourni, cela équivaut à sauvegarder avec le nom de l'agenda.
+		Si I{nomDeSauvegarde} est donné, cela équivaut à un enregistrer sous.
+		
+		B{Usage}
+		
+		>>> monModele.sauvegarderAgenda(monAgenda)
+		# monAgenda est sauvegarder avec comme nom I{monAgenda.nom}
+		
+		>>> monModele.sauvegarderAgenda(monAgenda, "nouveauNom.ics")
+		# monAgenda est sauvegarder avec comme nom nouveauNom.ics
+		
+	6. L{ModeleAgenda.faireDiff}(self, agenda1, agenda2)
+		
+		B{Description}:
+		
+		Cette fonction lance la recherche de différence entre I{agenda1} et I{agenda2}.
+		B{cf :} L{Diff}
+		
+		B{Usage}
+		
+		>>> monDiff = monModele.faireDiff(monAgenda1, monAgenda2)
+		>>> monDiff
+		<Diff 0x*******>
+		
+	7. L{ModeleAgenda.avoirAgendaParNomComplet}(self, nom)
+		
+		B{Description}:
+		
+		Cette fonction permet de récupérer un agenda via son nom.
+		
+		B{Usage}
+		
+		>>> monModele.avoirAgendaParNomComplet("monFichier.ics")
+		<Agenda 0x00000000>
+		
+	8. L{ModeleAgenda.exporterAuFormatTxt}(self, agenda, nomExport)
+		
+		B{Description}:
+		
+		Cette fonction permet d'exporter un agenda au format texte
+		
+		B{Usage}
+		
+		>>> monModele.exporterAuFormatTxt("monFichier.txt")
+		# Voici le nouveau fichier nommé monFichier.txt
+"""
+
 from agenda.exportations.FabriqueExporteur import *
 from diff.Diff import *
 from importations.AgendaDepuisIcs import importer
@@ -28,6 +143,7 @@ class ModeleAgenda(object):
 		Elle va initialiser tout les composants qui seront alors
 		utilisable.
 		@param self: L'argument implicite.
+		@todo: Exporter tout les calendrier ouverts (sous ensemble), checkboxes
 		"""
 		self._agendas = dict()
 		self._fabrique = FabriqueExporteur()

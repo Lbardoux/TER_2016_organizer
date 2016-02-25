@@ -77,6 +77,7 @@ class ExporteurIcs(Exporteur.Exporteur):
 			fichier.write("DTSTART:" + debut + "\n")
 			fichier.write("DTEND:" + fin + "\n")
 			fichier.write("UID:" + str(creneau.identifiant) + "\n")
+			fichier.write("SUMMARY:" + str(creneau.resume) + "\n")
 			for info in creneau.informations.keys():
 				fichier.write(str(info) + ":" + str(creneau.informations[info]) + "\n")
 			#for

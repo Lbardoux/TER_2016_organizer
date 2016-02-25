@@ -1,4 +1,5 @@
- # -*- coding: utf-8 -*-
+#!/usr/bin/python3
+#-*- coding: utf-8 -*-
 
 
 from PyQt4 import QtCore, QtGui
@@ -27,6 +28,7 @@ class monFrame(QtGui.QFrame):
 		self._disposition.setSpacing(0)
 		self._disposition.setObjectName(_fromUtf8("disposition"+nom))
 		self._couleur = "grey"
+		
 	#fin __init__
 	
 	def _transformerHeure(self, debut, fin):
@@ -69,10 +71,10 @@ class monFrame(QtGui.QFrame):
 		self.setGeometry(QtCore.QRect(2, self._calculerPixelDebut(debut), 188, self._calculerHauteur(debut,fin)))
 		self.setStyleSheet(_fromUtf8("#" + self._nom + ">.QLabel{background-color:"+self._couleur+";}"))
 		self.setObjectName(_fromUtf8(self._nom))
-		chaineInfo = self._transformerHeure(debut, fin)+"<br>"+code+"<br>"+seance+"<br>"+salle+"<br>"+enseignant
+		#chaineInfo = str(self._transformerHeure(debut, fin))+"<br>"+str(code)+"<br>"+str(seance)+"<br>"+str(salle)+"<br>"+str(enseignant)
+		chaineInfo = str(self._transformerHeure(debut, fin))#+"<br>"+str(salle)+"<br>"+str(enseignant)
 		info = self._configurerLabel("info"+self._nom,chaineInfo)
 
 		self.setToolTip(_fromUtf8(chaineInfo))
 		
 	#fin setUpMonFrame
-	

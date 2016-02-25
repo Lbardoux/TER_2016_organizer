@@ -33,6 +33,7 @@ class Diff(object):
 		@type agenda2: L{Agenda}
 		@param agenda2: Le second agenda à comparer.
 		@precondition: les 2 agendas ne doivent pas etre None
+		@todo: idem, output plus précis (SUMMARY si il existe)
 		"""
 		self._agenda1 = agenda1
 		self._agenda2 = agenda2
@@ -281,6 +282,8 @@ class Diff(object):
 		for a1 in self._agenda1.listeAnnees:
 			if a1.nbCreneaux > 0:
 				for a2 in self._agenda2.listeAnnees:
+					# optimisation : interruption si a2.an > a1.an
+					# car on a affaire a des listes triées
 					if a1.an == a2.an and a2.nbCreneaux > 0:
 						liste1.append(a1)
 						liste2.append(a2)

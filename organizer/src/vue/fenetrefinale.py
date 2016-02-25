@@ -24,7 +24,8 @@ from seanceVue import *
 
 
 ma = modele_API.ModeleAgenda()
-agenda = ma.chargerAgenda("/home/emilie/Bureau/TER_2016_organizer/organizer/tests/ADECal.ics")
+
+agenda = ma.chargerAgenda(os.path.dirname(os.path.realpath(__file__)) + "/../../tests/ADECal.ics")
 
 listeFrame = []
 

@@ -17,6 +17,8 @@ class ExporteurTxt(Exporteur.Exporteur):
 		@param self: L'argument implicite.
 		@type nom: str
 		@param nom: le nom du fichier dans lequel on veut exporter.
+		@todo: dumper le titre du creneau ! (SUMMARY par exemple)
+		@todo: plus de détails
 		"""
 		super(ExporteurTxt, self).__init__(nom)
 	#__init__

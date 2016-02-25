@@ -35,8 +35,8 @@ test :
 	@clear
 	@echo "Lancement des tests unitaires situés dans " $(TEST_DIR)
 	$(PYTHON) -m unittest discover -s $(TEST_DIR)
-	#@echo "\nTests d'integrations :"
-	#find $(TEST_DIR)$(INTEGRATION_DIR) -name "integration_*.py" -exec $(PYTHON) {} \;
+	@echo "\nTests d'integrations :"
+	find $(TEST_DIR)$(INTEGRATION_DIR) -name "integration_*.py" -exec $(PYTHON) {} \;
 
 # Nettoyage des binaires
 clean :
@@ -57,4 +57,3 @@ install:
 	$(PYTHON) $(LIB_DIR)pyconstraints-1.0.1/setup.py install --user
 	#installation de pytz	
 	$(PYTHON) $(LIB_DIR)pytz-2015.7/setup.py install --user
-

@@ -21,7 +21,7 @@ class Cm(Seance.Seance):
 		@param horaire: L'horaire voulu
 		"""
 		super(Cm, self).__init__(idCm, horaire)
-	#fin __init__
+	#__init__
 	
 	
 	def versChaine(self):
@@ -50,4 +50,4 @@ class Cm(Seance.Seance):
 		return testSeance
 	#__eq__
 
-#fin Cm
+#Cm

@@ -14,6 +14,7 @@ class Creneau(Observable):
 	@ivar _informations: un dictionnaire contenant des informations additionnelles sous la forme str -> valeur
 	@ivar _typeCreneau: Le type de créneau
 	@ivar _dateExacte: La date au format chaine.
+	@ivar _resume: Un court champs descriptif
 	@author: Laurent Bardoux p1108365
 	@version: 1.0
 	"""
@@ -35,6 +36,7 @@ class Creneau(Observable):
 		self._horaire = horaire
 		self._informations = dict()
 		self._typeCreneau = 0
+		self._resume = ""
 		self._dateExacte = ()
 	#__init__
 	
@@ -58,6 +60,22 @@ class Creneau(Observable):
 		"""Un accesseur pour l'L{Horaire} contenu dans le Creneau."""
 		return self._horaire
 	#horaire
+	
+	
+	@property
+	def resume(self):
+		"""Un accesseur pour le résumé de ce créneau"""
+		return self._resume
+	#resume
+	
+	
+	@resume.setter
+	def resume(self, valeur):
+		"""Un mutateur pour le résumé de ce créneau"""
+		if type(valeur) is str:
+			self._resume = valeur
+		#if
+	#resume
 	
 	
 	@property
@@ -174,7 +192,13 @@ class Creneau(Observable):
 		@rtype: str
 		@return: une chaine descriptive
 		"""
-		return "il y a un créneau reservé entre " + self._horaire.debutstr + " à " + self._horaire.finstr
+		resultat = self._horaire.debutstr + " à " + self._horaire.finstr
+		if self._resume == "":
+			resultat = "il y a un créneau reservé entre " + resultat
+		else:
+			resultat = self._resume + " entre " + resultat
+		#if
+		return resultat 
 	#versChaine
 	
 	

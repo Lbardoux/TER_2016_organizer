@@ -12,37 +12,33 @@ class ListeFormation(object):
 		"""
 		Le constructeur de la liste de formations
 		Par défaut la liste et vide
-		@param self : L'argument implicite
+		@param self: L'argument implicite
 		"""
 		self._liste = []
-	#fin __init__
+	#__init__
 	
 	@property
 	def taille(self):
-		"""
-		La taille de cette liste
-		"""
+		"""La taille de cette liste"""
 		return len(self._liste)
-	#fin taille
+	#taille
 	
 	@property
 	def liste(self):
-		"""
-		La liste complete
-		"""
+		"""La liste complete"""
 		return self._liste
-	#fin liste
+	#liste
 	
 	def ajouterFormation(self, nouvelle):
 		"""
 		La fonction qui ajoute une formation dans cette liste
 		@param self: L'argument implicite
-		@param uneFormation: la formation à ajouter
-		@type uneFormation: une formation 
+		@param nouvelle: la formation à ajouter
+		@type nouvelle: une formation 
 		"""
 		if type(nouvelle) is Formation: 
 			self._liste.append(nouvelle)
-	#fin ajouterFormation
+	#ajouterFormation
 	
 	def supprimerFormation(self, uneFormation):
 		"""
@@ -56,9 +52,9 @@ class ListeFormation(object):
 				if(i.idFormation == uneFormation.idFormation):
 					self._liste.remove(i)
 					break
-				#fin if
-			#fin for
-		#fin if
-	#fin supprimerFormation
+				#if
+			#for
+		#if
+	#supprimerFormation
 	
-#fin ListeFormation
+#ListeFormation

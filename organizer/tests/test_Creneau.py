@@ -49,6 +49,29 @@ class Test_Agenda(unittest.TestCase):
 	#test_get_horaire
 	
 	
+	def test_set_resume_ok(self):
+		"""Teste si la propriété set du résumé fonctionne"""
+		c1 = Creneau(45, Horaire(15, 18))
+		c1.resume = "Un test"
+		self.assertEqual(c1.resume, "Un test")
+	#test_set_resume_ok
+	
+	
+	def test_set_resume_echec_type(self):
+		"""Teste si la propriété set rate en cas de mauvais argument"""
+		c1 = Creneau(45, Horaire(15, 18))
+		c1.resume = 256
+		self.assertEqual(c1.resume, "")
+	#test_set_resume_ok
+	
+	
+	def test_get_resume(self):
+		"""Teste si la propriété get du résumé fonctionne"""
+		c1 = Creneau(45, Horaire(15, 18))
+		self.assertEqual(c1.resume, c1._resume)
+	#test_get_resume
+	
+	
 	def test_set_horaire(self):
 		"""Teste si la propriété set de _horaire marche."""
 		h =  Horaire(15, 18)

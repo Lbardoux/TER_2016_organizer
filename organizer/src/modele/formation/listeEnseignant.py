@@ -15,7 +15,7 @@ class ListeEnseignant(object):
 		@param self : L'argument implicite
 		"""
 		self._liste = []
-	#fin __init__
+	#__init__
 	
 	@property
 	def taille(self):
@@ -23,7 +23,7 @@ class ListeEnseignant(object):
 		La taille de cette liste
 		"""
 		return len(self._liste)
-	#fin taille
+	#taille
 	
 	@property
 	def liste(self):
@@ -31,18 +31,18 @@ class ListeEnseignant(object):
 		La liste complete
 		"""
 		return self._liste
-	#fin liste
+	#liste
 	
 	def ajouterEnseignant(self, nouveau):
 		"""
 		La fonction qui ajoute un enseignant dans cette liste
 		@param self: L'argument implicite
-		@param nouvelle: l'enseignant à ajouter
-		@type nouvelle: un enseignant
+		@param nouveau: l'enseignant à ajouter
+		@type nouveau: un enseignant
 		"""
 		if type(nouveau) is Enseignant: 
 			self._liste.append(nouveau)
-	#fin ajouterEnseignant
+	#ajouterEnseignant
 	
 	def supprimerEnseignant(self, unEnseignant):
 		"""
@@ -56,10 +56,10 @@ class ListeEnseignant(object):
 				if(i.idEnseignant == unEnseignant.idEnseignant):
 					self._liste.remove(i)
 					break
-				#fin if
-			#fin for
-		#fin if
-	#fin supprimerEnseignant
+				#if
+			#for
+		#if
+	#supprimerEnseignant
 	
 	def trouverEnseignant(self, chaine):
 		"""
@@ -72,6 +72,6 @@ class ListeEnseignant(object):
 			if i.nom +" "+i.prenom == chaine:
 				return i
 		return None
-	#fin trouverEnseignant
+	#trouverEnseignant
 		
-#fin ListeEnseignant
+#ListeEnseignant

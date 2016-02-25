@@ -3,106 +3,79 @@
 class Enseignant(object): 
 	"""
 	La classe qui représente une salle.
-	@ivar _idEnseignant : l'identifiant de l'enseignant
-	@ivar _nom : le nom de l'enseignant
-	@ivar _prenom : le prenom de l'enseignant 
-	@version : 1.0
-	@author : Liu Zhuying
+	@ivar _idEnseignant: l'identifiant de l'enseignant
+	@ivar _nom: le nom de l'enseignant
+	@ivar _prenom: le prenom de l'enseignant 
+	@version: 1.0
+	@author: Liu Zhuying
 	"""
 	def __init__(self, id_enseignant, nom, prenom):
 		"""
 		Le constructeur de la classe Enseignant.
-		@param self : L'argument implicite
-		@param id_enseignant : l'identifiant que cet enseignant aura
-		@type id_enseignant : entier naturel non nul
-		@param nom : le nom que cet enseignant aura
-		@type nom : str
-		@param prenom : le prenom que cet enseignant aura
-		@type prenom : str
+		@param self: L'argument implicite
+		@param id_enseignant: l'identifiant que cet enseignant aura
+		@type id_enseignant: entier naturel non nul
+		@param nom: le nom que cet enseignant aura
+		@type nom: str
+		@param prenom: le prenom que cet enseignant aura
+		@type prenom: str
 		"""
 		if id_enseignant > 0: 
 			self._idEnseignant = id_enseignant
 		else:
 			self._idEnseignant = 1
-		#fin if
+		#if
 		if bool(nom.strip()):	
 			self._nom = nom
 		else:
-			self._nom = "DEFAUTE"
-		#fin if
+			self._nom = "DEFAUT"
+		#if
 		if bool(prenom.strip()):	
 			self._prenom = prenom
 		else:
-			self._prenom = "DEFAUTE"
-		#fin if	
+			self._prenom = "DEFAUT"
+		#if	
 		
-	#fin __init__
+	#__init__
 	
 	@property
 	def idEnseignant(self):
-		"""
-		L'accesseur pour l'id de cet Enseignant
-		@param self : L'argument implicite
-		@return : son id
-		"""
+		"""L'accesseur pour l'id de cet Enseignant"""
 		return self._idEnseignant
-	#fin idEnseignant
+	#idEnseignant
 	
 	@idEnseignant.setter
 	def idEnseignant(self, nouvelId):
-		"""
-		Le mutateur pour l'identifiant de l'enseignant
-		@param self : L'argument implicite
-		@param nouvelId : le nouvel identifiant voulu
-		@type nouvelId : entier naturel non nul
-		"""
+		"""Le mutateur pour l'identifiant de l'enseignant"""
 		if nouvelId > 0:
 			self._idEnseignant = nouvelId
-		#fin if
-	#fin idEnseignant
+		#if
+	#idEnseignant
 	
 	@property
 	def nom(self):
-		"""
-		L'accesseur pour le nom de cet Enseignant
-		@param self : L'argument implicite
-		@return : son nom
-		"""
+		"""L'accesseur pour le nom de cet Enseignant"""
 		return self._nom
-	#fin nom
+	#nom
 	
 	@nom.setter
 	def nom(self, nouveauNom):
-		"""
-		Le mutateur pour le nom de l'enseignant
-		@param self : L'argument implicite
-		@param nouveauNom : le nouveau nom voulu
-		@type nouveauNom : str
-		"""
+		"""Le mutateur pour le nom de l'enseignant"""
 		if nouveauNom.strip():
 			self._nom = nouveauNom
-	#fin nom
+	#nom
 	
 	@property
 	def prenom(self):
-		"""
-		L'accesseur pour le prenom de cet Enseignant
-		@param self : L'argument implicite
-		@return : son prenom
-		"""
+		"""L'accesseur pour le prenom de cet Enseignant"""
 		return self._prenom
-	#fin prenom
+	#prenom
 	
 	@prenom.setter
 	def prenom(self, nouveauPrenom):
-		"""
-		Le mutateur pour le prenom de l'enseignant
-		@param self : L'argument implicite
-		@param nouveauPrenom : le nouveau prenom voulu
-		@type nouveauPrenom : str
-		"""
+		"""Le mutateur pour le prenom de l'enseignant"""
 		if nouveauPrenom.strip():
 			self._prenom = nouveauPrenom
-	#fin prenom
+	#prenom
 	
-#fin Enseignant
+#Enseignant

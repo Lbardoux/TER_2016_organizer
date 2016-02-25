@@ -8,7 +8,7 @@ Introduction
 ============
 La classe L{Diff} proposée par le package permet de comparer 2 L{Agenda}s et
 d'en fournir un retour textuel.
-Par exemple : ::
+Par exemple ::
 	Pour le lundi 10 aout 2015:
 	-----------------------------
 	agenda 1 ne contient rien !
@@ -56,6 +56,56 @@ Notes
 Il reste beaucoup de cas à tester pour valider entièrement cette fonctionnalités.
 On pourrait aussi traiter les cas de multiples créneaux.
 
+Algorithmes
+===========
+::
+	trouverLesAnneesComparable()
+	Pour chaque année comparable faire
+	 |  Pour chaque mois dans ces années faire
+	 |   |  Si au moins un des deux à des créneaux d'enregistrés
+	 |   |   |  comparerMois()--+
+	 |   |  FinSi               |
+	 |  FinPour                 |
+	FinPour                     |
+                                    |
+                                    |
+	Pour chaque jour dans ce mois faire
+	 |  Si un seul des jours est vide
+	 |   |  on indique qu'un des jours est vide, et on décrit le contenu de l'autre
+	 |  SinonSi aucun n'est vide
+	 |   |  comparaisonPlusFine()-----+
+	 |  FinSi                         |
+	FinPour                           |
+                                          |
+                                          |
+	tableau1 <- transformerListeCreneauxEnTableauDeQuartsHeure(liste1)
+	tableau2 <- transformerListeCreneauxEnTableauDeQuartsHeure(liste2)
+	TantQue i est inférieur à tableau1.dimension faire
+	 |  Si il y a None dans tableau1[i] et tableau2[i] alors
+	 |   |  incrementer i
+	 |  SinonSi tableau1[i] ou tableau2[i] est vide faire
+	 |   |  i <- casComplexe(tableau1, tableau2) [1]
+	 |  Sinon si tableau1[i] et tableau2[i] sont plein faire
+	 |   |  i <- casDebutIdentique(tableau1, tableau2) [2]
+	 |  FinSi
+	FinTantQue
+
+	[1]
+	on décrit le premier creneau non vide
+	puis pendant la durée de ce premier creneau, on décrit ce qu'il y a dans l'autre agenda
+	renvoyer durée la plus courte + 1
+
+	[2]
+	Si les 2 créneaux ont la meme durée, mais sont différents
+	 |  reporter
+	 |  renvoyer durée+1
+	Sinon
+	 |  on garde la durée la plus courte pour évaluer la suite
+	 |  on reporte
+	 |  renvoyer durée conservée + 1
+	FinSi
+
+Voilà
 """
 
 import sys, os

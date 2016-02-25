@@ -79,7 +79,7 @@ def convertitListe(liste):
 	@rtype: list
 	@return: la liste convertit.
 	"""
-	resultat = [None]*49
+	resultat = [None]*49 # changer cette valeur ici, ou fixer autrement
 	for creneau in liste:
 		debut = creneau.horaire.debut
 		fin = creneau.horaire.fin

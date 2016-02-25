@@ -19,6 +19,7 @@ class Exporteur(object):
 		@type nom: str
 		@param nom: le nom du fichier dans lequel écrire l'export de l'L{Agenda}
 		@precondition: nom désigne un fichier valide
+		@todo: gestion des récurrences.
 		"""
 		self._nomFichier = nom
 		self._nomAgenda = ""

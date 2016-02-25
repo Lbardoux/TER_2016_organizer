@@ -8,21 +8,21 @@ class Autre(Seance.Seance):
 	"""
 	La classe Autre qui hérite la classe seance
 	Ceci represente le type de séance autre que CM TD TP Examen
-	@version : 1.0
-	@author : Liu Zhuying
+	@version: 1.0
+	@author: Liu Zhuying
 	"""
 	
 	def __init__(self, idAutre, horaire):
 		"""
 		Le constructeur de la classe Autre.
-		@param self : L'argument implicite
-		@param idAutre : l'identifiant du groupe qui aura cet Autre
-		@type idAutre : entier naturel non nul
-		@type horaire : L{Horaire}.
-		@param horaire : L'horaire voulu
+		@param self: L'argument implicite
+		@param idAutre: l'identifiant du groupe qui aura cet Autre
+		@type idAutre: entier naturel non nul
+		@type horaire: L{Horaire}.
+		@param horaire: L'horaire voulu
 		"""
 		super(Autre, self).__init__(idAutre, horaire)
-	#fin __init__
+	#__init__
 	
 	
 	def versChaine(self):
@@ -47,9 +47,8 @@ class Autre(Seance.Seance):
 		@return: True si ils sont identiques, False sinon
 		"""
 		testSeance = Seance.Seance.__eq__(self, autre)
-		#nos tests spécifiques à Autre
 		return testSeance
 	#__eq__
 	
-#fin Autre
+#Autre
 

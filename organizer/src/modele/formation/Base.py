@@ -25,7 +25,7 @@ class Base(object):
 		self._listeFormation = ListeFormation()
 		self._listeEnseignant = ListeEnseignant()
 		self._parserXML()
-	#fin __init__
+	#__init__
 	
 	def _parserXML(self):
 		"""
@@ -142,20 +142,20 @@ class Base(object):
 		"""
 		"""
 		return self._listeSalle
-	#fin salles
+	#salles
 	
 	@property
 	def formations(self):
 		"""
 		"""
 		return self._listeFormation
-	#fin formations
+	#formations
 	
 	@property
 	def enseignants(self):
 		"""
 		"""
 		return self._listeEnseignant
-	#fin enseignants
+	#enseignants
 	
-#fin Base
+#Base
