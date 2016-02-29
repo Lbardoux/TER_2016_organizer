@@ -59,6 +59,7 @@ class monFrame(QtGui.QFrame):
 		retour = QtGui.QLabel(self)
 		retour.setAlignment(QtCore.Qt.AlignCenter)
 		retour.setObjectName(_fromUtf8(nomLabel))
+		retour.setWordWrap(True)
 		self._disposition.addWidget(retour)
 		retour.raise_()
 		retour.setText(_fromUtf8(chaineLabel))
@@ -72,7 +73,7 @@ class monFrame(QtGui.QFrame):
 		self.setStyleSheet(_fromUtf8("#" + self._nom + ">.QLabel{background-color:"+self._couleur+";}"))
 		self.setObjectName(_fromUtf8(self._nom))
 		#chaineInfo = str(self._transformerHeure(debut, fin))+"<br>"+str(code)+"<br>"+str(seance)+"<br>"+str(salle)+"<br>"+str(enseignant)
-		chaineInfo = str(self._transformerHeure(debut, fin))#+"<br>"+str(salle)+"<br>"+str(enseignant)
+		chaineInfo = str(self._transformerHeure(debut, fin))+"<br>"+salle.decode("utf-8")+"<br>" + seance
 		info = self._configurerLabel("info"+self._nom,chaineInfo)
 
 		self.setToolTip(_fromUtf8(chaineInfo))

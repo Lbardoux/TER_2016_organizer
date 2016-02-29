@@ -158,6 +158,7 @@ class ModeleAgenda(object):
 		@type nomFichier: str
 		@param nomFichier: le nom du fichier dont on doit lire le contenu pour créer un Agenda
 		@raise IOError: Si un problème concernant la lecture/ouverture du fichier arrive.
+		@raise ValueError: Si le fichier n'est pas un ICS.
 		@rtype: L{Agenda}
 		@return: L'agenda qui a été chargé, mappé par son nom (accessible par agenda.nom)
 		@todo: cas ou le fichier est déjà chargé, doublons de noms, confirmation, attente, etc
@@ -240,7 +241,7 @@ class ModeleAgenda(object):
 		if nomDeSauvegarde is not None:
 			nom = nomDeSauvegarde
 		#if
-		exporteur = self._fabrique.fabrique(FabriqueExporteur.exporteurs.ICS, nom)
+		exporteur = self._fabrique.fabrique(exporteurs.ICS, nom)
 		exporteur.exporter(agenda)
 	#sauvegarderAgenda
 	
@@ -297,7 +298,7 @@ class ModeleAgenda(object):
 		@param nomExport: le nom sous lequel exporter (nom de fichier)
 		@raise IOError: si un problème survient avec les manipulations de fichiers.
 		"""
-		exporteur = self._fabrique.fabrique(FabriqueExporteur.exporteurs.TXT, nomExport)
+		exporteur = self._fabrique.fabrique(exporteurs.TXT, nomExport)
 		exporteur.exporter(agenda)
 	#exporterAuFormatTxt
 	

@@ -21,11 +21,15 @@ from dialog2 import *
 from dialog import *
 from arbreUe import *
 from seanceVue import *
+from drag6 import *
+from agenda.diff import Diff
+from affichageDiff import *
 
 
 ma = modele_API.ModeleAgenda()
 
-agenda = ma.chargerAgenda(os.path.dirname(os.path.realpath(__file__)) + "/../../tests/ADECal.ics")
+#agenda = ma.chargerAgenda(os.path.dirname(os.path.realpath(__file__)) + "/../../tests/ADECal.ics")
+agenda = None
 
 listeFrame = []
 
@@ -150,25 +154,28 @@ def setDateStr():
 	
 	for i in listeFrame:
 		i.close()
-		
+	
 	jour = s.toPyDate()
 	jourAvant = jour
 	jourApres = jour
 	listeJours = []
 	listeJours.append(s.toString("dd/MM/yyyy"))
 	listeCreneaux = []
-	listeCreneaux.append(agenda.recupererJour(jour.year,jour.month,jour.day))
+	if agenda is not None:
+			listeCreneaux.append(agenda.recupererJour(jour.year,jour.month,jour.day))
 	
 	for i in range(s.dayOfWeek()-1):
 		jourAvant = jourAvant - datetime.timedelta(days=1)
 		listeJours.insert(0,jourAvant.strftime('%d/%m/%Y'))
-		listeCreneaux.insert(0,agenda.recupererJour(jourAvant.year,jourAvant.month,jourAvant.day))
+		if agenda is not None:
+			listeCreneaux.insert(0,agenda.recupererJour(jourAvant.year,jourAvant.month,jourAvant.day))
 	#fin for
 	
 	for i in range(7-s.dayOfWeek()):
 		jourApres = jourApres + datetime.timedelta(days=1)
 		listeJours.append(jourApres.strftime('%d/%m/%Y'))
-		listeCreneaux.append(agenda.recupererJour(jourApres.year,jourApres.month,jourApres.day))
+		if agenda is not None:
+			listeCreneaux.append(agenda.recupererJour(jourApres.year,jourApres.month,jourApres.day))
 	#fin for
 	
 	ui.lundi.setText(listeJours[0]+" Lundi")
@@ -178,37 +185,36 @@ def setDateStr():
 	ui.vendredi.setText(listeJours[4]+" Vendredi")
 	
 	
-	
-	for i in listeCreneaux[0]:
-		f = monFrame(ui.un,"seance1")
-		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
-		f.show()
-		listeFrame .append(f)
-		
-	for i in listeCreneaux[1]:
-		f = monFrame(ui.deux,"seance1")
-		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
-		f.show()
-		listeFrame .append(f)
-		
-	for i in listeCreneaux[2]:
-		f = monFrame(ui.trois,"seance1")
-		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
-		f.show()
-		listeFrame .append(f)
-		
-	for i in listeCreneaux[3]:
-		f = monFrame(ui.quatre,"seance1")
-		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
-		f.show()
-		listeFrame .append(f)
-		
-	for i in listeCreneaux[4]:
-		f = monFrame(ui.cinq,"seance1")
-		f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations["SUMMARY"],i.informations["LOCATION"],"prof")
-		f.show()
-		listeFrame .append(f)
-		
+	if agenda is not None:
+		for i in listeCreneaux[0]:
+			f = monFrame(ui.un,"seance1")
+			f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations.get("SUMMARY", ""),i.informations.get("LOCATION", ""),"prof")
+			f.show()
+			listeFrame.append(f)
+			
+		for i in listeCreneaux[1]:
+			f = monFrame(ui.deux,"seance1")
+			f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations.get("SUMMARY", ""),i.informations.get("LOCATION", ""),"prof")
+			f.show()
+			listeFrame.append(f)
+			
+		for i in listeCreneaux[2]:
+			f = monFrame(ui.trois,"seance1")
+			f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations.get("SUMMARY", ""),i.informations.get("LOCATION", ""),"prof")
+			f.show()
+			listeFrame.append(f)
+			
+		for i in listeCreneaux[3]:
+			f = monFrame(ui.quatre,"seance1")
+			f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations.get("SUMMARY", ""),i.informations.get("LOCATION", ""),"prof")
+			f.show()
+			listeFrame.append(f)
+			
+		for i in listeCreneaux[4]:
+			f = monFrame(ui.cinq,"seance1")
+			f.setUpMonFrame(i.horaire.debut,i.horaire.fin,"code",i.informations.get("SUMMARY", ""),i.informations.get("LOCATION", ""),"prof")
+			f.show()
+			listeFrame.append(f)
 #fin setDateStr
 
 def fleche1Clique():
@@ -227,6 +233,100 @@ def fleche2Clique():
 	setDateStr()
 #fin flecheClique
 
+def quitter():
+	# demander confirmation, gniagniagnia
+	app.quit()
+#quitter
+
+def fermer():
+	global agenda
+	if agenda is not None:
+		# demander à confirmer fermeture, blablabla
+		ma.dechargerAgenda(agenda)
+		agenda = None
+		w.setWindowTitle("Organiseur")
+		setDateStr()
+	#if
+
+def ouvrir():
+	global agenda
+	f = QtGui.QFileDialog.getOpenFileName(None, 'Ouvrir un fichier .ics', '', 'Fichiers (*.ics)')
+	try:
+		agenda = ma.chargerAgenda(f)
+		w.setWindowTitle("Organiseur : " + agenda.nom)
+		setDateStr()
+	except ValueError:
+		print("Il faut un fichier .ics")
+	except IOError:
+		print("Problème de lecture du fichier")
+	#try
+#ouvrir
+
+def exporterTxt():
+	if agenda is not None:
+		f = QtGui.QFileDialog.getOpenFileName(None, 'Enregistrer au format texte', '', '')
+		if not f == "":
+			try:
+				ma.exporterAuFormatTxt(agenda, f)
+			except IOError:
+				print("erreur avec le fichier " + str(f))
+			#try
+		#if
+	#if
+#exporterTxt
+
+def nouveau():
+	print("pas encore fait")
+#nouveau
+
+def enregistrerSous():
+	if agenda is not None:
+		f = QtGui.QFileDialog.getOpenFileName(None, 'Enregistrer sous...', '', '')
+		if not f == "":
+			try:
+				ma.sauvegarderAgenda(agenda, f)
+			except IOError:
+				print("erreur avec le fichier " + str(f))
+			#try
+		#if
+	#if
+#enregistrerSous
+
+def lancerFenetreDiff():
+	fenetreDiff = MyWindow()
+	fenetreDiff.show()
+	
+	def faireDiff():
+		l = fenetreDiff.liste.files
+		if len(l) != 2:
+			#crier !
+			fenetreDiff.close()
+			return
+		#if
+		try:
+			agenda1 = ma.chargerAgenda(fenetreDiff.liste.files[0])
+			agenda2 = ma.chargerAgenda(fenetreDiff.liste.files[1])
+		except ValueError:
+			print("il faut des fichiers .ics")
+		except IOError:
+			print("erreur de lecture")
+		#try
+		d = Diff.Diff(agenda1, agenda2)
+		d.comparer()
+		ui.resultat = FenetreDiff(d)
+		ui.resultat.show()
+		ma.dechargerAgenda(agenda1)
+		ma.dechargerAgenda(agenda2)
+		fenetreDiff.close()
+	#faireDiff
+	
+	fenetreDiff.ok.connect(fenetreDiff.ok,QtCore.SIGNAL("clicked()"), faireDiff)
+	fenetreDiff.annuler.connect(fenetreDiff.annuler, QtCore.SIGNAL("clicked()"), fenetreDiff.close)
+#lancerFenetreDiff
+
+ui.actionDiff.triggered.connect(lancerFenetreDiff)
+
+
 ui.dateEdit.setDate(QDate.currentDate())
 setDateStr()
 ui.buttonCalendrier.connect(ui.buttonCalendrier,QtCore.SIGNAL("clicked()"),showDialog2)
@@ -239,5 +339,11 @@ ui.fleche2.connect(ui.fleche2,QtCore.SIGNAL("clicked()"),fleche2Clique)
 ui.ajout.connect(ui.ajout,QtCore.SIGNAL("clicked()"),showDialog)
 dialog.annulerUe.connect(dialog.annulerUe,QtCore.SIGNAL("clicked()"),closeDialog)
 dialog.ajouterUe.connect(dialog.ajouterUe,QtCore.SIGNAL("clicked()"),printInfo)
+ui.actionQuitter.triggered.connect(quitter)
+ui.actionOuvrir.triggered.connect(ouvrir)
+ui.actionFermer.triggered.connect(fermer)
+ui.actionNouveau.triggered.connect(nouveau)
+ui.actionExporterTxt.triggered.connect(exporterTxt)
+ui.actionEnregistrerSous.triggered.connect(enregistrerSous)
 #ui.obligation.hide()
 sys.exit(app.exec_())

@@ -56,6 +56,7 @@ class Ui_MainWindow(object):
 		self.actionNouveau.setShortcut("Ctrl+N")
 		self.actionNouveau.setStatusTip("Créer un nouveau calendrier")
 		self.menuFichier.addAction(self.actionNouveau)
+		self.actionNouveau.setEnabled(False)
 		# menu Fichier -> Ouvrir
 		self.actionOuvrir = QtGui.QAction(MainWindow)
 		self.actionOuvrir.setObjectName(_fromUtf8("actionOuvrir"))
@@ -70,6 +71,7 @@ class Ui_MainWindow(object):
 		self.actionEnregistrer.setObjectName(_fromUtf8("actionEnregistrer"))
 		self.actionEnregistrer.setText(_translate("MainWindow", "Enregistrer", None))
 		self.menuFichier.addAction(self.actionEnregistrer)
+		self.actionEnregistrer.setEnabled(False)
 		
 		# menu Fichier -> Enregistrer sous
 		self.actionEnregistrerSous = QtGui.QAction(MainWindow)
@@ -83,7 +85,7 @@ class Ui_MainWindow(object):
 		# menu Fichier -> Exporter -> au format txt
 		self.actionExporterTxt = QtGui.QAction(MainWindow)
 		self.actionExporterTxt.setObjectName(_fromUtf8("actionExporterTxt"))
-		self.actionExporterTxt.setText(_translate("MainWindow", "Au format .txt", None))
+		self.actionExporterTxt.setText(_translate("MainWindow", "Au format texte...", None))
 		self.menuExporter.addAction(self.actionExporterTxt)
 		
 		# menu Fichier -> ------
@@ -142,8 +144,15 @@ class Ui_MainWindow(object):
 		@type MainWindow: QApplication
 		@param MainWindow: La fenetre parente de Ui_MainWindow
 		"""
-		self.menuOutils = self.menubar.addMenu("&Edition")
-		self.menuOutils.setTitle(_translate("MainWindow", "&Edition", None))
+		self.menuOutils = self.menubar.addMenu("&Outils")
+		self.menuOutils.setTitle(_translate("MainWindow", "&Outils", None))
+
+		# menu Outils -> diff
+		self.actionDiff = QtGui.QAction(MainWindow)
+		self.actionDiff.setObjectName(_fromUtf8("actionDiff"))
+		self.actionDiff.setText(_translate("MainWindow", "Diff...", None))
+		self.actionDiff.setStatusTip("Recherche des différences entre deux agendas")
+		self.menuOutils.addAction(self.actionDiff)
 	#_initialiserMenuOutils
 	
 	
@@ -270,7 +279,7 @@ class Ui_MainWindow(object):
 		self.ajout = QtGui.QPushButton(self.listeUe)
 		self.ajout.setGeometry(QtCore.QRect(100, 10, 100, 29))
 		self.ajout.setObjectName(_fromUtf8("ajout"))
-		self.tabWidget.addTab(self.listeUe, _fromUtf8(""))
+		#self.tabWidget.addTab(self.listeUe, _fromUtf8(""))
 		self.Contraintes = QtGui.QWidget()
 		self.Contraintes.setObjectName(_fromUtf8("Contraintes"))
 		self.horizontalLayoutWidget = QtGui.QWidget(self.Contraintes)
@@ -346,7 +355,7 @@ class Ui_MainWindow(object):
 		self.listWidget.addItem(item)
 		item = QtGui.QListWidgetItem()
 		self.listWidget.addItem(item)
-		self.tabWidget.addTab(self.Contraintes, _fromUtf8(""))
+		#self.tabWidget.addTab(self.Contraintes, _fromUtf8(""))
 		self.Visualisation = QtGui.QWidget()
 		self.Visualisation.setObjectName(_fromUtf8("Visualisation"))
 		self._initialiserColonnes()
@@ -387,6 +396,9 @@ class Ui_MainWindow(object):
 		self.layoutWidget_2.raise_()
 		self.buttonCalendrier.raise_()
 		self.tabWidget.addTab(self.Visualisation, _fromUtf8(""))
+		self.tabWidget.addTab(self.listeUe, _fromUtf8(""))
+		self.tabWidget.addTab(self.Contraintes, _fromUtf8(""))
+		
 		self.horizontalLayoutWidget_2 = QtGui.QWidget(self.centralwidget)
 		self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(720, 0, 281, 41))
 		self.horizontalLayoutWidget_2.setObjectName(_fromUtf8("horizontalLayoutWidget_2"))
@@ -409,8 +421,8 @@ class Ui_MainWindow(object):
 		
 		
 		#self.menuFichier.setObjectName(_fromUtf8("menuFichier"))
-		self.menuEdition = QtGui.QMenu(self.menubar)
-		self.menuEdition.setObjectName(_fromUtf8("menuEdition"))
+		#self.menuEdition = QtGui.QMenu(self.menubar)
+		#self.menuEdition.setObjectName(_fromUtf8("menuEdition"))
 		self.menuAide = QtGui.QMenu(self.menubar)
 		self.menuAide.setObjectName(_fromUtf8("menuAide"))
 		
@@ -442,7 +454,7 @@ class Ui_MainWindow(object):
 		self._initialiserMenuOutils(MainWindow)
 		self._initialiserMenuAide(MainWindow)
 		
-		self.menubar.addAction(self.menuEdition.menuAction())
+		#self.menubar.addAction(self.menuEdition.menuAction())
 		self.menubar.addAction(self.menuAide.menuAction())
 
 		self.retranslateUi(MainWindow)
